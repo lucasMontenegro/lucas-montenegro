@@ -32,8 +32,7 @@
     "start": "react-scripts start",
     "start:prod": "node server",
     "build": "npm install --only=dev --no-shrinkwrap && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +45,7 @@
   ],
   "devDependencies": {
     "enzyme": "3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "jest-styled-components": "6.2.2",
     "react-test-renderer": "16.6.0",
     "whatwg-fetch": "3.0.0"

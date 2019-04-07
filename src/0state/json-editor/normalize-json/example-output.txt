@@ -1,0 +1,359 @@
+Example Input:
+{
+  "id": "123",
+  "author": {
+    "id": "1",
+    "name": "Paul",
+    "posts": 24
+  },
+  "title": "My awesome blog post",
+  "comments": [
+    {
+      "id": "324",
+      "commenter": {
+        "id": "2",
+        "name": "Nicole"
+      }
+    },
+    {
+      "id": "721",
+      "commenter": {
+        "id": "5",
+        "name": "Tim"
+      }
+    }
+  ]
+}
+
+Output 1:
+{
+  id: "0",
+  byID: {
+    "0": {
+      id: "0",
+      parentID: null,
+      order: [
+        "id",
+        "author",
+        "title",
+        "comments"
+      ],
+      kids: {
+        id: "1",
+        author: "2",
+        title: "6",
+        comments: "7"
+      },
+      type: "object"
+    },
+    "1": {
+      id: "1",
+      parentID: "0",
+      value: "123",
+      type: "string"
+    },
+    "2": {
+      id: "2",
+      parentID: "0",
+      order: [
+        "id",
+        "name",
+        "posts"
+      ],
+      kids: {
+        id: "3",
+        name: "4",
+        posts: "5"
+      },
+      type: "object"
+    },
+    "3": {
+      id: "3",
+      parentID: "2",
+      value: "1",
+      type: "string"
+    },
+    "4": {
+      id: "4",
+      parentID: "2",
+      value: "Paul",
+      type: "string"
+    },
+    "5": {
+      id: "5",
+      parentID: "2",
+      value: 24,
+      type: "number"
+    },
+    "6": {
+      id: "6",
+      parentID: "0",
+      value: "My awesome blog post",
+      type: "string"
+    },
+    "7": {
+      id: "7",
+      parentID: "0",
+      kids: [
+        "8",
+        "13"
+      ],
+      type: "array"
+    },
+    "8": {
+      id: "8",
+      parentID: "7",
+      order: [
+        "id",
+        "commenter"
+      ],
+      kids: {
+        id: "9",
+        commenter: "10"
+      },
+      type: "object"
+    },
+    "9": {
+      id: "9",
+      parentID: "8",
+      value: "324",
+      type: "string"
+    },
+    "10": {
+      id: "10",
+      parentID: "8",
+      order: [
+        "id",
+        "name"
+      ],
+      kids: {
+        id: "11",
+        name: "12"
+      },
+      type: "object"
+    },
+    "11": {
+      id: "11",
+      parentID: "10",
+      value: "2",
+      type: "string"
+    },
+    "12": {
+      id: "12",
+      parentID: "10",
+      value: "Nicole",
+      type: "string"
+    },
+    "13": {
+      id: "13",
+      parentID: "7",
+      order: [
+        "id",
+        "commenter"
+      ],
+      kids: {
+        id: "14",
+        commenter: "15"
+      },
+      type: "object"
+    },
+    "14": {
+      id: "14",
+      parentID: "13",
+      value: "721",
+      type: "string"
+    },
+    "15": {
+      id: "15",
+      parentID: "13",
+      order: [
+        "id",
+        "name"
+      ],
+      kids: {
+        id: "16",
+        name: "17"
+      },
+      type: "object"
+    },
+    "16": {
+      id: "16",
+      parentID: "15",
+      value: "5",
+      type: "string"
+    },
+    "17": {
+      id: "17",
+      parentID: "15",
+      value: "Tim",
+      type: "string"
+    }
+  }
+}
+
+
+Output 2:
+{
+  byID: {
+    "0": {
+      id: "0",
+      parentID: null,
+      order: [
+        "id",
+        "author",
+        "title",
+        "comments"
+      ],
+      kids: {
+        id: "1",
+        author: "2",
+        title: "6",
+        comments: "7"
+      },
+      type: "object"
+    },
+    "1": {
+      id: "1",
+      parentID: "0",
+      type: "string",
+      value: "123"
+    },
+    "2": {
+      id: "2",
+      parentID: "0",
+      order: [
+        "id",
+        "name",
+        "posts"
+      ],
+      kids: {
+        id: "3",
+        name: "4",
+        posts: "5"
+      },
+      type: "object"
+    },
+    "3": {
+      id: "3",
+      parentID: "2",
+      type: "string",
+      value: "1"
+    },
+    "4": {
+      id: "4",
+      parentID: "2",
+      type: "string",
+      value: "Paul"
+    },
+    "5": {
+      id: "5",
+      parentID: "2",
+      type: "number",
+      value: 24
+    },
+    "6": {
+      id: "6",
+      parentID: "0",
+      type: "string",
+      value: "My awesome blog post"
+    },
+    "7": {
+      id: "7",
+      parentID: "0",
+      kids: [
+        "13",
+        "8"
+      ],
+      type: "array"
+    },
+    "8": {
+      id: "8",
+      parentID: "7",
+      order: [
+        "id",
+        "commenter"
+      ],
+      kids: {
+        id: "9",
+        commenter: "10"
+      },
+      type: "object"
+    },
+    "9": {
+      id: "9",
+      parentID: "8",
+      type: "string",
+      value: "721"
+    },
+    "10": {
+      id: "10",
+      parentID: "8",
+      order: [
+        "id",
+        "name"
+      ],
+      kids: {
+        id: "11",
+        name: "12"
+      },
+      type: "object"
+    },
+    "11": {
+      id: "11",
+      parentID: "10",
+      type: "string",
+      value: "5"
+    },
+    "12": {
+      id: "12",
+      parentID: "10",
+      type: "string",
+      value: "Tim"
+    },
+    "13": {
+      id: "13",
+      parentID: "7",
+      order: [
+        "id",
+        "commenter"
+      ],
+      kids: {
+        id: "14",
+        commenter: "15"
+      },
+      type: "object"
+    },
+    "14": {
+      id: "14",
+      parentID: "13",
+      type: "string",
+      value: "324"
+    },
+    "15": {
+      id: "15",
+      parentID: "13",
+      order: [
+        "id",
+        "name"
+      ],
+      kids: {
+        id: "16",
+        name: "17"
+      },
+      type: "object"
+    },
+    "16": {
+      id: "16",
+      parentID: "15",
+      type: "string",
+      value: "2"
+    },
+    "17": {
+      id: "17",
+      parentID: "15",
+      type: "string",
+      value: "Nicole"
+    }
+  },
+  id: "0"
+}

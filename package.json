@@ -1,53 +1,33 @@
 {
   "name": "lucas-montenegro",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "description": "https://lucas-montenegro.herokuapp.com/",
   "private": true,
   "dependencies": {
-    "@babel/polyfill": "7.0.0",
-    "@loadable/component": "5.7.0",
-    "connected-react-router": "4.5.0",
-    "express": "4.16.4",
-    "history": "4.7.2",
-    "hoist-non-react-statics": "3.0.1",
-    "immutable": "3.8.2",
-    "intl": "1.2.5",
-    "invariant": "2.2.4",
-    "lodash": "4.17.11",
-    "prop-types": "15.6.2",
-    "react": "16.6.0",
-    "react-dom": "16.6.0",
-    "react-helmet": "5.2.0",
-    "react-intl": "2.7.2",
-    "react-redux": "5.0.7",
-    "react-router-dom": "4.3.1",
-    "react-scripts": "2.1.8",
-    "redux": "4.0.1",
-    "redux-immutable": "^4.0.0",
-    "redux-saga": "0.16.2",
-    "reselect": "4.0.0",
-    "sanitize.css": "4.1.0",
-    "styled-components": "4.0.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^2.1.8"
   },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "start:prod": "node server",
     "build": "npm install --only=dev --no-shrinkwrap && react-scripts build",
     "test": "react-scripts test"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasMontenegro/lucas-montenegro.git"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+  "keywords": [
+    "React",
+    "Redux",
+    "Heroku"
   ],
-  "devDependencies": {
-    "enzyme": "3.7.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "jest-styled-components": "6.2.2",
-    "react-test-renderer": "16.6.0",
-    "whatwg-fetch": "3.0.0"
-  }
+  "author": "Lucas Fabián Montenegro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lucasMontenegro/lucas-montenegro/issues"
+  },
+  "homepage": "https://github.com/lucasMontenegro/lucas-montenegro#readme"
 }

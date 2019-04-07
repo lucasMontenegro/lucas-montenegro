@@ -1,0 +1,249 @@
+Example Input:
+{
+  id: "123",
+  author: {
+    id: "1",
+    name: "Paul"
+  },
+  title: "My awesome blog post",
+  comments: [
+    {
+      id: "324",
+      commenter: {
+        id: "2",
+        name: "Nicole"
+      }
+    }
+  ]
+}
+
+Output 1:
+{
+  id: "0",
+  byID: {
+    "0": {
+      id: "0",
+      parentID: null,
+      key: null,
+      kids: [
+        "1",
+        "2",
+        "6",
+        "7"
+      ],
+      type: "object"
+    },
+    "1": {
+      id: "1",
+      parentID: "0",
+      key: "id",
+      value: "123",
+      type: "string"
+    },
+    "2": {
+      id: "2",
+      parentID: "0",
+      key: "author",
+      kids: [
+        "3",
+        "4",
+        "5"
+      ],
+      type: "object"
+    },
+    "3": {
+      id: "3",
+      parentID: "2",
+      key: "id",
+      value: "1",
+      type: "string"
+    },
+    "4": {
+      id: "4",
+      parentID: "2",
+      key: "name",
+      value: "Paul",
+      type: "string"
+    },
+    "5": {
+      id: "5",
+      parentID: "2",
+      key: "posts",
+      value: 24,
+      type: "number"
+    },
+    "6": {
+      id: "6",
+      parentID: "0",
+      key: "title",
+      value: "My awesome blog post",
+      type: "string"
+    },
+    "7": {
+      id: "7",
+      parentID: "0",
+      key: "comments",
+      kids: [
+        "8"
+      ],
+      type: "array"
+    },
+    "8": {
+      id: "8",
+      parentID: "7",
+      key: 0,
+      kids: [
+        "9",
+        "10"
+      ],
+      type: "object"
+    },
+    "9": {
+      id: "9",
+      parentID: "8",
+      key: "id",
+      value: "324",
+      type: "string"
+    },
+    "10": {
+      id: "10",
+      parentID: "8",
+      key: "commenter",
+      kids: [
+        "11",
+        "12"
+      ],
+      type: "object"
+    },
+    "11": {
+      id: "11",
+      parentID: "10",
+      key: "id",
+      value: "2",
+      type: "string"
+    },
+    "12": {
+      id: "12",
+      parentID: "10",
+      key: "name",
+      value: "Nicole",
+      type: "string"
+    }
+  }
+}
+
+Output 2:
+
+{
+  byID: {
+    "0": {
+      id: "0",
+      parentID: null,
+      key: null,
+      kids: [
+        "12",
+        "8",
+        "7",
+        "1"
+      ],
+      type: "object"
+    },
+    "1": {
+      id: "1",
+      parentID: "0",
+      key: "comments",
+      kids: [
+        "2"
+      ],
+      type: "array"
+    },
+    "2": {
+      id: "2",
+      parentID: "1",
+      key: 0,
+      kids: [
+        "6",
+        "3"
+      ],
+      type: "object"
+    },
+    "3": {
+      id: "3",
+      parentID: "2",
+      key: "commenter",
+      kids: [
+        "5",
+        "4"
+      ],
+      type: "object"
+    },
+    "4": {
+      id: "4",
+      parentID: "3",
+      key: "name",
+      type: "string",
+      value: "Nicole"
+    },
+    "5": {
+      id: "5",
+      parentID: "3",
+      key: "id",
+      type: "string",
+      value: "2"
+    },
+    "6": {
+      id: "6",
+      parentID: "2",
+      key: "id",
+      type: "string",
+      value: "324"
+    },
+    "7": {
+      id: "7",
+      parentID: "0",
+      key: "title",
+      type: "string",
+      value: "My awesome blog post"
+    },
+    "8": {
+      id: "8",
+      parentID: "0",
+      key: "author",
+      kids: [
+        "11",
+        "10",
+        "9"
+      ],
+      type: "object"
+    },
+    "9": {
+      id: "9",
+      parentID: "8",
+      key: "posts",
+      type: "number",
+      value: 24
+    },
+    "10": {
+      id: "10",
+      parentID: "8",
+      key: "name",
+      type: "string",
+      value: "Paul"
+    },
+    "11": {
+      id: "11",
+      parentID: "8",
+      key: "id",
+      type: "string",
+      value: "1"
+    },
+    "12": {
+      id: "12",
+      parentID: "0",
+      key: "id",
+      type: "string",
+      value: "123"
+    }
+  },
+  id: "0"
+}

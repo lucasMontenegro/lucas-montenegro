@@ -17,7 +17,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 // json editor
-//import './JsonEditor/normalize-json';
+import JsonEditor from './JsonEditor';
 
 
 
@@ -45,6 +45,7 @@ const store = createStore(reducer);
 ReactDOM.render(
   <Provider store={store}>
     <TodoList />
+    <JsonEditor />
   </Provider>,
   document.getElementById('root')
 )

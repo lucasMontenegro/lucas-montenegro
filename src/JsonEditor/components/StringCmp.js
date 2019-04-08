@@ -1,5 +1,7 @@
 import React from 'react'
 
-const StringCmp = ({ value: str }) => <div>{str}</div>
+const StringCmp = ({ value }) => (
+  <input type="text" defaultValue={value} />
+)
 
 export default StringCmp

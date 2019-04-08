@@ -1,5 +1,7 @@
 import React from 'react'
 
-const NumberCmp = ({ value: n }) => <div>{n}</div>
+const NumberCmp = ({ value }) => (
+  <input type="text" defaultValue={value} />
+)
 
 export default NumberCmp

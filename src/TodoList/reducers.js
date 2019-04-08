@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux'
 import {
   ADD_TODO,
   TOGGLE_TODO,
@@ -6,7 +7,7 @@ import {
 } from './actions'
 const { SHOW_ALL } = VisibilityFilters
 
-export function visibilityFilter(state = SHOW_ALL, action) {
+function visibilityFilter(state = SHOW_ALL, action) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter
@@ -15,7 +16,7 @@ export function visibilityFilter(state = SHOW_ALL, action) {
   }
 }
 
-export function todos(state = [], action) {
+function todos(state = [], action) {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -38,3 +39,10 @@ export function todos(state = [], action) {
       return state
   }
 }
+
+const todoApp = combineReducers({
+  visibilityFilter,
+  todos
+})
+
+export default todoApp

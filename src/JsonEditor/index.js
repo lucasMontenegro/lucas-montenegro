@@ -1,6 +1,7 @@
 import React from 'react'
 import JsonCmp from './components/JsonCmp'
 import data from './normalize-json/data.json'
+import './normalize-json'
 
 const JsonEditor = () => (
   <div>

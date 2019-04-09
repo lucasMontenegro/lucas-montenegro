@@ -34,7 +34,7 @@ function elementsByID (state, action) {
         ...state,
         [id]: {
           ...elem,
-          value: /^tu mam(a|á)/.test(value) ? 'puta' : value
+          value
         }
       };
     }

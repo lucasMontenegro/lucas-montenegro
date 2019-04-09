@@ -1,0 +1,14 @@
+{
+  "array1": [
+    true,
+    45,
+    "xyz",
+    null
+  ],
+  "array2": [],
+  "object": {
+    "boolean": false,
+    "string": "abc\n\"",
+    "number": 123.456
+  }
+}

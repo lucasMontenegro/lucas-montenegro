@@ -1,8 +1,8 @@
 import React from 'react';
 import JsonCont from '../containers/JsonCont';
 
-const ObjectCmp = ({ kids, order }) => {
-  const children = order.map(name => {
+const ObjectCmp = ({ kids }) => {
+  const children = Object.keys(kids).sort().map(name => {
     const id = kids[name];
     return <li key={id}>{name}: <JsonCont id={id} /><br /><br /></li>;
   });

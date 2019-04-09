@@ -10,12 +10,14 @@ export default function denormalize (input, elem) {
 
     case 'boolean':
     return elem.value === 'true' ? true : false;
-    break
 
     case 'object':
     const obj = {};
-    for (const key of elem.order) {
-      obj[key] = denormalize(input, byID[elem.kids[key]]);
+    const { kids } = elem;
+    for (const key in kids) {
+      const id = kids[key];
+      if (!id) continue;
+      obj[key] = denormalize(input, byID[id]);
     }
     return obj;
 

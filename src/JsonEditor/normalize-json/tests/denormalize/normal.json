@@ -5,7 +5,6 @@
       "id": "0",
       "parentID": null,
       "type": "object",
-      "order": ["array1", "array2", "object"],
       "kids": {
         "array1": "1",
         "array2": "6",
@@ -51,7 +50,6 @@
       "id": "7",
       "parentID": "0",
       "type": "object",
-      "order": ["boolean", "string", "number"],
       "kids": {
         "boolean": "8",
         "string": "9",

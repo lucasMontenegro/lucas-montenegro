@@ -1,0 +1,79 @@
+{
+  "id": "0",
+  "byID": {
+    "0": {
+      "id": "0",
+      "parentID": null,
+      "type": "object",
+      "kids": {
+        "array1": "1",
+        "array2": "6",
+        "something": null,
+        "object": "7"
+      }
+    },
+    "1": {
+      "id": "1",
+      "parentID": "0",
+      "type": "array",
+      "kids": ["2","3","4","5"]
+    },
+    "2": {
+      "id": "2",
+      "parentID": "1",
+      "type": "boolean",
+      "value": "true"
+    },
+    "3": {
+      "id": "3",
+      "parentID": "1",
+      "type": "number",
+      "value": "45"
+    },
+    "4": {
+      "id": "4",
+      "parentID": "1",
+      "type": "string",
+      "value": "xyz"
+    },
+    "5": {
+      "id": "5",
+      "parentID": "1",
+      "type": "null"
+    },
+    "6": {
+      "id": "6",
+      "parentID": "0",
+      "type": "array",
+      "kids": []
+    },
+    "7": {
+      "id": "7",
+      "parentID": "0",
+      "type": "object",
+      "kids": {
+        "boolean": "8",
+        "string": "9",
+        "number": "10"
+      }
+    },
+    "8": {
+      "id": "8",
+      "parentID": "7",
+      "type": "boolean",
+      "value": "false"
+    },
+    "9": {
+      "id": "9",
+      "parentID": "7",
+      "type": "string",
+      "value": "abc\n\""
+    },
+    "10": {
+      "id": "10",
+      "parentID": "7",
+      "type": "number",
+      "value": "123.456"
+    }
+  }
+}

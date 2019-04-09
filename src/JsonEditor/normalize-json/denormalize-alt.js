@@ -1,3 +1,5 @@
+import { clone } from 'lodash';
+
 // Alternative implementation
 function createState (byID, id) {
   const elem = byID[id];
@@ -18,14 +20,16 @@ function createState (byID, id) {
     case 'object':
     state.isObject = true;
     state.result = {};
-    state.order = elem.order.reverse();
+    state.kids = elem.kids;
+    state.keys = Object.keys(elem.kids);
     break
 
     case 'array':
     state.isObject = true;
     state.isArray = true;
     state.result = [];
-    state.kids = elem.kids.reverse();
+    state.kids = clone(elem.kids);
+    state.kids.reverse();
     break
 
     case 'null':
@@ -48,16 +52,18 @@ export default function denormalize (input) {
   const stack = [state];
   while (stack.length > 0) {
     let childState;
-    const { result, elem: { order, kids } } = state;
+    const { result, keys, kids } = state;
     if (state.isArray) {
       if (kids.length > 0) {
         childState = createState(byID, kids.pop());
         result.push(childState.result);
       }
     } else {
-      if (order.length > 0) {
-        const key = order.pop();
-        childState = createState(byID, kids[key]);
+      if (keys.length > 0) {
+        const key = keys.pop();
+        const id = kids[key];
+        if (!id) continue;
+        childState = createState(byID, id);
         result[key] = childState.result;
       }
     }

@@ -1,26 +1,26 @@
+import { cloneDeep } from 'lodash';
 import createID from './create-id';
 
 // Alternative implementation
 function createState (raw, byID, parentID=null) {
   const id = createID();
   const result = byID[id] = { id, parentID };
-  const state = { id, result, raw };
+  const state = { result };
   let type = typeof raw;
   switch (type) {
     case 'object':
-    if (raw instanceof Array) {
-      state.isObject = true;
-      state.isArray = true;
-      type = 'array';
-      raw.reverse();
-      result.kids = [];
-    } else if (raw === null) {
+    if (raw === null) {
       type = 'null';
     } else {
       state.isObject = true;
-      state.keys = Object.keys(raw).reverse();
-      result.order = [];
-      result.kids = {};
+      state.index = 0;
+      result.kids = raw;
+      if (raw instanceof Array) {
+        state.isArray = true;
+        type = 'array';
+      } else {
+        state.keys = Object.keys(raw);
+      }
     }
     break
 
@@ -44,28 +44,32 @@ function createState (raw, byID, parentID=null) {
   return state;
 }
 export default function normalize (raw) {
+  raw = cloneDeep(raw);
   const byID = {};
   const normalized = { byID };
 
   let state = createState(raw, byID);
-  normalized.id = state.id;
+  normalized.id = state.result.id;
   if (!state.isObject) return normalized;
 
   const stack = [null];
   while (state) {
     let childState;
-    const { raw, id, result, keys } = state;
+    const { result: { id, kids }, index } = state;
     if (state.isArray) {
-      if (raw.length > 0) {
-        childState = createState(raw.pop(), byID, id);
-        result.kids.push(childState.id);
+      if (index < kids.length) {
+        childState = createState(kids[index], byID, id);
+        kids[index] = childState.result.id;
+        state.index++;
       }
-    } else if (keys.length > 0) {
-      const key = keys.pop();
-      childState = createState(raw[key], byID, id);
-      delete raw[key];
-      result.kids[key] = childState.id;
-      result.order.push(key);
+    } else {
+      const { keys } = state;
+      if (index < keys.length) {
+        const key = keys[index];
+        childState = createState(kids[key], byID, id);
+        kids[key] = childState.result.id;
+        state.index++;
+      }
     }
     if (!childState) {
       state = stack.pop();

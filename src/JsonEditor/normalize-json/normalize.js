@@ -13,9 +13,10 @@ export default function normalize (raw, byID={}, parentID=null) {
     } else if (raw === null) {
       type = 'null';
     } else {
-      const order = res.order = Object.keys(raw);
       const kids = res.kids = {};
-      order.forEach(key => kids[key] = normalize(raw[key], byID, id));
+      for (const key in raw) {
+        kids[key] = normalize(raw[key], byID, id);
+      }
     }
     break
 

@@ -1,11 +1,12 @@
-import React from 'react'
-import JsonCmp from './JsonCmp'
+import React from 'react';
+import JsonCont from '../containers/JsonCont';
 
-const ObjectCmp = ({ value: obj }) => <ul>
-  {Object.keys(obj).map(key => <li>
-    {key}: <br />
-    <JsonCmp value={obj[key]} />
-  </li>)}
-</ul>
+const ObjectCmp = ({ kids, order }) => {
+  const children = order.map(name => {
+    const id = kids[name];
+    return <li key={id}>{name}: <JsonCont id={id} /><br /><br /></li>;
+  });
+  return <ul>{children}</ul>;
+}
 
-export default ObjectCmp
+export default ObjectCmp;

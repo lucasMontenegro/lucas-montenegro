@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const NumberCmp = ({ value }) => (
+const NumberCmp = ({ value, onChange }) => (
   <input
     type="text"
-    defaultValue={value}
+    value={value}
+    onChange={onChange}
     style={{ color: 'blue' }}
     />
-)
+);
 
-export default NumberCmp
+export default NumberCmp;

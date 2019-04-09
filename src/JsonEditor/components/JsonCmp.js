@@ -1,27 +1,34 @@
-import React from 'react'
-import NullCmp from './NullCmp'
-import NumberCmp from './NumberCmp'
-import StringCmp from './StringCmp'
-import ArrayCmp from './ArrayCmp'
-import ObjectCmp from './ObjectCmp'
+import React from 'react';
+import NullCmp from './NullCmp';
 
-const JsonCmp = ({ value }) => {
-  if (value === null) return <NullCmp />
+import StringCont from '../containers/StringCont';
+import NumberCont from '../containers/NumberCont';
+import ArrayCont from '../containers/ArrayCont';
+import ObjectCont from '../containers/ObjectCont';
 
-  // eslint-disable-next-line
-  switch (typeof value) {
+const JsonCmp = ({ id, type }) => {
+  switch (type) {
+    case 'null':
+    return <NullCmp />;
+
     case 'string':
-    return <StringCmp value={value} />
+    return <StringCont id={id} />;
 
     case 'number':
-    return <NumberCmp value={value} />
+    return <NumberCont id={id} />;
+
+    case 'array':
+    return <ArrayCont id={id} />;
 
     case 'object':
-    if (value instanceof Array) {
-      return <ArrayCmp value={value} />
+    return <ObjectCont id={id} />;
+
+    default:
+    if (process.env.NODE_ENV !== 'production') {
+      throw TypeError(`JsonCmp Component Type: ${type}`);
     }
-    return <ObjectCmp value={value} />
+    return <NullCmp />;
   }
 }
 
-export default JsonCmp
+export default JsonCmp;

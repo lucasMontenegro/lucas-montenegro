@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-const StringCmp = ({ value }) => (
+const StringCmp = ({ value, onChange }) => (
   <input
     type="text"
-    defaultValue={value}
+    value={value}
+    onChange={onChange}
     style={{ color: 'green' }}
     />
-)
+);
 
-export default StringCmp
+export default StringCmp;

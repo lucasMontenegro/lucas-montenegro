@@ -1,8 +1,10 @@
-import React from 'react'
-import JsonCmp from './JsonCmp'
+import React from 'react';
+import JsonCont from '../containers/JsonCont';
 
-const ArrayCmp = ({ value: arr }) => <ol>
-  {arr.map(value => <li><JsonCmp value={value} /></li>)}
-</ol>
+const ArrayCmp = ({ kids }) => (
+  <ol>
+    {kids.map(id => <li key={id}><JsonCont id={id} /></li>)}
+  </ol>
+);
 
-export default ArrayCmp
+export default ArrayCmp;

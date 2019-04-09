@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const NullCmp = () => <div style={{ color: 'purple' }}>null</div>
+const NullCmp = () => <div style={{ color: 'purple' }}>null</div>;
 
-export default NullCmp
+export default NullCmp;

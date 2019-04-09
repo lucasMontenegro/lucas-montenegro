@@ -1,60 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-
-
-
-
-
-// original app
+import { Provider } from 'react-redux';
 import './index.css';
-//import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-
-
+import store from './store';
 
 
 // json editor
 import JsonEditor from './JsonEditor';
 
 
-
-
-
 // todo list
-import reducer from './TodoList/reducers';
-/*
+/**
 import {
   addTodo,
   toggleTodo,
   setVisibilityFilter,
   VisibilityFilters
-} from './0state/todo-list/actions';
+} from './TodoList/actions';
 /**/
-import TodoList from './TodoList'
+import TodoList from './TodoList';
 
 
-
-
-
-
-// todo list
-const store = createStore(reducer);
 ReactDOM.render(
   <Provider store={store}>
     <TodoList />
     <JsonEditor />
   </Provider>,
   document.getElementById('root')
-)
+);
 
 
-
-
-
-
+// todo list
 /*
 // Log the initial state
 console.log(store.getState());
@@ -74,11 +51,6 @@ store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
 // Stop listening to state updates
 unsubscribe();
 /**/
-
-
-
-
-
 
 
 // original app

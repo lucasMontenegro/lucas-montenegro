@@ -1,13 +1,10 @@
-import React from 'react'
-import JsonCmp from './components/JsonCmp'
-import data from './normalize-json/data.json'
-import './normalize-json'
+import { connect } from 'react-redux';
+import EditorCmp from './components/EditorCmp';
 
-const JsonEditor = () => (
-  <div>
-    <h3>Json Editor</h3>
-    <JsonCmp value={data} />
-  </div>
-)
+const mapStateToProps = ({ jsonEditor: { id } }) => ({ id });
 
-export default JsonEditor
+const EditorCont = connect(
+  mapStateToProps
+)(EditorCmp);
+
+export default EditorCont;

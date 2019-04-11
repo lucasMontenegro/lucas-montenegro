@@ -51,7 +51,11 @@ function jsonEditorRdr (state, action) {
     }
 
     case EDIT_OBJECT_KEY: {
+      const { byID } = state;
       const { id, key } = action;
+      const elem = byID[id];
+      if (!elem || elem.type !== 'object') return state;
+
       return {
         ...state,
         keyEditor: { id, key, oldKey: key }
@@ -64,7 +68,7 @@ function jsonEditorRdr (state, action) {
       if (!id) return state;
 
       const elem = byID[id];
-      if (!elem || elem.type !== 'object') return { ...state, keyEditor: {} };
+      if (!elem) return { ...state, keyEditor: {} };
 
       const { key } = action;
       if (key !== oldKey && elem.kids[key]) return state;

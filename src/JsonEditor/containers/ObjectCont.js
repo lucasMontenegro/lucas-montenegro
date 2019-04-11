@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { editObjectKey } from '../actions';
 import ObjectCmp from '../components/ObjectCmp';
 
 const mapStateToProps = (state, ownProps) => {
@@ -6,8 +7,18 @@ const mapStateToProps = (state, ownProps) => {
   return { kids };
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onEdit (key) {
+      const { id } = ownProps;
+      return () => dispatch(editObjectKey(id, key));
+    }
+  };
+}
+
 const ObjectCont = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ObjectCmp);
 
 export default ObjectCont;

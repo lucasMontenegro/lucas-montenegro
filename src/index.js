@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
@@ -24,8 +31,24 @@ import TodoList from './TodoList';
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoList />
-    <JsonEditor />
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/todo">Todo List</Link>
+            </li>
+            <li>
+              <Link to="/json-editor">JSON Editor</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact path="/todo" component={TodoList} />
+          <Route exact path="/json-editor" component={JsonEditor} />
+        </Switch>
+      </div>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

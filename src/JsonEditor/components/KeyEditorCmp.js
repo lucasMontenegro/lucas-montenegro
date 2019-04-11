@@ -1,6 +1,6 @@
 import React from 'react';
 
-const KeyEditorCmp = ({ value, onChange, onSave }) => {
+const KeyEditorCmp = ({ value, unique, onChange, onSave }) => {
   if (value === null) return <div></div>;
   return (
     <div>
@@ -9,8 +9,9 @@ const KeyEditorCmp = ({ value, onChange, onSave }) => {
         type="text"
         value={value}
         onChange={onChange}
+        style={{ color: unique ? 'black' : 'red' }}
         />
-      <button type="button" onClick={onSave}>Save</button>
+      <button type="button" disabled={!unique} onClick={onSave}>Save</button>
     </div>
   );
 }

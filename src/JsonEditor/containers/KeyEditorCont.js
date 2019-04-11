@@ -3,9 +3,9 @@ import { updateKey, saveKey } from '../actions';
 import KeyEditorCmp from '../components/KeyEditorCmp';
 
 const mapStateToProps = state => {
-  const { id, key } = state.jsonEditor.keyEditor;
+  const { id, key, unique } = state.jsonEditor.keyEditor;
   if (!id) return { value: null };
-  return { value: key || '' };
+  return { value: key || '', unique };
 }
 
 const mapDispatchToProps = dispatch => {

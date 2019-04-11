@@ -58,7 +58,7 @@ function jsonEditorRdr (state, action) {
 
       return {
         ...state,
-        keyEditor: { id, key, oldKey: key }
+        keyEditor: { id, key, oldKey: key, unique: true }
       };
     }
 
@@ -71,19 +71,17 @@ function jsonEditorRdr (state, action) {
       if (!elem) return { ...state, keyEditor: {} };
 
       const { key } = action;
-      if (key !== oldKey && elem.kids[key]) return state;
-
-      return { ...state, keyEditor: { ...keyEditor, key } };
+      const unique = key === oldKey || !elem.kids[key];
+      return { ...state, keyEditor: { ...keyEditor, key, unique } };
     }
 
     case SAVE_KEY: {
       const { byID, keyEditor } = state;
-      const { id, key, oldKey } = keyEditor;
-      if (!id) return state;
+      const { id, key, oldKey, unique } = keyEditor;
+      if (!id || !unique) return state;
 
       const elem = byID[id];
-      const kidID = elem.kids[key];
-      if (!elem || kidID) return state;
+      if (!elem || (!unique && elem.kids[key])) return state;
 
       const kids = clone(elem.kids);
       kids[key] = kids[oldKey];

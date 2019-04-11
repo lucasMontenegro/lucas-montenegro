@@ -29,3 +29,8 @@ export const SAVE_KEY = 'jsonEditor/SAVE_KEY';
 export const saveKey = () => ({
   type: SAVE_KEY
 });
+
+export const CLOSE_KEY_EDITOR = 'jsonEditor/CLOSE_KEY_EDITOR';
+export const closeKeyEditor = () => ({
+  type: CLOSE_KEY_EDITOR
+});

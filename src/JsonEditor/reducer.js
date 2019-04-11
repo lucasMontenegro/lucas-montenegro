@@ -4,7 +4,8 @@ import {
   UPDATE_STRING,
   EDIT_OBJECT_KEY,
   UPDATE_KEY,
-  SAVE_KEY
+  SAVE_KEY,
+  CLOSE_KEY_EDITOR
 } from './actions';
 import { normalize } from './normalize-json';
 import data from './normalize-json/data.json';
@@ -98,6 +99,10 @@ function jsonEditorRdr (state, action) {
           }
         }
       };
+    }
+
+    case CLOSE_KEY_EDITOR: {
+      return { ...state, keyEditor: {} };
     }
 
     default:

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateKey, saveKey } from '../actions';
+import { updateKey, saveKey, closeKeyEditor } from '../actions';
 import KeyEditorCmp from '../components/KeyEditorCmp';
 
 const mapStateToProps = state => {
@@ -15,6 +15,9 @@ const mapDispatchToProps = dispatch => {
     },
     onSave () {
       dispatch(saveKey());
+    },
+    onCancel () {
+      dispatch(closeKeyEditor());
     }
   };
 }

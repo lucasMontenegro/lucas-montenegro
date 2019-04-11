@@ -7,13 +7,16 @@ const ObjectCmp = ({ kids, onEdit }) => {
     if (!id) return <li><em>empty</em></li>;
     return (
       <li key={id}>
-        <h4>{name}</h4>
-        <div><button type="button" onClick={onEdit(name)}>Edit</button></div>
+        <h4>
+          {name}
+          &emsp;
+          <button type="button" onClick={onEdit(name)}>Edit</button>
+        </h4>
         <JsonCont id={id} /><br /><br />
       </li>
     );
   });
-  return <ul>{children}</ul>;
+  return <ul style={{ border: '1px solid black' }}>{children}</ul>;
 }
 
 export default ObjectCmp;

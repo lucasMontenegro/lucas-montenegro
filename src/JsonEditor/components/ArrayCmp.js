@@ -2,7 +2,7 @@ import React from 'react';
 import JsonCont from '../containers/JsonCont';
 
 const ArrayCmp = ({ kids }) => (
-  <ol>
+  <ol style={{ border: '1px solid black' }}>
     {kids.map(id => <li key={id}><JsonCont id={id} /></li>)}
   </ol>
 );

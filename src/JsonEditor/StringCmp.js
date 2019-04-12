@@ -1,6 +1,17 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import { updateString } from '../actions';
-import StringCmp from '../components/StringCmp';
+import { actions } from './state';
+
+const { updateString } = actions;
+
+export const PureStringCmp = ({ value, onChange }) => (
+  <input
+    type="text"
+    value={value}
+    onChange={onChange}
+    style={{ color: 'green' }}
+    />
+);
 
 const mapStateToProps = (state, ownProps) => {
   const { value } = state.jsonEditor.byID[ownProps.id];
@@ -15,9 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 }
 
-const StringCont = connect(
+const StringCmp = connect(
   mapStateToProps,
   mapDispatchToProps
-)(StringCmp);
+)(PureStringCmp);
 
-export default StringCont;
+export default StringCmp;

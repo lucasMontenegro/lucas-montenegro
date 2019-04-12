@@ -16,7 +16,7 @@ const initState = () => {
   return state;
 }
 
-function jsonEditorRdr (state, action) {
+function reducer (state, action) {
   state || (state = initState());
   switch (action.type) {
     case UPDATE_NUMBER: {
@@ -110,4 +110,4 @@ function jsonEditorRdr (state, action) {
   }
 }
 
-export default jsonEditorRdr;
+export default reducer;

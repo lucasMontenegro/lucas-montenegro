@@ -1,6 +1,17 @@
+import React from 'react';
 import { connect } from 'react-redux';
-import { updateNumber } from '../actions';
-import NumberCmp from '../components/NumberCmp';
+import { actions } from './state';
+
+const { updateNumber } = actions;
+
+export const PureNumberCmp = ({ value, onChange }) => (
+  <input
+    type="text"
+    value={value}
+    onChange={onChange}
+    style={{ color: 'blue' }}
+    />
+);
 
 const mapStateToProps = (state, ownProps) => {
   const { value } = state.jsonEditor.byID[ownProps.id];
@@ -15,9 +26,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 }
 
-const NumberCont = connect(
+const NumberCmp = connect(
   mapStateToProps,
   mapDispatchToProps
-)(NumberCmp);
+)(PureNumberCmp);
 
-export default NumberCont;
+export default NumberCmp;

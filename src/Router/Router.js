@@ -9,7 +9,7 @@ import JsonEditor from '../JsonEditor';
 
 
 const SizingDiv = styled.div`
-  max-width: 100ch;
+  max-width: 80ch;
   min-height: 100vh;
   margin: 0px auto;
   padding: 1ch;

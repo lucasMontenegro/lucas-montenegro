@@ -1,24 +1,65 @@
 import React, { Suspense } from 'react';
-import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { NavLink } from "react-router-dom";
+import styled from 'styled-components';
 
 import LanguageToggle from './LanguageToggle';
 import Spinner from '../Spinner';
 
+const NavBarLink = styled(NavLink).attrs({
+  activeClassName: 'active'
+})`
+  text-decoration: none;
+  color: black;
+
+  &.active {
+    color: #03ce0b;
+  }
+`;
+
+const Nav = styled.nav`
+  & * {
+    box-sizing: border-box;
+  }
+
+  & > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    margin: 0;
+    border: 0;
+    padding: 0;
+    height: 3em;
+
+    > li:first-child {
+      margin-right: auto;
+    }
+
+    > li {
+      margin: 0 1ch;
+    }
+  }
+`;
+
 export const PureNavBar = ({ t }) => (
-  <nav>
+  <Nav>
     <ul>
       <li>
-        <Link to="/">Lucas Montenegro</Link>
+        <NavBarLink exact to="/">Lucas Montenegro</NavBarLink>
       </li>
       <li>
-        <Link to="/my-projects">{t('myProjects.title')}</Link>
+        <NavBarLink exact to="/my-projects">
+          {t('myProjects.title')}
+        </NavBarLink>
       </li>
       <li>
         <LanguageToggle />
       </li>
     </ul>
-  </nav>
+  </Nav>
 );
 
 export const LazyNavBar = () => {

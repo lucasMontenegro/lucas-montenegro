@@ -1,6 +1,22 @@
 import React, { Suspense } from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import supportedLanguages from './supported-languages.json';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & > * {
+    margin: 0.25ch;
+  }
+`;
+
+const StyledIcon = styled(FontAwesomeIcon)`
+  font-size: 2em;
+`;
 
 const languageList = Object.keys(supportedLanguages);
 
@@ -9,9 +25,12 @@ export const PureLanguageToggle = ({ currentLang, setLang }) => {
     <option key={lang} value={lang}>{supportedLanguages[lang]}</option>
   ));
   return (
-    <select value={currentLang()} onChange={setLang}>
-      {options}
-    </select>
+    <Wrapper>
+      <StyledIcon icon={['fas', 'language']} />
+      <select value={currentLang()} onChange={setLang}>
+        {options}
+      </select>
+    </Wrapper>
   );
 }
 

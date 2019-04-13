@@ -13,7 +13,7 @@ const SizingDiv = styled.div`
   max-width: 80ch;
   min-height: 100vh;
   margin: 0px auto;
-  padding: 1ch;
+  padding: 0 1ch 1ch 1ch;
 `;
 
 const ContentDiv = styled.div`

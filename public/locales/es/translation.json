@@ -14,5 +14,17 @@
     "contact": {
       "title": "Contacto"
     }
+  },
+  "myProjects": {
+    "title": "Mis Proyectos",
+    "description": "Estos son mis más recientes proyectos web, hasta abril del 2019. Son básicamente aplicaciones front-end hechas con React y Redux.",
+    "apps": {
+      "todo": {
+        "title": "Lista To-Do"
+      },
+      "jsonEditor": {
+        "title": "Editor JSON"
+      }
+    }
   }
 }

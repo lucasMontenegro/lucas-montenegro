@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import NavBar from './NavBar';
 import HomePage from './HomePage';
+import MyProjects from './MyProjects';
 import TodoList from '../TodoList';
 import JsonEditor from '../JsonEditor';
 
@@ -37,6 +38,7 @@ const Router = () => (
     <PureRouter>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route exact path="/my-projects" component={MyProjects} />
         <Route exact path="/todo" component={TodoList} />
         <Route exact path="/json-editor" component={JsonEditor} />
       </Switch>

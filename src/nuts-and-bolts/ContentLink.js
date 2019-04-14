@@ -5,10 +5,10 @@ import palette from './palette';
 
 const applyStyle = Cmp => Cmp`
   text-decoration: none;
-  color: ${palette.blue};
+  color: ${palette.blue.normal};
 
   :hover {
-    color: ${palette.lightBlue};
+    color: ${palette.blue.light};
   }
 `;
 

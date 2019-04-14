@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './state';
+import { Button } from '../nuts-and-bolts';
 
 const { updateKey, saveKey, closeKeyEditor } = actions;
 
@@ -16,8 +17,12 @@ export const PureObjectKeyEditor = props => {
         onChange={onChange}
         style={{ color: unique ? 'black' : 'red' }}
         />
-      <button type="button" disabled={!unique} onClick={onSave}>Save</button>
-      <button type="button" onClick={onCancel}>Cancel</button>
+      <Button primary type="button" disabled={!unique} onClick={onSave}>
+        Save
+      </Button>
+      <Button type="button" onClick={onCancel}>
+        Cancel
+      </Button>
     </div>
   );
 }

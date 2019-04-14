@@ -18,7 +18,7 @@ const SizingDiv = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  border: 0.1ch solid ${palette.lightGreen};
+  border: 0.1ch solid ${palette.green.light};
   border-radius: 2px;
   padding: 0.9ch;
   min-height: 35em;

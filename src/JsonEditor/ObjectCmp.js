@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './state';
 import JsonSwitch from './JsonSwitch';
+import { Button } from '../nuts-and-bolts';
 
 const { editObjectKey } = actions;
 
@@ -14,7 +15,7 @@ export const PureObjectCmp = ({ kids, onEdit }) => {
         <h4>
           {name}
           &emsp;
-          <button type="button" onClick={onEdit(name)}>Edit</button>
+          <Button type="button" onClick={onEdit(name)}>Edit</Button>
         </h4>
         <JsonSwitch id={id} /><br /><br />
       </li>

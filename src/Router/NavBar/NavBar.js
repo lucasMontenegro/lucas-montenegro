@@ -14,11 +14,11 @@ const NavBarLink = styled(NavLink).attrs({
   color: black;
 
   &.active {
-    color: ${palette.green};
+    color: ${palette.green.normal};
   }
 
   &:hover {
-    color: ${palette.lightGreen};
+    color: ${palette.green.light};
   }
 `;
 

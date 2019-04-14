@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useTranslation } from 'react-i18next';
 import supportedLanguages from './supported-languages.json';
+import { palette } from '../../nuts-and-bolts';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,6 +19,26 @@ const StyledIcon = styled(FontAwesomeIcon)`
   font-size: 2em;
 `;
 
+const Select = styled.select`
+  margin: 0 0.5ch;
+  border: 0;
+  padding: 0.75em 2ch;
+  border-radius: 2px;
+  color: ${palette.gray.contrast}
+  background-color: ${palette.gray.normal};
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  :hover {
+    background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+  }
+
+  > option {
+    font-weight: normal;
+  }
+`;
+
 const languageList = Object.keys(supportedLanguages);
 
 export const PureLanguageToggle = ({ currentLang, setLang }) => {
@@ -27,9 +48,9 @@ export const PureLanguageToggle = ({ currentLang, setLang }) => {
   return (
     <Wrapper>
       <StyledIcon icon={['fas', 'language']} />
-      <select value={currentLang()} onChange={setLang}>
+      <Select value={currentLang()} onChange={setLang}>
         {options}
-      </select>
+      </Select>
     </Wrapper>
   );
 }

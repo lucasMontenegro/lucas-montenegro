@@ -1,4 +1,4 @@
 import palette from './palette';
-import { LocalLink, ExternalLink } from './links';
+import ContentLink from './ContentLink';
 
-export { palette, LocalLink, ExternalLink };
+export { palette, ContentLink };

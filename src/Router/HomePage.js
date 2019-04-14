@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { LocalLink, ExternalLink } from '../nuts-and-bolts';
+import { ContentLink } from '../nuts-and-bolts';
 import Spinner from './Spinner';
 
 export const PureHomePage = ({ t }) => (
@@ -15,7 +15,7 @@ export const PureHomePage = ({ t }) => (
       <p>
         <Trans i18nKey="home.welcome.thisWebsite">
           start
-          <LocalLink to="/my-projects">link</LocalLink>
+          <ContentLink local to="/my-projects">link</ContentLink>
           end
         </Trans>
       </p>
@@ -54,20 +54,20 @@ export const PureHomePage = ({ t }) => (
       <header><h3>{t('home.contact.title')}</h3></header>
       <ul>
         <li>
-          <ExternalLink
+          <ContentLink
             href="https://www.linkedin.com/in/lucas-montenegro-1b191915a/"
           >
             <FontAwesomeIcon icon={['fab', 'linkedin']} />
             &nbsp;
             Linkedin
-          </ExternalLink>
+          </ContentLink>
         </li>
         <li>
-          <ExternalLink href="https://github.com/lucasMontenegro/">
+          <ContentLink href="https://github.com/lucasMontenegro/">
             <FontAwesomeIcon icon={['fab', 'github']} />
             &nbsp;
             GitHub
-          </ExternalLink>
+          </ContentLink>
         </li>
       </ul>
     </section>

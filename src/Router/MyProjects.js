@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LocalLink } from '../nuts-and-bolts';
+import { ContentLink } from '../nuts-and-bolts';
 import Spinner from './Spinner';
 
 export const PureMyProjects = ({ t }) => (
@@ -12,14 +12,14 @@ export const PureMyProjects = ({ t }) => (
     </p>
       <ul>
         <li>
-          <LocalLink to="/todo">
+          <ContentLink local to="/todo">
             {t('myProjects.apps.todo.title')}
-          </LocalLink>
+          </ContentLink>
         </li>
         <li>
-          <LocalLink to="/json-editor">
+          <ContentLink local to="/json-editor">
             {t('myProjects.apps.jsonEditor.title')}
-          </LocalLink>
+          </ContentLink>
         </li>
       </ul>
   </main>

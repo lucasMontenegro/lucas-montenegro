@@ -7,6 +7,7 @@ import HomePage from './HomePage';
 import MyProjects from './MyProjects';
 import TodoList from '../TodoList';
 import JsonEditor from '../JsonEditor';
+import { palette } from '../nuts-and-bolts';
 
 
 const SizingDiv = styled.div`
@@ -17,7 +18,7 @@ const SizingDiv = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  border: 0.1ch solid #03ce0b;
+  border: 0.1ch solid ${palette.lightGreen};
   border-radius: 2px;
   padding: 0.9ch;
   min-height: 35em;

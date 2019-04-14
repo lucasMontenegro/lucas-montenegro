@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import LanguageToggle from './LanguageToggle';
 import Spinner from '../Spinner';
+import { palette } from '../../nuts-and-bolts';
 
 const NavBarLink = styled(NavLink).attrs({
   activeClassName: 'active'
@@ -13,7 +14,11 @@ const NavBarLink = styled(NavLink).attrs({
   color: black;
 
   &.active {
-    color: #03ce0b;
+    color: ${palette.green};
+  }
+
+  &:hover {
+    color: ${palette.lightGreen};
   }
 `;
 

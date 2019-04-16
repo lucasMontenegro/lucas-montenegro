@@ -1,70 +1,30 @@
 import React, { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from "react-router-dom";
-import styled from 'styled-components';
 
-import LanguageToggle from './LanguageToggle';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import { LinkContainer } from 'react-router-bootstrap';
 import Spinner from '../Spinner';
-import { palette } from '../../nuts-and-bolts';
-
-const NavBarLink = styled(NavLink).attrs({
-  activeClassName: 'active'
-})`
-  text-decoration: none;
-  color: black;
-
-  &.active {
-    color: ${palette.green.normal};
-  }
-
-  &:hover {
-    color: ${palette.green.light};
-  }
-`;
-
-const Nav = styled.nav`
-  & * {
-    box-sizing: border-box;
-  }
-
-  & > ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-
-    margin: 0;
-    border: 0;
-    padding: 0;
-    height: 3em;
-
-    > li:first-child {
-      margin-right: auto;
-    }
-
-    > li {
-      margin: 0 1ch;
-    }
-  }
-`;
+import LanguageDropDown from './LanguageDropDown';
 
 export const PureNavBar = ({ t }) => (
-  <Nav>
-    <ul>
-      <li>
-        <NavBarLink exact to="/">Lucas Montenegro</NavBarLink>
-      </li>
-      <li>
-        <NavBarLink exact to="/my-projects">
-          {t('myProjects.title')}
-        </NavBarLink>
-      </li>
-      <li>
-        <LanguageToggle />
-      </li>
-    </ul>
-  </Nav>
+  <Navbar bg="light">
+    <LinkContainer exact to="/">
+      <Navbar.Brand>Lucas Montenegro</Navbar.Brand>
+    </LinkContainer>
+    <Nav className="mr-auto">
+      <Nav.Item>
+        <LinkContainer exact to="/my-projects">
+          <Nav.Link>{t('myProjects.title')}</Nav.Link>
+        </LinkContainer>
+      </Nav.Item>
+    </Nav>
+    <LanguageDropDown />
+  </Navbar>
 );
 
 export const LazyNavBar = () => {

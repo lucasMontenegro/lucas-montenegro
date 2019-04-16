@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './state';
-import { Button } from '../nuts-and-bolts';
+import { Button } from '../../nuts-and-bolts';
 
 const { updateKey, saveKey, closeKeyEditor } = actions;
 

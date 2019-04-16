@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import JsonSwitch from './JsonSwitch';
+import JsonSwitch from '../JsonSwitch';
 import ObjectKeyEditor from './ObjectKeyEditor';
 
 export const PureJsonEditor = ({ id }) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actions } from './state';
+import { actions } from './Editor/state';
 import JsonSwitch from './JsonSwitch';
 import { Button } from '../nuts-and-bolts';
 

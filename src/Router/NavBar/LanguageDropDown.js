@@ -13,7 +13,7 @@ export const PureLanguageDropDown = ({ setLang }) => {
     </Dropdown.Item>
   ));
   return (
-    <Dropdown onSelect={setLang}>
+    <Dropdown alignRight onSelect={setLang}>
       <Dropdown.Toggle variant="success" id="language-selection-dropdown">
         <FontAwesomeIcon
           icon={['fas', 'language']}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Container from 'react-bootstrap/Container';
 
 import NavBar from './NavBar';
 import HomePage from './HomePage';
@@ -8,12 +7,11 @@ import TodoList from '../TodoList';
 import JsonEditor from '../JsonEditor';
 
 export const PureRouter = ({ children }) => (
-  <Container>
+  <div>
     <NavBar />
     {children}
-  </Container>
+  </div>
 );
-
 
 const Router = () => (
   <BrowserRouter>

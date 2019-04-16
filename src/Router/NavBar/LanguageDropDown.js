@@ -6,7 +6,7 @@ import supportedLanguages from './supported-languages.json';
 
 const languageList = Object.keys(supportedLanguages);
 
-export const PureLanguageDropDownNew = ({ setLang }) => {
+export const PureLanguageDropDown = ({ setLang }) => {
   const items = languageList.map(lang => (
     <Dropdown.Item key={lang} eventKey={lang}>
       {supportedLanguages[lang]}
@@ -14,7 +14,7 @@ export const PureLanguageDropDownNew = ({ setLang }) => {
   ));
   return (
     <Dropdown onSelect={setLang}>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle variant="success" id="language-selection-dropdown">
         <FontAwesomeIcon
           icon={['fas', 'language']}
           style={{ fontSize: '1.5em' }}
@@ -25,16 +25,16 @@ export const PureLanguageDropDownNew = ({ setLang }) => {
   );
 }
 
-export const LazyLanguageDropDownNew = () => {
+export const LazyLanguageDropDown = () => {
   const { i18n } = useTranslation();
   const setLang = lang => i18n.changeLanguage(lang);
-  return <PureLanguageDropDownNew setLang={setLang} />;
+  return <PureLanguageDropDown setLang={setLang} />;
 }
 
-const LanguageDropDownNew = () => (
+const LanguageDropDown = () => (
   <Suspense fallback={<span>...</span>}>
-    <LazyLanguageDropDownNew />
+    <LazyLanguageDropDown />
   </Suspense>
 );
 
-export default LanguageDropDownNew;
+export default LanguageDropDown;

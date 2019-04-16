@@ -3,7 +3,7 @@
     "welcome": {
       "header": "Welcome To My Personal Website",
       "hi": "Hi! My name is Lucas Montenegro and I am Junior Web Developer from Argentina. I've been teaching myself programming since 2018 and now I'm looking to get my first job as a software developer.",
-      "thisWebsite": "This is my personal website where I host the learning projects I'm working on. Take a look at them in <1>My Projects</1>."
+      "thisWebsite": "This is my personal website where I host the learning projects I'm working on. Take a look at them <1>below</1>."
     },
     "skills": {
       "title": "My Skills",

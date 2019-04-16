@@ -15,7 +15,7 @@ export const PureHomePage = ({ t }) => (
       <p>
         <Trans i18nKey="home.welcome.thisWebsite">
           start
-          <ContentLink local to="/my-projects">link</ContentLink>
+          <a href="#my-projects">link</a>
           end
         </Trans>
       </p>
@@ -50,7 +50,7 @@ export const PureHomePage = ({ t }) => (
         <li>Webpack</li>
       </ul>
     </section>
-    <section>
+    <section id="my-projects">
       <header><h3>{t('myProjects.title')}</h3></header>
       <p>
         {t('myProjects.description')}

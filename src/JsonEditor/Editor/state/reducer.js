@@ -5,7 +5,8 @@ import {
   EDIT_OBJECT_KEY,
   UPDATE_KEY,
   SAVE_KEY,
-  CLOSE_KEY_EDITOR
+  CLOSE_KEY_EDITOR,
+  UPDATE_CURSOR_ID
 } from './actions';
 import { normalize } from './normalize-json';
 import data from './normalize-json/data.json';
@@ -13,6 +14,7 @@ import data from './normalize-json/data.json';
 const initState = () => {
   const state = normalize(data);
   state.keyEditor = {};
+  state.cursorID = state.id;
   return state;
 }
 
@@ -103,6 +105,10 @@ function reducer (state, action) {
 
     case CLOSE_KEY_EDITOR: {
       return { ...state, keyEditor: {} };
+    }
+
+    case UPDATE_CURSOR_ID: {
+      return { ...state, cursorID: action.id };
     }
 
     default:

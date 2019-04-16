@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { actions } from './Editor/state';
 import JsonSwitch from './JsonSwitch';
 import { Button } from '../nuts-and-bolts';
+import Cursor from './Cursor';
 
 const { editObjectKey } = actions;
 
-export const PureObjectCmp = ({ kids, onEdit }) => {
+export const PureObjectCmp = ({ id, kids, onEdit }) => {
   const children = Object.keys(kids).sort().map(name => {
     const id = kids[name];
     if (!id) return <li><em>empty</em></li>;
@@ -21,12 +22,17 @@ export const PureObjectCmp = ({ kids, onEdit }) => {
       </li>
     );
   });
-  return <ul style={{ border: '1px solid black' }}>{children}</ul>;
+  return (
+    <div>
+      <Cursor id={id} />
+      <ul style={{ border: '1px solid black' }}>{children}</ul>
+    </div>
+  );
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const { kids } = state.jsonEditor.byID[ownProps.id];
-  return { kids };
+const mapStateToProps = ({ jsonEditor }, { id }) => {
+  const { kids } = jsonEditor.byID[id];
+  return { id, kids };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -1,21 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './Editor/state';
+import Cursor from './Cursor';
 
 const { updateString } = actions;
 
-export const PureStringCmp = ({ value, onChange }) => (
-  <input
-    type="text"
-    value={value}
-    onChange={onChange}
-    style={{ color: 'green' }}
-    />
+export const PureStringCmp = ({ id, value, onChange }) => (
+  <div>
+    <Cursor id={id} />
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      style={{ color: 'green' }}
+      />
+  </div>
 );
 
-const mapStateToProps = (state, ownProps) => {
-  const { value } = state.jsonEditor.byID[ownProps.id];
-  return { value };
+const mapStateToProps = ({ jsonEditor }, { id }) => {
+  const { value } = jsonEditor.byID[id];
+  return { id, value };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

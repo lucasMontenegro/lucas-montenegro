@@ -51,6 +51,24 @@ export const PureHomePage = ({ t }) => (
       </ul>
     </section>
     <section>
+      <header><h3>{t('myProjects.title')}</h3></header>
+      <p>
+        {t('myProjects.description')}
+      </p>
+        <ul>
+          <li>
+            <ContentLink local to="/todo">
+              {t('myProjects.apps.todo.title')}
+            </ContentLink>
+          </li>
+          <li>
+            <ContentLink local to="/json-editor">
+              {t('myProjects.apps.jsonEditor.title')}
+            </ContentLink>
+          </li>
+        </ul>
+    </section>
+    <section>
       <header><h3>{t('home.contact.title')}</h3></header>
       <ul>
         <li>

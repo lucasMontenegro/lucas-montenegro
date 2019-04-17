@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import HomePage from './HomePage';
 import TodoList from '../TodoList';
-import JsonEditor from '../JsonEditor';
+import JsonEditor from '../NewJsonEditor';
 
 export const PureRouter = ({ children }) => (
   <div>

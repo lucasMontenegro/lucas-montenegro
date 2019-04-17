@@ -1,25 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actions } from './Editor/state';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { actions } from './Editor/state';
 
-const { updateCursorID } = actions;
+const {
+  updateCursor
+} = actions;
 
-export const PureCursor = ({ active, handleClick }) => (
+export const PureCursor = ({ id, cursorID, handleClick }) => (
   <Button
-    variant={active ? 'primary' : 'secondary'}
+    variant={id === cursorID ? 'primary' : 'secondary'}
     onClick={handleClick}
     >
     <FontAwesomeIcon icon={['fas', 'arrow-circle-right']} />
   </Button>
 );
 
-const mapStateToProps = ({ jsonEditor }, { id }) => 
-  ({ active: jsonEditor.cursor.id === id });
+const mapStateToProps = (state, ownProps) => {
+  const { id } = ownProps;
+  const { cursorID } = state.jsonEditor.canvas;
+  return { cursorID, id };
+}
 
-const mapDispatchToProps = (dispatch, { id }) => 
-  ({ handleClick: e => dispatch(updateCursorID(id)) });
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { id } = ownProps;
+  return {
+    handleClick: () => dispatch(updateCursor(id))
+  };
+}
 
 const Cursor = connect(
   mapStateToProps,

@@ -2,7 +2,7 @@ import React from 'react';
 import Root from '../Root';
 import ObjectKeyEditor from './ObjectKeyEditor';
 import OpenImportModal from './OpenImportModal';
-import ImportModal from './ImportModal';
+import ImportModal from '../ImportModal';
 
 export const PureJsonEditor = () => (
   <div>

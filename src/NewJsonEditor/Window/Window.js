@@ -1,16 +1,13 @@
 import React from 'react';
-import Root from '../Root';
-import ObjectKeyEditor from './ObjectKeyEditor';
+import Canvas from '../Canvas';
 import OpenImportModal from './OpenImportModal';
-import ImportModal from './ImportModal';
 
 export const PureJsonEditor = () => (
   <div>
     <h3>Json Editor</h3>
-    <Root />
-    <ObjectKeyEditor />
+    <Canvas />
+    <hr />
     <OpenImportModal />
-    <ImportModal />
   </div>
 );
 

@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
 import { todoListRdr } from './TodoList';
-import { jsonEditorRdr } from './NewJsonEditor';
+import { reducer as jsonEditorRdr } from './NewJsonEditor';
 
 const store = createStore(combineReducers({
   todoList: todoListRdr,

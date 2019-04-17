@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { actions } from './state';
+import ImportModal, { actions } from '../ImportModal';
 
-const { openImportModal } = actions;
+const {
+  open
+} = actions;
 
 export const PureOpenImportModal = ({ content, handleClick }) => (
   <div>
-    <hr />
+    <ImportModal />
     <Button
       variant="primary"
       disabled={content !== null}
@@ -19,15 +21,15 @@ export const PureOpenImportModal = ({ content, handleClick }) => (
 );
 
 const mapStateToProps = state => {
-  const { content } = state.jsonEditor.raw;
+  const { content } = state.jsonEditor.importModal;
   return { content };
 }
 
-const mapDispatchToProps = dispatch => ({
-  handleClick (e) {
-    dispatch(openImportModal());
-  }
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    handleClick: () => dispatch(open())
+  };
+};
 
 const OpenImportModal = connect(
   mapStateToProps,

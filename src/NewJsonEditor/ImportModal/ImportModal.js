@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { actions } from './state';
-import { actions as canvasActions } from '../Canvas';
+import { actions as canvasActions } from '../Canvas/state';
 
 const {
   update,

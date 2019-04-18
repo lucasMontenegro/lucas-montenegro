@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Cursor from './Cursor';
+import Cursor from '../Cursor';
+import Switch from './Switch';
 
-export const PureRoot = ({ rootID }) => (
+export const PureCanvas = ({ rootID }) => (
   <div>
     <Cursor id={null} />
     &nbsp;
-    {rootID || (<em>empty</em>)}
+    {
+      rootID === null
+      ? <div><em>empty</em></div>
+      : <Switch id={rootID} />
+    }
   </div>
 );
 
@@ -15,8 +20,8 @@ const mapStateToProps = state => {
   return { rootID };
 }
 
-const Root = connect(
+const Canvas = connect(
   mapStateToProps
-)(PureRoot);
+)(PureCanvas);
 
-export default Root;
+export default Canvas;

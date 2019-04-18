@@ -1,18 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import Cursor from '../Cursor';
 import Switch from './Switch';
 
+const EmptyWrapper = styled.div`
+  color: gray;
+  height: 10em;
+  width: 16em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const PureCanvas = ({ rootID }) => (
-  <div>
-    <Cursor id={null} />
-    &nbsp;
+  <Cursor id={null}>
     {
       rootID === null
-      ? <div><em>empty</em></div>
+      ? <EmptyWrapper><em>empty</em></EmptyWrapper>
       : <Switch id={rootID} />
     }
-  </div>
+  </Cursor>
 );
 
 const mapStateToProps = state => {

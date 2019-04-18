@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-//import Container from 'react-bootstrap/Container';
 import { actions } from './state';
 import { actions as canvasActions } from '../Canvas';
 
@@ -41,8 +40,6 @@ export const PureImportModal = props => {
         <Modal.Title>Importing Raw JSON</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {/*<Container>
-        </Container>*/}
         <textarea
           value={content}
           onChange={handleChange}

@@ -23,3 +23,9 @@ export const updateString = (id, value) => ({
   id,
   value
 });
+
+export const TOGGLE_BOOLEAN = 'jsonEditor/canvas/TOGGLE_BOOLEAN';
+export const toggleBoolean = id => ({
+  type: TOGGLE_BOOLEAN,
+  id
+});

@@ -3,7 +3,8 @@ import {
   IMPORT_RAW,
   UPDATE_CURSOR,
   UPDATE_NUMBER,
-  UPDATE_STRING
+  UPDATE_STRING,
+  TOGGLE_BOOLEAN
 } from './actions';
 
 export default (state, action) => {
@@ -62,6 +63,21 @@ export default (state, action) => {
           [id]: {
             ...elem,
             value
+          }
+        }
+      };
+    }
+    case TOGGLE_BOOLEAN: {
+      const { id } = action;
+      const { byID } = state;
+      const elem = byID[id];
+      return {
+        ...state,
+        byID: {
+          ...byID,
+          [id]: {
+            ...elem,
+            value: !elem.value
           }
         }
       };

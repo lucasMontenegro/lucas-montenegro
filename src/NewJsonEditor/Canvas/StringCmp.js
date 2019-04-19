@@ -5,23 +5,23 @@ import Form from 'react-bootstrap/Form';
 
 const { updateString } = actions;
 
-export const PureStringCmp = ({ id, value, onChange }) => (
+export const PureStringCmp = ({ value, handleChange }) => (
   <Form.Control
     as="textarea"
     value={value}
-    onChange={onChange}
+    onChange={handleChange}
     style={{ color: 'green' }}
     />
 );
 
 const mapStateToProps = (state, { id }) => {
   const { value } = state.jsonEditor.canvas.byID[id];
-  return { id, value };
+  return { value };
 }
 
 const mapDispatchToProps = (dispatch, { id }) => {
   return {
-    onChange: e => {
+    handleChange: e => {
       dispatch(updateString(id, e.target.value))
     }
   };

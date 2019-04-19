@@ -1,39 +1,50 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { actions } from '../Canvas/state';
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 0.2em;
+  display: grid;
+  grid: auto / 3em auto
+  align-items: start;
+  grid-gap: 1ch;
+  padding: 1ch;
 
-  & > * {
-    margin: 0.2em;
-  }
-`;
-
-const Border = styled.div`
   border: 0.1em solid gray;
   border-radius: 0.25rem;
-  padding: 0.5em;
 `;
 
-export const PureCursor = ({ id, cursorID, handleClick, children }) => (
-  <Wrapper>
-    <Button
-      variant={id === cursorID ? 'primary' : 'secondary'}
-      onClick={handleClick}
-      >
-      <FontAwesomeIcon icon={['fas', 'arrow-circle-right']} />
-    </Button>
-    <Border>{children}</Border>
-  </Wrapper>
-);
+export const PureCursor = props => {
+  const {
+    id,
+    cursorID,
+    handleClick,
+    expand,
+    children
+  } = props;
+  const content = (
+    <Wrapper>
+      <Button
+        variant={id === cursorID ? 'primary' : 'secondary'}
+        onClick={handleClick}
+        >
+        <FontAwesomeIcon icon={['fas', 'arrow-circle-right']} />
+      </Button>
+      <div>{children}</div>
+    </Wrapper>
+  );
+  if (expand) return content;
+  return (
+    <Container style={{ margin: '0', padding: '0' }}>
+      {content}
+    </Container>
+  );
+}
+
+  
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps;

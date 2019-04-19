@@ -1,32 +1,74 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import Cursor from '../Cursor';
-import Switch from './Switch';
 
-const EmptyWrapper = styled.div`
-  color: gray;
-  height: 10em;
-  width: 16em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
+import EmptyCmp from './EmptyCmp';
+import NullCmp from './NullCmp';
+//import BooleanCmp from './BooleanCmp';
+//import StringCmp from './StringCmp';
+//import NumberCmp from './NumberCmp';
+//import ArrayCmp from './ArrayCmp';
+//import ObjectCmp from './ObjectCmp';
 
-export const PureCanvas = ({ rootID }) => (
-  <Cursor id={null}>
-    {
-      rootID === null
-      ? <EmptyWrapper><em>empty</em></EmptyWrapper>
-      : <Switch id={rootID} />
+export const PureCanvas = ({ id, type }) => {
+  let content;
+  let expand = false;
+  switch (type) {
+    case 'empty':
+    content = <EmptyCmp />;
+    expand = true;
+    break
+
+    case 'null':
+    content = <NullCmp />;
+    break
+
+    case 'boolean':
+    //return <BooleanCmp id={id} />;
+    content = <div>boolean: {id}</div>;
+    break
+
+    case 'string':
+    //return <StringCmp id={id} />;
+    content = <div>string: {id}</div>;
+    break
+
+    case 'number':
+    //return <NumberCmp id={id} />;
+    content = <div>number: {id}</div>;
+    break
+
+    case 'array':
+    //return <ArrayCmp id={id} />;
+    content = <div>array: {id}</div>;
+    break
+
+    case 'object':
+    //return <ObjectCmp id={id} />;
+    content = <div>object: {id}</div>;
+    break
+
+    default:
+    if (process.env.NODE_ENV !== 'production') {
+      const str = `JsonEditor.Canvas.Canvas - Unexpected Datatype: ${type}`;
+      throw TypeError(str);
     }
-  </Cursor>
-);
+    //return <ErrorCmp />;
 
-const mapStateToProps = state => {
-  const { rootID } = state.jsonEditor.canvas;
-  return { rootID };
+    content = <div>Error</div>;
+  }
+  return <Cursor id={null} expand={expand}>{content}</Cursor>;
+}
+
+const mapStateToProps = (state, { id }) => {
+  if (typeof id === 'undefined') {
+    id = state.jsonEditor.canvas.rootID;
+  }
+  if (id === null) {
+    return { id: null, type: 'empty' };
+  }
+  const { type } = state.jsonEditor.canvas.byID[id];
+  return { id, type };
 }
 
 const Canvas = connect(

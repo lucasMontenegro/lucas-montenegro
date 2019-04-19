@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import ImportModal, { actions } from '../ImportModal';
+import ImportModal from '../ImportModal';
+import { actions } from '../ImportModal/state';
 
 const {
   open

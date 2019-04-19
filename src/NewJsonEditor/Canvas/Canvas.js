@@ -1,22 +1,78 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Cursor from './Cursor';
+import Cursor from '../Cursor';
 
-export const PureRoot = ({ rootID }) => (
-  <div>
-    <Cursor id={null} />
-    &nbsp;
-    {rootID || (<em>empty</em>)}
-  </div>
-);
+import EmptyCmp from './EmptyCmp';
+import NullCmp from './NullCmp';
+//import BooleanCmp from './BooleanCmp';
+//import StringCmp from './StringCmp';
+//import NumberCmp from './NumberCmp';
+//import ArrayCmp from './ArrayCmp';
+//import ObjectCmp from './ObjectCmp';
 
-const mapStateToProps = state => {
-  const { rootID } = state.jsonEditor.canvas;
-  return { rootID };
+export const PureCanvas = ({ id, type }) => {
+  let content;
+  let expand = false;
+  switch (type) {
+    case 'empty':
+    content = <EmptyCmp />;
+    expand = true;
+    break
+
+    case 'null':
+    content = <NullCmp />;
+    break
+
+    case 'boolean':
+    //return <BooleanCmp id={id} />;
+    content = <div>boolean: {id}</div>;
+    break
+
+    case 'string':
+    //return <StringCmp id={id} />;
+    content = <div>string: {id}</div>;
+    break
+
+    case 'number':
+    //return <NumberCmp id={id} />;
+    content = <div>number: {id}</div>;
+    break
+
+    case 'array':
+    //return <ArrayCmp id={id} />;
+    content = <div>array: {id}</div>;
+    break
+
+    case 'object':
+    //return <ObjectCmp id={id} />;
+    content = <div>object: {id}</div>;
+    break
+
+    default:
+    if (process.env.NODE_ENV !== 'production') {
+      const str = `JsonEditor.Canvas.Canvas - Unexpected Datatype: ${type}`;
+      throw TypeError(str);
+    }
+    //return <ErrorCmp />;
+
+    content = <div>Error</div>;
+  }
+  return <Cursor id={null} expand={expand}>{content}</Cursor>;
 }
 
-const Root = connect(
-  mapStateToProps
-)(PureRoot);
+const mapStateToProps = (state, { id }) => {
+  if (typeof id === 'undefined') {
+    id = state.jsonEditor.canvas.rootID;
+  }
+  if (id === null) {
+    return { id: null, type: 'empty' };
+  }
+  const { type } = state.jsonEditor.canvas.byID[id];
+  return { id, type };
+}
 
-export default Root;
+const Canvas = connect(
+  mapStateToProps
+)(PureCanvas);
+
+export default Canvas;

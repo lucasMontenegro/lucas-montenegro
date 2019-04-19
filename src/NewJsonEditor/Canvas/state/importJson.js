@@ -1,6 +1,6 @@
-import createID from './create-id';
+import createID from './createID';
 
-export default const importJson = (raw, byID, parentID) => {
+const importJson = (raw, byID, parentID) => {
   const id = createID();
   const result = byID[id] = { id, parentID };
 
@@ -29,13 +29,15 @@ export default const importJson = (raw, byID, parentID) => {
     break
 
     case 'boolean':
-    result.value = raw ? 'true' : 'false';
+    result.value = raw;
     break
 
     default:
     type = 'string';
-    result.value = '"JSON Error: Unexpected Datatype"';
+    result.value = '"JSON Editor Error: Unexpected Datatype"';
   }
   result.type = type;
   return id;
 }
+
+export default importJson;

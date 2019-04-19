@@ -4,9 +4,9 @@ import Cursor from '../Cursor';
 
 import EmptyCmp from './EmptyCmp';
 import NullCmp from './NullCmp';
-//import BooleanCmp from './BooleanCmp';
-//import StringCmp from './StringCmp';
-//import NumberCmp from './NumberCmp';
+import BooleanCmp from './BooleanCmp';
+import StringCmp from './StringCmp';
+import NumberCmp from './NumberCmp';
 //import ArrayCmp from './ArrayCmp';
 //import ObjectCmp from './ObjectCmp';
 
@@ -24,18 +24,15 @@ export const PureCanvas = ({ id, type }) => {
     break
 
     case 'boolean':
-    //return <BooleanCmp id={id} />;
-    content = <div>boolean: {id}</div>;
+    content = <BooleanCmp id={id} />;
     break
 
     case 'string':
-    //return <StringCmp id={id} />;
-    content = <div>string: {id}</div>;
+    content = <StringCmp id={id} />;
     break
 
     case 'number':
-    //return <NumberCmp id={id} />;
-    content = <div>number: {id}</div>;
+    content = <NumberCmp id={id} />;
     break
 
     case 'array':

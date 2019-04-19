@@ -44,8 +44,6 @@ export const PureCursor = props => {
   );
 }
 
-  
-
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps;
   const { cursorID } = state.jsonEditor.canvas;
@@ -55,6 +53,7 @@ const mapStateToProps = (state, ownProps) => {
 const {
   updateCursor
 } = actions;
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { id } = ownProps;
   return {

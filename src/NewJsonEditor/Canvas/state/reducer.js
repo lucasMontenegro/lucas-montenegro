@@ -1,7 +1,10 @@
 import importJson from './importJson';
 import {
   IMPORT_RAW,
-  UPDATE_CURSOR
+  UPDATE_CURSOR,
+  UPDATE_NUMBER,
+  UPDATE_STRING,
+  TOGGLE_BOOLEAN
 } from './actions';
 
 export default (state, action) => {
@@ -34,6 +37,51 @@ export default (state, action) => {
       ...state,
       cursorID: action.id
     };
+    case UPDATE_NUMBER: {
+      const { id, value } = action;
+      const { byID } = state;
+      const elem = byID[id];
+      return {
+        ...state,
+        byID: {
+          ...byID,
+          [id]: {
+            ...elem,
+            value: value.replace(/[^0-9]/gm, '')
+          }
+        }
+      };
+    }
+    case UPDATE_STRING: {
+      const { id, value } = action;
+      const { byID } = state;
+      const elem = byID[id];
+      return {
+        ...state,
+        byID: {
+          ...byID,
+          [id]: {
+            ...elem,
+            value
+          }
+        }
+      };
+    }
+    case TOGGLE_BOOLEAN: {
+      const { id } = action;
+      const { byID } = state;
+      const elem = byID[id];
+      return {
+        ...state,
+        byID: {
+          ...byID,
+          [id]: {
+            ...elem,
+            value: !elem.value
+          }
+        }
+      };
+    }
     default:
     return state;
   }

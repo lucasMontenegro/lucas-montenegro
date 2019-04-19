@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './state';
+import Form from 'react-bootstrap/Form';
 
 const { updateString } = actions;
 
 export const PureStringCmp = ({ id, value, onChange }) => (
-  <div>
-    <input
-      type="text"
-      value={value}
-      onChange={onChange}
-      style={{ color: 'green' }}
-      />
-  </div>
+  <Form.Control
+    as="textarea"
+    value={value}
+    onChange={onChange}
+    style={{ color: 'green' }}
+    />
 );
 
 const mapStateToProps = (state, { id }) => {

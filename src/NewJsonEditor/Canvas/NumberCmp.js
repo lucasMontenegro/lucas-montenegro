@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actions } from './state';
+import Form from 'react-bootstrap/Form';
 
 const { updateNumber } = actions;
 
 export const PureNumberCmp = ({ id, value, onChange }) => (
-  <input
+  <Form.Control
     type="text"
     value={value}
     onChange={onChange}

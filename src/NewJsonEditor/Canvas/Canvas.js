@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SingleLineCursor } from '../cursor';
+import { SingleLineCursor, MultiLineCursor } from '../cursor';
 
 import EmptyCmp from './EmptyCmp';
 import NullCmp from './NullCmp';
@@ -38,9 +38,7 @@ export const PureCanvas = ({ id, type }) => {
 
     case 'string':
     return (
-      <SingleLineCursor id={id}>
-        <StringCmp id={id} />
-      </SingleLineCursor>
+      <MultiLineCursor id={id} render={StringCmp} />
     );
 
     case 'number':
@@ -91,7 +89,7 @@ const mapStateToProps = (state, { id }) => {
     case 'undefined': {
       const { rootID } = state.jsonEditor.canvas;
       if (typeof rootID !== 'string') {
-        return { type: 'emptyRoot' };
+        return { id: null, type: 'emptyRoot' };
       }
       const { type } = byID[rootID];
       return { id: rootID, type };

@@ -20,9 +20,9 @@ export const PureSingleLineCursor = props => {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, { id }) => {
   const { cursorID } = state.jsonEditor.canvas;
-  return { cursorID };
+  return { id, cursorID };
 }
 
 const {

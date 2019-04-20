@@ -5,11 +5,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { actions } from '../Canvas/state';
 import { CursorBtn, CollapseBtn } from './small-bits';
+import styled from 'styled-components';
+
+const Div = styled.div`
+  margin: 1em 0;
+`;
 
 export const PureMultiLineCursor = props => {
   const {
     id,
-    render,
+    render: Child,
     cursorID,
     collapsed,
     toggleFocus,
@@ -17,31 +22,35 @@ export const PureMultiLineCursor = props => {
   } = props;
   if (collapsed) {
     return (
-      <Container style={{ margin: '0', padding: '0' }}>
+      <Container style={{ margin: '0' }}>
         <Row>
-          <Col xs={1}>
-            <CursorBtn primary={id === cursorID} onClick={toggleFocus} />
+          <Col xs="auto">
+            <CursorBtn focused={id === cursorID} onClick={toggleFocus} />
           </Col>
-          <Col xs={1}>
-            <CollapseBtn collapsed={collapsed} onClick={toggleCollapse} />
+          <Col xs="auto">
+            <CollapseBtn collapsed={true} onClick={toggleCollapse} />
           </Col>
-          <Col xs={10}>{render(true)}</Col>
+          <Col>
+            <Child id={id} collapsed={true} />
+          </Col>
         </Row>
       </Container>
     );
   }
   return (
-    <Container style={{ margin: '0', padding: '0' }}>
+    <Container style={{ margin: '0' }}>
       <Row>
-        <Col xs={1}>
-          <CursorBtn primary={id === cursorID} onClick={toggleFocus} />
+        <Col xs="auto">
+          <CursorBtn focused={id === cursorID} onClick={toggleFocus} />
         </Col>
-        <Col xs={1}>
-          <CollapseBtn collapsed={collapsed} onClick={toggleCollapse} />
+        <Col xs="auto">
+          <CollapseBtn collapsed={false} onClick={toggleCollapse} />
         </Col>
       </Row>
       <Row>
-        <Col xs={12}>{render(false)}</Col>
+        <Col as={Div}>
+          <Child id={id} collapsed={false} />
+        </Col>
       </Row>
     </Container>
   );
@@ -55,13 +64,13 @@ const mapStateToProps = (state, { id }) => {
 
 const {
   updateCursor,
-  collapseElement
+  toggleElementCollapse
 } = actions;
 
 const mapDispatchToProps = (dispatch, { id }) => {
   return {
     toggleFocus: () => dispatch(updateCursor(id)),
-    toggleCollapse: () => dispatch(collapseElement(id))
+    toggleCollapse: () => dispatch(toggleElementCollapse(id))
   };
 }
 

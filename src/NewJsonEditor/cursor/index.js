@@ -1,2 +1,3 @@
 import SingleLineCursor from './SingleLineCursor';
-export { SingleLineCursor };
+import MultiLineCursor from './MultiLineCursor';
+export { SingleLineCursor, MultiLineCursor };

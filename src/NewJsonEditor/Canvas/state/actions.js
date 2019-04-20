@@ -10,6 +10,13 @@ export const updateCursor = id => ({
   id
 });
 
+export const TOGGLE_ELEMENT_COLLAPSE = 'jsonEditor/canvas/'
+  + 'TOGGLE_ELEMENT_COLLAPSE';
+export const toggleElementCollapse = id => ({
+  type: TOGGLE_ELEMENT_COLLAPSE,
+  id
+});
+
 export const UPDATE_NUMBER = 'jsonEditor/canvas/UPDATE_NUMBER';
 export const updateNumber = (id, value) => ({
   type: UPDATE_NUMBER,

@@ -2,6 +2,7 @@ import importJson from './importJson';
 import {
   IMPORT_RAW,
   UPDATE_CURSOR,
+  TOGGLE_ELEMENT_COLLAPSE,
   UPDATE_NUMBER,
   UPDATE_STRING,
   TOGGLE_BOOLEAN
@@ -19,16 +20,12 @@ export default (state, action) => {
   switch (action.type) {
     case IMPORT_RAW: {
       const { parsed } = action;
-      console.log(`${IMPORT_RAW} - Parsed JSON:`);
-      console.log(parsed);
-
       const byID = { ...state.byID };
       const rootID = importJson(parsed, byID, null);
-      console.log(`${IMPORT_RAW} - Normalized JSON:`);
-      console.log(byID);
       return {
         ...state,
         rootID,
+        cursorID: rootID,
         byID
       };
     }
@@ -37,6 +34,21 @@ export default (state, action) => {
       ...state,
       cursorID: action.id
     };
+    case TOGGLE_ELEMENT_COLLAPSE: {
+      const { id } = action;
+      const { byID } = state;
+      const elem = byID[id];
+      return {
+        ...state,
+        byID: {
+          ...byID,
+          [id]: {
+            ...elem,
+            collapsed: !elem.collapsed
+          }
+        }
+      };
+    }
     case UPDATE_NUMBER: {
       const { id, value } = action;
       const { byID } = state;

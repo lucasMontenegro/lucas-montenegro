@@ -1,12 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actions } from './state';
 import Button from 'react-bootstrap/Button';
+import styled from 'styled-components';
+import { actions } from './state';
 
 const { toggleBoolean } = actions;
 
+const SizedBtn = styled.button`
+  width: 100%;
+  max-width: 40ch;
+  margin-right: auto;
+`;
+
 export const PureBooleanCmp = ({ value, handleClick }) => (
   <Button
+    as={SizedBtn}
     variant={value ? 'success' : 'danger'}
     onClick={handleClick}
     >

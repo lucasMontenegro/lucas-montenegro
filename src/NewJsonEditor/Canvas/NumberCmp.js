@@ -1,12 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actions } from './state';
 import Form from 'react-bootstrap/Form';
+import styled from 'styled-components';
+import { actions } from './state';
 
 const { updateNumber } = actions;
 
+const Input = styled.input`
+  width: 100%;
+  max-width: 40ch;
+  margin-right: auto;
+`;
+
 export const PureNumberCmp = ({ value, handleChange }) => (
   <Form.Control
+    as={Input}
     type="text"
     value={value}
     onChange={handleChange}

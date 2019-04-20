@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { actions } from '../Canvas/state';
+import { CursorBtn } from './small-bits';
 
 const Wrapper = styled.div`
+  display: grid;
+  grid: auto / 3em auto
+  align-items: start;
+  grid-gap: 1ch;
+  padding: 1ch;
+
+  border: 0.1em solid gray;
+  border-radius: 0.25rem;
+`;
+
+const Oneliner = styled.div`
   display: grid;
   grid: auto / 3em auto
   align-items: start;
@@ -27,12 +37,7 @@ export const PureCursor = props => {
   } = props;
   const content = (
     <Wrapper>
-      <Button
-        variant={id === cursorID ? 'primary' : 'secondary'}
-        onClick={handleClick}
-        >
-        <FontAwesomeIcon icon={['fas', 'arrow-circle-right']} />
-      </Button>
+      <CursorBtn primary={id === cursorID} onClick={handleClick} />
       <div>{children}</div>
     </Wrapper>
   );

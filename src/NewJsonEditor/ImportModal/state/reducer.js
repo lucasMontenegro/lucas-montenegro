@@ -18,7 +18,7 @@ export default (state={ content: null }, action) => {
       try {
         return {
           content,
-          parsed: JSON.parse(content)
+          parsed: JSON.parse(content.replace(/\n/gm, '\\n'))
         };
       } catch (e) {
         return { content };

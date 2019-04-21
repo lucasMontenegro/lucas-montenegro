@@ -26,6 +26,8 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 import Title from './Title';
 
+import { LanguageButton, LanguageMenu } from './language-selection';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -99,11 +101,14 @@ const styles = theme => ({
 const PureNavBar = props => {
   const {
     t,
+    i18n,
     classes,
+    languageEl,
     anchorEl,
     mobileMoreAnchorEl,
   } = props;
 
+  const isLanguageMenuOpen = Boolean(languageEl);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -185,6 +190,10 @@ const PureNavBar = props => {
             />
           </div>
           <div className={classes.grow} />
+          <LanguageButton
+            open={isLanguageMenuOpen}
+            onClick={props.handleLanguageMenuOpen}
+          />
           <div className={classes.sectionDesktop}>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -218,6 +227,12 @@ const PureNavBar = props => {
       </AppBar>
       {renderMenu}
       {renderMobileMenu}
+      <LanguageMenu
+        i18n={i18n}
+        anchorEl={languageEl}
+        open={isLanguageMenuOpen}
+        onClose={props.handleLanguageMenuClose}
+      />
     </div>
   );
 }
@@ -226,8 +241,17 @@ const LazyNavBar = withTranslation()(PureNavBar);
 
 class NavBar extends React.Component {
   state = {
+    languageEl: null,
     anchorEl: null,
     mobileMoreAnchorEl: null,
+  };
+
+  handleLanguageMenuOpen = event => {
+    this.setState({ languageEl: event.currentTarget });
+  };
+
+  handleLanguageMenuClose = () => {
+    this.setState({ languageEl: null });
   };
 
   handleProfileMenuOpen = event => {
@@ -249,6 +273,8 @@ class NavBar extends React.Component {
 
   render() {
     const {
+      handleLanguageMenuOpen,
+      handleLanguageMenuClose,
       handleProfileMenuOpen,
       handleMenuClose,
       handleMobileMenuOpen,
@@ -256,6 +282,7 @@ class NavBar extends React.Component {
     } = this;
 
     const {
+      languageEl,
       anchorEl,
       mobileMoreAnchorEl
     } = this.state;
@@ -263,11 +290,14 @@ class NavBar extends React.Component {
     const { classes } = this.props;
 
     const props = {
+      handleLanguageMenuOpen,
+      handleLanguageMenuClose,
       handleProfileMenuOpen,
       handleMenuClose,
       handleMobileMenuOpen,
       handleMobileMenuClose,
 
+      languageEl,
       anchorEl,
       mobileMoreAnchorEl,
 

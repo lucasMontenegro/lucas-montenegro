@@ -1,13 +1,12 @@
 import React, { Suspense } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Container from 'react-bootstrap/Container';
 
 import { ContentLink } from '../nuts-and-bolts';
 import Spinner from './Spinner';
 
 export const PureHomePage = ({ t }) => (
-  <Container as="main" style={{ maxWidth: '80ch' }}>
+  <main style={{ maxWidth: '80ch', margin: '2em auto' }}>
     <section>
       <header><h3>{t('home.welcome.header')}</h3></header>
       <p>
@@ -90,7 +89,7 @@ export const PureHomePage = ({ t }) => (
         </li>
       </ul>
     </section>
-  </Container>
+  </main>
 );
 
 export const LazyHomePage = () => {

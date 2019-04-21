@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -11,7 +12,10 @@ import store from './store';
 import Router from './Router';
 
 ReactDOM.render(
-  <Provider store={store}><Router /></Provider>,
+  <Fragment>
+    <CssBaseline />
+    <Provider store={store}><Router /></Provider>
+  </Fragment>,
   document.getElementById('root')
 );
 

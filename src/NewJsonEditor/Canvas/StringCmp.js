@@ -29,6 +29,7 @@ export const PureStringCmp = ({ collapsed, value, handleChange }) => {
   return (
     <Form.Control
       as="textarea"
+      rows="10"
       value={value}
       onChange={handleChange}
       style={{ color: 'green' }}

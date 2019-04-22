@@ -12,7 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 import Title from './Title';
 import { LanguageButton, LanguageMenu } from './language-selection';
-import NavButton from '../NavButton';
+import NavButton from './NavButton';
 
 const styles = theme => ({
   root: {

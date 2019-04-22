@@ -8,9 +8,11 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 
 import Title from './Title';
 import { LanguageButton, LanguageMenu } from './language-selection';
+import NavButton from '../NavButton';
 
 const styles = theme => ({
   root: {
@@ -19,9 +21,13 @@ const styles = theme => ({
   grow: {
     flexGrow: 1,
   },
-  menuButton: {
+  homeButton: {
     marginLeft: -12,
     marginRight: 20,
+  },
+  menuButton: {
+    marginLeft: 20,
+    marginRight: -12,
   },
 });
 
@@ -39,13 +45,14 @@ const PureNavBar = props => {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            className={classes.menuButton}
+          <NavButton
+            to="/"
+            className={classes.homeButton}
             color="inherit"
             aria-label="Open drawer"
           >
-            <MenuIcon />
-          </IconButton>
+            <HomeIcon />
+          </NavButton>
           <Typography
             variant="h6"
             color="inherit"
@@ -58,6 +65,13 @@ const PureNavBar = props => {
             open={isLanguageMenuOpen}
             onClick={props.handleLanguageMenuOpen}
           />
+          <IconButton
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="Open drawer"
+          >
+            <MenuIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <LanguageMenu

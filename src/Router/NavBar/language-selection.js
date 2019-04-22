@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import LanguageIcon from '@material-ui/icons/Language';
 import supportedLanguages from './supported-languages.json';
 
-const languages = Object.keys(supportedLanguages);
+const langs = Object.keys(supportedLanguages);
 
 export const LanguageMenu = ({ i18n, anchorEl, open, onClose }) => (
   <Menu
@@ -15,7 +15,7 @@ export const LanguageMenu = ({ i18n, anchorEl, open, onClose }) => (
     open={open}
     onClose={onClose}
   >
-    {languages.map(lang => (
+    {langs.map(lang => (
       <MenuItem
         key={lang}
         onClick={() => {
@@ -29,8 +29,9 @@ export const LanguageMenu = ({ i18n, anchorEl, open, onClose }) => (
   </Menu>
 );
 
-export const LanguageButton = ({ open, onClick }) => (
+export const LanguageButton = ({ open, onClick, ...props }) => (
   <IconButton
+    {...props}
     aria-owns={open ? 'material-appbar' : undefined}
     aria-haspopup="true"
     onClick={onClick}

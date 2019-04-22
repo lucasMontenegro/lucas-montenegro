@@ -4,31 +4,31 @@ import PropTypes from 'prop-types';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
 
 import Title from './Title';
 import { LanguageButton, LanguageMenu } from './language-selection';
-import NavButton from './NavButton';
+import { navStyles, NavButton, NavDrawer } from './navigation';
+import LinkButton from './LinkButton';
 
 const styles = theme => ({
   root: {
     width: '100%',
   },
-  grow: {
-    flexGrow: 1,
-  },
-  homeButton: {
+  firstButton: {
     marginLeft: -12,
     marginRight: 20,
   },
-  menuButton: {
+  grow: {
+    flexGrow: 1,
+  },
+  lastButton: {
     marginLeft: 20,
     marginRight: -12,
   },
+  ...navStyles,
 });
 
 const PureNavBar = props => {
@@ -36,7 +36,8 @@ const PureNavBar = props => {
     t,
     i18n,
     classes,
-    languageAnchorEl
+    isNavDrawerOpen,
+    languageAnchorEl,
   } = props;
 
   const isLanguageMenuOpen = Boolean(languageAnchorEl);
@@ -46,13 +47,10 @@ const PureNavBar = props => {
       <AppBar position="static">
         <Toolbar>
           <NavButton
-            to="/"
-            className={classes.homeButton}
-            color="inherit"
-            aria-label="Open drawer"
-          >
-            <HomeIcon />
-          </NavButton>
+            className={classes.firstButton}
+            open={isNavDrawerOpen}
+            onClick={props.toggleNavDrawer}
+          />
           <Typography
             variant="h6"
             color="inherit"
@@ -61,17 +59,18 @@ const PureNavBar = props => {
             <Title t={t} />
           </Typography>
           <div className={classes.grow} />
-          <LanguageButton
-            open={isLanguageMenuOpen}
-            onClick={props.handleLanguageMenuOpen}
-          />
-          <IconButton
-            className={classes.menuButton}
+          <LinkButton
+            to="/"
             color="inherit"
             aria-label="Open drawer"
           >
-            <MenuIcon />
-          </IconButton>
+            <HomeIcon />
+          </LinkButton>
+          <LanguageButton
+            className={classes.lastButton}
+            open={isLanguageMenuOpen}
+            onClick={props.handleLanguageMenuOpen}
+          />
         </Toolbar>
       </AppBar>
       <LanguageMenu
@@ -79,6 +78,11 @@ const PureNavBar = props => {
         anchorEl={languageAnchorEl}
         open={isLanguageMenuOpen}
         onClose={props.handleLanguageMenuClose}
+      />
+      <NavDrawer
+        open={isNavDrawerOpen}
+        toggle={props.toggleNavDrawer}
+        classes={classes}
       />
     </div>
   );
@@ -88,8 +92,14 @@ const LazyNavBar = withTranslation()(PureNavBar);
 
 class NavBar extends React.Component {
   state = {
-    languageAnchorEl: null
+    isNavDrawerOpen: false,
+    languageAnchorEl: null,
   };
+
+  toggleNavDrawer = () => this.setState(state => ({
+    ...state,
+    isNavDrawerOpen: !state.isNavDrawerOpen
+  }));
 
   handleLanguageMenuOpen = event => {
     this.setState({ languageAnchorEl: event.currentTarget });
@@ -101,23 +111,27 @@ class NavBar extends React.Component {
 
   render() {
     const {
+      toggleNavDrawer,
       handleLanguageMenuOpen,
-      handleLanguageMenuClose
+      handleLanguageMenuClose,
     } = this;
 
     const {
-      languageAnchorEl
+      isNavDrawerOpen,
+      languageAnchorEl,
     } = this.state;
 
     const {
-      classes
+      classes,
     } = this.props;
 
     const props = {
+      toggleNavDrawer,
+      isNavDrawerOpen,
       handleLanguageMenuOpen,
       handleLanguageMenuClose,
       languageAnchorEl,
-      classes
+      classes,
     };
 
     const fb = (

@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import clone from 'lodash/clone';
 
-class NavButton extends React.Component {
+class LinkButton extends React.Component {
   Link = React.forwardRef((itemProps, ref) => (
     <RouterLink to={this.props.to} {...itemProps} ref={ref} />
   ));
@@ -17,4 +17,4 @@ class NavButton extends React.Component {
   }
 }
 
-export default NavButton;
+export default LinkButton;

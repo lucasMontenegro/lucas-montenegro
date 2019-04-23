@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
+import { withTranslation } from 'react-i18next';
 
 const routes = {
   '/': {
@@ -8,24 +9,29 @@ const routes = {
   },
   '/todo': {
     exact: true,
-    title: 'Todo List',
+    i18n: 'myProjects.apps.todo.title',
   }
 };
 const paths = Object.keys(routes);
 
-const PureTitleSwitch = ({ t }) => {
+const PureTitle = ({ t }) => {
   const children = paths.map(path => {
     const { exact, title, i18n } = routes[path];
+    const Text = title ? (() => title)
+      : i18n ? (() => t(i18n))
+      : undefined;
     return (
       <Route
         key={path}
         exact={exact}
         path={path}
-        component={() => title || (i18n ? t(i18n) : 'title')}
+        component={Text}
         />
     );
   });
   return <Switch>{children}</Switch>;
 }
 
-export default PureTitleSwitch;
+const LazyTitle = withTranslation()(PureTitle);
+
+export default LazyTitle;

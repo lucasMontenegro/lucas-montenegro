@@ -6,7 +6,7 @@ import clone from 'lodash/clone';
 
 export class IconLink extends React.Component {
   Link = React.forwardRef((itemProps, ref) => (
-    <RouterLink to={this.props.to} {...itemProps} innerRef={ref} />
+    <RouterLink {...itemProps} to={this.props.to} innerRef={ref} />
   ));
 
   render() {
@@ -20,9 +20,9 @@ export class IconLink extends React.Component {
 export class ListLinkItem extends React.Component {
   Link = React.forwardRef((itemProps, ref) => (
     <NavLink
+      {...itemProps}
       exact={this.props.exact}
       to={this.props.to}
-      {...itemProps}
       innerRef={ref}
     />
   ));

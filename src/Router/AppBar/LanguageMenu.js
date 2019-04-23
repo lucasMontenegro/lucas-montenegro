@@ -15,12 +15,16 @@ class LanguageMenu extends React.Component {
 
   handleOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
-  };
+  }
 
-  handleClose = lang => () => {
-    this.props.i18n.changeLanguage(lang);
+  handleClose = () => {
     this.setState({ anchorEl: null });
-  };
+  }
+
+  setLanguage = lang => () => {
+    this.props.i18n.changeLanguage(lang);
+    this.handleClose();
+  }
 
   render() {
     const {
@@ -32,6 +36,7 @@ class LanguageMenu extends React.Component {
     const {
       handleOpen,
       handleClose,
+      setLanguage,
     } = this;
 
     const isOpen = Boolean(anchorEl);
@@ -57,7 +62,7 @@ class LanguageMenu extends React.Component {
           {langs.map(lang => (
             <MenuItem
               key={lang}
-              onClick={handleClose(lang)}
+              onClick={setLanguage(lang)}
             >
               {supportedLanguages[lang]}
             </MenuItem>

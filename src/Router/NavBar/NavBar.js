@@ -11,7 +11,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import Title from './Title';
 import { LanguageButton, LanguageMenu } from './language-selection';
 import { navStyles, NavButton, NavDrawer } from './navigation';
-import LinkButton from './LinkButton';
+import { IconLink } from './links';
 
 const styles = theme => ({
   root: {
@@ -59,13 +59,13 @@ const PureNavBar = props => {
             <Title t={t} />
           </Typography>
           <div className={classes.grow} />
-          <LinkButton
+          <IconLink
             to="/"
             color="inherit"
             aria-label="Open drawer"
           >
             <HomeIcon />
-          </LinkButton>
+          </IconLink>
           <LanguageButton
             className={classes.lastButton}
             open={isLanguageMenuOpen}

@@ -4,11 +4,11 @@ import { Switch, Route } from "react-router-dom";
 const routes = {
   '/': {
     exact: true,
-    title: 'Lucas Montenegro'
+    title: 'Lucas Montenegro',
   },
   '/todo': {
     exact: true,
-    title: 'Todo List'
+    title: 'Todo List',
   }
 };
 const paths = Object.keys(routes);

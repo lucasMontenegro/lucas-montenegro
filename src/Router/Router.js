@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import NavBar from './NavBar';
+import AppBar from './AppBar';
 import HomePage from './HomePage';
 import TodoList from '../TodoList';
 //import JsonEditor from '../NewJsonEditor';
@@ -9,7 +9,7 @@ import TodoList from '../TodoList';
 export const PureRouter = ({ children }) => (
   <div>
     {/**/}
-    <NavBar />
+    <AppBar />
     {/**/}
     {children}
   </div>

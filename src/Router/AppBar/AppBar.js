@@ -2,14 +2,14 @@ import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
-import AppBar from '@material-ui/core/AppBar';
+import BaseAppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import HomeIcon from '@material-ui/icons/Home';
 
 import Title from './Title';
-import { LanguageButton, LanguageMenu } from './language-selection';
+import LanguageMenu from './LanguageMenu';
 import { navStyles, NavButton, NavDrawer } from './navigation';
 import { IconLink } from './links';
 
@@ -31,20 +31,16 @@ const styles = theme => ({
   ...navStyles,
 });
 
-const PureNavBar = props => {
+const PureAppBar = props => {
   const {
     t,
-    i18n,
     classes,
     isNavDrawerOpen,
-    languageAnchorEl,
   } = props;
-
-  const isLanguageMenuOpen = Boolean(languageAnchorEl);
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <BaseAppBar position="static">
         <Toolbar>
           <NavButton
             className={classes.firstButton}
@@ -66,19 +62,9 @@ const PureNavBar = props => {
           >
             <HomeIcon />
           </IconLink>
-          <LanguageButton
-            className={classes.lastButton}
-            open={isLanguageMenuOpen}
-            onClick={props.handleLanguageMenuOpen}
-          />
+          <LanguageMenu className={classes.lastButton} />
         </Toolbar>
-      </AppBar>
-      <LanguageMenu
-        i18n={i18n}
-        anchorEl={languageAnchorEl}
-        open={isLanguageMenuOpen}
-        onClose={props.handleLanguageMenuClose}
-      />
+      </BaseAppBar>
       <NavDrawer
         open={isNavDrawerOpen}
         toggle={props.toggleNavDrawer}
@@ -88,12 +74,11 @@ const PureNavBar = props => {
   );
 }
 
-const LazyNavBar = withTranslation()(PureNavBar);
+const LazyAppBar = withTranslation()(PureAppBar);
 
-class NavBar extends React.Component {
+class AppBar extends React.Component {
   state = {
     isNavDrawerOpen: false,
-    languageAnchorEl: null,
   };
 
   toggleNavDrawer = () => this.setState(state => ({
@@ -101,26 +86,13 @@ class NavBar extends React.Component {
     isNavDrawerOpen: !state.isNavDrawerOpen
   }));
 
-  handleLanguageMenuOpen = event => {
-    this.setState({ languageAnchorEl: event.currentTarget });
-  };
-
-  handleLanguageMenuClose = () => {
-    this.setState({ languageAnchorEl: null });
-  };
-
   render() {
     const {
       toggleNavDrawer,
-      handleLanguageMenuOpen,
-      handleLanguageMenuClose,
     } = this;
-
     const {
       isNavDrawerOpen,
-      languageAnchorEl,
     } = this.state;
-
     const {
       classes,
     } = this.props;
@@ -128,30 +100,25 @@ class NavBar extends React.Component {
     const props = {
       toggleNavDrawer,
       isNavDrawerOpen,
-      handleLanguageMenuOpen,
-      handleLanguageMenuClose,
-      languageAnchorEl,
       classes,
     };
 
-    const fb = (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar />
-        </AppBar>
-      </div>
-    );
-
     return (
-      <Suspense fallback={fb}>
-        <LazyNavBar {...props} />
+      <Suspense fallback={
+        <div className={classes.root}>
+          <BaseAppBar position="static">
+            <Toolbar />
+          </BaseAppBar>
+        </div>
+      }>
+        <LazyAppBar {...props} />
       </Suspense>
     );
   }
 }
 
-NavBar.propTypes = {
+AppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NavBar);
+export default withStyles(styles)(AppBar);

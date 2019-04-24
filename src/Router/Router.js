@@ -6,18 +6,10 @@ import HomePage from './HomePage';
 import TodoList from '../TodoList';
 //import JsonEditor from '../NewJsonEditor';
 
-export const PureRouter = ({ children }) => (
-  <div>
-    {/**/}
-    <AppBar />
-    {/**/}
-    {children}
-  </div>
-);
-
 const Router = () => (
   <BrowserRouter>
-    <PureRouter>
+    <div>
+      <AppBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/todo" component={TodoList} />
@@ -25,7 +17,7 @@ const Router = () => (
         <Route exact path="/json-editor" component={JsonEditor} />
         {/**/}
       </Switch>
-    </PureRouter>
+    </div>
   </BrowserRouter>
 );
 

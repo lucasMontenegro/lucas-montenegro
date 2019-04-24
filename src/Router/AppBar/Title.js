@@ -14,7 +14,7 @@ const routes = {
 };
 const paths = Object.keys(routes);
 
-const PureTitle = ({ t }) => {
+const Title = withTranslation()( ({ t }) => {
   const children = paths.map(path => {
     const { exact, title, i18n } = routes[path];
     const Text = title ? (() => title)
@@ -30,8 +30,6 @@ const PureTitle = ({ t }) => {
     );
   });
   return <Switch>{children}</Switch>;
-}
+});
 
-const LazyTitle = withTranslation()(PureTitle);
-
-export default LazyTitle;
+export default Title;

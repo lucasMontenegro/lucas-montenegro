@@ -7,9 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import HomeIcon from '@material-ui/icons/Home';
 
-import LazyTitle from './LazyTitle';
+import Title from './Title';
 import LanguageMenu from './LanguageMenu';
-import { navStyles, NavButton, NavDrawer } from './navigation';
+import NavDrawer from './NavDrawer';
 import { IconLink } from './links';
 
 const styles = theme => ({
@@ -27,77 +27,44 @@ const styles = theme => ({
     marginLeft: 20,
     marginRight: -12,
   },
-  ...navStyles,
 });
 
-class AppBar extends React.Component {
-  state = {
-    isNavDrawerOpen: false,
-  };
-
-  toggleNavDrawer = () => this.setState(state => ({
-    ...state,
-    isNavDrawerOpen: !state.isNavDrawerOpen
-  }));
-
-  render() {
-    const {
-      toggleNavDrawer,
-    } = this;
-    const {
-      isNavDrawerOpen,
-    } = this.state;
-    const {
-      classes,
-    } = this.props;
-
-    return (
-      <Suspense fallback={
-        <div className={classes.root}>
-          <BaseAppBar position="static">
-            <Toolbar />
-          </BaseAppBar>
-        </div>
-      }>
-        <div className={classes.root}>
-          <BaseAppBar position="static">
-            <Toolbar>
-              <NavButton
-                className={classes.firstButton}
-                open={isNavDrawerOpen}
-                onClick={toggleNavDrawer}
-              />
-              <Typography
-                variant="h6"
-                color="inherit"
-                noWrap
-              >
-                <LazyTitle />
-              </Typography>
-              <div className={classes.grow} />
-              <IconLink
-                to="/"
-                color="inherit"
-                aria-label="Open drawer"
-              >
-                <HomeIcon />
-              </IconLink>
-              <LanguageMenu className={classes.lastButton} />
-            </Toolbar>
-          </BaseAppBar>
-          <NavDrawer
-            open={isNavDrawerOpen}
-            toggle={toggleNavDrawer}
-            classes={classes}
-          />
-        </div>
-      </Suspense>
-    );
-  }
-}
+const AppBar = ({ classes }) => (
+  <Suspense fallback={
+    <div className={classes.root}>
+      <BaseAppBar position="static">
+        <Toolbar />
+      </BaseAppBar>
+    </div>
+  }>
+    <BaseAppBar className={classes.root} position="static">
+      <Toolbar>
+        <NavDrawer className={classes.firstButton} />
+        <Typography
+          variant="h6"
+          color="inherit"
+          noWrap
+        >
+          <Title />
+        </Typography>
+        <div className={classes.grow} />
+        <IconLink
+          to="/"
+          color="inherit"
+          aria-label="Open drawer"
+        >
+          <HomeIcon />
+        </IconLink>
+        <LanguageMenu className={classes.lastButton} />
+      </Toolbar>
+    </BaseAppBar>
+  </Suspense>
+);
 
 AppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(AppBar);
+const StyledAppBar = withStyles(styles)(AppBar);
+
+export default StyledAppBar;

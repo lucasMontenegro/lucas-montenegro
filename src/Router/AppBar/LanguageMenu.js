@@ -8,66 +8,71 @@ import supportedLanguages from './supported-languages.json';
 
 const langs = Object.keys(supportedLanguages);
 
-class LanguageMenu extends React.Component {
-  state = {
-    anchorEl: null,
-  };
+const LanguageMenu = withTranslation()(
+  class LanguageMenu extends React.Component {
+    state = {
+      anchorEl: null,
+    };
 
-  handleOpen = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
+    handleOpen = event => {
+      this.setState({ anchorEl: event.currentTarget });
+    }
 
-  handleClose = lang => () => {
-    this.props.i18n.changeLanguage(lang);
-    this.setState({ anchorEl: null });
-  };
+    handleClose = () => {
+      this.setState({ anchorEl: null });
+    }
 
-  render() {
-    const {
-      className,
-    } = this.props;
-    const {
-      anchorEl,
-    } = this.state;
-    const {
-      handleOpen,
-      handleClose,
-    } = this;
+    setLanguage = lang => () => {
+      this.props.i18n.changeLanguage(lang);
+      this.handleClose();
+    }
 
-    const isOpen = Boolean(anchorEl);
+    render() {
+      const {
+        className,
+      } = this.props;
+      const {
+        anchorEl,
+      } = this.state;
+      const {
+        handleOpen,
+        handleClose,
+        setLanguage,
+      } = this;
 
-    return (
-      <div>
-        <IconButton
-          className={className}
-          aria-owns={isOpen ? 'material-appbar' : undefined}
-          aria-haspopup="true"
-          onClick={handleOpen}
-          color="inherit"
-        >
-          <LanguageIcon />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-          transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-          open={isOpen}
-          onClose={handleClose}
-        >
-          {langs.map(lang => (
-            <MenuItem
-              key={lang}
-              onClick={handleClose(lang)}
-            >
-              {supportedLanguages[lang]}
-            </MenuItem>
-          ))}
-        </Menu>
-      </div>
-    );
+      const isOpen = Boolean(anchorEl);
+
+      return (
+        <div>
+          <IconButton
+            className={className}
+            aria-owns={isOpen ? 'material-appbar' : undefined}
+            aria-haspopup="true"
+            onClick={handleOpen}
+            color="inherit"
+          >
+            <LanguageIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            open={isOpen}
+            onClose={handleClose}
+          >
+            {langs.map(lang => (
+              <MenuItem
+                key={lang}
+                onClick={setLanguage(lang)}
+              >
+                {supportedLanguages[lang]}
+              </MenuItem>
+            ))}
+          </Menu>
+        </div>
+      );
+    }
   }
-}
+);
 
-const LazyLanguageMenu = withTranslation()(LanguageMenu);
-
-export default LazyLanguageMenu;
+export default LanguageMenu;

@@ -1,5 +1,3 @@
-import palette from './palette';
-import ContentLink from './ContentLink';
-import Button from './Button';
+import Link from './Link';
 
-export { palette, ContentLink, Button };
+export { Link };

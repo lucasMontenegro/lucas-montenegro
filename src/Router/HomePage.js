@@ -33,11 +33,14 @@ const styles = theme => ({
   header: {
     marginBottom: '0.5em',
   },
+  skillsContainer: {
+    justifyContent: 'space-around',
+  },
   skillsItem: {
-    width: '25ch',
+    width: '38ch',
   },
   skillsCard: {
-    //height: '10em',
+    minHeight: '15em',
     width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
@@ -65,31 +68,97 @@ const skills = {
       },
     },
   },
+  backEnd: {
+    header: 'Back-End',
+    list: {
+      node: {
+        text: 'NodeJS',
+        Icon: () => <FontAwesomeIcon icon={['fab', 'node-js']} />,
+      },
+      express: {
+        text: 'ExpressJS',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'server']} />,
+      },
+      mongo: {
+        text: 'MongoDB',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'database']} />,
+      },
+      postgres: {
+        text: 'PostgreSQL',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'database']} />,
+      },
+    },
+  },
+  testing: {
+    header: 'Testing',
+    list: {
+      mocha: {
+        text: 'Mocha',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'code']} />,
+      },
+      chai: {
+        text: 'Chai',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'code']} />,
+      },
+      jest: {
+        text: 'Jest',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'code']} />,
+      },
+      empty0: {
+        text: '   ',
+      },
+    },
+  },
+  tools: {
+    i18n: 'home.skills.tools.title',
+    list: {
+      git: {
+        text: 'Git',
+        Icon: () => <FontAwesomeIcon icon={['fab', 'git']} />,
+      },
+      vagrant: {
+        text: 'Vagrant',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'tools']} />,
+      },
+      postman: {
+        text: 'Postman',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'tools']} />,
+      },
+      webpack: {
+        text: 'Webpack',
+        Icon: () => <FontAwesomeIcon icon={['fas', 'tools']} />,
+      },
+    },
+  },
 };
 
 const SkillsCard = ({ t, classes }) => (
-  <Grid container>
-    <Grid item className={classes.skillsItem}>
-      {Object.values(skills).map((card, i) => (
-        <Card key={i.toString()} className={classes.skillsCard}>
+  <Grid container spacing={2} className={classes.skillsContainer}>
+    {Object.values(skills).map((card, i) => (
+      <Grid key={i.toString()} item className={classes.skillsItem}>
+        <Card className={classes.skillsCard}>
           <CardHeader 
             titleTypographyProps={{ align: 'center' }}
-            title={card.header}
+            title={card.header || t(card.i18n)}
             />
           <Divider />
           <CardContent>
             <List>
               {Object.values(card.list).reduce((items, skill, k) => {
                 const divider = k === 0 ? null : (
-                  <Divider component="li" variant="inset" />
+                  <Divider
+                    key={(k * 2 + 1).toString()}
+                    component="li"
+                    variant="inset"
+                    />
                 );
                 items.push(divider);
                 items.push(
-                  <ListItem key={k.toString()}>
+                  <ListItem key={(k * 2).toString()}>
                     <ListItemAvatar>
-                      <Avatar><skill.Icon /></Avatar>
+                      <Avatar>{skill.Icon && <skill.Icon />}</Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary={skill.text} />
+                    <ListItemText primary={skill.text || t(skill.i18n)} />
                   </ListItem>
                 );
                 return items;
@@ -97,8 +166,8 @@ const SkillsCard = ({ t, classes }) => (
             </List>
           </CardContent>
         </Card>
-      ))}
-    </Grid>
+      </Grid>
+    ))}
   </Grid>
 );
 

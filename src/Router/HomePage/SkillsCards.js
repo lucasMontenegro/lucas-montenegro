@@ -128,8 +128,6 @@ const styles = theme => ({
     width: '38ch',
   },
   card: {
-    minHeight: '15em',
-    width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
 });

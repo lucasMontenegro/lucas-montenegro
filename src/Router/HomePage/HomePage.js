@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import { Link } from '../../nuts-and-bolts';
 import SkillsCards from './SkillsCards';
+import ProjectsCards from './ProjectsCards';
 import Spinner from '../Spinner';
 
 const styles = {
@@ -52,18 +53,7 @@ const FuncHomePage = ({ t, classes }) => (
       <Typography variant="body1" paragraph>
         {t('myProjects.description')}
       </Typography>
-      <ul>
-        <li>
-          <Link connected to="/todo">
-            {t('myProjects.apps.todo.title')}
-          </Link>
-        </li>
-        <li>
-          <Link connected to="/json-editor">
-            {t('myProjects.apps.jsonEditor.title')}
-          </Link>
-        </li>
-      </ul>
+      <ProjectsCards />
     </section>
   </main>
 );

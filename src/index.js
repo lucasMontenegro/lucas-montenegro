@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import 'typeface-roboto';
 
-import './index.css';
+//import './index.css';
 import * as serviceWorker from './serviceWorker';
 import './i18n';
 import './font-awesome';

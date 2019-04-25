@@ -10,7 +10,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import Title from './Title';
 import LanguageMenu from './LanguageMenu';
 import NavDrawer from './NavDrawer';
-import { IconLink } from './links';
+import { IconLink } from '../links';
 
 const styles = theme => ({
   root: {
@@ -32,7 +32,7 @@ const styles = theme => ({
 const AppBar = ({ classes }) => (
   <Suspense fallback={
     <div className={classes.root}>
-      <BaseAppBar position="static">
+      <BaseAppBar position="static" elevation={0}>
         <Toolbar />
       </BaseAppBar>
     </div>

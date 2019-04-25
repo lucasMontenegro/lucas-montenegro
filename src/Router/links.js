@@ -5,20 +5,20 @@ import ListItem from '@material-ui/core/ListItem';
 import clone from 'lodash/clone';
 
 export class IconLink extends React.Component {
-  Link = React.forwardRef((itemProps, ref) => (
+  WrappedLink = React.forwardRef((itemProps, ref) => (
     <RouterLink {...itemProps} to={this.props.to} innerRef={ref} />
   ));
 
   render() {
     const props = clone(this.props);
-    props.component = this.Link;
+    props.component = this.WrappedLink;
     delete props.to;
     return <IconButton {...props} />;
   }
 }
 
-export class ListLinkItem extends React.Component {
-  Link = React.forwardRef((itemProps, ref) => (
+class ListNavLinkItem extends React.Component {
+  WrappedLink = React.forwardRef((itemProps, ref) => (
     <NavLink
       {...itemProps}
       exact={this.props.exact}
@@ -30,14 +30,39 @@ export class ListLinkItem extends React.Component {
 
   render() {
     const props = clone(this.props);
-    props.component = this.Link;
+    props.component = this.WrappedLink;
     props.button = true;
     const { key } = props;
     delete props.to;
     delete props.exact;
-    console.log(props.activeClassName);
     delete props.activeClassName;
     delete props.key;
     return <li key={key}><ListItem {...props} /></li>;
   }
 }
+
+class ListConnectedLinkItem extends React.Component {
+  WrappedLink = React.forwardRef((itemProps, ref) => (
+    <RouterLink
+      {...itemProps}
+      to={this.props.to}
+      innerRef={ref}
+    />
+  ));
+
+  render() {
+    const props = clone(this.props);
+    props.component = this.WrappedLink;
+    props.button = true;
+    const { key } = props;
+    delete props.to;
+    delete props.key;
+    return <li key={key}><ListItem {...props} /></li>;
+  }
+}
+
+export const ListLinkItem = ({ connected, nav, ...props }) => !connected
+  ? <ListItem button component="a" {...props} />
+  : nav
+    ? <ListNavLinkItem {...props} />
+    : <ListConnectedLinkItem {...props} />;

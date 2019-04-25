@@ -7,11 +7,12 @@ import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { ListLinkItem } from './links';
+import { ListLinkItem } from '../links';
 
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from '@material-ui/icons/Home';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const styles = {
   list: {
@@ -69,6 +70,7 @@ const StyledNavDrawer = withStyles(styles)(
             <nav tabIndex={0} className={classes.list}>
               <List>
                 <ListLinkItem
+                  connected nav
                   key="home"
                   exact to="/"
                   onClick={toggle}
@@ -78,6 +80,16 @@ const StyledNavDrawer = withStyles(styles)(
                     <HomeIcon />
                   </ListItemIcon>
                   <ListItemText primary="Home" />
+                </ListLinkItem>
+                <ListLinkItem
+                  key="sauce"
+                  href="https://github.com/lucasMontenegro/lucas-montenegro/"
+                  onClick={toggle}
+                >
+                  <ListItemIcon>
+                    <FontAwesomeIcon icon={['fas', 'code']} />
+                  </ListItemIcon>
+                  <ListItemText primary="Source Code" />
                 </ListLinkItem>
               </List>
               <Divider />
@@ -90,6 +102,7 @@ const StyledNavDrawer = withStyles(styles)(
                   const project = projects[path];
                   return (
                     <ListLinkItem
+                      connected nav
                       key={path}
                       to={path}
                       exact={project.exact}

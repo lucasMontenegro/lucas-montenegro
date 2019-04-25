@@ -1,12 +1,36 @@
 import React, { Suspense } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+
+import List from '@material-ui/core/List';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { ListLinkItem } from '../links';
 
 import { Link } from '../../nuts-and-bolts';
 import SkillsCards from './SkillsCards';
 import ProjectsCards from './ProjectsCards';
 import Spinner from '../Spinner';
+
+const contactLinks = (obj => Object.keys(obj).map(key => {
+  const item = obj[key];
+  item.key = key;
+  return item;
+}))({
+  linkedin: {
+    text: 'Linkedin',
+    href: 'https://www.linkedin.com/in/lucas-montenegro-1b191915a/',
+    Icon: () => <FontAwesomeIcon icon={['fab', 'linkedin']} />,
+  },
+  github: {
+    text: 'GitHub',
+    href: 'https://github.com/lucasMontenegro/',
+    Icon: () => <FontAwesomeIcon icon={['fab', 'github']} />,
+  },
+});
 
 const styles = {
   main: {
@@ -24,7 +48,6 @@ const styles = {
   footer: {
     padding: '1em 0',
     background: '#eaeff1',
-    height: '10em',
   }
 };
 
@@ -63,9 +86,27 @@ const FuncHomePage = ({ t, classes }) => (
       </section>
     </main>
     <footer className={classes.footer}>
-      <div className={classes.section}>
-        Footer
-      </div>
+      <section className={classes.section}>
+        <List
+          subheader={
+            <ListSubheader color="inherit">
+              {t('home.contact.title')}
+            </ListSubheader>
+          }
+        >
+          {contactLinks.map(({ key, href, text, Icon }) => (
+            <ListLinkItem key={key} href={href}>
+              <ListItemIcon>
+                {Icon 
+                  ? <Icon /> 
+                  : <FontAwesomeIcon icon={['fas', 'circle']}/>
+                }
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListLinkItem>
+          ))}
+        </List>
+      </section>
     </footer>
   </div>
 );

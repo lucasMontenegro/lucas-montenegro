@@ -23,6 +23,7 @@ export class ListLinkItem extends React.Component {
       {...itemProps}
       exact={this.props.exact}
       to={this.props.to}
+      activeClassName={this.props.activeClassName}
       innerRef={ref}
     />
   ));
@@ -34,6 +35,8 @@ export class ListLinkItem extends React.Component {
     const { key } = props;
     delete props.to;
     delete props.exact;
+    console.log(props.activeClassName);
+    delete props.activeClassName;
     delete props.key;
     return <li key={key}><ListItem {...props} /></li>;
   }

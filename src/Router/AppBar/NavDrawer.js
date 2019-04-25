@@ -15,7 +15,12 @@ import HomeIcon from '@material-ui/icons/Home';
 
 const styles = {
   list: {
-    width: 250,
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: '1rem',
+    width: '25ch',
+  },
+  activeLink: {
+    color: '#4fc3f7',
   },
 };
 
@@ -27,8 +32,8 @@ const projects = {
 };
 const projectPaths = Object.keys(projects);
 
-const NavDrawer = withStyles(styles)(
-  class AppBar extends React.Component {
+const StyledNavDrawer = withStyles(styles)(
+  class NavDrawer extends React.Component {
     state = {
       isOpen: false,
     };
@@ -63,7 +68,12 @@ const NavDrawer = withStyles(styles)(
           <Drawer open={isOpen} onClose={toggle}>
             <nav tabIndex={0} className={classes.list}>
               <List>
-                <ListLinkItem key="home" to="/" onClick={toggle}>
+                <ListLinkItem
+                  key="home"
+                  exact to="/"
+                  onClick={toggle}
+                  activeClassName={classes.activeLink}
+                >
                   <ListItemIcon>
                     <HomeIcon />
                   </ListItemIcon>
@@ -73,7 +83,7 @@ const NavDrawer = withStyles(styles)(
               <Divider />
               <List
                 subheader={
-                  <ListSubheader>My Projects</ListSubheader>
+                  <ListSubheader color="inherit">My Projects</ListSubheader>
                 }
               >
                 {projectPaths.map(path => {
@@ -84,6 +94,7 @@ const NavDrawer = withStyles(styles)(
                       to={path}
                       exact={project.exact}
                       onClick={toggle}
+                      activeClassName={classes.activeLink}
                     >
                       <ListItemText primary={project.name} />
                     </ListLinkItem>
@@ -98,4 +109,4 @@ const NavDrawer = withStyles(styles)(
   }
 );
 
-export default NavDrawer;
+export default StyledNavDrawer;

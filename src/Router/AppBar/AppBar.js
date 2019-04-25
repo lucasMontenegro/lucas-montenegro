@@ -37,7 +37,7 @@ const AppBar = ({ classes }) => (
       </BaseAppBar>
     </div>
   }>
-    <BaseAppBar className={classes.root} position="static">
+    <BaseAppBar className={classes.root} position="static" elevation={0}>
       <Toolbar>
         <NavDrawer className={classes.firstButton} />
         <Typography

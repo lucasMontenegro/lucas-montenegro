@@ -1,2 +1,3 @@
 import Root from './Root';
-export default Root;
+import Router from './Router';
+export { Root as default, Router };

@@ -1,46 +1,44 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Root from 'local/Root';
+import Root, { Router } from 'local/Root';
 import render from 'local/render';
 import * as serviceWorker from 'local/serviceWorker';
 import 'local/font-awesome';
 import 'typeface-roboto';
 
-class Home extends React.PureComponent {
-  static title = 'Lucas Montenegro';
-  static route = {
+const home = {
+  title: 'Lucas Montenegro',
+  route: {
     path: '/',
     exact: true,
-  };
-  render () {
+  },
+  Component: function Home () {
     return (
       <Typography variant="body1">Welcome to my personal website.</Typography>
     );
-  }
+  },
 }
 
-class About extends React.PureComponent {
-  static title = 'Lucas Montenegro - About Me';
-  static route = {
+const about = {
+  title: 'Lucas Montenegro - About Me',
+  route: {
     path: '/about',
     exact: true,
-  };
-  render () {
+  },
+  Component: function About () {
     return (
-      <Typography variant="body1">
-        My name is Lucas Montenegro and I am a Junior Web Developer.
-      </Typography>
+      <Typography variant="body1">I am a Junior Web Developer.</Typography>
     );
-  }
+  },
 }
 
-class Contact extends React.PureComponent {
-  static title = 'Lucas Montenegro - Contact Links';
-  static route = {
+const contact = {
+  title: 'Lucas Montenegro - Contact Links',
+  route: {
     path: '/contact',
     exact: true,
-  };
-  render () {
+  },
+  Component: function Contact () {
     return (
       <ul>
         <li>
@@ -55,10 +53,10 @@ class Contact extends React.PureComponent {
         </li>
       </ul>
     );
-  }
+  },
 }
 
-render(<Root routes={[Home, About, Contact]}/>);
+render(<Root><Router render={{ home, about, contact }}/></Root>);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

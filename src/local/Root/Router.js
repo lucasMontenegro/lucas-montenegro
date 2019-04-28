@@ -25,12 +25,14 @@ function Router ({ setTitle, render }) {
         const i18nRoute = i18nRoutes[key];
         if (i18nRoute.match(location)) {
           const localLocation = localRoutes[key].compile(location);
-          renderProps.history.replace(localLocation);
-          return null;
+          return <Redirect to={localLocation} />
+          //renderProps.history.replace(localLocation);
+          //return null;
         }
       }
-      renderProps.history.replace(`/${language}/404`);
-      return null;
+      //renderProps.history.replace(`/${language}/404`);
+      //return null;
+      return <Redirect to={`/${language}/404`} />
     }
   }
   const switchChildren = Object.keys(languages).reduce(

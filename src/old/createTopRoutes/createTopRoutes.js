@@ -1,9 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom";
-import appFrame from './appFrame';
-import in9alPage from './in9alPage';
 
-function createTopRoutes (l10n) {
+function createTopRoutes (l10n, appFrame, in9alPage) {
   const _Route = ({ path, render }) => (
     <Route
       key={path}

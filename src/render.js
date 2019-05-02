@@ -1,8 +1,5 @@
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 export default function (app) {
-  ReactDOM.render(
-    app,
-    document.getElementById('root')
-  );
+  ReactDOM.render(app, document.getElementById(`root`));
 }

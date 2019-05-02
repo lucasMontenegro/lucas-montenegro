@@ -11,9 +11,9 @@ let theme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#63ccff',
-      main: '#009be5',
-      dark: '#006db3',
+      light: `#63ccff`,
+      main: `#009be5`,
+      dark: `#006db3`,
     },
   },
   shape: {
@@ -26,17 +26,17 @@ theme = {
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: '#18202c',
+        backgroundColor: `#18202c`,
       },
     },
     MuiButton: {
       label: {
-        textTransform: 'initial',
+        textTransform: `initial`,
       },
       contained: {
-        boxShadow: 'none',
-        '&:active': {
-          boxShadow: 'none',
+        boxShadow: `none`,
+        "&:active": {
+          boxShadow: `none`,
         },
       },
     },
@@ -53,16 +53,16 @@ theme = {
     },
     MuiTab: {
       root: {
-        textTransform: 'initial',
-        margin: '0 16px',
+        textTransform: `initial`,
+        margin: `0 16px`,
         minWidth: 0,
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up(`md`)]: {
           minWidth: 0,
         },
       },
       labelContainer: {
         padding: 0,
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.up(`md`)]: {
           padding: 0,
         },
       },
@@ -84,9 +84,9 @@ theme = {
     },
     MuiListItemIcon: {
       root: {
-        color: 'inherit',
+        color: `inherit`,
         marginRight: 0,
-        '& svg': {
+        "& svg": {
           fontSize: 20,
         },
       },

@@ -1,5 +1,5 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import clone from "lodash/clone"
 
 import List from "@material-ui/core/List"
@@ -30,14 +30,38 @@ class ListItemNavLink extends React.Component {
   }
 }
 
-const Nav = ({ language, location }) => {
+class ListItemConnectedLink extends React.Component {
+  WrappedLink = React.forwardRef((itemProps, ref) => (
+    <li>
+      <Link
+        {...itemProps}
+        to={this.props.to}
+        innerRef={ref}
+      />
+    </li>
+  ))
+  render() {
+    const props = clone(this.props)
+    props.component = this.WrappedLink
+    props.button = true
+    delete props.to
+    return <ListItem {...props} />
+  }
+}
+
+const Nav = ({ other: { language, location, languageLinks } }) => {
   const { home } = locales[language]
   return (
     <List>
-      <ListItemNavLink button key="home" selected={home.isActive(location)} to={home.to}>
+      <ListItemNavLink key="home" selected={home.isActive(location)} to={home.to}>
         <ListItemIcon>{home.icon}</ListItemIcon>
         <ListItemText primary={home.text} />
       </ListItemNavLink>
+      {languageLinks.map(link => (
+        <ListItemConnectedLink key={link.key} to={link.to}>
+          <ListItemText primary={link.text} />
+        </ListItemConnectedLink>
+      ))}
     </List>
   )
 }

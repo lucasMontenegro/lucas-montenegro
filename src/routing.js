@@ -4,14 +4,14 @@ import { Route, Redirect } from "react-router-dom"
 export const createRouter = routes => {
   const persistent = routes.filter(route => !route.redirect && route.persistent)
   return () => <Route
-    children={props => {
-      const main = routes.find(route => route.match(props.location))
+    children={({ location }) => {
+      const main = routes.find(route => route.match(location))
       if (main.redirect) {
-        return main.redirect(props)
+        return main.redirect(location)
       }
       const hiddenSiblings = persistent.filter(route => route !== main)
-        .map(route => route.render(false, props))
-      return main.render(true, props, hiddenSiblings)
+        .map(route => route.render(false, location))
+      return main.render(true, location, hiddenSiblings)
     }}
   />
 }
@@ -34,25 +34,32 @@ export const localizedRoutes = opts => {
         const lang = cap && cap[1]
         return (lang && lang in locales) ? match(location) : false
       },
-      redirect ({ location }) {
+      redirect (location) {
         const locale = locales[langSegmentRegExp.exec(location.pathname)[1]]
         return <Redirect key={redirectKey} to={locale.from(location)} />
       }
     })
   }
-  routes.push(...Object.keys(locales).map(lang => {
-    const { match } = locales[lang]
+  const langs = Object.keys(locales)
+  routes.push(...langs.map(language => {
+    const { match, toIntl } = locales[language]
     const componentKey = `${name}.Component`
     return {
       match,
       persistent,
-      render (show, props, hiddenSiblings) {
+      render (show, location, hiddenChildren) {
+        const makeLink = toIntl(location)
+        const languageLinks = langs.map(language => ({
+          key: `${name}.languageLinks.${language}`,
+          text: locales[language].name,
+          to: makeLink(language),
+        }))
         return <Component
           show={show}
           key={componentKey}
-          language={lang}
-          hiddenSiblings={hiddenSiblings}
-          {...props}
+          language={language}
+          navProps={{ language, location, languageLinks }}
+          frameProps={{ hiddenChildren }}
         />
       },
     }

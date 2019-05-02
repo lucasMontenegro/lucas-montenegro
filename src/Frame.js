@@ -25,7 +25,7 @@ const Frame = withStyles(
     },
   })
 )(
-  ({ classes, title, nav, children }) => {
+  ({ classes, title, nav, children, other }) => {
     return (
       <div className={classes.root}>
         <Drawer
@@ -45,7 +45,10 @@ const Frame = withStyles(
           <Divider />
           {nav}
         </Drawer>
-        <main className={classes.content}>{children}</main>
+        <main className={classes.content}>
+          {children}
+          {other.hiddenChildren}
+        </main>
       </div>
     );
   }

@@ -14,14 +14,14 @@ export default localizedRoutes({
   },
   locales,
   persistent: false,
-  Component ({ language, hiddenSiblings, location }) {
+  Component ({ language, frameProps, navProps }) {
     const { title, text } = locales[language].render
     return <Frame
       title={title}
-      nav={<Nav language={language} location={location} />}
+      nav={<Nav other={navProps} />}
+      other={frameProps}
     >
       <Typography variant="body1">{text}</Typography>
-      {hiddenSiblings}
     </Frame>
-  }
+  },
 })

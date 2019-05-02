@@ -1,9 +1,13 @@
 import React from "react"
+import { Link } from "react-router-dom"
+import clone from "lodash/clone"
+
 import { withStyles } from "@material-ui/styles"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import Typography from "@material-ui/core/Typography"
+
 import Frame from "../Frame"
 import locales from "./locales"
 
@@ -12,16 +16,19 @@ export default {
     return true
   },
   persistent: false,
-  render (show, props, hiddenSiblings) {
+  render (show, location, hiddenSiblings) {
     return <LanguageNotFound
       key="languageNotFound"
-      hiddenSiblings={hiddenSiblings}
-      history={props.history}
+      frameProps={{ hiddenChildren: hiddenSiblings }}
     />
   },
 }
 
-const cards = Object.keys(locales).map(language => ({ ...locales[language], language }))
+const cards = Object.keys(locales).map(language => ({
+  ...locales[language],
+  language,
+  to: `/${language}/h`,
+}))
 const LanguageNotFound = withStyles(
   theme => ({
     root: {
@@ -33,19 +40,33 @@ const LanguageNotFound = withStyles(
     },
   })
 )(
-  ({ classes, history, hiddenSiblings }) => <Frame title="Language Not Found">
+  ({ classes, frameProps }) => <Frame title="Language Not Found" other={frameProps}>
     <div className={classes.root}>
-      {cards.map(card => {
-        const path = `/${card.language}/h`
-        return <Card key={card.language} className={classes.card}>
-          <CardActionArea onClick={() => history.push(path)}>
+      {cards.map(card => (
+        <Card key={card.language} className={classes.card}>
+          <CardLink to={card.to}>
             <CardContent>
               <Typography variant="body1">{card.text}</Typography>
             </CardContent>
-          </CardActionArea>
+          </CardLink>
         </Card>
-      })}
+      ))}
     </div>
-    {hiddenSiblings}
   </Frame>
 )
+
+class CardLink extends React.Component {
+  WrappedLink = React.forwardRef((itemProps, ref) => (
+    <Link
+      {...itemProps}
+      to={this.props.to}
+      innerRef={ref}
+    />
+  ))
+  render() {
+    const props = clone(this.props)
+    props.component = this.WrappedLink
+    delete props.to
+    return <CardActionArea {...props} />
+  }
+}

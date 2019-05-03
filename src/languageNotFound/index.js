@@ -8,21 +8,21 @@ import CardContent from "@material-ui/core/CardContent"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import Typography from "@material-ui/core/Typography"
 
-import Frame from "../Frame"
 import locales from "./locales"
 
 export default {
   match: () => true,
-  render (location, hiddenChildren) {
-    return <LanguageNotFound frameProps={{ hiddenChildren }} />
+  render (match, location) {
+    if (match) {
+      return {
+        hideDrawer: true,
+        title: `Language Not Found`,
+        node: <LanguageNotFound />,
+      }
+    }
+    return { node: null }
   },
 }
-
-const cards = Object.keys(locales).map(language => ({
-  ...locales[language],
-  language,
-  to: `/${language}/h`,
-}))
 
 const LanguageNotFound = withStyles(
   theme => ({
@@ -35,24 +35,28 @@ const LanguageNotFound = withStyles(
     },
   })
 )(
-  ({ classes, frameProps }) => (
-    <Frame hideDrawer title="Language Not Found" other={frameProps}>
-      <div key="languageNotFound" className={classes.root}>
-        {cards.map(card => (
-          <Card key={card.language} className={classes.card}>
-            <CardLink to={card.to}>
-              <CardContent>
-                <Typography variant="body1">{card.text}</Typography>
-              </CardContent>
-            </CardLink>
-          </Card>
-        ))}
-      </div>
-    </Frame>
+  ({ classes }) => (
+    <div key="languageNotFound" className={classes.root}>
+      {cards.map(card => (
+        <Card key={card.language} className={classes.card}>
+          <CardLinkArea to={card.to}>
+            <CardContent>
+              <Typography variant="body1">{card.text}</Typography>
+            </CardContent>
+          </CardLinkArea>
+        </Card>
+      ))}
+    </div>
   )
 )
 
-class CardLink extends React.Component {
+const cards = Object.keys(locales).map(language => ({
+  ...locales[language],
+  language,
+  to: `/${language}/h`,
+}))
+
+class CardLinkArea extends React.Component {
   WrappedLink = React.forwardRef((itemProps, ref) => (
     <Link
       {...itemProps}

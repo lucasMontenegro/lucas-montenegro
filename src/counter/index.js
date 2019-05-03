@@ -2,7 +2,6 @@ import React from "react"
 import Typography from "@material-ui/core/Typography"
 import locales from "./locales"
 import createLocalizedRoutes from "../createLocalizedRoutes"
-import Frame from "../Frame"
 import Nav from "../Nav"
 
 class Counter extends React.Component {
@@ -14,18 +13,14 @@ class Counter extends React.Component {
   componentWillUnmount () {
     clearInterval(this.intervalID)
   }
-  /**/
   shouldComponentUpdate (nextProps, nextState) {
     const { hidden } = this.props
     return !hidden || hidden !== nextProps.hidden
   }
-  /**/
   render () {
-    /**/
     if (this.props.hidden) {
       return null
     }
-    /**/
     const { renderText } = locales[this.props.language].render
     return (
       <Typography variant="body1">
@@ -36,31 +31,20 @@ class Counter extends React.Component {
 }
 
 export default createLocalizedRoutes({
-  name: `counter`,
   makeInternationalMatch (language) {
     const re = new RegExp(`^/${language}/i\\+\\+/?$`)
     return location => re.test(location.pathname)
   },
   locales,
-  Component: Counter,
-  FrameComponent ({ redirect, childKey, language, navProps, frameProps }) {
-    if (redirect) {
-      return (
-        <Frame
-          redirect={true}
-          other={frameProps}
-        />
-      )
+  render (match, language, navProps) {
+    const props = {
+      node: <Counter key="counter" hidden={!match} language={language} />
     }
-    const { title } = locales[language].render
-    return (
-      <Frame
-        title={title}
-        nav={<Nav other={navProps} />}
-        other={frameProps}
-      >
-        <Counter key={childKey} language={language} />
-      </Frame>
-    )
-  },
+    if (match) {
+      const { title } = locales[language].render
+      props.title = title
+      props.nav = <Nav other={navProps} />
+    }
+    return props
+  }
 })

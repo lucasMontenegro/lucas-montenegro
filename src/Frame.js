@@ -1,5 +1,5 @@
 import React from "react"
-import { Redirect } from "react-router-dom"
+import { Route } from "react-router-dom"
 
 import { withStyles } from "@material-ui/core/styles"
 import Drawer from "@material-ui/core/Drawer"
@@ -27,37 +27,43 @@ const Frame = withStyles(
     },
   })
 )(
-  ({ classes, redirect, hideDrawer, title, nav, children, other }) => {
-    const drawer = hideDrawer || redirect ? null : (
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor="left"
-      >
-        <Typography variant="subtitle1">
-          LUCAS MONTENEGRO
-        </Typography>
-        <Typography variant="subtitle2">
-          {title}
-        </Typography>
-        <Divider />
-        {nav}
-      </Drawer>
-    )
-    return (
-      <div className={classes.root}>
-        {drawer}
-        <main className={classes.content}>
-          {redirect && <Redirect to={other.to} />}
-          {children}
-          {other.hiddenChildren}
-        </main>
-      </div>
-    )
-  }
+  ({ classes, routes }) => (
+    <Route
+      children={({ location }) => {
+        const n = routes.findIndex(route => route.match(location))
+        const propsArray = routes.map((route, i) => route.render(i === n, location))
+        const mainProps = propsArray[n]
+
+        const drawer = mainProps.hideDrawer ? null : (
+          <Drawer
+            className={classes.drawer}
+            variant="permanent"
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            anchor="left"
+          >
+            <Typography variant="subtitle1">
+              LUCAS MONTENEGRO
+            </Typography>
+            <Typography variant="subtitle2">
+              {mainProps.title}
+            </Typography>
+            <Divider />
+            {mainProps.nav}
+          </Drawer>
+        )
+        return (
+          <div className={classes.root}>
+            {drawer}
+            <main className={classes.content}>
+              {propsArray.map(props => props.node)}
+            </main>
+          </div>
+        )
+      }}
+    />
+  )
 )
 
 export default Frame

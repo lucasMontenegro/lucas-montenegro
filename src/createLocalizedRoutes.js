@@ -1,4 +1,5 @@
 import React from "react"
+import { Redirect } from "react-router-dom"
 
 export default opts => {
   const routes = []
@@ -6,56 +7,42 @@ export default opts => {
     name,
     makeInternationalMatch,
     locales,
-    Component,
-    FrameComponent,
+    render,
   } = opts
   const languages = Object.keys(locales)
 
   // redirect from internationalized route to the localized one
   routes.push(...languages.map(language => {
-    const { redirect } = locales[language]
+    const { international } = locales[language]
     return {
       match: makeInternationalMatch(language),
-      render (location, hiddenChildren) {
-        return <FrameComponent
-          redirect
-          frameProps={{ hiddenChildren, to: redirect(location) }}
-        />
+      render (match, location) {
+        if (match) {
+          return {
+            hideDrawer: true,
+            node: <Redirect key={`${name}.${language}.redirect`} to={international(location)} />
+          }
+        }
+        return { node: null }
       },
     }
   }))
 
-  if (Component) {
-    routes.push({
-      name,
-      match (location) {
-        return false
-      },
-      renderHidden() {
-        return <Component hidden key={name} />
-      },
-    })
-  }
-
-  routes.push(...languages.map(language => {
-    const { match, languageLinkFactory } = locales[language]
-    return {
-      name,
-      match,
-      render (location, hiddenChildren) {
-        return <FrameComponent
-          childKey={name}
-          language={language}
-          navProps={{
-            language,
-            location,
-            languageLinks: languages.map(languageLinkFactory(location, locales)),
-          }}
-          frameProps={{ hiddenChildren }}
-        />
-      },
-    }
-  }))
+  const matchFunctions = languages.map(language => locales[language].match)
+  routes.push({
+    match (location) {
+      return Boolean(matchFunctions.find(match => match(location)))
+    },
+    render (match, location) {
+      if (match) {
+        const language = /^\/([^/]+)/.exec(location.pathname)[1]
+        const locale = locales[language]
+        const languageLinks = languages.map(locale.languageLinkFactory(location, locales))
+        return render(true, language, { language, location, languageLinks })
+      }
+      return render(false)
+    },
+  })
 
   return routes
 }

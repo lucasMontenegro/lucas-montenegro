@@ -9,17 +9,11 @@ import "./font-awesome"
 import render from "./render"
 import store from "./store"
 import theme from "./theme"
-import createRouter from "./createRouter"
+import Frame from "./Frame"
 import languageNotFound from "./languageNotFound"
 import home from "./home"
 import counter from "./counter"
 import * as serviceWorker from "./serviceWorker"
-
-const Router = createRouter([
-  ...home,
-  ...counter,
-  languageNotFound,
-])
 
 render(
   <Provider store={store}>
@@ -27,7 +21,7 @@ render(
       <BrowserRouter>
         <Fragment>
           <CssBaseline />
-          <Router />
+          <Frame routes={[...home, ...counter, languageNotFound]} />
         </Fragment>
       </BrowserRouter>
     </ThemeProvider>

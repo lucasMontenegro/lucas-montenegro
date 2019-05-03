@@ -9,7 +9,7 @@ function languageLinkFactory (location, locales) {
 export default {
   english: {
     name: `English`,
-    redirect (location) {
+    international (location) {
       return `/english/home`
     },
     match (location) {
@@ -23,7 +23,7 @@ export default {
   },
   español: {
     name: `Español`,
-    redirect (location) {
+    international (location) {
       return `/español/inicio`
     },
     match (location) {

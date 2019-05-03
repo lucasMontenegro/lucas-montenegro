@@ -1,10 +1,12 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
+import React from "react"
+import { Redirect } from "react-router-dom"
 
-const drawerWidth = `24ch`;
+import { withStyles } from "@material-ui/core/styles"
+import Drawer from "@material-ui/core/Drawer"
+import Typography from "@material-ui/core/Typography"
+import Divider from "@material-ui/core/Divider"
+
+const drawerWidth = `24ch`
 
 const Frame = withStyles(
   theme => ({
@@ -25,8 +27,8 @@ const Frame = withStyles(
     },
   })
 )(
-  ({ classes, hideDrawer, title, nav, children, other }) => {
-    const drawer = hideDrawer ? null : (
+  ({ classes, redirect, hideDrawer, title, nav, children, other }) => {
+    const drawer = hideDrawer || redirect ? null : (
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -49,12 +51,13 @@ const Frame = withStyles(
       <div className={classes.root}>
         {drawer}
         <main className={classes.content}>
+          {redirect && <Redirect to={other.to} />}
           {children}
           {other.hiddenChildren}
         </main>
       </div>
-    );
+    )
   }
-);
+)
 
-export default Frame;
+export default Frame

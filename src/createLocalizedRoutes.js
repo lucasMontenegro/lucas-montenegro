@@ -13,27 +13,38 @@ export default opts => {
 
   // redirect from internationalized route to the localized one
   routes.push(...languages.map(language => {
+    const { redirect } = locales[language]
     return {
-      redirect: true,
       match: makeInternationalMatch(language),
-      from: locales[language].redirect,
+      render (location, hiddenChildren) {
+        return <FrameComponent
+          redirect
+          frameProps={{ hiddenChildren, to: redirect(location) }}
+        />
+      },
     }
   }))
 
+  if (Component) {
+    routes.push({
+      name,
+      match (location) {
+        return false
+      },
+      renderHidden() {
+        return <Component hidden key={name} />
+      },
+    })
+  }
+
   routes.push(...languages.map(language => {
     const { match, languageLinkFactory } = locales[language]
-    const key = `${name}.${language}`
-    if (Component) {
-      return <Component hidden key={key} language={language} />
-    }
     return {
+      name,
       match,
-      renderHidden: !Component ? null : (() => (
-        <Component hidden key={key} language={language} />
-      )),
       render (location, hiddenChildren) {
         return <FrameComponent
-          childKey={key}
+          childKey={name}
           language={language}
           navProps={{
             language,

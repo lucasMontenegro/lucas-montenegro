@@ -7,10 +7,10 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
 
-import navLinks from "./navLinks"
+import links from "./links"
 
-const navLinksArray = Object.keys(navLinks).map(key => ({
-  ...navLinks[key],
+const linksArray = Object.keys(links).map(key => ({
+  ...links[key],
   key,
 }))
 
@@ -58,7 +58,7 @@ const Nav = ({ other: { language, location, languageLinks } }) => {
   return (
     <Fragment>
       <List>
-        {navLinksArray.map(link => {
+        {linksArray.map(link => {
           const locale = link.locales[language]
           return (
             <ListItemNavLink

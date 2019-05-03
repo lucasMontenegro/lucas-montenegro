@@ -12,10 +12,12 @@ import theme from "./theme"
 import createRouter from "./createRouter"
 import languageNotFound from "./languageNotFound"
 import home from "./home"
+import counter from "./counter"
 import * as serviceWorker from "./serviceWorker"
 
 const Router = createRouter([
   ...home,
+  ...counter,
   languageNotFound,
 ])
 

@@ -12,7 +12,15 @@ export default createLocalizedRoutes({
     return location => re.test(location.pathname)
   },
   locales,
-  FrameComponent ({ childKey, language, navProps, frameProps }) {
+  FrameComponent ({ redirect, childKey, language, navProps, frameProps }) {
+    if (redirect) {
+      return (
+        <Frame
+          redirect={true}
+          other={frameProps}
+        />
+      )
+    }
     const { title, text } = locales[language].render
     return (
       <Frame

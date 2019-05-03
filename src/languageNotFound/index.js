@@ -12,15 +12,9 @@ import Frame from "../Frame"
 import locales from "./locales"
 
 export default {
-  match () {
-    return true
-  },
-  persistent: false,
-  render (show, location, hiddenSiblings) {
-    return <LanguageNotFound
-      key="languageNotFound"
-      frameProps={{ hiddenChildren: hiddenSiblings }}
-    />
+  match: () => true,
+  render (location, hiddenChildren) {
+    return <LanguageNotFound frameProps={{ hiddenChildren }} />
   },
 }
 
@@ -29,6 +23,7 @@ const cards = Object.keys(locales).map(language => ({
   language,
   to: `/${language}/h`,
 }))
+
 const LanguageNotFound = withStyles(
   theme => ({
     root: {
@@ -40,19 +35,21 @@ const LanguageNotFound = withStyles(
     },
   })
 )(
-  ({ classes, frameProps }) => <Frame title="Language Not Found" other={frameProps}>
-    <div className={classes.root}>
-      {cards.map(card => (
-        <Card key={card.language} className={classes.card}>
-          <CardLink to={card.to}>
-            <CardContent>
-              <Typography variant="body1">{card.text}</Typography>
-            </CardContent>
-          </CardLink>
-        </Card>
-      ))}
-    </div>
-  </Frame>
+  ({ classes, frameProps }) => (
+    <Frame hideDrawer title="Language Not Found" other={frameProps}>
+      <div key="languageNotFound" className={classes.root}>
+        {cards.map(card => (
+          <Card key={card.language} className={classes.card}>
+            <CardLink to={card.to}>
+              <CardContent>
+                <Typography variant="body1">{card.text}</Typography>
+              </CardContent>
+            </CardLink>
+          </Card>
+        ))}
+      </div>
+    </Frame>
+  )
 )
 
 class CardLink extends React.Component {

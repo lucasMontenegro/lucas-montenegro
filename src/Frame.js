@@ -25,26 +25,29 @@ const Frame = withStyles(
     },
   })
 )(
-  ({ classes, title, nav, children, other }) => {
+  ({ classes, hideDrawer, title, nav, children, other }) => {
+    const drawer = hideDrawer ? null : (
+      <Drawer
+        className={classes.drawer}
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <Typography variant="subtitle1">
+          LUCAS MONTENEGRO
+        </Typography>
+        <Typography variant="subtitle2">
+          {title}
+        </Typography>
+        <Divider />
+        {nav}
+      </Drawer>
+    )
     return (
       <div className={classes.root}>
-        <Drawer
-          className={classes.drawer}
-          variant="permanent"
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          anchor="left"
-        >
-          <Typography variant="subtitle1">
-            LUCAS MONTENEGRO
-          </Typography>
-          <Typography variant="subtitle2">
-            {title}
-          </Typography>
-          <Divider />
-          {nav}
-        </Drawer>
+        {drawer}
         <main className={classes.content}>
           {children}
           {other.hiddenChildren}

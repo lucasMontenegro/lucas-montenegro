@@ -26,12 +26,8 @@ function Router ({ setTitle, render }) {
         if (i18nRoute.match(location)) {
           const localLocation = localRoutes[key].compile(location);
           return <Redirect to={localLocation} />
-          //renderProps.history.replace(localLocation);
-          //return null;
         }
       }
-      //renderProps.history.replace(`/${language}/404`);
-      //return null;
       return <Redirect to={`/${language}/404`} />
     }
   }
@@ -46,11 +42,11 @@ function Router ({ setTitle, render }) {
       );
       return children;
     },
-    [<Redirect key="/" exact from="/" to="/english/home" />]
+    [<Redirect key="/" exact from="/" to="/english/h" />]
   );
   switchChildren.push(
     <Route
-      key="not-found"
+      key="/not-found"
       exact path="/not-found"
       render={() => {
         setTitle('Not Found');

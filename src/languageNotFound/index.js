@@ -14,13 +14,9 @@ export default {
   match: () => true,
   render (match, location) {
     if (match) {
-      return {
-        hideDrawer: true,
-        title: `Language Not Found`,
-        node: <LanguageNotFound />,
-      }
+      return <LanguageNotFound key="languageNotFound" />
     }
-    return { node: null }
+    return null
   },
 }
 

@@ -2,7 +2,19 @@ import React from "react"
 import Typography from "@material-ui/core/Typography"
 import locales from "./locales"
 import createLocalizedRoutes from "../createLocalizedRoutes"
-import Nav from "../Nav"
+import Frame from "../Frame"
+
+const Home = ({ match, language, location }) => {
+  if (match) {
+    const { render, frameProps } = locales[language]
+    return (
+      <Frame language={language} location={location} {...frameProps}>
+        <Typography variant="body1">{render.text}</Typography>
+      </Frame>
+    )
+  }
+  return null
+}
 
 export default createLocalizedRoutes({
   makeInternationalMatch (language) {
@@ -10,15 +22,5 @@ export default createLocalizedRoutes({
     return location => re.test(location.pathname)
   },
   locales,
-  render (match, language, navProps) {
-    if (match) {
-      const { title, text } = locales[language].render
-      return {
-        title,
-        nav: <Nav other={navProps} />,
-        node: <Typography key="home" variant="body1">{text}</Typography>
-      }
-    }
-    return { node: null }
-  }
+  Component: Home,
 })

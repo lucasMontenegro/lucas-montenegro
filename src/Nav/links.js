@@ -5,49 +5,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 const links = {}
 export default links
 
-{
-  const icon = <HomeIcon />
-  links.home = {
-    locales: {
-      english: {
-        to: `/english/home`,
-        isActive (location) {
-          return /^\/english\/home\/?$/.test(location.pathname)
-        },
-        text: `Home`,
-        icon,
-      },
-      español: {
-        to: `/español/inicio`,
-        isActive (location) {
-          return /^\/español\/inicio\/?$/.test(location.pathname)
-        },
-        text: `Inicio`,
-        icon,
-      },
+links.english = {
+  home: {
+    to: `/english/home`,
+    isActive (location) {
+      return /^\/english\/home\/?$/.test(location.pathname)
     },
-  }
+    text: `Home`,
+    icon: <HomeIcon />,
+  },
+  counter: {
+    to: `/english/counter`,
+    isActive (location) {
+      return /^\/english\/counter\/?$/.test(location.pathname)
+    },
+    text: `Counter`,
+    icon: <FontAwesomeIcon icon={[`fas`, `stopwatch`]} />,
+  },
 }
-{
-  const icon = <FontAwesomeIcon icon={[`fas`, `stopwatch`]} />
-  links.counter = {
-    locales: {
-      english: {
-        to: `/english/counter`,
-        isActive (location) {
-          return /^\/english\/counter\/?$/.test(location.pathname)
-        },
-        text: `Counter`,
-        icon,
-      },
-      español: {
-        to: `/español/contador`,
-        isActive (location) {
-          return /^\/español\/contador\/?$/.test(location.pathname)
-        },
-        text: `Contador`,
-        icon,
-      },
+
+links.español = {
+  home: {
+    to: `/español/inicio`,
+    isActive (location) {
+      return /^\/español\/inicio\/?$/.test(location.pathname)
     },
-  }
+    text: `Inicio`,
+    icon: <HomeIcon />,
+  },
+  counter: {
+    to: `/español/contador`,
+    isActive (location) {
+      return /^\/español\/contador\/?$/.test(location.pathname)
+    },
+    text: `Contador`,
+    icon: <FontAwesomeIcon icon={[`fas`, `stopwatch`]} />,
+  },
 }

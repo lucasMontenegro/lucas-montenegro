@@ -2,7 +2,7 @@ import React from "react"
 import Typography from "@material-ui/core/Typography"
 import locales from "./locales"
 import createLocalizedRoutes from "../createLocalizedRoutes"
-import Nav from "../Nav"
+import Frame from "../Frame"
 
 class Counter extends React.Component {
   constructor (props) {
@@ -14,19 +14,21 @@ class Counter extends React.Component {
     clearInterval(this.intervalID)
   }
   shouldComponentUpdate (nextProps, nextState) {
-    const { hidden } = this.props
-    return !hidden || hidden !== nextProps.hidden
+    return this.props.match || nextProps.match
   }
   render () {
-    if (this.props.hidden) {
-      return null
+    const { match, language, location } = this.props
+    if (match) {
+      const { render, frameProps } = locales[language]
+      return (
+        <Frame language={language} location={location} {...frameProps}>
+          <Typography variant="body1">
+            {render.textJsx(this.state.count)}
+          </Typography>
+        </Frame>
+      )
     }
-    const { renderText } = locales[this.props.language].render
-    return (
-      <Typography variant="body1">
-        {renderText(this.state.count)}
-      </Typography>
-    )
+    return null
   }
 }
 
@@ -36,15 +38,5 @@ export default createLocalizedRoutes({
     return location => re.test(location.pathname)
   },
   locales,
-  render (match, language, navProps) {
-    const props = {
-      node: <Counter key="counter" hidden={!match} language={language} />
-    }
-    if (match) {
-      const { title } = locales[language].render
-      props.title = title
-      props.nav = <Nav other={navProps} />
-    }
-    return props
-  }
+  Component: Counter,
 })

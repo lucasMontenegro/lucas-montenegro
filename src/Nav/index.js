@@ -1,85 +1,30 @@
-import React, { Fragment } from "react"
-import { NavLink, Link } from "react-router-dom"
-import clone from "lodash/clone"
-
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-
+import React from "react"
+import { List, ListNavLink } from "../linkList"
 import links from "./links"
 
-const linksArray = Object.keys(links).map(key => ({
-  ...links[key],
-  key,
-}))
+const locales = Object.keys(links).reduce((output,language) => {
+  const locale = links[language]
+  output[language] = Object.keys(locale).map(name => ({
+    ...locale[name],
+    name,
+  }))
+  return output
+}, {})
 
-class ListItemNavLink extends React.Component {
-  WrappedLink = React.forwardRef((itemProps, ref) => (
-    <li>
-      <NavLink
-        {...itemProps}
-        exact={this.props.exact}
-        to={this.props.to}
-        innerRef={ref}
-      />
-    </li>
-  ))
-  render() {
-    const props = clone(this.props)
-    props.component = this.WrappedLink
-    props.button = true
-    delete props.to
-    delete props.exact
-    return <ListItem {...props} />
-  }
-}
-
-class ListItemConnectedLink extends React.Component {
-  WrappedLink = React.forwardRef((itemProps, ref) => (
-    <li>
-      <Link
-        {...itemProps}
-        to={this.props.to}
-        innerRef={ref}
-      />
-    </li>
-  ))
-  render() {
-    const props = clone(this.props)
-    props.component = this.WrappedLink
-    props.button = true
-    delete props.to
-    return <ListItem {...props} />
-  }
-}
-
-const Nav = ({ other: { language, location, languageLinks } }) => {
+const Nav = ({ language, location }) => {
+  const locale = locales[language]
   return (
-    <Fragment>
-      <List>
-        {linksArray.map(link => {
-          const locale = link.locales[language]
-          return (
-            <ListItemNavLink
-              key={link.key}
-              selected={locale.isActive(location)}
-              to={locale.to}
-            >
-              <ListItemIcon>{locale.icon}</ListItemIcon>
-              <ListItemText primary={locale.text} />
-            </ListItemNavLink>
-          )
-        })}
-      </List>
-      <List>
-        {languageLinks.map(link => (
-          <ListItemConnectedLink key={link.key} to={link.location}>
-            <ListItemText primary={link.text} />
-          </ListItemConnectedLink>
-        ))}
-      </List>
-    </Fragment>
+    <List>
+      {locale.map(link => (
+        <ListNavLink
+          key={link.name}
+          to={link.to}
+          text={link.text}
+          icon={link.icon}
+          selected={link.isActive(location)}
+        />
+      ))}
+    </List>
   )
 }
 

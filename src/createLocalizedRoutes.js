@@ -7,23 +7,20 @@ export default opts => {
     name,
     makeInternationalMatch,
     locales,
-    render,
+    Component,
   } = opts
   const languages = Object.keys(locales)
 
   // redirect from internationalized route to the localized one
   routes.push(...languages.map(language => {
-    const { international } = locales[language]
+    const { localize } = locales[language]
     return {
       match: makeInternationalMatch(language),
       render (match, location) {
         if (match) {
-          return {
-            hideDrawer: true,
-            node: <Redirect key={`${name}.${language}.redirect`} to={international(location)} />
-          }
+          return <Redirect key={`${name}.redirect`} to={localize(location)} />
         }
-        return { node: null }
+        return null
       },
     }
   }))
@@ -35,12 +32,16 @@ export default opts => {
     },
     render (match, location) {
       if (match) {
-        const language = /^\/([^/]+)/.exec(location.pathname)[1]
-        const locale = locales[language]
-        const languageLinks = languages.map(locale.languageLinkFactory(location, locales))
-        return render(true, language, { language, location, languageLinks })
+        return (
+          <Component
+            key={name}
+            match
+            location={location}
+            language={/^\/([^/]+)/.exec(location.pathname)[1]}
+          />
+        )
       }
-      return render(false)
+      return <Component key={name} />
     },
   })
 

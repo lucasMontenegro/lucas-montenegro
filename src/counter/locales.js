@@ -1,26 +1,23 @@
 import React, { Fragment } from "react"
 
-function languageLinkFactory (location, locales) {
-  return language => ({
-    key: language,
-    location: `/${language}/i++`,
-    text: locales[language].name,
-  })
+function languageLinkFactory (language, location) {
+  return `/${language}/i++`
 }
 
 export default {
   english: {
-    name: `English`,
-    international (location) {
+    localize (location) {
       return `/english/counter`
     },
     match (location) {
       return /^\/english\/counter\/?/.test(location.pathname)
     },
-    languageLinkFactory,
-    render: {
+    frameProps: {
       title: `Counter`,
-      renderText: count => (
+      languageLinkFactory,
+    },
+    render: {
+      textJsx: count => (
         <Fragment>
           Time since you loaded the website: {count} seconds.
         </Fragment>
@@ -28,17 +25,18 @@ export default {
     },
   },
   español: {
-    name: `Español`,
-    international (location) {
+    localize (location) {
       return `/español/contador`
     },
     match (location) {
       return /^\/español\/contador\/?/.test(location.pathname)
     },
-    languageLinkFactory,
-    render: {
+    frameProps: {
       title: `Contador`,
-      renderText: count => (
+      languageLinkFactory,
+    },
+    render: {
+      textJsx: count => (
         <Fragment>
           Tiempo desde que cargaste la página: {count} segundos.
         </Fragment>

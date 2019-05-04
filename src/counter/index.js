@@ -14,7 +14,7 @@ class Counter extends React.Component {
     clearInterval(this.intervalID)
   }
   shouldComponentUpdate (nextProps, nextState) {
-    return this.props.match || nextProps.match
+    return Boolean(this.props.match || nextProps.match)
   }
   render () {
     const { match, language, location } = this.props
@@ -33,6 +33,7 @@ class Counter extends React.Component {
 }
 
 export default createLocalizedRoutes({
+  name: `counter`,
   makeInternationalMatch (language) {
     const re = new RegExp(`^/${language}/i\\+\\+/?$`)
     return location => re.test(location.pathname)

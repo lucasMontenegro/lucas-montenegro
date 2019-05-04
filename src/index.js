@@ -5,17 +5,18 @@ import { ThemeProvider } from "@material-ui/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import "typeface-roboto"
 import "./font-awesome"
+import "./i18n"
 
 import render from "./render"
 import store from "./store"
 import theme from "./theme"
 import createRouter from "./createRouter"
-import languageNotFound from "./languageNotFound"
+import detectLanguage from "./detectLanguage"
 import home from "./home"
 import counter from "./counter"
 import * as serviceWorker from "./serviceWorker"
 
-const Router = createRouter([...home, ...counter, languageNotFound])
+const Router = createRouter([...home, ...counter, detectLanguage])
 
 render(
   <Provider store={store}>

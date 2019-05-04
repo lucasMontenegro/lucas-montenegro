@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import i18n from "i18next";
 import clone from "lodash/clone"
 
 import { withStyles } from "@material-ui/styles"
@@ -10,14 +11,42 @@ import Typography from "@material-ui/core/Typography"
 
 import locales from "./locales"
 
+const languageCodeMatchers = Object.keys(locales).map(language => ({
+  match: locales[language].matchCode,
+  to: `/${language}/h`,
+}))
+
 export default {
-  match: () => true,
-  render (match, location) {
+  match: ({ pathname }) => !pathname || pathname === `/`,
+  render (match, location, history) {
     if (match) {
-      return <LanguageNotFound key="languageNotFound" />
+      return <DetectLanguage key="detectLanguage" history={history} />
     }
     return null
   },
+}
+
+class DetectLanguage extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { loading: true }
+    const { history } = props
+    i18n.on(`initialized`, () => {
+      const code = i18n.language
+      const found = languageCodeMatchers.find(item => item.match(code))
+      if (found) {
+        history.replace(found.to)
+        return
+      }
+      this.setState({ loading: false })
+    })
+  }
+  render () {
+    if (this.state.loading) {
+      return null
+    }
+    return <LanguageNotFound />
+  }
 }
 
 const LanguageNotFound = withStyles(

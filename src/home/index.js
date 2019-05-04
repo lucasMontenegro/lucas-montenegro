@@ -17,6 +17,7 @@ const Home = ({ match, language, location }) => {
 }
 
 export default createLocalizedRoutes({
+  name: `home`,
   makeInternationalMatch (language) {
     const re = new RegExp(`^/${language}(?:/h)?/?$`)
     return location => re.test(location.pathname)

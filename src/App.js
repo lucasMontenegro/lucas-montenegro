@@ -15,7 +15,6 @@ const initialNavLocations = navLinks.initialLocations
 class App extends React.Component {
   constructor (props) {
     super(props)
-    this.language = ``
     this.frameProps = {}
     if (i18n.initialized) {
       this.state = { initializing: false }
@@ -37,26 +36,28 @@ class App extends React.Component {
     if (this.state.initializing) {
       return null
     }
-    if (!this.language) {
-      this.language = i18n.language
-    }
     const { location } = this.props
     const currentRoute = routes.find(route => route.match(location))
-    if (currentRoute.language) {
-      this.language = currentRoute.language
+
+    const oldLanguage = i18n.language
+    const routeLanguage = currentRoute.language
+    const userChangedLanguage = routeLanguage && routeLanguage !== oldLanguage
+    const language = userChangedLanguage ? routeLanguage : oldLanguage
+    if (userChangedLanguage) {
+      i18n.changeLanguage(language)
     }
-    const { language, frameProps } = this
+
+    const { frameProps } = this
     const activeApp = frameProps.activeApp = currentRoute.name
-    const oldLanguage = frameProps.language
     const oldNavLinks = frameProps.navLinks
 
     // set frameProps.navLinks
-    if (!oldLanguage || !oldNavLinks) { // init
+    if (!oldNavLinks) { // init
       frameProps.navLinks = {
         ...initialNavLocations[language],
         [activeApp]: location
       }
-    } else if (oldLanguage !== language) { // translate
+    } else if (userChangedLanguage) { // translate
       const translate = translateLocationFrom[oldLanguage].to[language]
       frameProps.navLinks = appNames.reduce((output, appName) => {
         if (appName === activeApp) {

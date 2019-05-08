@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import { Provider } from "react-redux"
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, Route } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import "typeface-roboto"
@@ -10,13 +10,8 @@ import "./i18n"
 import render from "./render"
 import store from "./store"
 import theme from "./theme"
-import createRouter from "./createRouter"
-import detectLanguage from "./detectLanguage"
-import home from "./home"
-import counter from "./counter"
+import App from "./App"
 import * as serviceWorker from "./serviceWorker"
-
-const Router = createRouter([...home, ...counter, detectLanguage])
 
 render(
   <Provider store={store}>
@@ -24,7 +19,7 @@ render(
       <BrowserRouter>
         <Fragment>
           <CssBaseline />
-          <Router />
+          <Route component={App} />
         </Fragment>
       </BrowserRouter>
     </ThemeProvider>

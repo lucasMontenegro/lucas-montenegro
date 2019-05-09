@@ -37,7 +37,6 @@ class Counter extends React.Component {
 }
 
 export default {
-  name: `counter`,
   Component: Counter,
   locales: locales.exports,
 }

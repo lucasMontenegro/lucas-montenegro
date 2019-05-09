@@ -1,6 +1,6 @@
 import React from "react"
 import { List, ListLink } from "./linkList"
-import config from "../config"
+import config from "../../config"
 
 const { languages, translateLocationFrom } = config
 

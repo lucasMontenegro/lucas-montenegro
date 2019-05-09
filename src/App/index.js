@@ -1,7 +1,9 @@
 import React, { Fragment } from "react"
-import i18n from "i18next"
 import Frame from "./Frame"
-import config from "./config"
+import config from "../config"
+
+import "./i18n"
+import i18n from "i18next"
 
 const {
   appNames,

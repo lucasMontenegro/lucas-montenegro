@@ -5,7 +5,6 @@ import { ThemeProvider } from "@material-ui/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import "typeface-roboto"
 import "./font-awesome"
-import "./i18n"
 
 import render from "./render"
 import store from "./store"

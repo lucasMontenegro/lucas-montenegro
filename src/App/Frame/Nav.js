@@ -1,6 +1,6 @@
 import React from "react"
 import { List, ListNavLink } from "./linkList"
-import config from "../config"
+import config from "../../config"
 
 const navLinksByLanguage = config.navLinks.byLanguage
 

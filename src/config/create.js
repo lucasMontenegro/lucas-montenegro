@@ -5,10 +5,11 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
   const routes = []
   const languageCodes = Object.keys(languages)
 
-  apps.home.name = `home`
-  apps.notFound.name = `notFound`
-  const fullAppsList = [apps.home, ...apps.other, apps.notFound]
-  const appNames = fullAppsList.map(app => app.name)
+  const appNames = Object.keys(apps)
+  const appsList = appNames.map(name => ({
+    ...apps[name],
+    name,
+  }))
 
 
   // ROUTES
@@ -36,7 +37,7 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
   })
 
   // displayed app routes
-  fullAppsList
+  appsList
     .map(({ name, locales, Component }) => (
       languageCodes.map(language => ({
         key: `${name}.${language}`,
@@ -81,14 +82,14 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
   //  }
   const navLinks = {}
   navLinks.initialLocations = languageCodes.reduce((initialLocations, language) => {
-    initialLocations[language] = fullAppsList.reduce((output, app) => {
+    initialLocations[language] = appsList.reduce((output, app) => {
       output[app.name] = app.locales[language].navLink.location
       return output
     }, {})
     return initialLocations
   }, {})
   navLinks.byLanguage = languageCodes.reduce((navLinksByLanguage, language) => {
-    navLinksByLanguage[language] = fullAppsList.map(app => {
+    navLinksByLanguage[language] = appsList.map(app => {
       const { text, icon } = app.locales[language].navLink
       return { name: app.name, text, icon }
     })
@@ -120,12 +121,8 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
   //    },
   //  }
   const translateLocationFrom = (() => {
-    const allApps = fullAppsList.reduce((allApps, app) => {
-      allApps[app.name] = app
-      return allApps
-    }, {})
     const temp = appNames.reduce((outputAN, appName) => {
-      const { locales } = allApps[appName]
+      const { locales } = apps[appName]
       outputAN[appName] = languageCodes.reduce((outputOL, oldLanguage) => {
         outputOL[oldLanguage] = languageCodes.reduce((outputNL, newLanguage) => {
           if (oldLanguage === newLanguage) {

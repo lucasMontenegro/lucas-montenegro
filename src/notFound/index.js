@@ -25,4 +25,11 @@ const NotFound = ({ routerProps, match, language, Frame, frameProps }) => {
 export default {
   Component: NotFound,
   locales: locales.exports,
+  exampleLocations: [
+    {
+      pathname: `/404`,
+      search: ``,
+      hash: ``,
+    },
+  ],
 }

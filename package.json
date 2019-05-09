@@ -52,5 +52,11 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://lucas-montenegro.herokuapp.com/"
+  "proxy": "https://lucas-montenegro.herokuapp.com/",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.test.{js,jsx}",
+      "!**/(node_modules|old)/**"
+    ]
+  }
 }

@@ -17,4 +17,11 @@ const Home = ({ routerProps, match, language, Frame, frameProps }) => {
 export default {
   Component: Home,
   locales: locales.exports,
+  exampleLocations: [
+    {
+      pathname: `/h`,
+      search: ``,
+      hash: ``,
+    },
+  ],
 }

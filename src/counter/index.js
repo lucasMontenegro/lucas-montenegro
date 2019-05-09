@@ -39,4 +39,11 @@ class Counter extends React.Component {
 export default {
   Component: Counter,
   locales: locales.exports,
+  exampleLocations: [
+    {
+      pathname: `/c`,
+      search: ``,
+      hash: ``,
+    },
+  ],
 }

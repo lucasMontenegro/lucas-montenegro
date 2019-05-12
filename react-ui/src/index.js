@@ -13,7 +13,7 @@ const app = (
   <Provider store={store}>
     <StylingProvider>
       <BrowserRouter>
-        {process.env.NOVE_ENV === `production`
+        {process.env.NODE_ENV === `production`
           ? mainRoute
           : (
               <Switch>

@@ -3,11 +3,13 @@
   "version": "0.0.1",
   "description": "https://lucas-montenegro.herokuapp.com/",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.4"
+  },
   "devDependencies": {},
   "scripts": {
     "start": "node server",
-    "build": "cd ui-integration/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "build": "cd ui/integration/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",

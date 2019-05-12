@@ -4,38 +4,19 @@
   "description": "https://lucas-montenegro.herokuapp.com/",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.17",
-    "@fortawesome/free-brands-svg-icons": "^5.8.1",
-    "@fortawesome/free-regular-svg-icons": "^5.8.2",
-    "@fortawesome/free-solid-svg-icons": "^5.8.1",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "@material-ui/core": "^4.0.0-alpha.8",
-    "@material-ui/icons": "^4.0.0-alpha.8",
-    "@material-ui/styles": "^3.0.0-alpha.10",
-    "i18next": "^15.0.9",
-    "i18next-browser-languagedetector": "^3.0.1",
-    "lodash": "^4.17.11",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.1",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "^2.1.8",
-    "redux": "^4.0.1",
-    "typeface-roboto": "0.0.54"
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "start:prod": "node server",
-    "build": "npm install --only=dev --no-shrinkwrap && react-scripts build",
-    "test": "react-scripts test"
+    "start": "node server",
+    "build": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucasMontenegro/lucas-montenegro.git"
   },
   "keywords": [
+    "WebDriverIO",
     "React",
     "Redux",
     "Heroku"
@@ -45,18 +26,5 @@
   "bugs": {
     "url": "https://github.com/lucasMontenegro/lucas-montenegro/issues"
   },
-  "homepage": "https://github.com/lucasMontenegro/lucas-montenegro#readme",
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "proxy": "https://lucas-montenegro.herokuapp.com/",
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.test.{js,jsx}",
-      "!**/(node_modules|old)/**"
-    ]
-  }
+  "homepage": "https://github.com/lucasMontenegro/lucas-montenegro#readme"
 }

@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000
 if (!isDev && cluster.isMaster) {
   console.error(`Node cluster master ${process.pid} is running`)
   // Fork workers.
-  for (let i = 0 i < numCPUs i++) {
+  for (let i = 0; i < numCPUs; i++) {
     cluster.fork()
   }
   cluster.on(`exit`, (worker, code, signal) => {

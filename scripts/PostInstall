@@ -1,0 +1,11 @@
+#!/bin/sh
+cd $(dirname $0)
+chmod u+rx ./SetMod
+./SetMod
+buildDir=../build
+if test ! -d $buildDir; then
+  mkdir $buildDir
+  echo "
+Created \"build\" directory: $buildDir
+"
+fi

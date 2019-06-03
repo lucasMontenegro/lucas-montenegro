@@ -1,0 +1,3 @@
+#!/bin/sh
+cd $(dirname $0)/..
+chmod u+rx ./scripts/* ./env/*.sh

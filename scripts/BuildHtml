@@ -1,0 +1,24 @@
+#!/bin/sh
+if test -z $LUCAS_MONTENEGRO_ROOT_DIR; then
+  echo "
+Not running inside the lmcli. Bye!
+"
+  exit 1
+fi
+cd $LUCAS_MONTENEGRO_ROOT_DIR/ui/html
+htmlfile=$LUCAS_MONTENEGRO_ROOT_DIR/build/index.html
+node ./build.js
+status=$?
+mv ./index.html $htmlfile
+if test $status -eq 0; then
+  echo "
+Compiled $htmlfile
+"
+else
+  echo "
+Failed to compile $htmlfile
+"
+fi
+test "$1" = silent && exit $status
+less $htmlfile
+exit $status

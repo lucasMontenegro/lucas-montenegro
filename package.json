@@ -9,7 +9,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node server",
-    "build": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "build": "chmod u+rx ./scripts/build-production-cra-ui.sh && ./scripts/build-production-cra-ui.sh"
   },
   "repository": {
     "type": "git",

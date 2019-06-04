@@ -1,0 +1,20 @@
+#!/bin/sh
+SetEnv(){
+  if test -z "$LUCAS_MONTENEGRO_ROOT_DIR"; then
+    echo "
+  Not running inside the lmcli. Bye!
+  "
+  elif expr match "$1" "production\|development" 1>/dev/null; then
+    local cwd=$(pwd)
+    cd $LUCAS_MONTENEGRO_ROOT_DIR/env
+    . ./defaults.sh
+    . ./$1-defaults.sh
+    test -f ./locals.sh && . ./locals.sh
+    test -f ./$1-locals.sh && . ./$1-locals.sh
+    cd $cwd
+  else
+    echo "
+  Usage: SetEnv <production|development>
+  "
+  fi
+}

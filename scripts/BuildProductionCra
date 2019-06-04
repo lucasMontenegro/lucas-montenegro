@@ -1,5 +1,11 @@
 #!/bin/sh
-cd ui/cra/ &&
+if test -z "$LUCAS_MONTENEGRO_ROOT_DIR"; then
+  echo "
+Not running inside the lmcli. Bye!
+"
+  exit 1
+fi
+cd $LUCAS_MONTENEGRO_ROOT_DIR/ui/cra &&
 npm install &&
 npm install --only=dev --no-shrinkwrap &&
 npm run build &&

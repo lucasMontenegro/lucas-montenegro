@@ -1,8 +1,9 @@
 #!/bin/sh
 export LUCAS_MONTENEGRO_ROOT_DIR=$(pwd)
 cd ./scripts
-. ./SetEnv production
-if test $1 = build; then
+. ./SetEnvLib
+SetEnv production
+if test "$1" = build; then
   ./BuildProductionCra
 else
   ./Serve api

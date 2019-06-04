@@ -6,7 +6,8 @@ CLI already running. Bye!
 else
   export LUCAS_MONTENEGRO_ROOT_DIR=$(pwd)
   export PATH=$LUCAS_MONTENEGRO_ROOT_DIR/scripts:$PATH
-  source SetEnv development
+  source SetEnvLib
+  SetEnv development
   bold=$(tput bold)
   green=$(tput setaf 10)
   reset=$(tput sgr0)

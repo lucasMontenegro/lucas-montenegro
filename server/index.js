@@ -2,14 +2,14 @@ const express = require("express")
 const path = require("path")
 const cluster = require("cluster")
 const numCPUs = require("os").cpus().length
-const buildDirname = path.resolve(__dirname, `build`)
+const buildpath = path.resolve(__dirname, `../cra-ui/build`)
 const isDev = process.env.NODE_ENV !== `production`
 const PORT = process.env.PORT || 5000
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
   console.error(`Node cluster master ${process.pid} is running`)
   // Fork workers.
-  for (let i = 0 i < numCPUs i++) {
+  for (let i = 0; i < numCPUs; i++) {
     cluster.fork()
   }
   cluster.on(`exit`, (worker, code, signal) => {
@@ -20,7 +20,7 @@ if (!isDev && cluster.isMaster) {
 } else {
   const app = express()
   // Priority serve any static files.
-  app.use(express.static(buildDirname))
+  app.use(express.static(buildpath))
   // Answer API requests.
   app.get(`/api`, function (req, res) {
     res.set(`Content-Type`, `application/json`)
@@ -28,7 +28,7 @@ if (!isDev && cluster.isMaster) {
   })
   // All remaining requests return the React app, so it can handle routing.
   app.get(`*`, function(request, response) {
-    response.sendFile(path.resolve(buildDirname, `index.html`))
+    response.sendFile(path.resolve(buildpath, `index.html`))
   })
   app.listen(PORT, function () {
     console.error(

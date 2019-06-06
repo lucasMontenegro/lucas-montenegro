@@ -8,8 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server",
-    "build": "chmod u+rx ./scripts/build-production-cra-ui.sh && ./scripts/build-production-cra-ui.sh"
+    "build": ". ./scripts/build.sh",
+    "start": "node server"
   },
   "repository": {
     "type": "git",

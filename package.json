@@ -4,15 +4,12 @@
   "description": "https://lucas-montenegro.herokuapp.com/",
   "private": true,
   "dependencies": {
-    "express": "^4.16.4",
-    "fs-extra": "^8.0.1",
-    "mustache": "^3.0.1"
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "scripts": {
-    "postinstall": "chmod u+rx ./scripts/PostInstall && ./scripts/PostInstall",
-    "build": "./scripts/Heroku build",
-    "start": "./scripts/Heroku serve"
+    "build": ". ./scripts/build.sh",
+    "start": "node server"
   },
   "repository": {
     "type": "git",

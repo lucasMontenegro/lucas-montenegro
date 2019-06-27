@@ -1,8 +1,6 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-
+import { createMuiTheme } from "@material-ui/core/styles"
 let theme = createMuiTheme({
   typography: {
-    useNextVariants: true,
     h5: {
       fontWeight: 500,
       fontSize: 26,
@@ -17,21 +15,21 @@ let theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: 2,
+    borderRadius: 8,
   },
-});
-
+})
 theme = {
   ...theme,
   overrides: {
     MuiDrawer: {
       paper: {
+        color: theme.palette.common.white,
         backgroundColor: `#18202c`,
       },
     },
     MuiButton: {
       label: {
-        textTransform: `initial`,
+        textTransform: `none`,
       },
       contained: {
         boxShadow: `none`,
@@ -53,17 +51,13 @@ theme = {
     },
     MuiTab: {
       root: {
-        textTransform: `initial`,
+        textTransform: `none`,
         margin: `0 16px`,
         minWidth: 0,
-        [theme.breakpoints.up(`md`)]: {
-          minWidth: 0,
-        },
-      },
-      labelContainer: {
         padding: 0,
         [theme.breakpoints.up(`md`)]: {
           padding: 0,
+          minWidth: 0,
         },
       },
     },
@@ -75,6 +69,11 @@ theme = {
     MuiTooltip: {
       tooltip: {
         borderRadius: 4,
+      },
+    },
+    MuiDivider: {
+      root: {
+        backgroundColor: `#404854`,
       },
     },
     MuiListItemText: {
@@ -109,6 +108,5 @@ theme = {
       minHeight: 48,
     },
   },
-};
-
-export default theme;
+}
+export default theme

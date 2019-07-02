@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export default {
   exports: {
     match (location) {
-      return /^\/español\/contador\/?/.test(location.pathname)
+      return /^\/examples\/main-router\/español\/contador\/?/.test(location.pathname)
     },
     translateLink: {
       toIntl (location) {
@@ -16,13 +16,13 @@ export default {
       toLocal (location) {
         return {
           ...location,
-          pathname: `/español/contador`,
+          pathname: `/examples/main-router/español/contador`,
         }
       },
     },
     navLink: {
       location: {
-        pathname: `/español/contador`,
+        pathname: `/examples/main-router/español/contador`,
         search: ``,
         hash: ``,
       },
@@ -31,7 +31,7 @@ export default {
     },
   },
   render: {
-    title: `Contador`,
+    appTitle: `Contador`,
     textJsx: count => (
       <Fragment>
         Tiempo desde que cargaste la página: {count} segundos.

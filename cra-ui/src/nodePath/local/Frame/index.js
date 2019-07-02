@@ -103,8 +103,9 @@ const Frame = withStyles(
       this.closeTempDrawer = this.closeTempDrawer.bind(this)
     }
     setSlider (event, value) {
-      if (value === this.state.sliderValue) return
-      this.setState({ sliderValue: value })
+      if (value !== this.state.sliderValue) {
+        this.setState({ sliderValue: value })
+      }
     }
     closeTempDrawer () {
       if (this.state.sliderValue === 1) {
@@ -115,11 +116,10 @@ const Frame = withStyles(
       const {
         classes,
         subtitle,
-        content,
+        children,
         navLinks,
         languageLinks,
       } = this.props
-      console.log(classes)
       return (
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
@@ -181,7 +181,7 @@ const Frame = withStyles(
                     </Toolbar>
                   </AppBar>
                 </div>
-                <div className={classes.appBody}><div>{content}</div></div>
+                <div className={classes.appBody}><div>{children}</div></div>
               </div>
             </div>
           </div>

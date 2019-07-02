@@ -1,22 +1,44 @@
 import React from "react"
 import { Redirect } from "react-router"
-
-const createConfig = ({ defaultLanguage, languages, apps }) => {
+const createConfig = options => {
+  //  options = {
+  //    defaultLanguage: language code,
+  //    languages: {
+  //      ...[language code]: full name,
+  //    },
+  //    matchRoot: function to match the route where the app is mounted,
+  //    apps: {
+  //      ...[camel case name]: {
+  //        Component: to be rendered,
+  //        locales: {
+  //          ...[language code]: {
+  //            match: function (location) --> boolean, // check if location matches route
+  //            translateLink: {
+  //              toIntl: function (location) --> location,
+  //              toLocal: function (location) --> location,
+  //            },
+  //            navLink: {
+  //              location: starting app location,
+  //              text,
+  //              icon,
+  //            },
+  //          },
+  //        },
+  //      },
+  //    },
+  //  }
+  const { defaultLanguage, languages, apps } = options
   const routes = []
   const languageCodes = Object.keys(languages)
-
   const appNames = Object.keys(apps)
-  const appsList = appNames.map(name => ({
-    ...apps[name],
-    name,
-  }))
+  const appList = appNames.map(name => ({ ...apps[name], name }))
 
 
   // ROUTES
   //  route = {
   //    name,
   //    isRedirect,
-  //    language,
+  //    language, // code
   //    match,
   //    Component,
   //  }
@@ -25,19 +47,17 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
   routes.push({
     key: `homeRedirect`,
     isRedirect: true,
-    match ({ pathname }) {
-      return !pathname || pathname === `/`
-    },
-    Component (props) {
+    match: options.matchRoot,
+    Component: function HomeRedirect (props) {
       if (!props.match) {
         return null
       }
-      return <Redirect to={props.frameProps.navLinks.home} />
+      return <Redirect to={props.frameProps.navLinks.find(link => link.key === `home`).to}/>
     }
   })
 
   // displayed app routes
-  appsList
+  appList
     .map(({ name, locales, Component }) => (
       languageCodes.map(language => ({
         key: `${name}.${language}`,
@@ -60,11 +80,11 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
     match () {
       return true
     },
-    Component (props) {
+    Component: function NotFoundRedirect (props) {
       if (!props.match) {
         return null
       }
-      const notFoundLocation = props.frameProps.navLinks.notFound
+      const notFoundLocation = props.frameProps.navLinks.find(link => link.key === `notFound`).to
       const state = notFoundLocation.state
         ? { ...notFoundLocation.state }
         : {}
@@ -76,24 +96,19 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
 
 
   // NAV LINKS
-  //  navLinks = {
-  //    initialLocations,
-  //    byLanguage,
-  //  }
-  const navLinks = {}
-  navLinks.initialLocations = languageCodes.reduce((initialLocations, language) => {
-    initialLocations[language] = appsList.reduce((output, app) => {
-      output[app.name] = app.locales[language].navLink.location
-      return output
-    }, {})
-    return initialLocations
-  }, {})
-  navLinks.byLanguage = languageCodes.reduce((navLinksByLanguage, language) => {
-    navLinksByLanguage[language] = appsList.map(app => {
+  const navLinks = languageCodes.reduce((links, language) => {
+    links[language] = appList.map(app => {
       const { text, icon } = app.locales[language].navLink
-      return { name: app.name, text, icon }
+      return { key: app.name, text, icon }
     })
-    return navLinksByLanguage
+    return links
+  }, {})
+  const initialNavLocations = languageCodes.reduce((byLang, language) => {
+    byLang[language] = appList.reduce((locations, app) => {
+      locations[app.name] = app.locales[language].navLink.location
+      return locations
+    }, {})
+    return byLang
   }, {})
   // END NAV LINKS
 
@@ -163,13 +178,13 @@ const createConfig = ({ defaultLanguage, languages, apps }) => {
 
   return {
     defaultLanguage,
-    languages: languageCodes.map(code => ({ ...languages[code], code })),
     languageCodes,
-    appNames,
+    initialNavLocations,
     routes,
-    navLinks,
+    appNames,
     translateLocationFrom,
+    navLinks,
+    languageLinks: languageCodes.map(code => ({ key: code, text: languages[code] })),
   }
 }
-
 export default createConfig

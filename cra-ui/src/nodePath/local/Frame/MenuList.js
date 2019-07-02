@@ -47,10 +47,10 @@ const MenuList = withStyles(
           Apps
         </ListItemText>
       </ListItem>
-      {navLinks.map(({ text, to }) => (
+      {navLinks.map(({ key, to, text }) => (
         <NavListItemLink
           exact to={to}
-          key={to}
+          key={key}
           className={classes.item}
           activeClassName={classes.activeLink}
           onClick={onClick}
@@ -66,10 +66,10 @@ const MenuList = withStyles(
           Languages
         </ListItemText>
       </ListItem>
-      {languageLinks.map(({ text, to }) => (
+      {languageLinks.map(({ key, to, text }) => (
         <NavListItemLink
           exact to={to}
-          key={to}
+          key={key}
           className={classes.item}
           activeClassName={classes.activeLink}
           onClick={onClick}

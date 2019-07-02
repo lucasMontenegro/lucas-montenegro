@@ -1,7 +1,7 @@
 import React from "react"
-import Typography from "@material-ui/core/Typography"
+import Frame from "local/Frame"
 import locales from "./locales"
-
+import FancyCard from "../FancyCard"
 class Counter extends React.Component {
   constructor (props) {
     super(props)
@@ -21,29 +21,19 @@ class Counter extends React.Component {
     return Boolean(this.props.match || nextProps.match)
   }
   render () {
-    const { match, language, Frame, frameProps } = this.props
+    const { match, language, frameProps } = this.props
     if (!match) {
       return null
     }
-    const { title, textJsx } = locales.render[language]
+    const { appTitle, textJsx } = locales.render[language]
     return (
-      <Frame title={title} other={frameProps}>
-        <Typography variant="body1">
-          {textJsx(this.state.count)}
-        </Typography>
+      <Frame {...frameProps} subtitle={appTitle}>
+        <FancyCard>{textJsx(this.state.count)}</FancyCard>
       </Frame>
     )
   }
 }
-
 export default {
   Component: Counter,
   locales: locales.exports,
-  exampleLocations: [
-    {
-      pathname: `/c`,
-      search: ``,
-      hash: ``,
-    },
-  ],
 }

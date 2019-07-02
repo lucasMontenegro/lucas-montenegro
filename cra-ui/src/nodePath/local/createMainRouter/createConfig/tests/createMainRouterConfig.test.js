@@ -1,18 +1,13 @@
 import React from "react"
-import createMainRouterConfig from "local/createMainRouterConfig"
-describe(`local/createMainRouterConfig`, () => {
-  const config = createMainRouterConfig({
+import createConfig from "../index.js"
+describe(`local/MainRouter: createConfig`, () => {
+  const config = createConfig({
     defaultLanguage: `en`,
     languages: {
-      en: {
-        name: `english`,
-        displayName: `English`,
-      },
-      es: {
-        name: `español`,
-        displayName: `Español`,
-      },
+      en: `English`,
+      es: `Español`,
     },
+    matchRoot: `function to match the route where the app is mounted`,
     apps: {
       home: {
         Component: `HomeComponent`,
@@ -131,76 +126,85 @@ describe(`local/createMainRouterConfig`, () => {
     expect(config).toBeInstanceOf(Object)
   })
   describe(
-    `config.defaultLanguage, config.languageCodes, config.languages, config.appNames and`+
-    ` config.navLinks`,
+    `defaultLanguage, languageCodes, initialNavLocations, appNames, navLinks, languageLinks`,
     () => {
       it(`should return the proper values`, () => {
-        const { defaultLanguage, languageCodes, languages, appNames, navLinks } = config
-        expect({ defaultLanguage, languageCodes, languages, appNames, navLinks }).toEqual({
+        const {
+          defaultLanguage,
+          languageCodes,
+          initialNavLocations,
+          appNames,
+          navLinks,
+          languageLinks,
+        } = config
+        expect({
+          defaultLanguage,
+          languageCodes,
+          initialNavLocations,
+          appNames,
+          navLinks,
+          languageLinks,
+        }).toEqual({
           defaultLanguage: `en`,
           languageCodes: [`en`, `es`],
-          languages: [
+          languageLinks: [
             {
-              code: `en`,
-              name: `english`,
-              displayName: `English`,
+              key: `en`,
+              text: `English`,
             },
             {
-              code: `es`,
-              name: `español`,
-              displayName: `Español`,
+              key: `es`,
+              text: `Español`,
             },
           ],
           appNames: [`home`, `counter`, `notFound`],
+          initialNavLocations: {
+            en: {
+              home: `english home initial location`,
+              counter: `english counter initial location`,
+              notFound: `english notFound initial location`,
+            },
+            es: {
+              home: `spanish home initial location`,
+              counter: `spanish counter initial location`,
+              notFound: `spanish notFound initial location`,
+            },
+          },
           navLinks: {
-            initialLocations: {
-              en: {
-                home: `english home initial location`,
-                counter: `english counter initial location`,
-                notFound: `english notFound initial location`,
+            en: [
+              {
+                key: `home`,
+                text: `english home navLink text`,
+                icon: `english home navLink icon`,
               },
-              es: {
-                home: `spanish home initial location`,
-                counter: `spanish counter initial location`,
-                notFound: `spanish notFound initial location`,
+              {
+                key: `counter`,
+                text: `english counter navLink text`,
+                icon: `english counter navLink icon`,
               },
-            },
-            byLanguage: {
-              en: [
-                {
-                  name: `home`,
-                  text: `english home navLink text`,
-                  icon: `english home navLink icon`,
-                },
-                {
-                  name: `counter`,
-                  text: `english counter navLink text`,
-                  icon: `english counter navLink icon`,
-                },
-                {
-                  name: `notFound`,
-                  text: `english notFound navLink text`,
-                  icon: `english notFound navLink icon`,
-                },
-              ],
-              es: [
-                {
-                  name: `home`,
-                  text: `spanish home navLink text`,
-                  icon: `spanish home navLink icon`,
-                },
-                {
-                  name: `counter`,
-                  text: `spanish counter navLink text`,
-                  icon: `spanish counter navLink icon`,
-                },
-                {
-                  name: `notFound`,
-                  text: `spanish notFound navLink text`,
-                  icon: `spanish notFound navLink icon`,
-                },
-              ],
-            },
+              {
+                key: `notFound`,
+                text: `english notFound navLink text`,
+                icon: `english notFound navLink icon`,
+              },
+            ],
+            es: [
+              {
+                key: `home`,
+                text: `spanish home navLink text`,
+                icon: `spanish home navLink icon`,
+              },
+              {
+                key: `counter`,
+                text: `spanish counter navLink text`,
+                icon: `spanish counter navLink icon`,
+              },
+              {
+                key: `notFound`,
+                text: `spanish notFound navLink text`,
+                icon: `spanish notFound navLink icon`,
+              },
+            ],
           },
         })
       })
@@ -213,15 +217,13 @@ describe(`local/createMainRouterConfig`, () => {
     })
     describe(`homeRedirect`, () => {
       const route = config.routes[0]
-      it(`should have "key" and "isRedirect" properties`, () => {
+      it(`should have "key", "isRedirect" and "match" properties`, () => {
         expect(route).toHaveProperty(`key`, `homeRedirect`)
         expect(route).toHaveProperty(`isRedirect`, true)
-      })
-      it(`should match the root path`, () => {
-        expect(route).toHaveProperty(`match`)
-        expect(route.match).toBeInstanceOf(Function)
-        expect(route.match(``)).toEqual(true)
-        expect(route.match(`/`)).toEqual(true)
+        expect(route).toHaveProperty(
+          `match`,
+          `function to match the route where the app is mounted`
+        )
       })
       it(`should render`, () => {
         expect(route).toHaveProperty(`Component`)

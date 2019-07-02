@@ -1,10 +1,9 @@
 import React from "react"
 import HomeIcon from "@material-ui/icons/Home"
-
 export default {
   exports: {
     match (location) {
-      return /^\/english\/home\/?/.test(location.pathname)
+      return /^\/examples\/main-router\/español\/inicio\/?/.test(location.pathname)
     },
     translateLink: {
       toIntl (location) {
@@ -16,23 +15,22 @@ export default {
       toLocal (location) {
         return {
           ...location,
-          pathname: `/english/home`,
+          pathname: `/examples/main-router/español/inicio`,
         }
       },
     },
     navLink: {
       location: {
-        pathname: `/english/home`,
+        pathname: `/examples/main-router/español/inicio`,
         search: ``,
         hash: ``,
       },
-      text: `Home`,
+      text: `Inicio`,
       icon: <HomeIcon />,
     },
   },
   render: {
-    title: `Home`,
-    text: `Hello! Welcome to my personal website. My name is Lucas Montenegro and I am a Web Developer from Argentina.`,
+    appTitle: `Inicio`,
+    text: `Hola! Bienvenido a mi página web personal. Mi nombre es Lucas Montenegro y soy un Programador Web de Argentina.`,
   },
 }
-

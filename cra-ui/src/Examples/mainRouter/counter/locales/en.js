@@ -1,10 +1,9 @@
 import React, { Fragment } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
 export default {
   exports: {
     match (location) {
-      return /^\/english\/counter\/?/.test(location.pathname)
+      return /^\/examples\/main-router\/english\/counter\/?/.test(location.pathname)
     },
     translateLink: {
       toIntl (location) {
@@ -16,13 +15,13 @@ export default {
       toLocal (location) {
         return {
           ...location,
-          pathname: `/english/counter`,
+          pathname: `/examples/main-router/english/counter`,
         }
       },
     },
     navLink: {
       location: {
-        pathname: `/english/counter`,
+        pathname: `/examples/main-router/english/counter`,
         search: ``,
         hash: ``,
       },
@@ -31,7 +30,7 @@ export default {
     },
   },
   render: {
-    title: `Counter`,
+    appTitle: `Counter`,
     textJsx: count => (
       <Fragment>
         Time since you loaded the website: {count} seconds.

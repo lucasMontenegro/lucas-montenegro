@@ -1,11 +1,10 @@
-import i18n from "i18next"
+import i18next from "i18next"
 import LanguageDetector from "i18next-browser-languagedetector"
-import config from "../config"
-
-i18n
+i18next
   .use(LanguageDetector)
   .init({
     debug: process.env.NODE_ENV !== `production`,
-    fallbackLng: config.defaultLanguage,
-    whitelist: config.languageCodes,
+    fallbackLng: `en`,
+    whitelist: [`en`, `es`],
   })
+export default i18next

@@ -14,7 +14,7 @@ const app = (
     <CssBaseline />
     <BrowserRouter>
       {process.env.NODE_ENV === `production`
-        ? mainRoute
+        ? {mainRoute}
         : (
             <Switch>
               <Route path="/examples" component={Examples} />

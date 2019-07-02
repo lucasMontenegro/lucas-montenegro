@@ -1,10 +1,9 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
 export default {
   exports: {
     match (location) {
-      return /^\/english\/not-found\/?/.test(location.pathname)
+      return /^\/examples\/main-router\/english\/not-found\/?/.test(location.pathname)
     },
     translateLink: {
       toIntl (location) {
@@ -16,13 +15,13 @@ export default {
       toLocal (location) {
         return {
           ...location,
-          pathname: `/english/not-found`,
+          pathname: `/examples/main-router/english/not-found`,
         }
       },
     },
     navLink: {
       location: {
-        pathname: `/english/not-found`,
+        pathname: `/examples/main-router/english/not-found`,
         search: ``,
         hash: ``,
       },
@@ -31,8 +30,8 @@ export default {
     },
   },
   render: {
-    title: `Not Found`,
+    appTitle: `Not Found`,
     text: `Sorry, the page you were looking for is not available.`,
+    defaultText: `Not found pages redirect here.`,
   },
 }
-

@@ -21,7 +21,7 @@ const make = {
     ({ classes, lang, app }) => (
       <Paper elevation={1} className={classes.card}>
         <Typography variant="body1" component="p">
-          This is the App {app} in the Language {lang}
+          {`This is the App ${app} in the Language ${lang}`}
         </Typography>
         <Typography variant="body1" component="p">
           Aliqua ex dolor deserunt qui mollit ad reprehenderit ex ea id irure sit eu ullamco culpa nulla. Veniam labore quis esse nulla ut mollit reprehenderit exercitation enim mollit in dolore. Sed fugiat occaecat voluptate irure enim est laboris do quis mollit aliquip laborum excepteur est esse ut exercitation laboris. Esse minim voluptate mollit ex nulla in incididunt voluptate sunt duis. Consectetur minim duis consequat dolor minim voluptate incididunt proident pariatur est commodo.
@@ -36,12 +36,16 @@ const props = languages.reduce((props, lang) => {
   props[lang] = appNames.reduce((byLang, app) => {
     const byApp = byLang[app] = {}
     byApp.subtitle = make.subtitle(lang, app)
-    byApp.content = <make.Content lang={lang} app={app} />
+    byApp.children = <make.Content lang={lang} app={app} />
     byApp.navLinks = appNames.map(_app => ({
+      key: _app,
+      active: _app === app,
       to: make.path(lang, _app),
       text: make.navLinkText(_app),
     }))
     byApp.languageLinks = languages.map(_lang => ({
+      key: _lang,
+      active: _lang === lang,
       to: make.path(_lang, app),
       text: make.languageLinkText(_lang),
     }))
@@ -49,9 +53,9 @@ const props = languages.reduce((props, lang) => {
   }, {})
   return props
 }, {})
-const frameExample = (
+const frame = (
   <Route
-    key="frame-example"
+    key="frame"
     exact path="/examples/frame/:lang/:app"
     children={routerProps => {
       const { app: _app, lang: _lang } = routerProps.match.params
@@ -65,4 +69,4 @@ const frameExample = (
     }}
   />
 )
-export default frameExample
+export default frame

@@ -18,8 +18,8 @@ describe(`Frame`, function () {
     for (const app of appNames) {
       for (const lang of languages) {
         browser.url(make.path(lang, app))
-        assert(`Lucas Montenegro`, `34px`)
-        assert(make.subtitle(lang, app), `34px`)
+        assert(`Lucas Montenegro`, `26px`)
+        assert(make.subtitle(lang, app), `20px`)
         assert(make.content(lang, app), `16px`)
       }
     }

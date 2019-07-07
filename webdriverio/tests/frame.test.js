@@ -1,12 +1,14 @@
 const { expect } = require("chai")
-const appNames = [`1`, `2`]
-const languages = [`A`, `B`]
+const baseUrl = `http://localhost:3000`
+const appNames = [`app1`, `app2`]
+const supportedLanguageCodes = [`en`, `es`]
 const make = {
-  path: (lang, app) => `/examples/frame/lang${lang}/app${app}`,
-  subtitle: (lang, app) => `App ${app} - Lang ${lang}`,
-  content: (lang, app) => `This is the App ${app} in the Language ${lang}`,
-  languageLinkText: lang => `Language ${lang}`,
-  navLinkText: app => `App ${app}`,
+  subtitle: (languageCode, appName) => `subtitle ${languageCode} ${appName}`,
+  content: (languageCode, appName) => `app content ${languageCode} ${appName}`,
+  path: (languageCode, appName) => `/examples/frame/${languageCode}/${appName}`,
+  languageLinkText: (languageCode, appName) => `language link ${languageCode} ${appName}`,
+  navLinkText: (languageCode, appName) => `nav link ${languageCode} ${appName}`,
+  url: (languageCode, appName) => `${baseUrl}${make.path(languageCode, appName)}`,
 }
 describe(`Frame`, function () {
   it(`should render`, function () {
@@ -15,21 +17,32 @@ describe(`Frame`, function () {
       expect(elem.isExisting(), `"${query}" isExisting`).to.be.true
       expect(elem.getCSSProperty(`font-size`).value, `"${query}" font-size`).to.equal(size)
     }
-    for (const app of appNames) {
-      for (const lang of languages) {
-        browser.url(make.path(lang, app))
+    for (const appName of appNames) {
+      for (const languageCode of supportedLanguageCodes) {
+        browser.url(make.path(languageCode, appName))
+        for (const languageCode of supportedLanguageCodes) {
+          assert(make.languageLinkText(languageCode, appName), `14px`)
+        }
+        for (const appName of appNames) {
+          assert(make.navLinkText(languageCode, appName), `14px`)
+        }
         assert(`Lucas Montenegro`, `26px`)
-        assert(make.subtitle(lang, app), `20px`)
-        assert(make.content(lang, app), `16px`)
+        assert(make.subtitle(languageCode, appName), `20px`)
+        assert(make.content(languageCode, appName), `16px`)
       }
     }
   })
   it(`should navigate`, function () {
-    let lang = languages[0]
-    let app = appNames[0]
-    browser.url(make.path(lang, app))
-    app = appNames[1]
-    $(`//*[text() = "${make.navLinkText(app)}"]`).click()
-    expect(browser.getUrl()).to.equal(`http://localhost:3000${make.path(lang, app)}`)
+    const last = arr => arr[arr.length - 1]
+    const lastAppName = last(appNames)
+    browser.url(make.path(last(supportedLanguageCodes), lastAppName))
+    for (const languageCode of supportedLanguageCodes) {
+      $(`//*[text() = "${make.languageLinkText(languageCode, lastAppName)}"]`).click()
+      expect(browser.getUrl()).to.equal(make.url(languageCode, lastAppName))
+      for (const appName of appNames) {
+        $(`//*[text() = "${make.navLinkText(languageCode, appName)}"]`).click()
+        expect(browser.getUrl()).to.equal(make.url(languageCode, appName))
+      }
+    }
   })
 })

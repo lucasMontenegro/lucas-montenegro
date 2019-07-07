@@ -34,6 +34,24 @@ const createConfig = options => {
   const appList = appNames.map(name => ({ ...apps[name], name }))
 
 
+  // NAV LINKS
+  const navLinks = languageCodes.reduce((links, language) => {
+    links[language] = appList.map(app => {
+      const { text, icon } = app.locales[language].navLink
+      return { key: app.name, text, icon }
+    })
+    return links
+  }, {})
+  const initialNavLocations = languageCodes.reduce((byLang, language) => {
+    byLang[language] = appList.reduce((locations, app) => {
+      locations[app.name] = app.locales[language].navLink.location
+      return locations
+    }, {})
+    return byLang
+  }, {})
+  // END NAV LINKS
+
+
   // ROUTES
   //  route = {
   //    name,
@@ -52,7 +70,7 @@ const createConfig = options => {
       if (!props.match) {
         return null
       }
-      return <Redirect to={props.frameProps.navLinks.find(link => link.key === `home`).to}/>
+      return <Redirect to={initialNavLocations[props.language].home}/>
     }
   })
 
@@ -84,33 +102,14 @@ const createConfig = options => {
       if (!props.match) {
         return null
       }
-      const notFoundLocation = props.frameProps.navLinks.find(link => link.key === `notFound`).to
-      const state = notFoundLocation.state
-        ? { ...notFoundLocation.state }
-        : {}
-      state.referrer = props.routerProps.location
-      return <Redirect to={{ ...notFoundLocation, state }} />
+      const location = {
+        ...initialNavLocations[props.language].notFound,
+        state: { referrer: props.routerProps.location },
+      }
+      return <Redirect to={location} />
     }
   })
   // END ROUTES
-
-
-  // NAV LINKS
-  const navLinks = languageCodes.reduce((links, language) => {
-    links[language] = appList.map(app => {
-      const { text, icon } = app.locales[language].navLink
-      return { key: app.name, text, icon }
-    })
-    return links
-  }, {})
-  const initialNavLocations = languageCodes.reduce((byLang, language) => {
-    byLang[language] = appList.reduce((locations, app) => {
-      locations[app.name] = app.locales[language].navLink.location
-      return locations
-    }, {})
-    return byLang
-  }, {})
-  // END NAV LINKS
 
 
   // TRANSLATE LOCATION

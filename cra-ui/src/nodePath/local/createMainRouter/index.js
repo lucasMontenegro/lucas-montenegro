@@ -46,27 +46,28 @@ function createMainRouter (options) {
       if (!this.navLocations) {
         this.navLocations = initialNavLocations[language]
       }
-      const frameProps = { language }
-      const activeApp = currentRoute.name
-      if (userChangedLanguage) { // translate this.navLocations
-        const translate = translateLocationFrom[oldLanguage].to[language]
-        this.navLocations = appNames.reduce((output, appName) => {
-          if (appName === activeApp) {
-            output[appName] = location
-          } else {
-            output[appName] = translate[appName](this.navLocations[appName])
-          }
-          return output
-        }, {})
-      } else { // just update current app location
-        this.navLocations[activeApp] = location
-      }
-      frameProps.navLinks = navLinks[language].map(link => ({
-        ...link,
-        active: link.key === activeApp,
-        to: this.navLocations[link.key],
-      }))
+      let frameProps = null
       if (!currentRoute.isRedirect) {
+        frameProps = { language }
+        const activeApp = currentRoute.name
+        if (userChangedLanguage) { // translate this.navLocations
+          const translate = translateLocationFrom[oldLanguage].to[language]
+          this.navLocations = appNames.reduce((output, appName) => {
+            if (appName === activeApp) {
+              output[appName] = location
+            } else {
+              output[appName] = translate[appName](this.navLocations[appName])
+            }
+            return output
+          }, {})
+        } else { // just update current app location
+          this.navLocations[activeApp] = location
+        }
+        frameProps.navLinks = navLinks[language].map(link => ({
+          ...link,
+          active: link.key === activeApp,
+          to: this.navLocations[link.key],
+        }))
         const translate = translateLocationFrom[language].for[activeApp]
         frameProps.languageLinks = languageLinks.map(link => ({
           ...link,

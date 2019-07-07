@@ -1,5 +1,5 @@
 import React from "react"
-import createConfig from "../index.js"
+import createConfig from "./createConfig"
 describe(`local/MainRouter: createConfig`, () => {
   const config = createConfig({
     defaultLanguage: `en`,

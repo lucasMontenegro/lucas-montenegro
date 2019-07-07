@@ -3,12 +3,9 @@ import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import { withStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
-import Typography from "@material-ui/core/Typography"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import Grid from "@material-ui/core/Grid"
 import MenuSlider from "./MenuSlider"
-import MenuList from "./MenuList"
+import ContentWrapper from "./Content"
+import MenuWrapper from "./Menu"
 const leftWidth = `256px`
 const rightWidth = `1024px`
 const drawerBgColor = `#18202c`
@@ -84,15 +81,6 @@ const Frame = withStyles(
         maxWidth: rightWidth,
       },
     },
-    header: {
-      backgroundColor: theme.palette.primary.main,
-    },
-    bar: {
-      zIndex: 0,
-    },
-    appBody: {
-      backgroundColor: bodyBgColor,
-    },
   }
 )(
   class Frame extends React.Component {
@@ -115,10 +103,11 @@ const Frame = withStyles(
     render () {
       const {
         classes,
-        subtitle,
-        children,
+        languageCode,
         navLinks,
         languageLinks,
+        render,
+        routerProps,
       } = this.props
       return (
         <ThemeProvider theme={theme}>
@@ -138,50 +127,37 @@ const Frame = withStyles(
                   : `${classes.scroll} ${classes.drawer} ${classes.drawerRightToLeft}`
                 }
               >
-                <MenuList
-                  navLinks={navLinks}
-                  languageLinks={languageLinks}
-                  onClick={this.closeTempDrawer}
-                />
+                {render.map(({ match, name, Menu }) => match
+                  ? (
+                    <Menu
+                      key={name}
+                      {...routerProps}
+                      languageCode={languageCode}
+                      Wrapper={MenuWrapper}
+                      wrapperProps={{
+                        languageCode,
+                        navLinks,
+                        languageLinks,
+                        onClick: this.closeTempDrawer,
+                      }}
+                    />
+                  )
+                  : <Menu key={name} match={null} />
+                )}
               </Paper>
               <div className={`${classes.scroll} ${classes.appScroll}`}>
-                <div className={classes.header}>
-                  <AppBar
-                    component="div"
-                    className={classes.bar}
-                    color="primary"
-                    position="static"
-                    elevation={0}
-                  >
-                    <Toolbar>
-                      <Grid container alignItems="center" spacing={1}>
-                        <Grid item xs>
-                          <Typography color="inherit" variant="h5" component="h1">
-                            Lucas Montenegro
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Toolbar>
-                  </AppBar>
-                  <AppBar
-                    component="div"
-                    className={classes.bar}
-                    color="primary"
-                    position="static"
-                    elevation={0}
-                  >
-                    <Toolbar>
-                      <Grid container alignItems="center" spacing={1}>
-                        <Grid item xs>
-                          <Typography color="inherit" variant="h6" component="h2">
-                            {subtitle}
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    </Toolbar>
-                  </AppBar>
-                </div>
-                <div className={classes.appBody}><div>{children}</div></div>
+                {render.map(({ match, name, Content }) => match
+                  ? (
+                    <Content
+                      key={name}
+                      {...routerProps}
+                      languageCode={languageCode}
+                      Wrapper={ContentWrapper}
+                      wrapperProps={{ languageCode }}
+                    />
+                  )
+                  : <Content key={name} match={null} />
+                )}
               </div>
             </div>
           </div>
@@ -190,4 +166,5 @@ const Frame = withStyles(
     }
   }
 )
+export const supportedLanguageCodes = [`en`, `es`]
 export default Frame

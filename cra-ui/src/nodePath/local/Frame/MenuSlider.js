@@ -31,7 +31,7 @@ const MenuSlider = withStyles(
     },
   }
 )(
-  function MenuSlider ({ classes, className, value, onChange, label }) {
+  function MenuSlider ({ classes, className, value, onChange, onChangeCommitted, label }) {
     return (
       <div className={`${className} ${classes.root}`}>
         <div className={classes.icon} style={{ opacity: value === 2 ? 1 : iconOpacity }}>
@@ -47,6 +47,7 @@ const MenuSlider = withStyles(
           aria-label={label}
           value={value}
           onChange={onChange}
+          onChangeCommitted={onChangeCommitted}
         />
       </div>
     )

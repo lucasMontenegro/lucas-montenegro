@@ -86,8 +86,9 @@ const Frame = withStyles(
   class Frame extends React.Component {
     constructor (props) {
       super(props)
-      this.state = { sliderValue: 0 }
+      this.state = { sliderValue: 0, drawerValue: 0 }
       this.setSlider = this.setSlider.bind(this)
+      this.setDrawer = this.setDrawer.bind(this)
       this.closeTempDrawer = this.closeTempDrawer.bind(this)
     }
     setSlider (event, value) {
@@ -95,9 +96,17 @@ const Frame = withStyles(
         this.setState({ sliderValue: value })
       }
     }
+    setDrawer (event, value) {
+      this.setState(state => {
+        if (state.sliderValue !== state.drawerValue) {
+          return { ...state, drawerValue: state.sliderValue }
+        }
+        return state
+      })
+    }
     closeTempDrawer () {
-      if (this.state.sliderValue === 1) {
-        this.setState({ sliderValue: 0 })
+      if (this.state.drawerValue === 1) {
+        this.setState({ drawerValue: 0, sliderValue: 0 })
       }
     }
     render () {
@@ -116,13 +125,14 @@ const Frame = withStyles(
               className={classes.slider}
               value={this.state.sliderValue}
               onChange={this.setSlider}
+              onChangeCommitted={this.setDrawer}
               label="Menu"
             />
             <div className={classes.mainWrapper}>
               <Paper
                 square
                 elevation={4}
-                className={this.state.sliderValue > 0
+                className={this.state.drawerValue > 0
                   ? `${classes.scroll} ${classes.drawer} ${classes.drawerLeftToRight}`
                   : `${classes.scroll} ${classes.drawer} ${classes.drawerRightToLeft}`
                 }

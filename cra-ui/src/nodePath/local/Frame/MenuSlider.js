@@ -7,7 +7,7 @@ const iconOpacity = 0.5
 const StyledSlider = withStyles(
   {
     root: {
-      flex: `0 0 30%`,
+      flex: `0 0 50%`,
       color: `white`,
     },
     thumb: {

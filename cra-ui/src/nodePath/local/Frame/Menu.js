@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { withStyles } from "@material-ui/core/styles"
 import theme from "local/theme"
 import List from "@material-ui/core/List"
@@ -7,7 +7,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 import Divider from "@material-ui/core/Divider"
 import { NavListItemLink } from "local/routerConnectedComponents"
 import locales from "./locales"
-const Menu = withStyles(
+const NavList = withStyles(
   {
     item: {
       paddingTop: 1,
@@ -41,17 +41,16 @@ const Menu = withStyles(
     },
   }
 )(
-  ({ classes, children, other: { languageCode, navLinks, languageLinks, onClick } }) => {
-    const locale = locales[languageCode].menu
+  function NavList ({ classes, title, links, onClick }) {
     return (
-      <Fragment>
+      <nav>
         <List disablePadding>
           <ListItem className={classes.categoryHeader}>
             <ListItemText classes={{ primary: classes.categoryHeaderPrimary }}>
-              {locale.navLinks.title}
+              {title}
             </ListItemText>
           </ListItem>
-          {navLinks.map(({ key, to, text }) => (
+          {links.map(({ key, to, text }) => (
             <NavListItemLink
               exact to={to}
               key={key}
@@ -65,28 +64,28 @@ const Menu = withStyles(
             </NavListItemLink>
           ))}
           <Divider className={classes.divider} />
-          <ListItem className={classes.categoryHeader}>
-            <ListItemText classes={{ primary: classes.categoryHeaderPrimary }}>
-              {locale.languageLinks.title}
-            </ListItemText>
-          </ListItem>
-          {languageLinks.map(({ key, to, text }) => (
-            <NavListItemLink
-              exact to={to}
-              key={key}
-              className={classes.item}
-              activeClassName={classes.activeLink}
-              onClick={onClick}
-            >
-              <ListItemText classes={{ primary: classes.itemPrimary }}>
-                {text}
-              </ListItemText>
-            </NavListItemLink>
-          ))}
         </List>
-        {children}
-      </Fragment>
+      </nav>
     )
   }
 )
+function Menu ({ other, children }) {
+  const { languageCode, navLinks, languageLinks, onClick } = other
+  const locale = locales[languageCode].menu
+  return (
+    <div>
+      <NavList
+        title={locale.navLinks.title}
+        links={navLinks}
+        onClick={onClick}
+      />
+      <NavList
+        title={locale.languageLinks.title}
+        links={languageLinks}
+        onClick={onClick}
+      />
+      {children}
+    </div>
+  )
+}
 export default Menu

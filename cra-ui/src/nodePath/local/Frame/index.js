@@ -2,16 +2,18 @@ import React from "react"
 import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import { withStyles } from "@material-ui/core/styles"
+import Hidden from "@material-ui/core/Hidden"
+import Drawer from "@material-ui/core/Drawer"
 import Paper from "@material-ui/core/Paper"
 import MenuSlider from "./MenuSlider"
 import ContentWrapper from "./Content"
 import MenuWrapper from "./Menu"
 const leftWidth = `256px`
 const rightWidth = `1024px`
+const drawerColor =`rgba(255, 255, 255, 0.7)`
 const drawerBgColor = `#18202c`
 const bodyBgColor = `#eaeff1`
-const breakpointDown = theme.breakpoints.down(800)
-const breakpointUp = theme.breakpoints.up(800)
+const breakpointUp = theme.breakpoints.up(`md`)
 const Frame = withStyles(
   {
     root: {
@@ -26,6 +28,23 @@ const Frame = withStyles(
         display: `none`,
       },
     },
+    drawerPaper: {
+      outline: `none`,
+      display: `flex`,
+      backgroundColor: drawerBgColor,
+    },
+    drawerSlider: {
+      height: `100vh`,
+      flex: `0 0 4ch`,
+    },
+    drawerMenu: {
+      color: drawerColor,
+      backgroundColor: drawerBgColor,
+      height: `100vh`,
+      flex: `0 1 100%`,
+      overflowY: `auto`,
+      WebkitOverflowScrolling: `touch`, // Add iOS momentum scrolling.
+    },
     mainWrapper: {
       height: `100%`,
       flex: `0 1 100%`,
@@ -33,49 +52,32 @@ const Frame = withStyles(
       justifyContent: `flex-end`,
       overflow: `hidden`,
     },
-    scroll: {
+    column: {
       height: `100%`,
       overflowY: `auto`,
-      WebkitOverflowScrolling: `touch`, // Add iOS momentum scrolling.
+      WebkitOverflowScrolling: `touch`,
     },
-    drawer: {
+    leftColumn: {
+      display: `none`,
       backgroundColor: drawerBgColor,
       flex: `1 0 ${leftWidth}`,
-      position: `relative`,
-      left: 0,
-      zIndex: 1200,
+      zIndex: 10,
       [breakpointUp]: {
-        position: `static`,
+        display: `block`,
       },
       "& > *": {
-        color: `rgba(255, 255, 255, 0.7)`,
+        color: drawerColor,
         backgroundColor: drawerBgColor,
         width: `100%`,
         maxWidth: leftWidth,
         float: `right`,
       },
-      animationDuration: `0.5s`,
-      animationFillMode: `forwards`,
     },
-    "@keyframes drawerleft2right": {
-      from: { left: `0px` },
-      to: { left: leftWidth },
-    },
-    "@keyframes drawerright2left": {
-      from: { left: leftWidth },
-      to: { left: `0px` },
-    },
-    drawerLeftToRight: {
-      animationName: `$drawerleft2right`,
-    },
-    drawerRightToLeft: {
-      animationName: `$drawerright2left`,
-    },
-    appScroll: {
+    rightColumn: {
       backgroundColor: bodyBgColor,
-      flex: `1 1 ${rightWidth}`,
-      [breakpointDown]: {
-        flex: `0 0 100%`,
+      flex: `0 0 100%`,
+      [breakpointUp]: {
+        flex: `1 1 ${rightWidth}`,
       },
       "& > * > *": {
         maxWidth: rightWidth,
@@ -89,25 +91,40 @@ const Frame = withStyles(
       this.state = { sliderValue: 0, drawerValue: 0 }
       this.setSlider = this.setSlider.bind(this)
       this.setDrawer = this.setDrawer.bind(this)
+      this.closePermDrawer = this.closePermDrawer.bind(this)
       this.closeTempDrawer = this.closeTempDrawer.bind(this)
     }
     setSlider (event, value) {
-      if (value !== this.state.sliderValue) {
-        this.setState({ sliderValue: value })
-      }
+      this.setState(state => {
+        if (value !== this.state.sliderValue) {
+          return { ...state, sliderValue: value }
+        }
+        return state
+      })
     }
     setDrawer (event, value) {
       this.setState(state => {
-        if (state.sliderValue !== state.drawerValue) {
-          return { ...state, drawerValue: state.sliderValue }
+        if (value !== state.drawerValue && value === state.sliderValue) {
+          return { ...state, drawerValue: value }
+        }
+        return state
+      })
+    }
+    closePermDrawer () {
+      this.setState(state => {
+        if (state.drawerValue !== 0) {
+          return { ...state, drawerValue: 0, sliderValue: 0 }
         }
         return state
       })
     }
     closeTempDrawer () {
-      if (this.state.drawerValue === 1) {
-        this.setState({ drawerValue: 0, sliderValue: 0 })
-      }
+      this.setState(state => {
+        if (this.state.drawerValue === 1) {
+          return { ...state, drawerValue: 0, sliderValue: 0 }
+        }
+        return state
+      })
     }
     render () {
       const {
@@ -118,6 +135,21 @@ const Frame = withStyles(
         render,
         routerProps,
       } = this.props
+      const activeApp = render.find(({ match }) => match)
+      const menu = (
+        <activeApp.Menu
+          key={activeApp.name}
+          {...routerProps}
+          languageCode={languageCode}
+          Wrapper={MenuWrapper}
+          wrapperProps={{
+            languageCode,
+            navLinks,
+            languageLinks,
+            onClick: this.closeTempDrawer,
+          }}
+        />
+      )
       return (
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
@@ -132,30 +164,31 @@ const Frame = withStyles(
               <Paper
                 square
                 elevation={4}
-                className={this.state.drawerValue > 0
-                  ? `${classes.scroll} ${classes.drawer} ${classes.drawerLeftToRight}`
-                  : `${classes.scroll} ${classes.drawer} ${classes.drawerRightToLeft}`
-                }
+                className={`${classes.column} ${classes.leftColumn}`}
               >
-                {render.map(({ match, name, Menu }) => match
-                  ? (
-                    <Menu
-                      key={name}
-                      {...routerProps}
-                      languageCode={languageCode}
-                      Wrapper={MenuWrapper}
-                      wrapperProps={{
-                        languageCode,
-                        navLinks,
-                        languageLinks,
-                        onClick: this.closeTempDrawer,
-                      }}
-                    />
-                  )
-                  : <Menu key={name} match={null} />
-                )}
+                {menu}
               </Paper>
-              <div className={`${classes.scroll} ${classes.appScroll}`}>
+              <Hidden mdUp implementation="js">
+                <Drawer
+                  PaperProps={{
+                    className: classes.drawerPaper,
+                    style: { width: leftWidth },
+                  }}
+                  variant="temporary"
+                  open={this.state.drawerValue > 0}
+                  onClose={this.closePermDrawer}
+                >
+                  <MenuSlider
+                    className={classes.drawerSlider}
+                    value={this.state.sliderValue}
+                    onChange={this.setSlider}
+                    onChangeCommitted={this.setDrawer}
+                    label="Menu"
+                  />
+                  <div className={classes.drawerMenu}>{menu}</div>
+                </Drawer>
+              </Hidden>
+              <div className={`${classes.column} ${classes.rightColumn}`}>
                 {render.map(({ match, name, Content }) => match
                   ? (
                     <Content

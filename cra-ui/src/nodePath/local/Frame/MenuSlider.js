@@ -31,9 +31,9 @@ const MenuSlider = withStyles(
     },
   }
 )(
-  function MenuSlider ({ classes, className, value, onChange, onChangeCommitted, label }) {
+  function MenuSlider ({ classes, id, className, value, onChange, onChangeCommitted, label }) {
     return (
-      <div className={`${className} ${classes.root}`}>
+      <div id={id} className={`${className} ${classes.root}`}>
         <div className={classes.icon} style={{ opacity: value === 2 ? 1 : iconOpacity }}>
           <FontAwesomeIcon icon={[`fas`, `thumbtack`]} />
         </div>

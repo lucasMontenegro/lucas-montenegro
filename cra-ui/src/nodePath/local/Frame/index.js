@@ -2,18 +2,17 @@ import React from "react"
 import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import { withStyles } from "@material-ui/core/styles"
-import Hidden from "@material-ui/core/Hidden"
-import Drawer from "@material-ui/core/Drawer"
 import Paper from "@material-ui/core/Paper"
 import MenuSlider from "./MenuSlider"
 import ContentWrapper from "./Content"
 import MenuWrapper from "./Menu"
+import Drawer from "./Drawer"
 const leftWidth = `256px`
 const rightWidth = `1024px`
 const drawerColor =`rgba(255, 255, 255, 0.7)`
 const drawerBgColor = `#18202c`
 const bodyBgColor = `#eaeff1`
-const breakpointUp = theme.breakpoints.up(`md`)
+const breakpointUp = theme.breakpoints.up(800)
 const Frame = withStyles(
   {
     root: {
@@ -27,23 +26,6 @@ const Frame = withStyles(
       [breakpointUp]: {
         display: `none`,
       },
-    },
-    drawerPaper: {
-      outline: `none`,
-      display: `flex`,
-      backgroundColor: drawerBgColor,
-    },
-    drawerSlider: {
-      height: `100vh`,
-      flex: `0 0 4ch`,
-    },
-    drawerMenu: {
-      color: drawerColor,
-      backgroundColor: drawerBgColor,
-      height: `100vh`,
-      flex: `0 1 100%`,
-      overflowY: `auto`,
-      WebkitOverflowScrolling: `touch`, // Add iOS momentum scrolling.
     },
     mainWrapper: {
       height: `100%`,
@@ -154,6 +136,7 @@ const Frame = withStyles(
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
             <MenuSlider
+              id="bottom-slider"
               className={classes.slider}
               value={this.state.sliderValue}
               onChange={this.setSlider}
@@ -168,26 +151,18 @@ const Frame = withStyles(
               >
                 {menu}
               </Paper>
-              <Hidden mdUp implementation="js">
-                <Drawer
-                  PaperProps={{
-                    className: classes.drawerPaper,
-                    style: { width: leftWidth },
-                  }}
-                  variant="temporary"
-                  open={this.state.drawerValue > 0}
-                  onClose={this.closePermDrawer}
-                >
-                  <MenuSlider
-                    className={classes.drawerSlider}
-                    value={this.state.sliderValue}
-                    onChange={this.setSlider}
-                    onChangeCommitted={this.setDrawer}
-                    label="Menu"
-                  />
-                  <div className={classes.drawerMenu}>{menu}</div>
-                </Drawer>
-              </Hidden>
+              <Drawer
+                open={this.state.drawerValue > 0}
+                onClose={this.closePermDrawer}
+                sliderProps={{
+                  value: this.state.sliderValue,
+                  onChange: this.setSlider,
+                  onChangeCommitted: this.setDrawer,
+                  label: `Menu`,
+                }}
+              >
+                {menu}
+              </Drawer>
               <div className={`${classes.column} ${classes.rightColumn}`}>
                 {render.map(({ match, name, Content }) => match
                   ? (

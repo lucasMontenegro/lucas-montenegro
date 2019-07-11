@@ -1,11 +1,10 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import createMainRouter from "local/createMainRouter"
+import MainRouter from "local/MainRouter"
 import home from "./home"
 import counter from "./counter"
 import notFound from "./notFound"
-const MainRouter = createMainRouter({
-  defaultLanguage: `en`,
+const options = {
   languages: {
     en: `English`,
     es: `Español`,
@@ -18,12 +17,12 @@ const MainRouter = createMainRouter({
     counter,
     notFound,
   },
-})
+}
 const mainRouter = (
   <Route
-    key="main-router"
+    key="mainRouter"
     path="/examples/main-router"
-    component={MainRouter}
+    render={props => <MainRouter options={options} routerProps={props} />}
   />
 )
 export default mainRouter

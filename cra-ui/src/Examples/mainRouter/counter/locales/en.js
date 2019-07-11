@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export default {
-  exports: {
+  routerOptions: {
     match (location) {
       return /^\/examples\/main-router\/english\/counter\/?/.test(location.pathname)
     },
@@ -9,12 +9,14 @@ export default {
       toIntl (location) {
         return {
           ...location,
+          key: undefined,
           pathname: `/c`,
         }
       },
       toLocal (location) {
         return {
           ...location,
+          key: undefined,
           pathname: `/examples/main-router/english/counter`,
         }
       },

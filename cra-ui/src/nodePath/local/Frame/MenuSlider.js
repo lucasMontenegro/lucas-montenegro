@@ -1,6 +1,7 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { withStyles } from "@material-ui/core/styles"
 import Slider from "@material-ui/lab/Slider"
+import Paper from "@material-ui/core/Paper"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import MenuIcon from "@material-ui/icons/Menu"
 const iconOpacity = 0.5
@@ -19,6 +20,7 @@ const StyledSlider = withStyles(
 const MenuSlider = withStyles(
   {
     root: {
+      zIndex: 5,
       backgroundColor: `#18202c`,
       display: `flex`,
       flexDirection: `column`,
@@ -31,9 +33,10 @@ const MenuSlider = withStyles(
     },
   }
 )(
-  function MenuSlider ({ classes, id, className, value, onChange, onChangeCommitted, label }) {
-    return (
-      <div id={id} className={`${className} ${classes.root}`}>
+  function MenuSlider (props) {
+    const { classes, paper, id, className, value, onChange, onChangeCommitted, label } = props
+    const children = (
+      <Fragment>
         <div className={classes.icon} style={{ opacity: value === 2 ? 1 : iconOpacity }}>
           <FontAwesomeIcon icon={[`fas`, `thumbtack`]} />
         </div>
@@ -49,8 +52,13 @@ const MenuSlider = withStyles(
           onChange={onChange}
           onChangeCommitted={onChangeCommitted}
         />
-      </div>
+      </Fragment>
     )
+    const fullClassName = `${className} ${classes.root}`
+    if (paper) {
+      return <Paper square elevation={4} id={id} className={fullClassName}>{children}</Paper>
+    }
+    return <div id={id} className={fullClassName}>{children}</div>
   }
 )
 export default MenuSlider

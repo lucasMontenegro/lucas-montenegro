@@ -1,5 +1,4 @@
 import React from "react"
-import Frame from "local/Frame"
 import locales from "./locales"
 import FancyCard from "../FancyCard"
 class Counter extends React.Component {
@@ -21,19 +20,19 @@ class Counter extends React.Component {
     return Boolean(this.props.match || nextProps.match)
   }
   render () {
-    const { match, language, frameProps } = this.props
+    const { match, languageCode, Wrapper, wrapperProps } = this.props
     if (!match) {
       return null
     }
-    const { appTitle, textJsx } = locales.render[language]
+    const { appTitle, textJsx } = locales.render[languageCode]
     return (
-      <Frame {...frameProps} subtitle={appTitle}>
+      <Wrapper subtitle={appTitle} other={wrapperProps}>
         <FancyCard>{textJsx(this.state.count)}</FancyCard>
-      </Frame>
+      </Wrapper>
     )
   }
 }
 export default {
-  Component: Counter,
-  locales: locales.exports,
+  AppBody: Counter,
+  locales: locales.routerOptions,
 }

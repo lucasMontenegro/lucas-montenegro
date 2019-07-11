@@ -111,31 +111,35 @@ const Frame = withStyles(
     render () {
       const {
         classes,
+        appName,
+        languageCode,
+        AppMenu,
+        appBodies,
+        navLinks,
+        languageLinks,
+        routerProps,
+      } = this.props
+      const menuWrapperProps = {
         languageCode,
         navLinks,
         languageLinks,
-        render,
-        routerProps,
-      } = this.props
-      const activeApp = render.find(({ match }) => match)
-      const menu = (
-        <activeApp.Menu
-          key={activeApp.name}
-          {...routerProps}
-          languageCode={languageCode}
-          Wrapper={MenuWrapper}
-          wrapperProps={{
-            languageCode,
-            navLinks,
-            languageLinks,
-            onClick: this.closeTempDrawer,
-          }}
-        />
-      )
+        onClick: this.closeTempDrawer,
+      }
+      const menu = AppMenu
+        ? (
+          <AppMenu
+            languageCode={languageCode}
+            routerProps={routerProps}
+            Wrapper={MenuWrapper}
+            wrapperProps={menuWrapperProps}
+          />
+        )
+        : <MenuWrapper other={menuWrapperProps} />
       return (
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
             <MenuSlider
+              paper
               id="bottom-slider"
               className={classes.slider}
               value={this.state.sliderValue}
@@ -164,18 +168,15 @@ const Frame = withStyles(
                 {menu}
               </Drawer>
               <div className={`${classes.column} ${classes.rightColumn}`}>
-                {render.map(({ match, name, Content }) => match
-                  ? (
-                    <Content
-                      key={name}
-                      {...routerProps}
-                      languageCode={languageCode}
-                      Wrapper={ContentWrapper}
-                      wrapperProps={{ languageCode }}
-                    />
-                  )
-                  : <Content key={name} match={null} />
-                )}
+                {appBodies.map(({ appName: name, AppBody }) => (
+                  <AppBody
+                    key={name}
+                    match={name === appName}
+                    languageCode={languageCode}
+                    routerProps={routerProps}
+                    Wrapper={ContentWrapper}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -184,5 +185,5 @@ const Frame = withStyles(
     }
   }
 )
-export const supportedLanguageCodes = [`en`, `es`]
+export const supportedLanguages = [`en`, `es`]
 export default Frame

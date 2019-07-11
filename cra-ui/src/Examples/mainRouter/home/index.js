@@ -1,19 +1,18 @@
 import React from "react"
-import Frame from "local/Frame"
 import locales from "./locales"
 import FancyCard from "../FancyCard"
-const Home = ({ match, language, frameProps }) => {
+function Home ({ match, languageCode, Wrapper, wrapperProps }) {
   if (!match) {
     return null
   }
-  const { appTitle, text } = locales.render[language]
+  const { appTitle, text } = locales.render[languageCode]
   return (
-      <Frame {...frameProps} subtitle={appTitle}>
+    <Wrapper subtitle={appTitle} other={wrapperProps}>
       <FancyCard>{text}</FancyCard>
-    </Frame>
+    </Wrapper>
   )
 }
 export default {
-  Component: Home,
-  locales: locales.exports,
+  AppBody: Home,
+  locales: locales.routerOptions,
 }

@@ -6,8 +6,8 @@ export default {
     en: en.render,
     es: es.render,
   },
-  exports: {
-    en: en.exports,
-    es: es.exports,
+  routerOptions: {
+    en: en.routerOptions,
+    es: es.routerOptions,
   },
 }

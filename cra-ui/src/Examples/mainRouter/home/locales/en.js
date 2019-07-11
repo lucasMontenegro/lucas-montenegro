@@ -1,7 +1,7 @@
 import React from "react"
 import HomeIcon from "@material-ui/icons/Home"
 export default {
-  exports: {
+  routerOptions: {
     match (location) {
       return /^\/examples\/main-router\/english\/home\/?/.test(location.pathname)
     },
@@ -9,12 +9,14 @@ export default {
       toIntl (location) {
         return {
           ...location,
+          key: undefined,
           pathname: `/h`,
         }
       },
       toLocal (location) {
         return {
           ...location,
+          key: undefined,
           pathname: `/examples/main-router/english/home`,
         }
       },

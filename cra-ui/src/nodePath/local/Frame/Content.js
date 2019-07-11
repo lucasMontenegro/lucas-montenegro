@@ -19,7 +19,7 @@ const Content = withStyles(
     },
   }
 )(
-  ({ classes, subtitle, children, other: { languageCode } }) => (
+  ({ classes, subtitle, children }) => (
     <Fragment>
       <div className={classes.header}>
         <AppBar

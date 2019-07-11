@@ -3,18 +3,62 @@ import { Route } from "react-router-dom"
 import { withStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
-import Frame, { supportedLanguageCodes } from "local/Frame"
+import Frame, { supportedLanguages } from "local/Frame"
 const appNames = [`app1`, `app2`]
-const makeContentComponent = appName => withStyles(
-  {
-    card: {
-      maxWidth: `60ch`,
-      margin: `2em 3ch`,
-      padding: `1em 1ch`,
-    },
+function FrameExampleRouter (props) {
+  const { languageCode, appName } = props.match.params
+  if (!hashtable.appNames[appName] || !hashtable.supportedLanguages[languageCode]) {
+    return null
   }
-)(
-  ({ classes, match, languageCode, Wrapper, wrapperProps }) => {
+  return (
+    <Frame
+      appName={appName}
+      languageCode={languageCode}
+      AppMenu={appMenus[appName]}
+      appBodies={appBodies}
+      navLinks={navLinks[languageCode].map(({ appName, text }) => ({
+        key: appName,
+        text,
+        to: locations[appName].translated[languageCode],
+      }))}
+      languageLinks={languageLinks.map(({ languageCode, text }) => ({
+        key: languageCode,
+        text,
+        to: locations[appName].translated[languageCode],
+      }))}
+      routerProps={props.routerProps}
+    />
+  )
+}
+const hashtable = {
+  appNames: appNames.reduce((table, appName) => {
+    table[appName] = true
+    return table
+  }, {}),
+  supportedLanguages: supportedLanguages.reduce((table, languageCode) => {
+    table[languageCode] = true
+    return table
+  }, {}),
+}
+const appMenus = appNames.reduce((appMenus, appName) => {
+  appMenus[appName] = function AppMenu ({ languageCode, routerProps, Wrapper, wrapperProps }) {
+    return (
+      <Wrapper other={wrapperProps}>
+        <div>{`menu ${languageCode} ${appName}`}</div>
+      </Wrapper>
+    )
+  }
+  return appMenus
+}, {})
+const appBodyStyles = {
+  card: {
+    maxWidth: `60ch`,
+    margin: `2em 3ch`,
+    padding: `1em 1ch`,
+  },
+}
+const appBodies = appNames.map(appName => {
+  function AppBody ({ classes, match, languageCode, Wrapper, wrapperProps }) {
     if (!match) {
       return null
     }
@@ -31,58 +75,38 @@ const makeContentComponent = appName => withStyles(
       </Wrapper>
     )
   }
-)
-const makeMenuComponent = appName => ({ match, languageCode, Wrapper, wrapperProps }) => {
-  if (!match) {
-    return null
-  }
-  return (
-    <Wrapper other={wrapperProps}>
-      <div>{`menu ${languageCode} ${appName}`}</div>
-    </Wrapper>
-  )
-}
-const apps = appNames.map(appName => ({
-  name: appName,
-  Content: makeContentComponent(appName),
-  Menu: makeMenuComponent(appName),
+  return { appName, AppBody: withStyles(appBodyStyles)(AppBody) }
+})
+const navLinks = supportedLanguages.reduce((navLinks, languageCode) => {
+  navLinks[languageCode] = appNames.map(appName => ({
+    appName,
+    text: `nav link ${languageCode} ${appName}`,
+  }))
+  return navLinks
+}, {})
+const languageLinks = supportedLanguages.map(languageCode => ({
+  languageCode,
+  text: `language link ${languageCode}`,
 }))
-const renderLists = appNames.reduce((renderLists, appName) => {
-  renderLists[appName] = apps.map(app => ({ ...app, match: appName === app.name }))
-  return renderLists
+const locations = appNames.reduce((locations, appName) => {
+  locations[appName] = {
+    original: null,
+    translated: supportedLanguages.reduce((translated, languageCode) => {
+      translated[languageCode] = {
+        pathname: `/examples/frame/${languageCode}/${appName}`,
+        search: ``,
+        hash: ``,
+      }
+      return translated
+    }, {}),
+  }
+  return locations
 }, {})
-const make = {
-  path: (languageCode, appName) => `/examples/frame/${languageCode}/${appName}`,
-  languageLinkText: (languageCode, appName) => `language link ${languageCode} ${appName}`,
-  navLinkText: (languageCode, appName) => `nav link ${languageCode} ${appName}`,
-}
-const propsByLang = supportedLanguageCodes.reduce((propsByLang, languageCode) => {
-  propsByLang[languageCode] = appNames.reduce((propsByApp, appName) => {
-    propsByApp[appName] = {
-      languageCode,
-      render: renderLists[appName],
-      navLinks: appNames.map(_appName => ({
-        key: _appName,
-        to: make.path(languageCode, _appName),
-        text: make.navLinkText(languageCode, _appName),
-      })),
-      languageLinks: supportedLanguageCodes.map(_languageCode => ({
-        key: _languageCode,
-        to: make.path(_languageCode, appName),
-        text: make.languageLinkText(_languageCode, appName),
-      })),
-    }
-    return propsByApp
-  }, {})
-  return propsByLang
-}, {})
-const MainRouter = props => {
-  const { lang, app } = props.match.params
-  const propsByApp = propsByLang[lang]
-  if (!propsByApp) return null
-  const frameProps = propsByApp[app]
-  if (!frameProps) return null
-  return <Frame {...frameProps} routerProps={props} />
-}
-const frameExample = <Route exact path="/examples/frame/:lang/:app" render={MainRouter} />
+const frameExample = (
+  <Route
+    key="frame"
+    exact path="/examples/frame/:languageCode/:appName"
+    render={FrameExampleRouter}
+  />
+)
 export default frameExample

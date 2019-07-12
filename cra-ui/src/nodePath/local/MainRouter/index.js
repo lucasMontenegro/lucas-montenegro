@@ -52,7 +52,6 @@ class MainRouter extends React.Component {
   constructor (props) {
     super(props)
     mainRouterConstructor.call(this, props.options)
-    console.log(this)
     if (i18n.initialized) {
       this.state = { initializing: false }
     } else {

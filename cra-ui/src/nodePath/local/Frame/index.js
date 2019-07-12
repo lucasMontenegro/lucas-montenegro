@@ -111,6 +111,7 @@ const Frame = withStyles(
     render () {
       const {
         classes,
+        redirect,
         appName,
         languageCode,
         AppMenu,
@@ -119,22 +120,37 @@ const Frame = withStyles(
         languageLinks,
         routerProps,
       } = this.props
-      const menuWrapperProps = {
-        languageCode,
-        navLinks,
-        languageLinks,
-        onClick: this.closeTempDrawer,
-      }
-      const menu = AppMenu
-        ? (
-          <AppMenu
+      let menu, body
+      if (redirect) {
+        menu = null
+        body = appBodies.map(({ appName, AppBody }) => <AppBody key={appName} match={false} />)
+      } else {
+        body = appBodies.map(({ appName: name, AppBody }) => (
+          <AppBody
+            key={name}
+            match={redirect ? false : name === appName}
             languageCode={languageCode}
             routerProps={routerProps}
-            Wrapper={MenuWrapper}
-            wrapperProps={menuWrapperProps}
+            Wrapper={ContentWrapper}
           />
-        )
-        : <MenuWrapper other={menuWrapperProps} />
+        ))
+        const menuWrapperProps = {
+          languageCode,
+          navLinks,
+          languageLinks,
+          onClick: this.closeTempDrawer,
+        }
+        menu = AppMenu
+          ? (
+            <AppMenu
+              languageCode={languageCode}
+              routerProps={routerProps}
+              Wrapper={MenuWrapper}
+              wrapperProps={menuWrapperProps}
+            />
+          )
+          : <MenuWrapper other={menuWrapperProps} />
+      }
       return (
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
@@ -167,17 +183,7 @@ const Frame = withStyles(
               >
                 {menu}
               </Drawer>
-              <div className={`${classes.column} ${classes.rightColumn}`}>
-                {appBodies.map(({ appName: name, AppBody }) => (
-                  <AppBody
-                    key={name}
-                    match={name === appName}
-                    languageCode={languageCode}
-                    routerProps={routerProps}
-                    Wrapper={ContentWrapper}
-                  />
-                ))}
-              </div>
+              <div className={`${classes.column} ${classes.rightColumn}`}>{body}</div>
             </div>
           </div>
         </ThemeProvider>

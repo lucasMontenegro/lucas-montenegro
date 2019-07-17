@@ -1,0 +1,115 @@
+import React, { Fragment } from "react"
+import { Redirect } from "react-router"
+import i18n from "local/i18n"
+/*
+props = {
+  location,
+  Component,
+  routing: {
+    matchRoot,
+    locations: {
+      home: {
+        [languageCode]: location,
+      },
+      notFound: {
+        [languageCode]: location,
+      },
+    }
+    routes: [
+      {
+        appName,
+        languageCode,
+        match,
+      },
+    ],
+    languageRoutes: {
+      root: [
+        {
+          languageCode,
+          match,
+        },
+      ],
+      notFound: [
+        {
+          languageCode,
+          match,
+        },
+      ],
+    },
+  },
+}
+*/
+class Router extends React.Component {
+  constructor (props) {
+    super(props)
+    if (i18n.isInitialized) {
+      this.languageCode = i18n.language
+      this.state = { initializing: false }
+    } else {
+      this.state = { initializing: true }
+      const fn = this.setInitializedCallback = () => {
+        this.languageCode = i18n.language
+        this.setState({ initializing: false })
+        i18n.off(`initialized`, fn)
+      }
+      i18n.on(`initialized`, fn)
+    }
+  }
+  componentWillUnmount () {
+    if (this.state.initializing) {
+      i18n.off(`initialized`, this.setInitializedCallback)
+    }
+  }
+  changeLanguage (languageCode) {
+    if (languageCode !== this.languageCode) {
+      this.languageCode = languageCode
+      i18n.changeLanguage(languageCode)
+    }
+  }
+  render () {
+    if (this.state.initializing) {
+      return null
+    }
+    if (i18n.language !== this.languageCode) {
+      i18n.changeLanguage(this.languageCode)
+    }
+    const { location, Component, routing } = this.props
+    let redirectTo = null, appName = null
+    if (routing.matchRoot(location)) {
+      redirectTo = routing.locations.home[this.languageCode]
+    } else {
+      const route = routing.routes.find(r => r.match(location))
+      if (route) {
+        this.changeLanguage(route.languageCode)
+        ;({ appName } = route)
+      } else {
+        const languageRoot = routing.languageRoutes.root.find(r => r.match(location))
+        if (languageRoot) {
+          this.changeLanguage(languageRoot.languageCode)
+          redirectTo = routing.locations.home[this.languageCode]
+        } else {
+          const languageNotFound = routing.languageRoutes.notFound.find(r => r.match(location))
+          if (languageNotFound) {
+            this.changeLanguage(languageNotFound.languageCode)
+          }
+          redirectTo = {
+            ...routing.locations.notFound[this.languageCode],
+            state: { referrer: location },
+          }
+        }
+      }
+    }
+    return (
+      <Fragment>
+        {redirectTo && <Redirect to={redirectTo} />}
+        <Component
+          appName={appName}
+          languageCode={this.languageCode}
+          location={location}
+          routing={routing}
+        />
+      </Fragment>
+    )
+  }
+}
+export default Router

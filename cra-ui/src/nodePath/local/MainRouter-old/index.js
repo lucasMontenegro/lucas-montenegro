@@ -1,19 +1,14 @@
 import React, { Fragment } from "react"
 import { Redirect } from "react-router"
 import i18n from "local/i18n"
-import Frame from "local/Frame"
 import mainRouterConstructor from "./mainRouterConstructor"
 /*
 this = {
+  Frame,
   languageCode,
   matchRoot,
   locations: {
-    [appName]: {
-      original,
-      translations: {
-        [languageCode]: location,
-      },
-    },
+    [appName]: location,
   },
   appBodies: [
     {
@@ -28,24 +23,19 @@ this = {
       match,
     },
   ],
-  makeNotFoundLocation,
-  translate: {
-    [appName]: {
-      [oldLanguageCode]: {
-        [newLanguageCode]: function,
+  translateLocationFrom: {
+    [oldLanguageCode]: {
+      [newLanguageCode]: {
+        [appName]: function,
       },
     },
   },
-  languageCodes,
   appMenus: {},
   navLinks: {
     [languageCode]: [
       { appName, text, icon },
     ],
   },
-  languageLinks: [
-    { languageCode, text },
-  ],
 }
 */
 class MainRouter extends React.Component {
@@ -57,6 +47,15 @@ class MainRouter extends React.Component {
     } else {
       this.state = { initializing: true }
       const fn = this.setInitializedCallback = () => {
+        const detectedLanguage = i18n.language
+        if (this.languageCode !== detectedLanguage) {
+          const translateFor = this.translateLocationFrom[this.languageCode][detectedLanguage]
+          this.locations = this.appNames.reduce((locations, appName) => {
+            locations[appName] = translateFor[appName](this.locations[appName])
+            return locations
+          }, {})
+          this.languageCode = detectedLanguage
+        }
         this.setState({ initializing: false })
         i18n.off(`initialized`, fn)
       }
@@ -72,14 +71,12 @@ class MainRouter extends React.Component {
     if (this.state.initializing) {
       return null
     }
-    if (!this.languageCode) {
-      this.languageCode = i18n.language
-    }
     const { location } = this.props.routerProps
+    const { Frame } = this
     if (this.matchRoot(location)) {
       return (
         <Fragment>
-          <Redirect to={this.locations.home.translations[this.languageCode]} />
+          <Redirect to={this.locations.home} />
           <Frame redirect appBodies={this.appBodies} />
         </Fragment>
       )
@@ -88,23 +85,25 @@ class MainRouter extends React.Component {
     if (!route) {
       return (
         <Fragment>
-          <Redirect to={this.makeNotFoundLocation(this.languageCode, location)} />
+          <Redirect to={{ ...this.locations.notFound, state: location }} />
           <Frame redirect appBodies={this.appBodies} />
         </Fragment>
       )
     }
     const { appName, languageCode } = route
     if (this.languageCode !== languageCode) {
-      i18n.changeLanguage(this.languageCode = languageCode)
-    }
-    const translatedLocation = this.locations[appName]
-    if (translatedLocation.original !== location) {
-      translatedLocation.original = location
-      const translateTo = this.translate[appName][this.languageCode]
-      translatedLocation.translations = this.languageCodes.reduce((translations, languageCode) => {
-        translations[languageCode] = translateTo[languageCode](location)
-        return translations
-      }, {})
+      const activeApp = appName
+      const translateFor = this.translateLocationFrom[this.languageCode][languageCode]
+      this.locations = this.appNames.reduce((locations, appName) => {
+        if (appName !== activeApp) {
+          locations[appName] = translateFor[appName](this.locations[appName])
+        }
+        return locations
+      }, { [activeApp]: location })
+      i18n.changeLanguage(languageCode)
+      this.languageCode = languageCode
+    } else {
+      this.locations[appName] = location
     }
     return (
       <Fragment>
@@ -113,16 +112,9 @@ class MainRouter extends React.Component {
           languageCode={languageCode}
           AppMenu={this.appMenus[appName]}
           appBodies={this.appBodies}
-          navLinks={this.navLinks[languageCode].map(({ appName, text }) => ({
-            key: appName,
-            text,
-            to: this.locations[appName].translations[languageCode],
-          }))}
-          languageLinks={this.languageLinks.map(({ languageCode, text }) => ({
-            key: languageCode,
-            text,
-            to: this.locations[appName].translations[languageCode],
-          }))}
+          locations={this.locations}
+          translateLocationFrom={this.translateLocationFrom}
+          navLinks={this.navLinks[languageCode]}
           routerProps={this.props.routerProps}
         />
       </Fragment>

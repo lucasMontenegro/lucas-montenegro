@@ -5,10 +5,6 @@ import home from "./home"
 import counter from "./counter"
 import notFound from "./notFound"
 const options = {
-  languages: {
-    en: `English`,
-    es: `Español`,
-  },
   matchRoot ({ pathname }) {
     return /^\/examples\/main-router\/?$/.test(pathname)
   },

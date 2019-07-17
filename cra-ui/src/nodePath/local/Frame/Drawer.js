@@ -35,6 +35,7 @@ function Drawer (props) {
   }
   return (
     <MuiDrawer
+      id="drawer"
       PaperProps={{
         className: classes.paper,
         style: { width: leftWidth },

@@ -2,10 +2,6 @@ import React from "react"
 import mainRouterConstructor from "./mainRouterConstructor"
 describe(`local/MainRouter: mainRouterConstructor`, () => {
   const options = {
-    languages: {
-      en: `English`,
-      es: `Español`,
-    },
     matchRoot: `function to match the route where the app is mounted`,
     apps: {
       home: {
@@ -154,38 +150,31 @@ describe(`local/MainRouter: mainRouterConstructor`, () => {
   it(
     `should return the proper values for:
         matchRoot,
-        languageCodes,
         locations,
         appBodies,
         routes,
         appMenus,
-        navLinks,
-        languageLinks`,
+        navLinks`,
     () => {
       const self = {}
       mainRouterConstructor.call(self, options)
       const {
         matchRoot,
-        languageCodes,
         locations,
         appBodies,
         routes,
         appMenus,
         navLinks,
-        languageLinks,
       } = self
       expect({
         matchRoot,
-        languageCodes,
         locations,
         appBodies,
         routes,
         appMenus,
         navLinks,
-        languageLinks,
       }).toEqual({
         matchRoot: `function to match the route where the app is mounted`,
-        languageCodes: [`en`, `es`],
         locations: {
           home: {
             original: null,
@@ -320,16 +309,6 @@ describe(`local/MainRouter: mainRouterConstructor`, () => {
             },
           ],
         },
-        languageLinks: [
-          {
-            languageCode: `en`,
-            text: `English`,
-          },
-          {
-            languageCode: `es`,
-            text: `Español`,
-          },
-        ],
       })
     }
   )

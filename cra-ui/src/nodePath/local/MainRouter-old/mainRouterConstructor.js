@@ -1,11 +1,11 @@
 function mainRouterConstructor (options) {
   //  options = {
-  //    languages: {
-  //      ...[language code]: full name,
-  //    },
+  //    defaultLanguage,
+  //    supportedLanguages,
   //    matchRoot: function to match the route where the app is mounted,
   //    apps: {
   //      ...[camel case name]: {
+  //        location: initial value corresponding to the defaultLanguage,
   //        AppBody: main content of the app,
   //        AppMenu: component to render in the menu,
   //        locales: {
@@ -16,7 +16,6 @@ function mainRouterConstructor (options) {
   //              toLocal: function (location) --> location,
   //            },
   //            navLink: {
-  //              location: initial app location,
   //              text,
   //              icon,
   //            },
@@ -25,18 +24,13 @@ function mainRouterConstructor (options) {
   //      },
   //    },
   //  }
+  this.Frame = options.Frame
+  this.languageCode = options.defaultLanguage
   this.matchRoot = options.matchRoot
   const appNames = Object.keys(options.apps)
-  const languageCodes = this.languageCodes = Object.keys(options.languages)
+  const { supportedLanguages } = options
   this.locations = appNames.reduce((locations, appName) => {
-    const { locales } = options.apps[appName]
-    locations[appName] = {
-      original: null,
-      translations: languageCodes.reduce((output, languageCode) => {
-        output[languageCode] = locales[languageCode].navLink.location
-        return output
-      }, {}),
-    }
+    locations[appName] = options.apps[appName].location
     return locations
   }, {})
   this.appBodies = appNames.map(appName => ({
@@ -45,7 +39,7 @@ function mainRouterConstructor (options) {
   }))
   this.routes = appNames.map(appName => {
     const { locales } = options.apps[appName]
-    return languageCodes.map(languageCode => ({
+    return supportedLanguages.map(languageCode => ({
       appName,
       languageCode,
       match: locales[languageCode].match,
@@ -54,50 +48,36 @@ function mainRouterConstructor (options) {
     routes.push(...arr)
     return routes
   }, [])
-  {
-    const { locales } = options.apps.notFound
-    const notFoundLocations = languageCodes.reduce((locations, languageCode) => {
-      locations[languageCode] = locales[languageCode].navLink.location
-      return locations
-    }, {})
-    this.makeNotFoundLocation = function makeNotFoundLocation (languageCode, referrer) {
-      return {
-        ...notFoundLocations[languageCode],
-        state: { referrer },
-      }
-    }
-  }
-  this.translate = appNames.reduce((translateFor, appName) => {
-    const { locales } = options.apps[appName]
-    translateFor[appName] = languageCodes.reduce((translateFrom, oldLanguage) => {
-      translateFrom[oldLanguage] = languageCodes.reduce((translateTo, newLanguage) => {
-        if (oldLanguage === newLanguage) {
-          translateTo[newLanguage] = location => location
-        } else {
+  this.translateLocationFrom = supportedLanguages.reduce((translateFrom, oldLanguage) => {
+    translateFrom[oldLanguage] = supportedLanguages.reduce((translateTo, newLanguage) => {
+      if (oldLanguage === newLanguage) {
+        translateTo[newLanguage] = appNames.reduce((translateFor, appName) => {
+          translateFor[appName] = location => location
+          return translateFor
+        }, {})
+      } else {
+        translateTo[newLanguage] = appNames.reduce((translateFor, appName) => {
+          const { locales } = options.apps[appName]
           const { toIntl } = locales[oldLanguage].translateLink
           const { toLocal } = locales[newLanguage].translateLink
-          translateTo[newLanguage] = location => toLocal(toIntl(location))
-        }
-        return translateTo
-      }, {})
-      return translateFrom
+          translateFor[appName] = location => toLocal(toIntl(location))
+          return translateFor
+        }, {})
+      }
+      return translateTo
     }, {})
-    return translateFor
+    return translateFrom
   }, {})
   this.appMenus = appNames.reduce((appMenus, appName) => {
     appMenus[appName] = options.apps[appName].AppMenu
     return appMenus
   }, {})
-  this.navLinks = languageCodes.reduce((navLinks, languageCode) => {
+  this.navLinks = supportedLanguages.reduce((navLinks, languageCode) => {
     navLinks[languageCode] = appNames.map(appName => {
       const { text, icon } = options.apps[appName].locales[languageCode].navLink
       return { appName, text, icon }
     })
     return navLinks
   }, {})
-  this.languageLinks = languageCodes.map(languageCode => ({
-    languageCode,
-    text: options.languages[languageCode],
-  }))
 }
 export default mainRouterConstructor

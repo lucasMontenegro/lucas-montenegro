@@ -3,10 +3,12 @@ import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import { withStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
-import MenuSlider from "./MenuSlider"
-import ContentWrapper from "./Content"
-import MenuWrapper from "./Menu"
+import BodyWrapper from "./BodyWrapper"
+import Navigator from "./Navigator"
 import Drawer from "./Drawer"
+import DrawerSlider from "./DrawerSlider"
+import { supportedLanguages } from "./languages"
+export supportedLanguages
 const leftWidth = `256px`
 const rightWidth = `1024px`
 const drawerColor =`rgba(255, 255, 255, 0.7)`
@@ -71,14 +73,16 @@ const Frame = withStyles(
     constructor (props) {
       super(props)
       this.state = { sliderValue: 0, drawerValue: 0 }
-      this.setSlider = this.setSlider.bind(this)
-      this.setDrawer = this.setDrawer.bind(this)
-      this.closePermDrawer = this.closePermDrawer.bind(this)
-      this.closeTempDrawer = this.closeTempDrawer.bind(this)
+      [
+        `setSlider`,
+        `setDrawer`,
+        `closePermDrawer`,
+        `closeTempDrawer`,
+      ].forEach(method => this[method] = this[method].bind(this))
     }
     setSlider (event, value) {
       this.setState(state => {
-        if (value !== this.state.sliderValue) {
+        if (value !== state.sliderValue) {
           return { ...state, sliderValue: value }
         }
         return state
@@ -102,7 +106,7 @@ const Frame = withStyles(
     }
     closeTempDrawer () {
       this.setState(state => {
-        if (this.state.drawerValue === 1) {
+        if (state.drawerValue === 1) {
           return { ...state, drawerValue: 0, sliderValue: 0 }
         }
         return state
@@ -111,57 +115,36 @@ const Frame = withStyles(
     render () {
       const {
         classes,
-        redirect,
-        appName,
+        appName: activeApp,
         languageCode,
-        AppMenu,
-        appBodies,
+        Dashboard,
+        dashboardProps,
+        bodies,
+        bodyProps,
+        locations,
+        translateLocationFrom,
         navLinks,
-        languageLinks,
-        routerProps,
       } = this.props
-      let menu, body
-      if (redirect) {
-        menu = null
-        body = appBodies.map(({ appName, AppBody }) => <AppBody key={appName} match={false} />)
-      } else {
-        body = appBodies.map(({ appName: name, AppBody }) => (
-          <AppBody
-            key={name}
-            match={redirect ? false : name === appName}
-            languageCode={languageCode}
-            routerProps={routerProps}
-            Wrapper={ContentWrapper}
-          />
-        ))
-        const menuWrapperProps = {
-          languageCode,
-          navLinks,
-          languageLinks,
-          onClick: this.closeTempDrawer,
-        }
-        menu = AppMenu
-          ? (
-            <AppMenu
-              languageCode={languageCode}
-              routerProps={routerProps}
-              Wrapper={MenuWrapper}
-              wrapperProps={menuWrapperProps}
-            />
-          )
-          : <MenuWrapper other={menuWrapperProps} />
-      }
+      const drawerContent = activeApp ? (
+        <Navigator
+          navLinks={navLinks}
+          locations={locations}
+          onClick={this.closeTempDrawer}
+        >
+          {Dashboard ? <Dashboard other={dashboardProps} /> : null}
+        </Navigator>
+      ) : null
       return (
         <ThemeProvider theme={theme}>
           <div className={classes.root}>
-            <MenuSlider
+            <DrawerSlider
               paper
               id="bottom-slider"
               className={classes.slider}
+              languageCode={languageCode}
               value={this.state.sliderValue}
               onChange={this.setSlider}
               onChangeCommitted={this.setDrawer}
-              label="Menu"
             />
             <div className={classes.mainWrapper}>
               <Paper
@@ -169,21 +152,37 @@ const Frame = withStyles(
                 elevation={4}
                 className={`${classes.column} ${classes.leftColumn}`}
               >
-                {menu}
+                {drawerContent}
               </Paper>
               <Drawer
                 open={this.state.drawerValue > 0}
                 onClose={this.closePermDrawer}
                 sliderProps={{
+                  languageCode,
                   value: this.state.sliderValue,
                   onChange: this.setSlider,
                   onChangeCommitted: this.setDrawer,
-                  label: `Menu`,
                 }}
               >
-                {menu}
+                {drawerContent}
               </Drawer>
-              <div className={`${classes.column} ${classes.rightColumn}`}>{body}</div>
+              <div className={`${classes.column} ${classes.rightColumn}`}>
+                {bodies.map(({ appName, Body }) => (
+                  <Body
+                    key={appName}
+                    match={activeApp === appName}
+                    languageCode={languageCode}
+                    Wrapper={BodyWrapper}
+                    wrapperProps={{
+                      languageCode,
+                      appName,
+                      locations,
+                      translateLocationFrom,
+                    }}
+                    other={bodyProps}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </ThemeProvider>
@@ -191,5 +190,4 @@ const Frame = withStyles(
     }
   }
 )
-export const supportedLanguages = [`en`, `es`]
 export default Frame

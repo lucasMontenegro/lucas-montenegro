@@ -4,6 +4,7 @@ import Slider from "@material-ui/lab/Slider"
 import Paper from "@material-ui/core/Paper"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import MenuIcon from "@material-ui/icons/Menu"
+import translations from "./translations"
 const iconOpacity = 0.5
 const StyledSlider = withStyles(
   {
@@ -17,7 +18,7 @@ const StyledSlider = withStyles(
     },
   }
 )(Slider)
-const MenuSlider = withStyles(
+const DrawerSlider = withStyles(
   {
     root: {
       zIndex: 5,
@@ -33,8 +34,9 @@ const MenuSlider = withStyles(
     },
   }
 )(
-  function MenuSlider (props) {
-    const { classes, paper, id, className, value, onChange, onChangeCommitted, label } = props
+  function DrawerSlider (props) {
+    const { classes, id, value } = props
+    const { drawerSliderLabel } = translations[props.languageCode]
     const children = (
       <Fragment>
         <div className={classes.icon} style={{ opacity: value === 2 ? 1 : iconOpacity }}>
@@ -47,18 +49,19 @@ const MenuSlider = withStyles(
           orientation="vertical"
           step={1}
           max={2}
-          aria-label={label}
+          aria-label={drawerSliderLabel}
+          aria-controls="drawer"
           value={value}
-          onChange={onChange}
-          onChangeCommitted={onChangeCommitted}
+          onChange={props.onChange}
+          onChangeCommitted={props.onChangeCommitted}
         />
       </Fragment>
     )
-    const fullClassName = `${className} ${classes.root}`
-    if (paper) {
+    const fullClassName = `${props.className} ${classes.root}`
+    if (props.paper) {
       return <Paper square elevation={4} id={id} className={fullClassName}>{children}</Paper>
     }
     return <div id={id} className={fullClassName}>{children}</div>
   }
 )
-export default MenuSlider
+export default DrawerSlider

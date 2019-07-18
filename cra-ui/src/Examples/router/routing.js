@@ -8,8 +8,8 @@ export default {
       es: { pathname: `/examples/router/es/home` },
     },
     notFound: {
-      en: { pathname: `/examples/router/en/not-found` },
-      es: { pathname: `/examples/router/es/not-found` },
+      en: { pathname: `/examples/router/en/notFound` },
+      es: { pathname: `/examples/router/es/notFound` },
     },
   },
   routes: [
@@ -31,14 +31,14 @@ export default {
       appName: `notFound`,
       languageCode: `en`,
       match (location) {
-        return /^\/examples\/router\/en\/not-found\/?$/.test(location.pathname)
+        return /^\/examples\/router\/en\/notFound\/?$/.test(location.pathname)
       },
     },
     {
       appName: `notFound`,
       languageCode: `es`,
       match (location) {
-        return /^\/examples\/router\/es\/not-found\/?$/.test(location.pathname)
+        return /^\/examples\/router\/es\/notFound\/?$/.test(location.pathname)
       },
     },
     {

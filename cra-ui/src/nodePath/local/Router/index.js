@@ -70,13 +70,10 @@ class Router extends React.Component {
     if (this.state.initializing) {
       return null
     }
-    if (i18n.language !== this.languageCode) {
-      i18n.changeLanguage(this.languageCode)
-    }
     const { location, Component, routing } = this.props
-    let redirectTo = null, appName = null
+    let redirectLocation = null, appName = null
     if (routing.matchRoot(location)) {
-      redirectTo = routing.locations.home[this.languageCode]
+      redirectLocation = routing.locations.home[this.languageCode]
     } else {
       const route = routing.routes.find(r => r.match(location))
       if (route) {
@@ -86,13 +83,13 @@ class Router extends React.Component {
         const languageRoot = routing.languageRoutes.root.find(r => r.match(location))
         if (languageRoot) {
           this.changeLanguage(languageRoot.languageCode)
-          redirectTo = routing.locations.home[this.languageCode]
+          redirectLocation = routing.locations.home[this.languageCode]
         } else {
           const languageNotFound = routing.languageRoutes.notFound.find(r => r.match(location))
           if (languageNotFound) {
             this.changeLanguage(languageNotFound.languageCode)
           }
-          redirectTo = {
+          redirectLocation = {
             ...routing.locations.notFound[this.languageCode],
             state: { referrer: location },
           }
@@ -101,7 +98,7 @@ class Router extends React.Component {
     }
     return (
       <Fragment>
-        {redirectTo && <Redirect to={redirectTo} />}
+        {redirectLocation && <Redirect to={redirectLocation} />}
         <Component
           appName={appName}
           languageCode={this.languageCode}

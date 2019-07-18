@@ -47,14 +47,24 @@ const RouterExample = withStyles(
                 margin="normal"
               />
               <div>
-                <ButtonLink to={url} variant="contained" color="primary">go</ButtonLink>
+                <ButtonLink id="nav-to-url" to={url} variant="contained" color="primary">
+                  navigate
+                </ButtonLink>
               </div>
             </div>
-            <p>{`id: ${this.id}`}</p>
-            <p>{`appName: ${props.appName}`}</p>
-            <p>{`languageCode: ${props.languageCode}`}</p>
-            <p>{`location.pathname: ${props.location.pathname}`}</p>
-            <p>{`typeof routing: ${typeof props.routing}`}</p>
+            <p id="router-instance-id">{`id: ${this.id}`}</p>
+            <p id="router-app-name">{`appName: ${props.appName}`}</p>
+            <p id="router-language-code">{`languageCode: ${props.languageCode}`}</p>
+            <p id="router-pathname">{`location.pathname: ${props.location.pathname}`}</p>
+            <p id="router-referrer">
+              {`location.state.referrer.pathname: ${
+                typeof props.location.state === `object`
+                && typeof props.location.state.referrer === `object`
+                && typeof props.location.state.referrer.pathname === `string`
+                ? props.location.state.referrer.pathname : ``
+              }`}
+            </p>
+            <p id="router-typeof-routing">{`typeof routing: ${typeof props.routing}`}</p>
           </Paper>
         </div>
       )

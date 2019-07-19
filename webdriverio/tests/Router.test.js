@@ -1,17 +1,14 @@
-const chai = require("chai")
-chai.config.truncateThreshold = 0
-const { expect } = chai
-const skip = true
+const supportedLanguages = require("./supportedLanguages.js")
+const { expect } = require("./chai")
+const skip = false
 const baseUrl = `http://localhost:3000`
 const appNames = [`home`, `example`, `notFound`]
-const supportedLanguages = [`en`, `es`]
-const assertRender = ({ id, appName, languageCode, pathname, referrer }) => {
-  const idElement = $(`#router-instance-id`)
-  expect(idElement.isDisplayed(), `id isDisplayed`).to.be.true
-  if (id) {
-    expect(idElement.getText(), `id getText`).to.equal(`id: ${id}`)
-  } else {
-    expect(idElement.getText(), `id getText`).to.match(/^id: \d{1,6}$/)
+const expectToRender = ({ id, appName, languageCode, pathname, referrer }) => {
+  {
+    const elem = $(`#router-instance-id`)
+    expect(elem.isDisplayed(), `id isDisplayed`).to.be.true
+    const to = expect(elem.getText(), `id getText`).to
+    id ? to.equal(`id: ${id}`) : to.match(/^id: \d{1,6}$/)
   }
   expect(browser.getUrl(), `browser.getUrl`).to.equal(`${baseUrl}${pathname}`)
   const elements = {
@@ -66,6 +63,9 @@ const navto = url => {
   $(`#nav-to-url`).click()
 }
 (skip ? describe.skip : describe)(`local/Router`, () => {
+  it(`should support all languages`, () => {
+    expect([`en`, `es`]).to.deep.equal(supportedLanguages)
+  })
   it(`should mount and unmount`, () => {
     const pathname = `/examples/router/en/home`
     browser.url(pathname)
@@ -74,11 +74,11 @@ const navto = url => {
       languageCode: `en`,
       pathname,
     }
-    assertRender(expected)
+    expectToRender(expected)
     const id1 = getId()
     navto(`/`)
     browser.back()
-    assertRender(expected)
+    expectToRender(expected)
     const id2 = getId()
     expect(id1, `IDs before/after remount`).to.not.equal(id2)
   })
@@ -88,7 +88,7 @@ const navto = url => {
     appNames.forEach(appName => supportedLanguages.forEach(languageCode => {
       const pathname = `/examples/router/${languageCode}/${appName}`
       navto(pathname)
-      assertRender({ id, appName, languageCode, pathname })
+      expectToRender({ id, appName, languageCode, pathname })
     }))
   })
   it(`should redirect without language detection`, () => {
@@ -98,7 +98,7 @@ const navto = url => {
       {
         const basepath = `/examples/router/${languageCode}`
         navto(basepath)
-        assertRender({
+        expectToRender({
           id,
           appName: `home`,
           languageCode,
@@ -109,7 +109,7 @@ const navto = url => {
         const basepath = `/examples/router/${languageCode}`
         const referrer = `${basepath}/404`
         navto(referrer)
-        assertRender({
+        expectToRender({
           id,
           appName: `notFound`,
           languageCode,
@@ -143,14 +143,14 @@ const navto = url => {
     supportedLanguages.forEach(languageCode => {
       navto(`${basepath}/${languageCode}/home`)
       browser.url(basepath)
-      assertRender({
+      expectToRender({
         appName: `home`,
         languageCode,
         pathname: `${basepath}/${languageCode}/home`,
       })
       const referrer = `${basepath}/404`
       browser.url(referrer)
-      assertRender({
+      expectToRender({
         appName: `notFound`,
         languageCode,
         pathname: `${basepath}/${languageCode}/notFound`,

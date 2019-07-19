@@ -47,7 +47,7 @@ class Router extends React.Component {
       this.state = { initializing: false }
     } else {
       this.state = { initializing: true }
-      const fn = this.setInitializedCallback = () => {
+      const fn = this.initCallback = () => {
         this.languageCode = i18n.language
         this.setState({ initializing: false })
         i18n.off(`initialized`, fn)
@@ -57,12 +57,14 @@ class Router extends React.Component {
   }
   componentWillUnmount () {
     if (this.state.initializing) {
-      i18n.off(`initialized`, this.setInitializedCallback)
+      i18n.off(`initialized`, this.initCallback)
     }
   }
   changeLanguage (languageCode) {
     if (languageCode !== this.languageCode) {
       this.languageCode = languageCode
+    }
+    if (languageCode !== i18n.language) {
       i18n.changeLanguage(languageCode)
     }
   }

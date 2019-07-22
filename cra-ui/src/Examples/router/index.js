@@ -1,7 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import Router from "local/Router"
-import { ButtonLink } from "local/routerConnectedComponents"
+import { Button } from "local/links"
 import { withStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
@@ -47,9 +47,15 @@ const RouterExample = withStyles(
                 margin="normal"
               />
               <div>
-                <ButtonLink id="nav-to-url" to={url} variant="contained" color="primary">
+                <Button
+                  id="nav-to-url"
+                  to={url}
+                  variant="contained"
+                  color="primary"
+                  component="span"
+                >
                   navigate
-                </ButtonLink>
+                </Button>
               </div>
             </div>
             <p id="router-instance-id">{`id: ${this.id}`}</p>

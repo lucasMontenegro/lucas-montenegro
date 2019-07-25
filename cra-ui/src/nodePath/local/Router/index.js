@@ -105,7 +105,6 @@ class Router extends React.Component {
           appName={appName}
           languageCode={this.languageCode}
           location={location}
-          routing={routing}
         />
       </Fragment>
     )

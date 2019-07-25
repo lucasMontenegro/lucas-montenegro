@@ -16,7 +16,6 @@ const expectToRender = ({ id, appName, languageCode, pathname, referrer }) => {
     languageCode: $(`#router-language-code`),
     pathname: $(`#router-pathname`),
     referrer: $(`#router-referrer`),
-    routing: $(`#router-typeof-routing`),
   }
   const keys = Object.keys(elements)
   expect(
@@ -42,7 +41,6 @@ const expectToRender = ({ id, appName, languageCode, pathname, referrer }) => {
     languageCode: `languageCode: ${languageCode}`.trim(),
     pathname: `location.pathname: ${pathname}`.trim(),
     referrer: `location.state.referrer.pathname: ${referrer || ``}`.trim(),
-    routing: `typeof routing: object`,
   })
   expect($(`#url-input`).isExisting(), `input isExisting`).to.be.true
   expect($(`#nav-to-url`).isExisting(), `nav button isExisting`).to.be.true

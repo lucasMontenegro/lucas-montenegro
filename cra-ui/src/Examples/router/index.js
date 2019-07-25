@@ -70,7 +70,6 @@ const RouterExample = withStyles(
                 ? props.location.state.referrer.pathname : ``
               }`}
             </p>
-            <p id="router-typeof-routing">{`typeof routing: ${typeof props.routing}`}</p>
           </Paper>
         </div>
       )

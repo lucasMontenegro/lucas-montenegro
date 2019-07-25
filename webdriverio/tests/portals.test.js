@@ -1,3 +1,4 @@
+const describeOrSkip = require("./describeOrSkip")
 const { expect } = require("./chai")
 function expectText (id, expected) {
   const elem = $(`#${id}`)
@@ -46,7 +47,7 @@ function expectToRender (expected) {
     expectText(`clientPropRight${i}`, expected.clientInput.Left[i])
   }
 }
-describe(`local/portals`, () => {
+describeOrSkip(`local/portals`, () => {
   const portalCid = `0`
   it(`should mount/unmount properly`, () => {
     browser.url(`/examples/portals`)

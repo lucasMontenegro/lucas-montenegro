@@ -1,6 +1,6 @@
+const describeOrSkip = require("./describeOrSkip")
 const supportedLanguages = require("./supportedLanguages.js")
 const { expect } = require("./chai")
-const skip = false
 const baseUrl = `http://localhost:3000`
 const appNames = [`home`, `example`, `notFound`]
 const expectToRender = ({ id, appName, languageCode, pathname, referrer }) => {
@@ -60,7 +60,7 @@ const navto = url => {
   input.addValue(url)
   $(`#nav-to-url`).click()
 }
-(skip ? describe.skip : describe)(`local/Router`, () => {
+describeOrSkip(`local/Router`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })

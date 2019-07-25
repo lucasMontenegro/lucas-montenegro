@@ -1,5 +1,5 @@
+const describeOrSkip = require("./describeOrSkip")
 const { expect } = require("./chai")
-const skip = false
 const baseUrl = `http://localhost:3000`
 const targetPath = `/examples/links/TargetPage`
 const expectId = (id, equal) => {
@@ -63,7 +63,7 @@ const expectToNavigate = (selector, path, external) => {
     expectRenderCount(3)
   }
 }
-(skip ? describe.skip : describe)(`local/links`, () => {
+describeOrSkip(`local/links`, () => {
   const loremIpsumSelector = () => $(`//*[text() = "lorem ipsum"]`)
   describe(`Link`, () => {
     it(`should make router-connected links`, () => {

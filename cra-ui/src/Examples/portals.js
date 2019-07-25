@@ -42,7 +42,7 @@ const createCid = (i => () => (i++).toString())(0)
 const Portal = withStyles(
   {
     root: {
-      backgroundColor: `#3f51b5`,
+      backgroundColor: `#2980b9`,
     },
   }
 )(
@@ -95,7 +95,7 @@ export default (<Route path="/examples/portals" component={Portal} />)
 const Wrapper = withStyles(
   {
     root: {
-      backgroundColor: `#4caf50`,
+      backgroundColor: `#27ae60`,
     },
     columns: {
       display: `flex`,
@@ -185,7 +185,7 @@ class Client extends React.Component {
 const ClientView = withStyles(
   {
     root: {
-      backgroundColor: `#9c27b0`,
+      backgroundColor: `#c0392b`,
     },
   }
 )(

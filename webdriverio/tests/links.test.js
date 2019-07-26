@@ -1,6 +1,6 @@
 const describeOrSkip = require("./describeOrSkip")
 const { expect } = require("./chai")
-const baseUrl = `http://localhost:3000`
+const baseUrl = require("./baseUrl")
 const targetPath = `/examples/links/TargetPage`
 const expectId = (id, equal) => {
   const elem = $(`#instance-id`)
@@ -96,6 +96,24 @@ describeOrSkip(`local/links`, () => {
     it(`should make regular links`, () => {
       expectToNavigate(loremIpsumSelector, `/examples/links/ExternalLinkList`, true)
       expectToNavigate(loremIpsumSelector, `/examples/links/ExternalLinkButtonList`, true)
+    })
+  })
+  describe(`MenuItem`, () => {
+    const selector = () => {
+      $(`#open-menu`).click()
+      return loremIpsumSelector()
+    }
+    it(`should make regular menu items`, () => {
+      expectButton(selector, `/examples/links/SimpleMenu`)
+      expectButton(selector, `/examples/links/SimpleButtonMenu`)
+    })
+    it(`should make router-connected links`, () => {
+      expectToNavigate(selector, `/examples/links/LocalLinkMenu`, false)
+      expectToNavigate(selector, `/examples/links/LocalLinkButtonMenu`, false)
+    })
+    it(`should make regular links`, () => {
+      expectToNavigate(selector, `/examples/links/ExternalLinkMenu`, true)
+      expectToNavigate(selector, `/examples/links/ExternalLinkButtonMenu`, true)
     })
   })
 })

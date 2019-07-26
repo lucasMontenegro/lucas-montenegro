@@ -6,11 +6,12 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
 import MuiList from "@material-ui/core/List"
+import MuiMenu from "@material-ui/core/Menu"
 import ListItemText from "@material-ui/core/ListItemText"
 import ListItemAvatar from "@material-ui/core/ListItemAvatar"
 import Avatar from "@material-ui/core/Avatar"
 import WorkIcon from "@material-ui/icons/Work"
-import { Button, ListItem, Link } from "local/links"
+import { Button, ListItem, MenuItem, Link } from "local/links"
 const LinkExamples = withStyles(
   theme => ({
     root: {
@@ -132,10 +133,10 @@ routes.push(
   { component: LocalLinkButton, name: `LocalLinkButton` },
   { component: ExternalLinkButton, name: `ExternalLinkButton` }
 )
-function List ({ button, href, to, onClick }) {
+function List (props) {
   return (
     <MuiList disablePadding>
-      <ListItem button={button} href={href} to={to} onClick={onClick}>
+      <ListItem {...props}>
         <ListItemAvatar><Avatar><WorkIcon /></Avatar></ListItemAvatar>
         <ListItemText primary="lorem ipsum" secondary="Jan 9, 2014" />
       </ListItem>
@@ -167,4 +168,75 @@ routes.push(
   { component: LocalLinkButtonList, name: `LocalLinkButtonList` },
   { component: ExternalLinkList, name: `ExternalLinkList` },
   { component: ExternalLinkButtonList, name: `ExternalLinkButtonList` }
+)
+class Menu extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { anchorEl: null }
+    this.open = this.open.bind(this)
+    this.close = this.close.bind(this)
+  }
+  open (event) {
+    this.setState({ anchorEl: event.currentTarget })
+  }
+  close () {
+    this.setState({ anchorEl: null })
+  }
+  render () {
+    const { anchorEl } = this.state
+    const isOpen = Boolean(anchorEl)
+    return (
+      <Fragment>
+        <Button id="open-menu" color="primary" variant="contained" onClick={this.open}>
+          Open Menu
+        </Button>
+        <MuiMenu
+          id="menu-example"
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          open={isOpen}
+          onClose={this.close}
+        >
+          <MenuItem {...this.props}>
+            <ListItemAvatar><Avatar><WorkIcon /></Avatar></ListItemAvatar>
+            <ListItemText primary="lorem ipsum" secondary="Jan 9, 2014" />
+          </MenuItem>
+        </MuiMenu>
+      </Fragment>
+    )
+  }
+}
+function SimpleMenu () {
+  return <Counter component={Menu} />
+}
+function SimpleButtonMenu () {
+  return <Counter component={Menu} button />
+}
+function LocalLinkMenu () {
+  return <Menu to={target} />
+}
+function LocalLinkButtonMenu () {
+  return <Menu button to={target} />
+}
+function ExternalLinkMenu () {
+  return <Menu href={target} />
+}
+function ExternalLinkButtonMenu () {
+  return <Menu button href={target} />
+}
+routes.push(
+  { component: SimpleMenu, name: `SimpleMenu` },
+  { component: SimpleButtonMenu, name: `SimpleButtonMenu` },
+  { component: LocalLinkMenu, name: `LocalLinkMenu` },
+  { component: LocalLinkButtonMenu, name: `LocalLinkButtonMenu` },
+  { component: ExternalLinkMenu, name: `ExternalLinkMenu` },
+  { component: ExternalLinkButtonMenu, name: `ExternalLinkButtonMenu` }
 )

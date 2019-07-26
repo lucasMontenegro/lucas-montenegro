@@ -1,5 +1,5 @@
 import runRoutingTests from "local/runRoutingTests"
-import routing from "./routing"
+import routing from "./index"
 describe(`/Examples/router/routing.js`, () => {
   runRoutingTests({
     languageCodes: [`en`, `es`],

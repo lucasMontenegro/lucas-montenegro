@@ -1,5 +1,5 @@
 const { expect } = require("chai")
-const baseUrl = `http://localhost:3000`
+const baseUrl = require("./baseUrl")
 const appNames = [`app1`, `app2`]
 const supportedLanguageCodes = [`en`, `es`]
 const make = {

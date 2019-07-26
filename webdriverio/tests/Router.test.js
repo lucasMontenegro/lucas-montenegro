@@ -1,7 +1,7 @@
 const describeOrSkip = require("./describeOrSkip")
 const supportedLanguages = require("./supportedLanguages.js")
 const { expect } = require("./chai")
-const baseUrl = `http://localhost:3000`
+const baseUrl = require("./baseUrl")
 const appNames = [`home`, `example`, `notFound`]
 const expectToRender = ({ id, appName, languageCode, pathname, referrer }) => {
   {

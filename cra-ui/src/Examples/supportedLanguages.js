@@ -2,12 +2,9 @@ import React from "react"
 import { Route } from "react-router-dom"
 import supportedLanguages from "local/supportedLanguages"
 const text = supportedLanguages.join(` `)
-const route = (
+export default (
   <Route
     exact path="/examples/supportedLanguages"
-    render={() => (
-      <div id="supportedLanguages">{text}</div>
-    )}
+    render={() => <div id="supportedLanguages">{text}</div>}
   />
 )
-export default route

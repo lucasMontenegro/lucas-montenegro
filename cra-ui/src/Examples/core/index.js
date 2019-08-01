@@ -5,6 +5,7 @@ import links from "./links"
 import languageMenu from "./languageMenu"
 import portals from "./portals"
 import appButton from "./appButton"
+import drawer from "./drawer"
 function CoreExamples () {
   return (
     <Switch>
@@ -20,6 +21,11 @@ function CoreExamples () {
       <Redirect
         exact path="/examples/core/AppButton"
         to="/examples/core/AppButton/null/null/null"
+      />
+      {drawer}
+      <Redirect
+        exact path="/examples/core/drawer"
+        to="/examples/core/drawer/en/000000"
       />
     </Switch>
   )

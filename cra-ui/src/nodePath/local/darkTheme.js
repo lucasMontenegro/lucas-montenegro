@@ -22,15 +22,22 @@ let theme = createMuiTheme({
 export default {
   ...theme,
   overrides: {
-    MuiDrawer: {
-      paper: {
+    MuiPaper: {
+      root: {
         color: theme.palette.common.white,
         backgroundColor: `#18202c`,
+      },
+    },
+    MuiDrawer: {
+      paper: {
         width: `${config.drawerWidth}px`,
         padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
       },
     },
     MuiButton: {
+      root: {
+        color: theme.palette.common.white,
+      },
       label: {
         textTransform: `none`,
       },
@@ -45,6 +52,20 @@ export default {
       root: {
         color: theme.palette.common.white,
         padding: theme.spacing(1),
+      },
+    },
+    MuiExpansionPanel: {
+      root: {
+        borderRadius: 0,
+        margin: `${theme.spacing(1)}px 0`,
+        backgroundColor: `#232f3e`,
+      },
+    },
+    MuiExpansionPanelSummary: {
+      content: {
+        "& > *": {
+          flexGrow: 1,
+        },
       },
     },
     MuiTooltip: {

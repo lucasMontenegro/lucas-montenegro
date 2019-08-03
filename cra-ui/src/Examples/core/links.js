@@ -5,27 +5,35 @@ import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
-import { Link, LinkButton, BlockLinkButton } from "local/core/links"
-import MenuExample from "./MenuExample"
+import Button from "@material-ui/core/Button"
+import { Link, BlockLink } from "local/core/links"
 const target = `/examples/core/links/TargetPage`
 function P (props) {
-  return <Typography gutterBottom variant="body2" component="p">{props.children}</Typography>
-}
-function TargetPage () {
-  return <P><span id="message">it works</span></P>
-}
-function LinkExample () {
-  return <P><Link to={target}>lorem ipsum</Link></P>
-}
-function LinkButtonExample () {
-  return <P><LinkButton to={target} variant="outlined" color="primary">lorem ipsum</LinkButton></P>
-}
-function BlockLinkButtonExample () {
   return (
-    <BlockLinkButton to={target} variant="outlined" color="primary">lorem ipsum</BlockLinkButton>
+    <Typography {...props} gutterBottom variant="body2" component="p">{props.children}</Typography>
   )
 }
-const routes = [LinkExample, LinkButtonExample, BlockLinkButtonExample, MenuExample]
+function TargetPage () {
+  return <P id="message">it works</P>
+}
+const components = { Link, BlockLink }
+const routes = [true, false].map(external => Object.keys(components).map(name => {
+  const Component = components[name]
+  const to = external ? undefined : target
+  const href = external ? target : undefined
+  return {
+    name: external ? `External${name}` : name,
+    Component: function LinkExampleBase () {
+      return (
+        <P>
+          <Button id="top-button">TOP BUTTON</Button><br />
+          <Component to={to} href={href} id="link">lorem ipsum</Component><br />
+          <Button id="bottom-button">BOTTOM BUTTON</Button>
+        </P>
+      )
+    }
+  }
+})).reduce((routes, arr) => routes.push(...arr) && routes, [])
 const LinkExamples = withStyles(
   theme => ({
     root: {
@@ -64,12 +72,12 @@ const LinkExamples = withStyles(
           </AppBar>
           <Paper className={classes.paper}>
             <Switch>
-              <Route exact path={target} component={TargetPage} />
-              {routes.map(Component => (
+              <Route key="TargetPage" exact path={target} component={TargetPage} />
+              {routes.map(route => (
                 <Route
-                  key={Component.name}
-                  exact path={`/examples/core/links/${Component.name}`}
-                  component={Component}
+                  key={route.name}
+                  exact path={`/examples/core/links/${route.name}`}
+                  component={route.Component}
                 />
               ))}
             </Switch>

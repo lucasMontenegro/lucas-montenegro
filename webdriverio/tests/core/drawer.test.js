@@ -7,8 +7,10 @@ function expectDrawer (temporary, foo) {
   const drawer = $(drawerSelector)
   temporary && drawer.waitForDisplayed(1000)
   expect(drawer.isDisplayed(), `${drawerSelector} isDisplayed`).to.be.true
+  const hiddenDrawerSelector = temporary ? `#permanent-drawer` : `#temporary-drawer`
+  expect($(hiddenDrawerSelector).isDisplayed(), `${hiddenDrawerSelector} isDisplayed`).to.be.false
   {
-    const selector = `#drawer-content`
+    const selector = `#drawer-nav`
     const drawerContent = $(selector)
     expect(drawerContent.isDisplayed(), `${selector} isDisplayed`).to.be.true
     const label = drawerContent.getAttribute(`aria-label`)
@@ -29,10 +31,9 @@ function expectDrawer (temporary, foo) {
       expect(closeIcon.isExisting(), `${selector} isExisting`).to.be.false
     }
   }
-  {
-    const selector = `#close-drawer-from-app`
-    expect($(selector).isDisplayed(), `${selector} isDisplayed`).to.be.true
-  }
+  [1, 2, 3].forEach(n => {
+    expect($(`#button${n}`).isDisplayed(), `#button${n} isDisplayed`).to.be.true
+  })
   {
     const selector = `#foo`
     const elem = $(selector)
@@ -88,7 +89,7 @@ describeOrSkip(`local/core/drawer`, () => {
     const drawer = $(`#temporary-drawer`)
     drawer.waitForDisplayed(1000)
     expect(drawer.isDisplayed(), `#temporary-drawer isDisplayed`).to.be.true
-    $(`#close-drawer-from-app`).click()
+    $(`#button1`).click()
     drawer.waitForDisplayed(1000, true)
     expect(drawer.isDisplayed(), `#temporary-drawer isDisplayed`).to.be.false
   })

@@ -3,16 +3,25 @@ import { Link as RouterLink } from "react-router-dom"
 import { withStyles } from "@material-ui/core/styles"
 import MuiLink from "@material-ui/core/Link"
 import MuiButton from "@material-ui/core/Button"
-const ForwardRouterLinkRef = React.forwardRef(function ForwardRouterLinkRef (other, ref) {
-  return <RouterLink {...other} innerRef={ref} />
-})
+import ListItem from "@material-ui/core/ListItem"
+const ForwardRouterLinkRef = withStyles({
+  root: {
+    color: `inherit`,
+    textDecoration: `inherit`,
+    pointer: `inherit`,
+  },
+})(React.forwardRef(function ForwardRouterLinkRef (props, ref) {
+  const { classes, className: classNameProp, ...other } = props
+  const className = classNameProp ? `${classes.root} ${classNameProp}` : classes.root
+  return <RouterLink {...other} className={className} innerRef={ref} />
+}))
 function RenderRouterLink ({ Component, to, href, innerRef, ...other }) {
   return (
     <Component
       {...other}
       href={href}
       to={href ? undefined : to}
-      component={href ? undefined : ForwardRouterLinkRef}
+      component={href ? `a` : ForwardRouterLinkRef}
       ref={innerRef}
     />
   )
@@ -20,14 +29,16 @@ function RenderRouterLink ({ Component, to, href, innerRef, ...other }) {
 export const Link = React.forwardRef(function Link (props, ref) {
   return <RenderRouterLink {...props} Component={MuiLink} innerRef={ref} />
 })
-const BlockButton = withStyles({
-  root: {
-    display: `flex`,
-  },
-  label: {
-    justifyContent: `flex-start`,
-  },
-})(MuiButton)
-export const BlockLink = React.forwardRef(function BlockLink (props, ref) {
-  return <RenderRouterLink {...props} Component={BlockButton} innerRef={ref} />
+export const ButtonLink = React.forwardRef(function ButtonLink (props, ref) {
+  return <RenderRouterLink {...props} Component={MuiButton} innerRef={ref} />
 })
+export const ListLink = React.forwardRef(function ListLink ({ classes, ...other }, ref) {
+  return <RenderRouterLink {...other} Component={ListItem} innerRef={ref} />
+})
+export const BareLi = withStyles({
+  root: {
+    display: `block`,
+  },
+})(React.forwardRef(function BareLi ({ classes, ...other }, ref) {
+  return <li {...other} className={classes.root} />
+}))

@@ -83,5 +83,6 @@ function describeSimpleList (name) {
 }
 describeOrSkip(`local/core/links`, () => {
   describeSimpleList(`Link`)
-  describeSimpleList(`BlockLink`)
+  describeSimpleList(`ButtonLink`)
+  describeSimpleList(`ListLink`)
 })

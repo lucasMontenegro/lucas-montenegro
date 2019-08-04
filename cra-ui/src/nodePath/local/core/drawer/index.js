@@ -61,9 +61,7 @@ export function DrawerView (props) {
         </div>
       )}
       {children}
-      <nav id="drawer-nav" aria-label={navLabels[languageCode]}>
-        <List>{navButtons}</List>
-      </nav>
+      <nav id="drawer-nav" aria-label={navLabels[languageCode]}><List>{navButtons}</List></nav>
     </Fragment>
   )
   const drawer = (

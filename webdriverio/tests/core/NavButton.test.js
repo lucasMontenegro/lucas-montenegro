@@ -2,21 +2,21 @@ const describeOrSkip = require("../describeOrSkip")
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 const baseUrl = require("../baseUrl")
-const rootPathname = `/examples/core/AppButton`
+const rootPathname = `/examples/core/NavButton`
 const makeTargetPathname = (languageCode, foo) => (
-  `/examples/core/routingMountPoint/${languageCode}/example/${foo}`
+  `/examples/core/router/${languageCode}/example/${foo}`
 )
 const makeTargetUrl = (languageCode, foo) => `${baseUrl}${makeTargetPathname(languageCode, foo)}`
-const selector = `#nav-link-wrapper > a:nth-child(1)`
+const selector = `#nav-list > li:first-child > div > a`
 function expectToRender (languageCode, foo,) {
-  const appButton = $(selector)
-  expect(appButton.isDisplayed(), `${selector}: isDisplayed`).to.be.true
+  const navButton = $(selector)
+  expect(navButton.isDisplayed(), `${selector}: isDisplayed`).to.be.true
   const text = `EXAMPLE APP ${languageCode.toUpperCase()}`
-  expect(appButton.getText(), `${selector}: getText`).to.equal(text)
+  expect(navButton.getText(), `${selector}: getText`).to.equal(text)
   const url = makeTargetUrl(languageCode, foo)
-  expect(appButton.getAttribute(`href`), `${selector}: getAttribute href`).to.equal(url)
+  expect(navButton.getAttribute(`href`), `${selector}: getAttribute href`).to.equal(url)
 }
-describeOrSkip(`local/core/AppButton`, () => {
+describeOrSkip(`local/core/NavButton`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })

@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom"
 import links from "./links"
 import portalGun from "./portalGun"
 import drawer from "./drawer"
-//import router from "./router"
+import router from "./router"
 //import languageMenu from "./languageMenu"
 //import appButton from "./appButton"
 //import appPanel from "./appPanel"
@@ -17,8 +17,8 @@ function CoreExamples () {
         exact path="/examples/core/drawer"
         to="/examples/core/drawer/en/000000"
       />
-      {/**}
       {router}
+      {/**}
       {languageMenu}
       <Redirect
         exact path="/examples/core/LanguageMenu"

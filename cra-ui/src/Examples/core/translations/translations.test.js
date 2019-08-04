@@ -8,12 +8,12 @@ describe(`src/Example/core/translations/index.js`, () => {
     routing,
     locations: {
       en: [
-        { pathname: `/examples/core/routingMountPoint/en/example/25` },
-        { pathname: `/examples/core/routingMountPoint/en/example/57/` },
+        { pathname: `/examples/core/router/en/example/25` },
+        { pathname: `/examples/core/router/en/example/57/` },
       ],
       es: [
-        { pathname: `/examples/core/routingMountPoint/es/example/12577` },
-        { pathname: `/examples/core/routingMountPoint/es/example/4/` },
+        { pathname: `/examples/core/router/es/example/12577` },
+        { pathname: `/examples/core/router/es/example/4/` },
       ],
     },
   })

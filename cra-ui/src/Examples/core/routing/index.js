@@ -1,15 +1,15 @@
 export default {
   matchRoot (location) {
-    return /^\/examples\/core\/routingMountPoint\/?$/.test(location.pathname)
+    return /^\/examples\/core\/router\/?$/.test(location.pathname)
   },
   locations: {
     home: {
-      en: { pathname: `/examples/core/routingMountPoint/en/home` },
-      es: { pathname: `/examples/core/routingMountPoint/es/home` },
+      en: { pathname: `/examples/core/router/en/home` },
+      es: { pathname: `/examples/core/router/es/home` },
     },
     notFound: {
-      en: { pathname: `/examples/core/routingMountPoint/en/notFound` },
-      es: { pathname: `/examples/core/routingMountPoint/es/notFound` },
+      en: { pathname: `/examples/core/router/en/notFound` },
+      es: { pathname: `/examples/core/router/es/notFound` },
     },
   },
   routes: [
@@ -17,42 +17,42 @@ export default {
       appName: `home`,
       languageCode: `en`,
       match (location) {
-        return /^\/examples\/core\/routingMountPoint\/en\/home\/?$/.test(location.pathname)
+        return /^\/examples\/core\/router\/en\/home\/?$/.test(location.pathname)
       },
     },
     {
       appName: `home`,
       languageCode: `es`,
       match (location) {
-        return /^\/examples\/core\/routingMountPoint\/es\/home\/?$/.test(location.pathname)
+        return /^\/examples\/core\/router\/es\/home\/?$/.test(location.pathname)
       },
     },
     {
       appName: `notFound`,
       languageCode: `en`,
       match (location) {
-        return /^\/examples\/core\/routingMountPoint\/en\/notFound\/?$/.test(location.pathname)
+        return /^\/examples\/core\/router\/en\/notFound\/?$/.test(location.pathname)
       },
     },
     {
       appName: `notFound`,
       languageCode: `es`,
       match (location) {
-        return /^\/examples\/core\/routingMountPoint\/es\/notFound\/?$/.test(location.pathname)
+        return /^\/examples\/core\/router\/es\/notFound\/?$/.test(location.pathname)
       },
     },
     {
       appName: `example`,
       languageCode: `en`,
       match (location) {
-        return /^\/examples\/core\/routingMountPoint\/en\/example\/\d+\/?$/.test(location.pathname)
+        return /^\/examples\/core\/router\/en\/example\/\d+\/?$/.test(location.pathname)
       },
     },
     {
       appName: `example`,
       languageCode: `es`,
       match (location) {
-        return /^\/examples\/core\/routingMountPoint\/es\/example\/\d+\/?$/.test(location.pathname)
+        return /^\/examples\/core\/router\/es\/example\/\d+\/?$/.test(location.pathname)
       },
     },
   ],
@@ -61,13 +61,13 @@ export default {
       {
         languageCode: `en`,
         match (location) {
-          return /^\/examples\/core\/routingMountPoint\/en\/?$/.test(location.pathname)
+          return /^\/examples\/core\/router\/en\/?$/.test(location.pathname)
         },
       },
       {
         languageCode: `es`,
         match (location) {
-          return /^\/examples\/core\/routingMountPoint\/es\/?$/.test(location.pathname)
+          return /^\/examples\/core\/router\/es\/?$/.test(location.pathname)
         },
       },
     ],
@@ -75,13 +75,13 @@ export default {
       {
         languageCode: `en`,
         match (location) {
-          return /^\/examples\/core\/routingMountPoint\/en\//.test(location.pathname)
+          return /^\/examples\/core\/router\/en\//.test(location.pathname)
         },
       },
       {
         languageCode: `es`,
         match (location) {
-          return /^\/examples\/core\/routingMountPoint\/es\//.test(location.pathname)
+          return /^\/examples\/core\/router\/es\//.test(location.pathname)
         },
       },
     ],

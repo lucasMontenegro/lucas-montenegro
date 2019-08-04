@@ -1,1 +1,1 @@
-export default { pathname: `/examples/core/routingMountPoint/en/example/0` }
+export default { pathname: `/examples/core/router/en/example/0` }

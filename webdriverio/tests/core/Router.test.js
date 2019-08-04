@@ -9,7 +9,7 @@ function makeAppPathname (languageCode, appName) {
     const n = Math.floor(Math.random() * 1000)
     foo = `/${n}${n % 2 > 0 ? `/` : ``}`
   }
-  return `/examples/core/routingMountPoint/${languageCode}/${appName}${foo}`
+  return `/examples/core/router/${languageCode}/${appName}${foo}`
 }
 const expectToRender = ({ id, appName, languageCode, pathname, referrer }) => {
   {
@@ -73,7 +73,7 @@ describeOrSkip(`local/core/Router`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })
   it(`should mount and unmount`, () => {
-    const pathname = `/examples/core/routingMountPoint/en/home`
+    const pathname = `/examples/core/router/en/home`
     browser.url(pathname)
     const expected = {
       appName: `home`,
@@ -89,7 +89,7 @@ describeOrSkip(`local/core/Router`, () => {
     expect(id1, `IDs before/after remount`).to.not.equal(id2)
   })
   it(`should render`, () => {
-    browser.url(`/examples/core/routingMountPoint`)
+    browser.url(`/examples/core/router`)
     const id = getId()
     appNames.forEach(appName => supportedLanguages.forEach(languageCode => {
       const pathname = makeAppPathname(languageCode, appName)
@@ -98,11 +98,11 @@ describeOrSkip(`local/core/Router`, () => {
     }))
   })
   it(`should redirect without language detection`, () => {
-    browser.url(`/examples/core/routingMountPoint`)
+    browser.url(`/examples/core/router`)
     const id = getId()
     supportedLanguages.forEach(languageCode => {
       {
-        const basepath = `/examples/core/routingMountPoint/${languageCode}`
+        const basepath = `/examples/core/router/${languageCode}`
         navto(basepath)
         expectToRender({
           id,
@@ -112,7 +112,7 @@ describeOrSkip(`local/core/Router`, () => {
         })
       }
       {
-        const basepath = `/examples/core/routingMountPoint/${languageCode}`
+        const basepath = `/examples/core/router/${languageCode}`
         const referrer = `${basepath}/404`
         navto(referrer)
         expectToRender({
@@ -126,7 +126,7 @@ describeOrSkip(`local/core/Router`, () => {
     })
   })
   it(`should save the language`, () => {
-    const basepath = `/examples/core/routingMountPoint`
+    const basepath = `/examples/core/router`
     browser.url(basepath)
     const assert = (pathname, languageCode) => {
       navto(pathname)
@@ -144,7 +144,7 @@ describeOrSkip(`local/core/Router`, () => {
     })
   })
   it(`should detect the proper language and redirect`, () => {
-    const basepath = `/examples/core/routingMountPoint`
+    const basepath = `/examples/core/router`
     browser.url(basepath)
     supportedLanguages.forEach(languageCode => {
       navto(`${basepath}/${languageCode}/home`)

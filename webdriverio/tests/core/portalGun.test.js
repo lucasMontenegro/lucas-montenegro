@@ -18,30 +18,30 @@ function expectInputValue (id, expected) {
   expect(elem.isExisting(), `#${id} isExisting`).to.be.true
   expect(elem.getValue(), `#${id} getText`).to.equal(expected)
 }
-const mountPoints = [`Left`, `Right`]
+const mountingPoints = [`Left`, `Right`]
 const appNames = [`App1`, `App2`]
 function expectToRender (expected) {
-  expectText(`topCid`, `0`)
-  expectInputValue(`portalInput`, expected.portalInput)
+  expectText(`rootCid`, `0`)
+  expectInputValue(`rootInput`, expected.rootInput)
   expectText(`callbackCid`, expected.callbackCid)
   if (!expected.callbackCid) {
     return
   }
-  expectText(`callbackPortalProp`, expected.portalInput)
+  expectText(`callbackRootProp`, expected.rootInput)
   if (!expected.clientCids) {
-    appNames.forEach(appName => mountPoints.forEach(mountPoint => (
-      expectText(`clientCid${mountPoint}${appName}`)
+    appNames.forEach(appName => mountingPoints.forEach(mountingPoint => (
+      expectText(`clientCid${mountingPoint}${appName}`)
     )))
     return
   }
   appNames.forEach(appName => {
     const cid = expected.clientCids[appName]
-    mountPoints.forEach(mountPoint => {
-      expectText(`clientCid${mountPoint}${appName}`, cid)
-      expectText(`clientPortalProp${mountPoint}${appName}`, expected.portalInput)
+    mountingPoints.forEach(mountingPoint => {
+      expectText(`clientCid${mountingPoint}${appName}`, cid)
+      expectText(`clientRootProp${mountingPoint}${appName}`, expected.rootInput)
       expectInputValue(
-        `clientInput${mountPoint}${appName}`,
-        expected.clientInput[mountPoint][appName]
+        `clientInput${mountingPoint}${appName}`,
+        expected.clientInput[mountingPoint][appName]
       )
     })
     expectText(`clientPropLeft${appName}`, expected.clientInput.Right[appName])
@@ -50,7 +50,7 @@ function expectToRender (expected) {
 }
 describeOrSkip(`local/core/PortalGun`, () => {
   const initiallyExpected = {
-    portalInput: ``,
+    rootInput: ``,
     callbackCid: `1`,
     clientCids: { App1: `2`, App2: `3` },
     clientInput: {
@@ -59,13 +59,13 @@ describeOrSkip(`local/core/PortalGun`, () => {
     },
   }
   it(`should mount/unmount properly`, () => {
-    browser.url(`/examples/core/PortalGun`)
+    browser.url(`/examples/core/portalGun/example1`)
     expectToRender(initiallyExpected)
-    $(`#mountPortal`).click()
+    $(`#mountPortalGun`).click()
     expectToRender({
-      portalInput: ``,
+      rootInput: ``,
     })
-    $(`#mountPortal`).click()
+    $(`#mountPortalGun`).click()
     expectToRender({
       ...initiallyExpected,
       callbackCid: `4`,
@@ -73,34 +73,44 @@ describeOrSkip(`local/core/PortalGun`, () => {
     })
   })
   it(`should preserve the client instances`, () => {
-    browser.url(`/examples/core/PortalGun`)
+    browser.url(`/examples/core/portalGun/example1`)
     expectToRender(initiallyExpected)
-    $(`#mountCallbackContent`).click()
+    $(`#mountPortalContent`).click()
     expectToRender({
-      portalInput: ``,
+      rootInput: ``,
       callbackCid: `1`,
     })
-    $(`#mountCallbackContent`).click()
+    $(`#mountPortalContent`).click()
     expectToRender(initiallyExpected)
   })
   it(`should pass props down`, () => {
-    browser.url(`/examples/core/PortalGun`)
+    browser.url(`/examples/core/portalGun/example1`)
     expectToRender(initiallyExpected)
-    const portalInput = Math.random().toString()
-    $(`#portalInput`).addValue(portalInput)
-    expectToRender({ ...initiallyExpected, portalInput })
+    const rootInput = Math.random().toString()
+    $(`#rootInput`).addValue(rootInput)
+    expectToRender({ ...initiallyExpected, rootInput })
   })
   it(`should share props between portals`, () => {
-    browser.url(`/examples/core/PortalGun`)
+    browser.url(`/examples/core/portalGun/example1`)
     const clientInput = {}
-    mountPoints.forEach(mountPoint => {
-      const obj = clientInput[mountPoint] = {}
+    mountingPoints.forEach(mountingPoint => {
+      const obj = clientInput[mountingPoint] = {}
       appNames.forEach(appName => {
         const text = Math.random().toString()
-        $(`#clientInput${mountPoint}${appName}`).addValue(text)
+        $(`#clientInput${mountingPoint}${appName}`).addValue(text)
         obj[appName] = text
       })
     })
     expectToRender({ ...initiallyExpected, clientInput })
+  })
+  it(`should allow a Material UI Drawer to handle focus`, () => {
+    browser.url(`/examples/core/portalGun/example2`)
+    ;[`Left`, `Right`].forEach(mountingPoint => [`Foo`, `Bar`].forEach(appName => {
+      browser.keys(`Tab`)
+      const selector = `#${mountingPoint}${appName}Button`
+      const button = $(selector)
+      expect(button.isDisplayed(), `${selector} isDisplayed`).to.be.true
+      expect(button.isFocused(), `${selector} isFocused`).to.be.true
+    }))
   })
 })

@@ -1,7 +1,7 @@
 import React from "react"
 import { Switch, Route, Redirect } from "react-router-dom"
 import links from "./links"
-import PortalGun from "./PortalGun"
+import portalGun from "./portalGun"
 import drawer from "./drawer"
 //import router from "./router"
 //import languageMenu from "./languageMenu"
@@ -11,7 +11,7 @@ function CoreExamples () {
   return (
     <Switch>
       {links}
-      {PortalGun}
+      {portalGun}
       {drawer}
       <Redirect
         exact path="/examples/core/drawer"

@@ -10,12 +10,12 @@ export default class PortalGun extends React.Component {
         }
         return byAppName
       }
-      byAppName[key] = props.mountPoints.reduce((byMountPoint, key) => {
-        if (key in byMountPoint) {
+      byAppName[key] = props.mountingPoints.reduce((byMountingPoint, key) => {
+        if (key in byMountingPoint) {
           if (process.env.NODE_ENV !== `production`) {
-            throw Error(`Repeated key (${key}) in "mountPoints" prop.`)
+            throw Error(`Repeated key (${key}) in "mountingPoints" prop.`)
           }
-          return byMountPoint
+          return byMountingPoint
         }
         const div = document.createElement(`div`)
         let savedNode = null
@@ -28,13 +28,13 @@ export default class PortalGun extends React.Component {
           const other = otherProp || {}
           return <Component {...other} ref={refHandler} />
         }
-        byMountPoint[key] = {
+        byMountingPoint[key] = {
           BluePortal ({ children }) {
             return ReactDOM.createPortal(children, div)
           },
           RedPortal: React.forwardRef(RedPortal),
         }
-        return byMountPoint
+        return byMountingPoint
       }, {})
       return byAppName
     }, {})

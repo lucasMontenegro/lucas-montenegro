@@ -12,7 +12,8 @@ import ListItemText from "@material-ui/core/ListItemText"
 import ListItemAvatar from "@material-ui/core/ListItemAvatar"
 import Avatar from "@material-ui/core/Avatar"
 import WorkIcon from "@material-ui/icons/Work"
-import { Link, ButtonLink, ListLink, BareLi } from "local/core/links"
+import { Link, ButtonLink, ListLink } from "local/core/links"
+import BareLi from "local/core/BareLi"
 const target = `/examples/core/links/TargetPage`
 function P (props) {
   return (

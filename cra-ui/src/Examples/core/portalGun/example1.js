@@ -6,17 +6,17 @@ import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import PortalGun from "local/core/PortalGun"
 const appNames = [`App1`, `App2`]
-const mountPoints = [`Left`, `Right`]
+const mountingPoints = [`Left`, `Right`]
 // CID === Component ID
 const createCid = (i => () => (i++).toString())(0)
-const PortalExample = withStyles(
+const PortalExample1 = withStyles(
   {
     root: {
       backgroundColor: `#2980b9`,
     },
   }
 )(
-  class PortalExample extends React.Component {
+  class PortalExample1 extends React.Component {
     constructor (props) {
       super(props)
       this.cid = createCid()
@@ -34,15 +34,15 @@ const PortalExample = withStyles(
       const { classes } = this.props
       return (
         <Div className={classes.root}>
-          <Div>Portal CID: <span id="topCid">{this.cid}</span></Div>
+          <Div>Root CID: <span id="rootCid">{this.cid}</span></Div>
           <Div>
-            <Button id="mountPortal" variant="contained" onClick={this.toggleMounted}>
+            <Button id="mountPortalGun" variant="contained" onClick={this.toggleMounted}>
               Mount/Unmount
             </Button>
           </Div>
           <Div>
             <Input
-              id="portalInput"
+              id="rootInput"
               value={this.state.input}
               onChange={this.setInput}
             />
@@ -51,9 +51,9 @@ const PortalExample = withStyles(
             <Div>
               <PortalGun
                 appNames={appNames}
-                mountPoints={mountPoints}
+                mountingPoints={mountingPoints}
                 Component={PortalCallback}
-                other={{ topProp: this.state.input }}
+                other={{ rootProp: this.state.input }}
               />
             </Div>
           )}
@@ -62,7 +62,9 @@ const PortalExample = withStyles(
     }
   }
 )
-export default (<Route path="/examples/core/PortalGun" component={PortalExample} />)
+export default (
+  <Route exact path="/examples/core/portalGun/example1" component={PortalExample1} />
+)
 const PortalCallback = withStyles(
   {
     root: {
@@ -87,25 +89,25 @@ const PortalCallback = withStyles(
       this.setState(state => ({ ...state, mounted: !state.mounted }))
     }
     render () {
-      const { classes, portals, topProp } = this.props
+      const { classes, portals, rootProp } = this.props
       return (
         <Div className={classes.root}>
           {appNames.map(appName => (
-            <Client key={appName} appName={appName} portals={portals} topProp={topProp} />
+            <Client key={appName} appName={appName} portals={portals} rootProp={rootProp} />
           ))}
           <Div>Callback CID: <span id="callbackCid">{this.cid}</span></Div>
           <Div>
-            <Button id="mountCallbackContent" variant="contained" onClick={this.toggleMounted}>
+            <Button id="mountPortalContent" variant="contained" onClick={this.toggleMounted}>
               Mount/Unmount
             </Button>
           </Div>
-          <Div>Top prop: <span id="callbackPortalProp">{topProp}</span></Div>
+          <Div>Root prop: <span id="callbackRootProp">{rootProp}</span></Div>
           {this.state.mounted && (
             <div className={classes.columns}>
-              {mountPoints.map(mountPoint => (
-                <Div key={mountPoint}>
+              {mountingPoints.map(mountingPoint => (
+                <Div key={mountingPoint}>
                   {appNames.map(appName => {
-                    const { RedPortal } = portals[appName][mountPoint]
+                    const { RedPortal } = portals[appName][mountingPoint]
                     return <RedPortal key={appName} Component="div" />
                   })}
                 </Div>
@@ -129,8 +131,8 @@ const Client = withStyles(
       super(props)
       this.cid = createCid()
       this.state = { Left: ``, Right: `` }
-      this.set = mountPoints.reduce((set, mountPoint) => {
-        set[mountPoint] = this.makeInputHandler(mountPoint)
+      this.set = mountingPoints.reduce((set, mountingPoint) => {
+        set[mountingPoint] = this.makeInputHandler(mountingPoint)
         return set
       }, {})
     }
@@ -141,32 +143,32 @@ const Client = withStyles(
       }
     }
     render () {
-      const { classes, portals, appName, topProp } = this.props
+      const { classes, portals, appName, rootProp } = this.props
       return (
         <Fragment>
-          {mountPoints.map(mountPoint => {
-            const { BluePortal } = portals[appName][mountPoint]
-            const oposite = mountPoint === `Left` ? `Right` : `Left`
+          {mountingPoints.map(mountingPoint => {
+            const { BluePortal } = portals[appName][mountingPoint]
+            const oposite = mountingPoint === `Left` ? `Right` : `Left`
             return (
-              <BluePortal key={mountPoint}>
+              <BluePortal key={mountingPoint}>
                 <Div className={classes.root}>
                   <Div>
                     Client CID: &nbsp;
-                    <span id={`clientCid${mountPoint}${appName}`}>{this.cid}</span>
+                    <span id={`clientCid${mountingPoint}${appName}`}>{this.cid}</span>
                   </Div>
                   <Div>
                     Top prop: &nbsp;
-                    <span id={`clientPortalProp${mountPoint}${appName}`}>{topProp}</span>
+                    <span id={`clientRootProp${mountingPoint}${appName}`}>{rootProp}</span>
                   </Div>
                   <Div>
                     {oposite} client prop: &nbsp;
-                    <span id={`clientProp${mountPoint}${appName}`}>{this.state[oposite]}</span>
+                    <span id={`clientProp${mountingPoint}${appName}`}>{this.state[oposite]}</span>
                   </Div>
                   <Div>
                     <Input
-                      id={`clientInput${mountPoint}${appName}`}
-                      value={this.state[mountPoint]}
-                      onChange={this.set[mountPoint]}
+                      id={`clientInput${mountingPoint}${appName}`}
+                      value={this.state[mountingPoint]}
+                      onChange={this.set[mountingPoint]}
                     />
                   </Div>
                 </Div>

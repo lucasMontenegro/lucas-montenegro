@@ -35,10 +35,3 @@ export const ButtonLink = React.forwardRef(function ButtonLink (props, ref) {
 export const ListLink = React.forwardRef(function ListLink ({ classes, ...other }, ref) {
   return <RenderRouterLink {...other} Component={ListItem} innerRef={ref} />
 })
-export const BareLi = withStyles({
-  root: {
-    display: `block`,
-  },
-})(React.forwardRef(function BareLi ({ classes, ...other }, ref) {
-  return <li {...other} className={classes.root} />
-}))

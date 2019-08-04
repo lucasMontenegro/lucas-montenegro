@@ -14,7 +14,7 @@ import Avatar from "@material-ui/core/Avatar"
 import WorkIcon from "@material-ui/icons/Work"
 
 import { DrawerState, DrawerView } from "local/core/drawer"
-import { BareLi } from "local/core/links"
+import BareLi from "local/core/BareLi"
 import config from "local/config"
 function DrawerExample (props) {
   const { languageCode, foo } = props.match.params

@@ -3,27 +3,24 @@ import { Route } from "react-router-dom"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import supportedLanguages from "local/supportedLanguages"
-import LanguageMenu from "local/core/LanguageMenu"
+import LanguageDialog from "local/core/LanguageDialog"
 import { Link } from "local/core/links"
 import translations from "./translations"
-const languages = supportedLanguages.reduce((obj, key) => obj[key] = true && obj, {})
-function LanguageMenuExample (props) {
+const languages = supportedLanguages.reduce((obj, key) => obj[key] = null || obj, {})
+function LanguageDialogExample (props) {
   const { languageCode, foo } = props.match.params
+  if (!(languageCode in languages)) {
+    return null
+  }
   return (
     <div style={{ paddingTop: `100px` }}>
       <AppBar>
         <Toolbar>
-          {languages[languageCode] && (
-            <span id="language-menu-wrapper">
-              <LanguageMenu
-                languageCode={languageCode}
-                location={{
-                  pathname: `/examples/core/routingMountPoint/${languageCode}/example/${foo}`,
-                }}
-                translations={translations}
-              />
-            </span>
-          )}
+          <LanguageDialog
+            languageCode={languageCode}
+            location={{ pathname: `/examples/core/router/${languageCode}/example/${foo}` }}
+            translations={translations}
+          />
         </Toolbar>
       </AppBar>
       <ul>
@@ -31,7 +28,7 @@ function LanguageMenuExample (props) {
           <li key={languageCode}>
             <Link
               id={`go-to-${languageCode}`}
-              to={`/examples/core/LanguageMenu/${languageCode}/${foo}`}
+              to={`/examples/core/LanguageDialog/${languageCode}/${foo}`}
             >
               go to {languageCode}
             </Link>
@@ -43,7 +40,7 @@ function LanguageMenuExample (props) {
 }
 export default (
   <Route
-    exact path="/examples/core/LanguageMenu/:languageCode/:foo"
-    component={LanguageMenuExample}
+    exact path="/examples/core/LanguageDialog/:languageCode/:foo"
+    component={LanguageDialogExample}
   />
 )

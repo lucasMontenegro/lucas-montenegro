@@ -1,6 +1,6 @@
 import supportedLanguages from "local/supportedLanguages"
 import translateLocation from "./translateLocation"
-describe(`local/core/LanguageMenu`, () => {
+describe(`local/core/LanguageDialog`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).toEqual(supportedLanguages)
   })

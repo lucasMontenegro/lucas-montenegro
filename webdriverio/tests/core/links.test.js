@@ -1,4 +1,3 @@
-const describeOrSkip = require("../describeOrSkip")
 const { expect } = require("../chai")
 const baseUrl = require("../baseUrl")
 const targetPath = `/examples/core/links/TargetPage`
@@ -81,7 +80,7 @@ function describeSimpleList (name) {
     })
   })
 }
-describeOrSkip(`local/core/links`, () => {
+describe(`local/core/links`, () => {
   describeSimpleList(`Link`)
   describeSimpleList(`ButtonLink`)
   describeSimpleList(`ListLink`)

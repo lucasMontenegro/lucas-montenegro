@@ -1,4 +1,3 @@
-const describeOrSkip = require("../describeOrSkip")
 const { expect } = require("../chai")
 function expectText (id, expected) {
   const elem = $(`#${id}`)
@@ -48,7 +47,7 @@ function expectToRender (expected) {
     expectText(`clientPropRight${appName}`, expected.clientInput.Left[appName])
   })
 }
-describeOrSkip(`local/core/PortalGun`, () => {
+describe(`local/core/PortalGun`, () => {
   const initiallyExpected = {
     rootInput: ``,
     callbackCid: `1`,

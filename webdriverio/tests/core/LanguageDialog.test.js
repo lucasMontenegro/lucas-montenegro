@@ -1,4 +1,3 @@
-const describeOrSkip = require("../describeOrSkip")
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 const baseUrl = require("../baseUrl")
@@ -7,7 +6,7 @@ const liTextSelectors = supportedLanguages.map((languageCode, i) => ({
   languageCode,
   selector: `#language-dialog-nav > ul > li:nth-child(${i + 1}) > div`,
 }))
-describeOrSkip(`local/core/LanguageDialog`, () => {
+describe(`local/core/LanguageDialog`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })

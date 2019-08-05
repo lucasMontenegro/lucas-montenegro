@@ -21,6 +21,16 @@ exports.config = {
     specs: [
         './tests/**/*.test.js'
     ],
+    suites: {
+        core: [
+            './tests/core/drawer.test.js',
+            './tests/core/LanguageDialog.test.js',
+            './tests/core/links.test.js',
+            './tests/core/NavButton.test.js',
+            './tests/core/PortalGun.test.js',
+            './tests/core/Router.test.js'
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'

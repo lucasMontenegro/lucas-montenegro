@@ -1,4 +1,3 @@
-const describeOrSkip = require("../describeOrSkip")
 const supportedLanguages = require("../supportedLanguages.js")
 const { expect } = require("../chai")
 const baseUrl = require("../baseUrl")
@@ -68,7 +67,7 @@ const navto = url => {
   input.addValue(url)
   $(`#nav-to-url`).click()
 }
-describeOrSkip(`local/core/Router`, () => {
+describe(`local/core/Router`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })

@@ -1,4 +1,3 @@
-const describeOrSkip = require("./describeOrSkip")
 const supportedLanguages = require("./supportedLanguages.js")
 const { expect } = require("./chai")
 describeOrSkip(`local/supportedLanguages`, () => {

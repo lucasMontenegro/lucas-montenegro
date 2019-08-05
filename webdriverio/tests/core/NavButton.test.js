@@ -1,4 +1,3 @@
-const describeOrSkip = require("../describeOrSkip")
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 const baseUrl = require("../baseUrl")
@@ -16,7 +15,7 @@ function expectToRender (languageCode, foo,) {
   const url = makeTargetUrl(languageCode, foo)
   expect(navButton.getAttribute(`href`), `${selector}: getAttribute href`).to.equal(url)
 }
-describeOrSkip(`local/core/NavButton`, () => {
+describe(`local/core/NavButton`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })

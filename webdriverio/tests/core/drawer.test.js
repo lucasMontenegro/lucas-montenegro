@@ -1,4 +1,3 @@
-const describeOrSkip = require("../describeOrSkip")
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 const makeFoo = () => Math.floor(Math.random() * 1000000).toString()
@@ -41,7 +40,7 @@ function expectDrawer (temporary, foo) {
     expect(elem.getText(), `${selector} getText`).to.equal(foo)
   }
 }
-describeOrSkip(`local/core/drawer`, () => {
+describe(`local/core/drawer`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })

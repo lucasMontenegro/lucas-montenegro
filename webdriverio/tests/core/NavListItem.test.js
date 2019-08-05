@@ -1,21 +1,24 @@
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 const baseUrl = require("../baseUrl")
-const rootPathname = `/examples/core/NavButton`
+const rootPathname = `/examples/core/NavListItem`
 const makeTargetPathname = (languageCode, foo) => (
   `/examples/core/router/${languageCode}/example/${foo}`
 )
 const makeTargetUrl = (languageCode, foo) => `${baseUrl}${makeTargetPathname(languageCode, foo)}`
-const selector = `#nav-list > li:first-child > div > a`
-function expectToRender (languageCode, foo,) {
-  const navButton = $(selector)
-  expect(navButton.isDisplayed(), `${selector}: isDisplayed`).to.be.true
-  const text = `EXAMPLE APP ${languageCode.toUpperCase()}`
-  expect(navButton.getText(), `${selector}: getText`).to.equal(text)
-  const url = makeTargetUrl(languageCode, foo)
-  expect(navButton.getAttribute(`href`), `${selector}: getAttribute href`).to.equal(url)
+const selectors = {
+  avatar: `#nav-list > li:first-child > div > div > div:first-child`,
+  anchor: `#nav-list > li:first-child > div > div > div:nth-child(2) > span > a`,
 }
-describe(`local/core/NavButton`, () => {
+function expectToRender (languageCode, foo,) {
+  const anchor = $(selectors.anchor)
+  expect(anchor.isDisplayed(), `Link isDisplayed`).to.be.true
+  expect(anchor.getText(), `Link getText`).to.equal(`EXAMPLE APP ${languageCode.toUpperCase()}`)
+  const url = makeTargetUrl(languageCode, foo)
+  expect(anchor.getAttribute(`href`), `Link getAttribute href`).to.equal(url)
+  expect($(selectors.avatar).isDisplayed(), `Avatar isDisplayed`).to.be.true
+}
+describe(`local/core/NavListItem`, () => {
   it(`should support all languages`, () => {
     expect([`en`, `es`]).to.deep.equal(supportedLanguages)
   })
@@ -23,7 +26,7 @@ describe(`local/core/NavButton`, () => {
     browser.url(rootPathname)
     $(`#match-en-7`).click()
     expectToRender(`en`, `7`)
-    $(selector).click()
+    $(selectors.anchor).click()
     expect(browser.getUrl(), `browser.getUrl`).to.equal(makeTargetUrl(`en`, `7`))
     const elem = $(`#router-pathname`)
     expect(elem.isDisplayed(), `#router-pathname: isDisplayed`).to.be.true

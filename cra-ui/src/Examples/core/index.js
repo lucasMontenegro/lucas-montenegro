@@ -4,7 +4,7 @@ import links from "./links"
 import portalGun from "./portalGun"
 import drawer from "./drawer"
 import router from "./router"
-import navButton from "./navButton"
+import navListItem from "./navListItem"
 import languageDialog from "./languageDialog"
 //import appPanel from "./appPanel"
 function CoreExamples () {
@@ -18,10 +18,10 @@ function CoreExamples () {
         to="/examples/core/drawer/en/000000"
       />
       {router}
-      {navButton}
+      {navListItem}
       <Redirect
-        exact path="/examples/core/NavButton"
-        to="/examples/core/NavButton/null/null/null"
+        exact path="/examples/core/NavListItem"
+        to="/examples/core/NavListItem/null/null/null"
       />
       {languageDialog}
       <Redirect

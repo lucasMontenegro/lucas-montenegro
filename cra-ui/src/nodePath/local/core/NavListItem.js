@@ -1,9 +1,10 @@
 import React from "react"
-import { ListLink } from "local/core/links"
+import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import ListItemAvatar from "@material-ui/core/ListItemAvatar"
 import Avatar from "@material-ui/core/Avatar"
-export default class AppButton extends React.Component {
+import { Link } from "local/core/links"
+export default class NavListItem extends React.Component {
   constructor (props) {
     super(props)
     this.languageCode = `en`
@@ -28,10 +29,12 @@ export default class AppButton extends React.Component {
       this.location = translations[newLanguage].toLocal(intl)
     }
     return (
-      <ListLink button to={this.location}>
+      <ListItem component="div">
         <ListItemAvatar><Avatar>{icon}</Avatar></ListItemAvatar>
-        <ListItemText primary={labels[this.languageCode]} />
-      </ListLink>
+        <ListItemText>
+          <Link to={this.location}>{labels[this.languageCode]}</Link>
+        </ListItemText>
+      </ListItem>
     )
   }
 }

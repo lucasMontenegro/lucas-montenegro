@@ -6,14 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar"
 import Paper from "@material-ui/core/Paper"
 import Typography from "@material-ui/core/Typography"
 import Button from "@material-ui/core/Button"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
-import WorkIcon from "@material-ui/icons/Work"
-import { Link, ButtonLink, ListLink } from "local/core/links"
-import BareLi from "local/core/BareLi"
+import { Link } from "local/core/links"
 const target = `/examples/core/links/TargetPage`
 function P (props) {
   return (
@@ -25,9 +18,6 @@ function TargetPage () {
 }
 const components = {
   Link,
-  ButtonLink: function ButtonLinkExample (props) {
-    return <ButtonLink {...props} variant="outlined" color="primary" />
-  },
 }
 const routes = [true, false].map(external => Object.keys(components).map(name => {
   const Component = components[name]
@@ -46,34 +36,6 @@ const routes = [true, false].map(external => Object.keys(components).map(name =>
     },
   }
 })).reduce((routes, arr) => routes.push(...arr) && routes, [])
-routes.push(...[true, false].map(external => {
-  const to = external ? undefined : target
-  const href = external ? target : undefined
-  return {
-    name: external ? `ExternalListLink` : `ListLink`,
-    Component: function ListLinkExample () {
-      const avatar = <ListItemAvatar><Avatar><WorkIcon /></Avatar></ListItemAvatar>
-      return (
-        <List>
-          <ListItem button id="top-button">
-            {avatar}
-            <ListItemText primary="TOP BUTTON" />
-          </ListItem>
-          <BareLi>
-            <ListLink button to={to} href={href} id="link">
-              {avatar}
-              <ListItemText primary="lorem ipsum" />
-            </ListLink>
-          </BareLi>
-          <ListItem button id="bottom-button">
-            {avatar}
-            <ListItemText primary="BOTTOM BUTTON" />
-          </ListItem>
-        </List>
-      )
-    },
-  }
-}))
 const LinkExamples = withStyles(
   theme => ({
     root: {

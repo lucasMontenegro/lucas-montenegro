@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
 import Router from "local/core/Router"
-import { ButtonLink } from "local/core/links"
+import { Link } from "local/core/links"
 import routing from "./routing"
 const RouterComponentExample = withStyles(
   theme => ({
@@ -46,14 +46,7 @@ const RouterComponentExample = withStyles(
                 onChange={this.setUrl}
                 margin="normal"
               />
-              <ButtonLink
-                id="nav-to-url"
-                to={url}
-                variant="contained"
-                color="primary"
-              >
-                navigate
-              </ButtonLink>
+              <Link id="nav-to-url" to={url}>navigate</Link>
             </div>
             <p id="router-instance-id">{`id: ${this.id}`}</p>
             <p id="router-app-name">{`appName: ${props.appName}`}</p>

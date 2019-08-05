@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import List from "@material-ui/core/List"
 import WorkIcon from "@material-ui/icons/Work"
 import supportedLanguages from "local/supportedLanguages"
-import NavButton from "local/core/NavButton"
+import NavListItem from "local/core/NavListItem"
 import BareLi from "local/core/BareLi"
 import { Link } from "local/core/links"
 import translations from "./translations"
@@ -11,8 +11,8 @@ import initialLocation from "./initialLocation"
 const makeTargetLocation = (languageCode, foo) => ({
   pathname: `/examples/core/router/${languageCode}/example/${foo}`,
 })
-const makeNavButtonLocation = (command, languageCode, foo) => ({
-  pathname: `/examples/core/NavButton/${command}/${languageCode}/${foo}`,
+const makeNavListItemLocation = (command, languageCode, foo) => ({
+  pathname: `/examples/core/NavListItem/${command}/${languageCode}/${foo}`,
 })
 const otherProps = {
   translations,
@@ -23,13 +23,13 @@ const otherProps = {
   },
   icon: <WorkIcon />,
 }
-function NavButtonExample (props) {
+function NavListItemExample (props) {
   const { command, languageCode, foo } = props.match.params
-  let button
+  let navListItem
   switch (command) {
     case "match":
-    button = (
-      <NavButton
+    navListItem = (
+      <NavListItem
         {...otherProps}
         match={true}
         languageCode={languageCode}
@@ -38,8 +38,8 @@ function NavButtonExample (props) {
     )
     break
     case "doNotMatch":
-    button = (
-      <NavButton
+    navListItem = (
+      <NavListItem
         {...otherProps}
         match={false}
         languageCode={languageCode}
@@ -48,17 +48,17 @@ function NavButtonExample (props) {
     )
     break
     default:
-    button = null
+    navListItem = null
   }
   return (
     <div>
-      <List id="nav-list"><BareLi><div>{button}</div></BareLi></List>
+      <List id="nav-list"><BareLi><div>{navListItem}</div></BareLi></List>
       <ul>
         {supportedLanguages.map(languageCode => (
           <li key={`doNotMatch-${languageCode}`}>
             <Link
               id={`doNotMatch-${languageCode}`}
-              to={makeNavButtonLocation(`doNotMatch`, languageCode, `null`)}
+              to={makeNavListItemLocation(`doNotMatch`, languageCode, `null`)}
             >
               doNotMatch {languageCode}
             </Link>
@@ -67,7 +67,7 @@ function NavButtonExample (props) {
         <li key={`match-en-7`}>
           <Link
             id={`match-en-7`}
-            to={makeNavButtonLocation(`match`, `en`, `7`)}
+            to={makeNavListItemLocation(`match`, `en`, `7`)}
           >
             match en 7
           </Link>
@@ -78,7 +78,7 @@ function NavButtonExample (props) {
 }
 export default (
   <Route
-    exact path="/examples/core/NavButton/:command/:languageCode/:foo"
-    component={NavButtonExample}
+    exact path="/examples/core/NavListItem/:command/:languageCode/:foo"
+    component={NavListItemExample}
   />
 )

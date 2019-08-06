@@ -1,4 +1,4 @@
 export default {
   breakpointWidth: 800,
-  drawerWidth: 256,
+  drawerWidth: 320,
 }

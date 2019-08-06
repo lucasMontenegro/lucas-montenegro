@@ -1,10 +1,32 @@
 import React from "react"
+import { withStyles } from "@material-ui/core/styles"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
-import ListItemAvatar from "@material-ui/core/ListItemAvatar"
-import Avatar from "@material-ui/core/Avatar"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
 import { Link } from "local/core/links"
-export default class NavListItem extends React.Component {
+export default withStyles(theme => ({
+  item: {
+    paddingTop: 1,
+    paddingBottom: 1,
+    color: `rgba(255, 255, 255, 0.7)`,
+    "&:hover,&:focus": {
+      backgroundColor: `rgba(255, 255, 255, 0.08)`,
+    },
+  },
+  link: {
+    color: `inherit`,
+  },
+  itemActiveItem: {
+    color: `#4fc3f7`,
+  },
+  itemPrimary: {
+    fontSize: `inherit`,
+  },
+  itemIcon: {
+    minWidth: `auto`,
+    marginRight: theme.spacing(2),
+  },
+}))(class NavListItem extends React.Component {
   constructor (props) {
     super(props)
     this.languageCode = `en`
@@ -12,6 +34,7 @@ export default class NavListItem extends React.Component {
   }
   render () {
     const {
+      classes,
       match,
       languageCode: newLanguage,
       location,
@@ -29,12 +52,15 @@ export default class NavListItem extends React.Component {
       this.location = translations[newLanguage].toLocal(intl)
     }
     return (
-      <ListItem component="div">
-        <ListItemAvatar><Avatar>{icon}</Avatar></ListItemAvatar>
-        <ListItemText>
-          <Link to={this.location}>{labels[this.languageCode]}</Link>
+      <ListItem
+        component="div"
+        className={match ? `${classes.item} ${classes.itemActiveItem}` : classes.item}
+      >
+        <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+        <ListItemText classes={{ primary: classes.itemPrimary }}>
+          <Link className={classes.link} to={this.location}>{labels[this.languageCode]}</Link>
         </ListItemText>
       </ListItem>
     )
   }
-}
+})

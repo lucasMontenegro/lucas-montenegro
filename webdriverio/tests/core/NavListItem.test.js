@@ -7,16 +7,16 @@ const makeTargetPathname = (languageCode, foo) => (
 )
 const makeTargetUrl = (languageCode, foo) => `${baseUrl}${makeTargetPathname(languageCode, foo)}`
 const selectors = {
-  avatar: `#nav-list > li:first-child > div > div > div:first-child`,
+  icon: `#nav-list > li:first-child > div > div > div:first-child`,
   anchor: `#nav-list > li:first-child > div > div > div:nth-child(2) > span > a`,
 }
 function expectToRender (languageCode, foo,) {
   const anchor = $(selectors.anchor)
   expect(anchor.isDisplayed(), `Link isDisplayed`).to.be.true
-  expect(anchor.getText(), `Link getText`).to.equal(`EXAMPLE APP ${languageCode.toUpperCase()}`)
+  expect(anchor.getText(), `Link getText`).to.equal(`example app ${languageCode}`)
   const url = makeTargetUrl(languageCode, foo)
   expect(anchor.getAttribute(`href`), `Link getAttribute href`).to.equal(url)
-  expect($(selectors.avatar).isDisplayed(), `Avatar isDisplayed`).to.be.true
+  expect($(selectors.icon).isDisplayed(), `Avatar isDisplayed`).to.be.true
 }
 describe(`local/core/NavListItem`, () => {
   it(`should support all languages`, () => {

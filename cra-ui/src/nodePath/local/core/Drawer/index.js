@@ -45,11 +45,15 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
         variant="temporary"
         open={viewState.drawer.isOpen}
         onClose={viewState.drawer.close}
-        style={{ width }}
+        PaperProps={{ style: { width } }}
       >
         {content}
       </MuiDrawer>
     ) :
-    (<MuiDrawer id="permanent-drawer" variant="permanent" open>{content}</MuiDrawer>)
+    (
+      <MuiDrawer id="permanent-drawer" variant="permanent" PaperProps={{ style: { width } }}>
+        {content}
+      </MuiDrawer>
+    )
   )
 }

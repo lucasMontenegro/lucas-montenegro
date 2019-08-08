@@ -39,8 +39,7 @@ const useStyles = makeStyles({
     padding: 32,
   },
   card: {
-    minWidth: 275,
-    maxWidth: 512,
+    width: 512,
     margin: `0 auto`,
   },
 })
@@ -67,9 +66,12 @@ function AppLocationExample (props) {
               <Fragment key={match}>
                 {supportedLanguages.map(languageCode => (
                   <Fragment key={languageCode}>
-                    {[`123`, `456`].map(foo => (
+                    {[`456`, `789`].map(foo => (
                       <ListItem key={foo}>
-                        <Link to={makeExampleLocation(match, languageCode, foo)}>
+                        <Link
+                          id={`${match}-${languageCode}-${foo}`}
+                          to={makeExampleLocation(match, languageCode, foo)}
+                        >
                           {match} {languageCode} {foo}
                         </Link>
                       </ListItem>
@@ -91,8 +93,8 @@ function AppLocationChildExample ({ match, languageCode, location, foo }) {
   return (
     <Fragment>
       <P>match: <span id="match">{match ? `true` : `false`}</span></P>
-      <P>languageCode: <span id="languageCode">{languageCode}</span></P>
-      <P>pathname: <span id="pathname">{location ? location.pathname : `null`}</span></P>
+      <P>languageCode: <span id="language-code">{languageCode}</span></P>
+      <P>pathname: <span id="pathname">{location ? location.pathname : `undefined`}</span></P>
       <P>foo: <span id="foo">{foo}</span></P>
     </Fragment>
   )

@@ -6,28 +6,24 @@ import List from "@material-ui/core/List"
 import WorkIcon from "@material-ui/icons/Work"
 import supportedLanguages from "local/supportedLanguages"
 import NavLink from "local/core/NavLink"
+import BareLi from "local/core/BareLi"
 import theme from "local/darkTheme"
+import makeTranslation from "local/makeTranslation"
 function NavLinkExampleRouter () {
   return (
     <Switch>
-      <Redirect exact path="/examples/core/navLink" to="/examples/core/navLink/example" />
-      <Route exact path="/examples/core/navLink/target" component={NavLinkExampleTarget} />
-      <Route exact path="/examples/core/navLink/example" component={NavLinkExample} />
+      <Redirect exact path="/examples/core/NavLink" to="/examples/core/NavLink/example" />
+      <Route exact path="/examples/core/NavLink/target" component={NavLinkExampleTarget} />
+      <Route exact path="/examples/core/NavLink/example" component={NavLinkExample} />
     </Switch>
   )
 }
-export default (<Route path="/examples/core/navLink" component={NavLinkExampleRouter} />)
+export default (<Route path="/examples/core/NavLink" component={NavLinkExampleRouter} />)
 function NavLinkExampleTarget () {
   return <div id="message">it works</div>
 }
-const labels = supportedLanguages.reduce((labels, languageCode) => {
-  labels[languageCode] = `nav link ${languageCode}`
-  return labels
-}, {})
-const icons = supportedLanguages.reduce((icons, languageCode) => {
-  icons[languageCode] = <WorkIcon aria-label={`nav icon ${languageCode}`} />
-  return icons
-}, {})
+const labels = makeTranslation(languageCode => `nav link ${languageCode}`)
+const icons = makeTranslation(languageCode => <WorkIcon className={`nav-icon-${languageCode}`} />)
 function NavLinkExample () {
   return (
     <ThemeProvider theme={theme}>
@@ -36,17 +32,18 @@ function NavLinkExample () {
           {[`true`, `false`].map(active => (
             <Fragment key={active}>
               {supportedLanguages.map(languageCode => {
-                const id = `nav-link-${active}-${languageCode}`
+                const id = `li-${active}-${languageCode}`
                 return (
-                  <NavLink
-                    key={id}
-                    id={id}
-                    active={active === `true`}
-                    languageCode={languageCode}
-                    location="/examples/core/navLink/target"
-                    labels={labels}
-                    icons={icons}
-                  />
+                  <BareLi key={id} id={id}>
+                    <NavLink
+                      linkId={`nav-link-${active}-${languageCode}`}
+                      active={active === `true`}
+                      languageCode={languageCode}
+                      location="/examples/core/NavLink/target"
+                      labels={labels}
+                      icons={icons}
+                    />
+                  </BareLi>
                 )
               })}
             </Fragment>

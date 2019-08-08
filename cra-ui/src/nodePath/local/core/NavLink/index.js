@@ -31,15 +31,15 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
 }))
-export default function NavLink ({ id, active, languageCode, location, labels, icons }) {
+export default function NavLink ({ linkId, active, languageCode, location, labels, icons }) {
   const classes = useStyles()
   const activeLabel = active ? activeLabels[languageCode] : undefined
   const activeClassName = active ? `${classes.item} ${classes.itemActiveItem}` : classes.item
   return (
-    <ListItem id={id} component="div" className={activeClassName}>
+    <ListItem component="div" className={activeClassName}>
       <ListItemIcon className={classes.itemIcon}>{icons[languageCode]}</ListItemIcon>
       <ListItemText classes={{ primary: classes.itemPrimary }}>
-        <Link className={classes.link} to={location} aria-label={activeLabel}>
+        <Link id={linkId} className={classes.link} to={location} aria-label={activeLabel}>
           {labels[languageCode]}
         </Link>
       </ListItemText>

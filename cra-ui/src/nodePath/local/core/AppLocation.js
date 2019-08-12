@@ -12,6 +12,7 @@ export default class AppLocation extends React.Component {
       location,
       translations,
       children,
+      ...other
     } = this.props
     const oldLanguage = this.languageCode
     if (match) {
@@ -22,7 +23,12 @@ export default class AppLocation extends React.Component {
       const intl = translations[oldLanguage].toIntl(this.location)
       this.location = translations[newLanguage].toLocal(intl)
     }
-    const childrenProps = { match, languageCode: this.languageCode, location: this.location }
+    const childrenProps = {
+      ...other,
+      match,
+      languageCode: this.languageCode,
+      location: this.location,
+    }
     return Children.map(children, child => cloneElement(child, childrenProps))
   }
 }

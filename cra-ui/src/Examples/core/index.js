@@ -8,6 +8,9 @@ import drawer from "./drawer"
 import useViewState from "./useViewState"
 import appLocation from "./appLocation"
 import navLink from "./navLink"
+import makeAppLocation from "./makeAppLocation"
+//import portals from "./portals"
+//import makeRouter from "./makeRouter"
 function CoreExamples () {
   return (
     <Switch>
@@ -23,6 +26,9 @@ function CoreExamples () {
       {useViewState}
       {navLink}
       {appLocation}
+      {makeAppLocation}
+      {/*portals*/}
+      {/*makeRouter*/}
     </Switch>
   )
 }

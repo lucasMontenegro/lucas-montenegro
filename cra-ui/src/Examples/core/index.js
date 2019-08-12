@@ -10,7 +10,7 @@ import appLocation from "./appLocation"
 import navLink from "./navLink"
 import makeAppLocation from "./makeAppLocation"
 import portals from "./portals"
-//import makeRouter from "./makeRouter"
+import makeRouter from "./makeRouter"
 function CoreExamples () {
   return (
     <Switch>
@@ -28,7 +28,7 @@ function CoreExamples () {
       {appLocation}
       {makeAppLocation}
       {portals}
-      {/*makeRouter*/}
+      {makeRouter}
     </Switch>
   )
 }

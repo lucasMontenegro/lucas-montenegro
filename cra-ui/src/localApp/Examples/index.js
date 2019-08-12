@@ -4,5 +4,4 @@ if (process.env.NODE_ENV === `production`) {
 } else {
   Examples = require("./Examples").default
 }
-
 export default Examples

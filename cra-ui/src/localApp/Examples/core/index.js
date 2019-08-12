@@ -9,7 +9,7 @@ import useViewState from "./useViewState"
 import appLocation from "./appLocation"
 import navLink from "./navLink"
 import makeAppLocation from "./makeAppLocation"
-import portals from "./portals"
+//import portals from "./portals"
 import makeRouter from "./makeRouter"
 function CoreExamples () {
   return (
@@ -27,7 +27,7 @@ function CoreExamples () {
       {navLink}
       {appLocation}
       {makeAppLocation}
-      {portals}
+      {/*portals*/}
       {makeRouter}
     </Switch>
   )

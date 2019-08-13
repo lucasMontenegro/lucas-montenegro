@@ -41,17 +41,15 @@ export default function makeRouter (routing) {
     useEffect(() => {
       if (i18n.isInitialized) {
         languageCode.current = i18n.language
+        setBooting(false)
       } else {
-        let booting = true
         const fn = () => {
           languageCode.current = i18n.language
-          setBooting(booting = false)
+          setBooting(false)
           i18n.off(`initialized`, fn)
         }
         i18n.on(`initialized`, fn)
-        return () => {
-          booting && i18n.off(`initialized`, fn)
-        }
+        return () => i18n.off(`initialized`, fn)
       }
     }, [])
     function changeLanguage (newLanguage) {
@@ -65,6 +63,7 @@ export default function makeRouter (routing) {
     if (routing.matchRoot(location)) {
       return {
         type: `redirect`,
+        languageCode: languageCode.current,
         location: routing.locations.home[languageCode.current],
       }
     }
@@ -81,9 +80,11 @@ export default function makeRouter (routing) {
     {
       const route = routing.languageRoutes.root.find(r => r.match(location))
       if (route) {
+        const newLanguage = route.languageCode
         return {
           type: `redirect`,
-          location: routing.locations.home[changeLanguage(route.languageCode)],
+          languageCode: newLanguage,
+          location: routing.locations.home[changeLanguage(newLanguage)],
         }
       }
     }
@@ -93,6 +94,7 @@ export default function makeRouter (routing) {
     }
     return {
       type: `redirect`,
+      languageCode: languageCode.current,
       location: {
         ...routing.locations.notFound[languageCode.current],
         state: { referrer: location },

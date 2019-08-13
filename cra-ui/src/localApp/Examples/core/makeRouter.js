@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Fragment } from "react"
 import { Route } from "react-router-dom"
 import { makeStyles } from "@material-ui/styles"
 import Card from "@material-ui/core/Card"
@@ -31,7 +31,6 @@ const useStyles = makeStyles({
     },
   },
 }, { name: `MakeRouterExample` })
-const useRouter = makeRouter(routing)
 const initialLocation = { pathname: `` }
 function MakeRouterExample (props) {
   const classes = useStyles()
@@ -43,31 +42,52 @@ function MakeRouterExample (props) {
   function updateLocation () {
     setLocation({ pathname })
   }
-  const match = useRouter(location)
+  const [mounted, setMounted] = useState(true)
+  function toggleMounted () {
+    setMounted(mounted => !mounted)
+  }
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
         <CardContent className={classes.content}>
-          <div>type: <span id="type">{match.type}</span></div>
-          <div>appName: <span id="appName">{match.appName || `null`}</span></div>
-          <div>languageCode: <span id="languageCode">{match.languageCode || `null`}</span></div>
-          <div>
-            pathname: &nbsp;
-            <span id="pathname">{match.location ? match.location.pathname : `null`}</span>
-          </div>
+          <div>mounted: <span id="mounted">{mounted ? `true` : `false`}</span></div>
+          {mounted && <MakeRouter location={location} />}
         </CardContent>
         <CardActions className={classes.actions}>
           <TextField
-            id="url-input"
+            id="input"
             label="Url"
             value={pathname}
             onChange={updatePathname}
             margin="normal"
           />
-          <Button variant="outlined" color="primary" onClick={updateLocation}>NAVIGATE</Button>
+          <Button id="navigate" variant="outlined" color="primary" onClick={updateLocation}>
+            NAVIGATE
+          </Button>
+          <Button id="toggleMounted" variant="outlined" color="primary" onClick={toggleMounted}>
+            MOUNT/UNMOUNT
+          </Button>
         </CardActions>
       </Card>
     </div>
   )
 }
 export default (<Route path="/examples/core/makeRouter" component={MakeRouterExample} />)
+const useRouter = makeRouter(routing)
+function MakeRouter (props) {
+  const match = useRouter(props.location)
+  if (match.type === `booting`) {
+    return null
+  }
+  return (
+    <Fragment>
+      <div>type: <span id="type">{match.type}</span></div>
+      <div>appName: <span id="appName">{match.appName || `null`}</span></div>
+      <div>languageCode: <span id="languageCode">{match.languageCode || `null`}</span></div>
+      <div>
+        pathname: &nbsp;
+        <span id="pathname">{match.location ? match.location.pathname : `null`}</span>
+      </div>
+    </Fragment>
+  )
+}

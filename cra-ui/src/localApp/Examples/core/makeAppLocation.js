@@ -1,42 +1,14 @@
-import React, { Fragment } from "react"
-import { Route, Switch, Redirect } from "react-router-dom"
+import React, { useState, Fragment } from "react"
+import { Route } from "react-router-dom"
 import { makeStyles } from "@material-ui/styles"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
-import Typography from "@material-ui/core/Typography"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import supportedLanguages from "local/supportedLanguages"
+import CardActions from "@material-ui/core/CardActions"
+import TextField from "@material-ui/core/TextField"
+import Button from "@material-ui/core/Button"
 import makeAppLocation from "local/core/makeAppLocation"
-import { Link } from "local/core/links"
 import translations from "./translations"
 import initialLocation from "./initialLocation"
-function AppLocationExampleRouter (props) {
-  return (
-    <Switch>
-      <Redirect
-        exact path="/examples/core/makeAppLocation"
-        to="/examples/core/makeAppLocation/false/en/0"
-      />
-      <Route
-        exact path="/examples/core/makeAppLocation/:match/:languageCode/:foo"
-        component={AppLocationExample}
-      />
-    </Switch>
-  )
-}
-export default (
-  <Route path="/examples/core/makeAppLocation" component={AppLocationExampleRouter} />
-)
-function P (props) {
-  return <Typography {...props} color="textSecondary" component="p" />
-}
-const makeTargetLocation = (languageCode, foo) => ({
-  pathname: `/examples/core/router/${languageCode}/example/${foo}`,
-})
-const makeExampleLocation = (match, languageCode, foo) => ({
-  pathname: `/examples/core/makeAppLocation/${match}/${languageCode}/${foo}`,
-})
 const useStyles = makeStyles({
   root: {
     padding: 32,
@@ -45,44 +17,96 @@ const useStyles = makeStyles({
     width: 512,
     margin: `0 auto`,
   },
+  content: {
+    "& > *": {
+      display: `block`,
+      margin: `16px 0`,
+    },
+  },
+  actions: {
+    alignItems: `flex-end`,
+    padding: 24,
+    "& > *": {
+      margin: `0 8px`,
+    },
+  },
 })
 const useAppLocation = makeAppLocation(initialLocation, translations)
-function AppLocationExample (props) {
-  const { match: matchProp, languageCode, foo } = props.match.params
-  const match = matchProp === `true`
-  const newLocation = match ? makeTargetLocation(languageCode, foo) : null
-  const location = useAppLocation(match, languageCode, newLocation)
+const initialState = {
+  languageCode: `en`,
+  foo: ``,
+  mounted: false,
+  props: {
+    match: false,
+    languageCode: `en`,
+    location: { pathname: `/examples/core/router/en/home` },
+  },
+}
+function MakeAppLocationExample () {
   const classes = useStyles()
+  const [state, setState] = useState(initialState)
+  const { languageCode, foo, mounted } = state
+  const match = /^\d+$/.test(foo)
+  const pathname = `/examples/core/router/${languageCode}/${match ? `example/${foo}` : `home`}`
+  const update = {
+    languageCode (e) {
+      const languageCode = e.target.value
+      setState(state => ({ ...state, languageCode }))
+    },
+    foo (e) {
+      const foo = e.target.value
+      setState(state => ({ ...state, foo }))
+    },
+    mounted () {
+      setState(state => ({ ...state, mounted: !state.mounted }))
+    },
+    props () {
+      setState(state => ({ ...state, props: { match, languageCode, location: { pathname } } }))
+    }
+  }
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
-        <CardContent>
-          <P>match: <span id="match">{match ? `true` : `false`}</span></P>
-          <P>languageCode: <span id="language-code">{languageCode}</span></P>
-          <P>foo: <span id="foo">{foo}</span></P>
-          <P>pathname: <span id="pathname">{location ? location.pathname : `undefined`}</span></P>
-          <List disablePadding>
-            {[`true`, `false`].map(match => (
-              <Fragment key={match}>
-                {supportedLanguages.map(languageCode => (
-                  <Fragment key={languageCode}>
-                    {[`456`, `789`].map(foo => (
-                      <ListItem key={foo}>
-                        <Link
-                          id={`${match}-${languageCode}-${foo}`}
-                          to={makeExampleLocation(match, languageCode, foo)}
-                        >
-                          {match} {languageCode} {foo}
-                        </Link>
-                      </ListItem>
-                    ))}
-                  </Fragment>
-                ))}
-              </Fragment>
-            ))}
-          </List>
+        <CardContent className={classes.content}>
+          <TextField
+            id="languageCode"
+            label="languageCode"
+            value={languageCode}
+            onChange={update.languageCode}
+            margin="normal"
+          />
+          <TextField
+            id="foo"
+            label="foo"
+            value={foo}
+            onChange={update.foo}
+            margin="normal"
+          />
+          <div>match: <span id="match">{match ? `true` : `false`}</span></div>
+          <div>mounted: <span id="mounted">{mounted ? `true` : `false`}</span></div>
+          {mounted && <MakeAppLocation {...state.props} />}
         </CardContent>
+        <CardActions className={classes.actions}>
+          <Button id="navigate" variant="outlined" color="primary" onClick={update.props}>
+            NAVIGATE
+          </Button>
+          <Button id="toggleMounted" variant="outlined" color="primary" onClick={update.mounted}>
+            MOUNT/UNMOUNT
+          </Button>
+        </CardActions>
       </Card>
     </div>
+  )
+}
+export default (
+  <Route exact path="/examples/core/makeAppLocation" component={MakeAppLocationExample} />
+)
+function MakeAppLocation ({ match, languageCode, location }) {
+  const appLocation = useAppLocation(match, languageCode, location)
+  return (
+    <Fragment>
+      <div>location.pathname: <span id="pathname">{location.pathname}</span></div>
+      <div>appLocation.pathname: <span id="appPathname">{appLocation.pathname}</span></div>
+    </Fragment>
   )
 }

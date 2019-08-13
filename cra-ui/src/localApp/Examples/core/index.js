@@ -11,6 +11,7 @@ import navLink from "./navLink"
 import makeAppLocation from "./makeAppLocation"
 import portals from "./portals"
 import makeRouter from "./makeRouter"
+import handleRedirect from "./handleRedirect"
 function CoreExamples () {
   return (
     <Switch>
@@ -29,6 +30,7 @@ function CoreExamples () {
       {makeAppLocation}
       {portals}
       {makeRouter}
+      {handleRedirect}
     </Switch>
   )
 }

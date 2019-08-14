@@ -10,6 +10,12 @@ describe(`local/makeTranslation`, () => {
   it(`should detect unexpected translations`, () => {
     expect(() => makeTranslation({ en: null, es: null, pt: null })).toThrow()
   })
+  it(`should convert to Array`, () => {
+    expect(makeTranslation({ en: `en`, es: `es` }, `toArray`)).toEqual([
+      { languageCode: `en`, value: `en` },
+      { languageCode: `es`, value: `es` },
+    ])
+  })
   it(`should detect unexpected input`, () => {
     expect(() => makeTranslation(null)).toThrow()
   })

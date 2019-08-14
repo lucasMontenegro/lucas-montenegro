@@ -3,7 +3,7 @@ const hashtable = supportedLanguages.reduce((hashtable, languageCode) => {
   hashtable[languageCode] = null
   return hashtable
 }, {})
-export default function makeTranslation (translation) {
+export default function makeTranslation (translation, convert) {
   if (typeof translation === `function`) {
     const tranlate = translation
     return supportedLanguages.reduce((translation, languageCode) => {
@@ -12,13 +12,16 @@ export default function makeTranslation (translation) {
     }, {})
   } else if (translation instanceof Object) {
     const keys = Object.keys(translation)
-    const key = keys.find(key => !(key in hashtable))
-    if (key) {
-      throw Error(`Unexpected languageCode in translation: ${key}`)
+    const unexpected = keys.find(key => !(key in hashtable))
+    if (unexpected) {
+      throw Error(`Unexpected languageCode in translation: ${unexpected}`)
     }
-    const languageCode = supportedLanguages.find(languageCode => !(languageCode in translation))
-    if (languageCode) {
-      throw Error(`Missing languageCode in translation: ${languageCode}`)
+    const missing = supportedLanguages.find(languageCode => !(languageCode in translation))
+    if (missing) {
+      throw Error(`Missing languageCode in translation: ${missing}`)
+    }
+    if (convert === `toArray`) {
+      return keys.map(languageCode => ({ languageCode, value: translation[languageCode] }))
     }
     return translation
   }

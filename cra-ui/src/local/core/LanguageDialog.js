@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.dark,
   },
 }))
-export default function LanguageDialogView ({ state }) {
+export default function LanguageDialog ({ state }) {
   const classes = useStyles()
   const icon = <FontAwesomeIcon icon={[`fas`, `language`]} />
   return (

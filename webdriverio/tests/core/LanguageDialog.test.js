@@ -1,10 +1,10 @@
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 const baseUrl = require("../baseUrl")
-describe(`local/core/LanguageDialogView`, () => {
+describe(`local/core/LanguageDialog`, () => {
   it(`should render the button`, () => {
     supportedLanguages.forEach(languageCode => {
-      browser.url(`/examples/core/LanguageDialogView/${languageCode}`)
+      browser.url(`/examples/core/LanguageDialog/${languageCode}`)
       const button = $(`#open-language-dialog`)
       expect(button.isDisplayed(), `#language-dialog-button isDisplayed`).to.be.true
       const msg = `#language-dialog-button getAttribute aria-label`
@@ -12,7 +12,7 @@ describe(`local/core/LanguageDialogView`, () => {
     })
   })
   it(`should open`, () => {
-    browser.url(`/examples/core/LanguageDialogView/en`)
+    browser.url(`/examples/core/LanguageDialog/en`)
     const dialog = $(`#language-dialog`)
     expect(dialog.isDisplayed(), `#language-dialog isDisplayed`).to.be.false
     $(`#open-language-dialog`).click()
@@ -21,7 +21,7 @@ describe(`local/core/LanguageDialogView`, () => {
   })
   it(`should render the dialog`, () => {
     supportedLanguages.forEach(languageCode => {
-      browser.url(`/examples/core/LanguageDialogView/${languageCode}`)
+      browser.url(`/examples/core/LanguageDialog/${languageCode}`)
       $(`#open-language-dialog`).click()
       $(`#language-dialog`).waitForDisplayed(1000)
       function expectDisplayed (elem, selector) {
@@ -70,7 +70,7 @@ describe(`local/core/LanguageDialogView`, () => {
     })
   })
   it(`should close from the modal`, () => {
-    browser.url(`/examples/core/LanguageDialogView/en`)
+    browser.url(`/examples/core/LanguageDialog/en`)
     const dialog = $(`#language-dialog`)
     $(`#open-language-dialog`).click()
     dialog.waitForDisplayed(1000)
@@ -79,7 +79,7 @@ describe(`local/core/LanguageDialogView`, () => {
     expect(dialog.isDisplayed(), `#language-dialog isDisplayed`).to.be.false
   })
   it(`should close from the close button`, () => {
-    browser.url(`/examples/core/LanguageDialogView/en`)
+    browser.url(`/examples/core/LanguageDialog/en`)
     const dialog = $(`#language-dialog`)
     $(`#open-language-dialog`).click()
     dialog.waitForDisplayed(1000)

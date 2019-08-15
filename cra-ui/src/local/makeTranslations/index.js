@@ -3,7 +3,7 @@ const hashtable = supportedLanguages.reduce((hashtable, languageCode) => {
   hashtable[languageCode] = null
   return hashtable
 }, {})
-export default function makeTranslation (translation, convert) {
+export default function makeTranslations (translation, convert) {
   if (typeof translation === `function`) {
     const tranlate = translation
     return supportedLanguages.reduce((translation, languageCode) => {

@@ -13,24 +13,24 @@ import IconButton from "@material-ui/core/IconButton"
 import Avatar from "@material-ui/core/Avatar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "local/core/links"
-import makeTranslation from "local/makeTranslation"
-const links = makeTranslation({
+import makeTranslations from "local/makeTranslations"
+const links = makeTranslations({
   en: `English`,
   es: `Español`,
 }, `toArray`)
-const labels = makeTranslation({
+const labels = makeTranslations({
   en: `Language Menu`,
   es: `Menú de Idiomas`,
 })
-const titles = makeTranslation({
+const titles = makeTranslations({
   en: `Select Language`,
   es: `Seleccione un Idioma`,
 })
-const closeText = makeTranslation({
+const closeText = makeTranslations({
   en: `CLOSE`,
   es: `CERRAR`,
 })
-const activeLinkLabels = makeTranslation({
+const activeLinkLabels = makeTranslations({
   en: `Current language`,
   es: `Idioma actual`,
 })

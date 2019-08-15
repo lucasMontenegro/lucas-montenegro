@@ -4,10 +4,11 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import { Link } from "local/core/links"
-const activeLabels = {
+import makeTranslations from "local/makeTranslations"
+const activeLabels = makeTranslations({
   en: `Active link`,
   es: `Link activo`,
-}
+})
 const useStyles = makeStyles(theme => ({
   item: {
     paddingTop: 1,

@@ -4,14 +4,15 @@ import MuiDrawer from "@material-ui/core/Drawer"
 import List from "@material-ui/core/List"
 import IconButton from "@material-ui/core/IconButton"
 import CloseIcon from "@material-ui/icons/Close"
-const navLabels = {
+import makeTranslations from "local/makeTranslations"
+const navLabels = makeTranslations({
   en: `Navigation buttons`,
   es: `Botones de navegación`,
-}
-const closeLabels = {
+})
+const closeLabels = makeTranslations({
   en: `Close left drawer`,
   es: `Cerrar panel lateral`,
-}
+})
 const useStyles = makeStyles({
   close: {
     textAlign: `right`,

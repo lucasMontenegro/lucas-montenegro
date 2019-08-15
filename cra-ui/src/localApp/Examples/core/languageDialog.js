@@ -3,10 +3,10 @@ import { Route } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
-import makeTranslation from "local/makeTranslation"
+import makeTranslations from "local/makeTranslations"
 import LanguageDialog from "local/core/LanguageDialog"
 import theme from "local/theme"
-const translations = makeTranslation(
+const translations = makeTranslations(
   languageCode => ({ pathname: `/examples/core/router/${languageCode}/example/0` })
 )
 function LanguageDialogExample (props) {

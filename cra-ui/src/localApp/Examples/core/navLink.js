@@ -8,7 +8,7 @@ import supportedLanguages from "local/supportedLanguages"
 import NavLink from "local/core/NavLink"
 import BareLi from "local/core/BareLi"
 import theme from "local/darkTheme"
-import makeTranslation from "local/makeTranslation"
+import makeTranslations from "local/makeTranslations"
 function NavLinkExampleRouter () {
   return (
     <Switch>
@@ -22,8 +22,8 @@ export default (<Route path="/examples/core/NavLink" component={NavLinkExampleRo
 function NavLinkExampleTarget () {
   return <div id="message">it works</div>
 }
-const labels = makeTranslation(languageCode => `nav link ${languageCode}`)
-const icons = makeTranslation(languageCode => <WorkIcon className={`nav-icon-${languageCode}`} />)
+const labels = makeTranslations(languageCode => `nav link ${languageCode}`)
+const icons = makeTranslations(languageCode => <WorkIcon className={`nav-icon-${languageCode}`} />)
 function NavLinkExample () {
   return (
     <ThemeProvider theme={theme}>

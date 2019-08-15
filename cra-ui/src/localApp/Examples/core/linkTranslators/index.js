@@ -1,4 +1,5 @@
-export default {
+import makeTranslations from "local/makeTranslations"
+export default makeTranslations({
   en: {
     toIntl({ pathname }) {
       return { foo: /^.{33}([^/]+)\/?$/.exec(pathname)[1] }
@@ -15,4 +16,4 @@ export default {
       return { pathname: `/examples/core/router/es/example/${foo}` }
     },
   },
-}
+})

@@ -16,9 +16,7 @@ function P (props) {
 function TargetPage () {
   return <P id="message">it works</P>
 }
-const components = {
-  Link,
-}
+const components = { Link }
 const routes = [true, false].map(external => Object.keys(components).map(name => {
   const Component = components[name]
   const to = external ? undefined : target

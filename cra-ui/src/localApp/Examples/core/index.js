@@ -13,6 +13,7 @@ import portals from "./portals"
 import makeRouter from "./makeRouter"
 import handleRedirect from "./handleRedirect"
 import languageDialogView from "./languageDialogView"
+import makeLanguageDialogState from "./makeLanguageDialogState"
 function CoreExamples () {
   return (
     <Switch>
@@ -33,6 +34,7 @@ function CoreExamples () {
       {makeRouter}
       {handleRedirect}
       {languageDialogView}
+      {makeLanguageDialogState}
     </Switch>
   )
 }

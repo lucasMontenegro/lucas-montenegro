@@ -1,7 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 import links from "./links"
-import portalGun from "./portalGun"
 import router from "./router"
 import drawer from "./drawer"
 import useViewState from "./useViewState"
@@ -16,7 +15,6 @@ function CoreExamples () {
   return (
     <Switch>
       {links}
-      {portalGun}
       {router}
       {drawer}
       {useViewState}

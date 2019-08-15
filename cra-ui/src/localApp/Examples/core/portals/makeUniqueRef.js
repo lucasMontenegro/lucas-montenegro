@@ -31,7 +31,7 @@ function MakeUniqueRefDevelopment () {
   const unique = useUniqueRefDevelopment()
   return unique ? `unique` : `not unique`
 }
-const useUniqueRefProduction = makeUniqueRef(`ProductionExample`, true)
+const useUniqueRefProduction = makeUniqueRef(`ProductionExample`, `production`)
 function MakeUniqueRefProduction () {
   const unique = useUniqueRefProduction()
   return unique ? `unique` : `not unique`

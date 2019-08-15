@@ -116,7 +116,7 @@ describe(`local/core/portals`, () => {
         expect(elem.getText(), `${selector} getText`).to.equal(text)
       })
     }
-    it(`should not render more than 1 instance`, () => {
+    it(`should not render more than one instance`, () => {
       browser.url(`/examples/core/portals/makeUniqueRef/development`)
       expectToRender([
         { selector: `#boundary1`, text: `unique` },

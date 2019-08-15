@@ -1,6 +1,6 @@
 const supportedLanguages = require("./supportedLanguages.js")
 const { expect } = require("./chai")
-describeOrSkip(`local/supportedLanguages`, () => {
+describe(`local/supportedLanguages`, () => {
   it(`should match all globally supported languages`, () => {
     browser.url(`/examples/supportedLanguages`)
     const elem = $(`#supportedLanguages`)

@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from "react-router-dom"
 import links from "./links"
 import portalGun from "./portalGun"
 import router from "./router"
-import languageDialog from "./languageDialog"
 import drawer from "./drawer"
 import useViewState from "./useViewState"
 import appLocation from "./appLocation"
@@ -20,11 +19,6 @@ function CoreExamples () {
       {links}
       {portalGun}
       {router}
-      {languageDialog}
-      <Redirect
-        exact path="/examples/core/LanguageDialog"
-        to="/examples/core/LanguageDialog/en/0"
-      />
       {drawer}
       {useViewState}
       {navLink}

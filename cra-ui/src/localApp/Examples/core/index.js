@@ -1,11 +1,10 @@
 import React from "react"
-import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Route } from "react-router-dom"
 import links from "./links"
 import portalGun from "./portalGun"
 import router from "./router"
 import drawer from "./drawer"
 import useViewState from "./useViewState"
-import appLocation from "./appLocation"
 import navLink from "./navLink"
 import makeAppLocation from "./makeAppLocation"
 import portals from "./portals"
@@ -22,7 +21,6 @@ function CoreExamples () {
       {drawer}
       {useViewState}
       {navLink}
-      {appLocation}
       {makeAppLocation}
       {portals}
       {makeRouter}

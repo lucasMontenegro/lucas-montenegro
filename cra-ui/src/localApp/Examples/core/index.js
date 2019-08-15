@@ -1,7 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 import links from "./links"
-import router from "./router"
 import drawer from "./drawer"
 import useViewState from "./useViewState"
 import navLink from "./navLink"
@@ -15,7 +14,6 @@ function CoreExamples () {
   return (
     <Switch>
       {links}
-      {router}
       {drawer}
       {useViewState}
       {navLink}

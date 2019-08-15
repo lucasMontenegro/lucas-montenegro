@@ -88,6 +88,14 @@ function MakeRouter (props) {
         pathname: &nbsp;
         <span id="pathname">{match.location ? match.location.pathname : `null`}</span>
       </div>
+      <div>
+        referrer: &nbsp;
+        <span id="referrer">
+          {(
+            match.location && match.location.state && match.location.state.referrer
+          ) ? match.location.state.referrer.pathname : `null`}
+        </span>
+      </div>
     </Fragment>
   )
 }

@@ -1,5 +1,5 @@
 import supportedLanguages from "local/supportedLanguages"
-export default function describeLinkTranslations (options) {
+export default function describeLinkTranslators (options) {
   const { appName, routing, translators, locations } = options
   it(`should translate to every supported language`, () => {
     supportedLanguages.forEach(oldLanguage => locations[oldLanguage].forEach(location => {

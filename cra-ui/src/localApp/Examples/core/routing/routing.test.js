@@ -1,4 +1,4 @@
-import describeRouting from "local/core/tests/describeRouting"
+import describeRouting from "local/core/specDescribers/describeRouting"
 import routing from "./index"
 describe(`src/Examples/core/routing/index.js`, () => {
   describeRouting({

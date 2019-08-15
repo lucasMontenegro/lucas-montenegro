@@ -1,8 +1,8 @@
-import describeLinkTranslations from "local/core/tests/describeLinkTranslations"
+import describeLinkTranslators from "local/core/specDescribers/describeLinkTranslators"
 import translators from "./index"
 import routing from "../routing"
 describe(`src/Example/core/linkTranslators`, () => {
-  describeLinkTranslations({
+  describeLinkTranslators({
     appName: `example`,
     translators,
     routing,

@@ -7,7 +7,7 @@ import CardActions from "@material-ui/core/CardActions"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeAppLocation from "local/core/makeAppLocation"
-import translations from "./translations"
+import translators from "./linkTranslators"
 import initialLocation from "./initialLocation"
 const useStyles = makeStyles({
   root: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     },
   },
 })
-const useAppLocation = makeAppLocation(initialLocation, translations)
+const useAppLocation = makeAppLocation(initialLocation, translators)
 const initialState = {
   languageCode: `en`,
   foo: ``,

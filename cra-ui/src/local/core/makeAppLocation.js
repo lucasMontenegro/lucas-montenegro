@@ -1,5 +1,5 @@
 import { useRef } from "react"
-export default function makeAppLocation (initialLocation, translations) {
+export default function makeAppLocation (initialLocation, translators) {
   return function useAppLocation (match, newLanguage, newLocation) {
     const languageCode = useRef(`en`)
     const location = useRef(initialLocation)
@@ -9,8 +9,8 @@ export default function makeAppLocation (initialLocation, translations) {
       location.current = newLocation
     } else if (oldLanguage !== newLanguage) {
       languageCode.current = newLanguage
-      const intl = translations[oldLanguage].toIntl(location.current)
-      location.current = translations[newLanguage].toLocal(intl)
+      const intl = translators[oldLanguage].toIntl(location.current)
+      location.current = translators[newLanguage].toLocal(intl)
     }
     return location.current
   }

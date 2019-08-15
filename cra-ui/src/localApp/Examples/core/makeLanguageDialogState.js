@@ -8,7 +8,7 @@ import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState"
 import supportedLanguages from "local/supportedLanguages"
-import translators from "./translations"
+import translators from "./linkTranslators"
 import initialLocation from "./initialLocation"
 const useStyles = makeStyles({
   root: {

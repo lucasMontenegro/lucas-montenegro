@@ -1,10 +1,10 @@
 import describeLinkTranslations from "local/core/tests/describeLinkTranslations"
-import translations from "./index"
+import translators from "./index"
 import routing from "../routing"
-describe(`src/Example/core/translations/index.js`, () => {
+describe(`src/Example/core/linkTranslators`, () => {
   describeLinkTranslations({
     appName: `example`,
-    translations,
+    translators,
     routing,
     locations: {
       en: [

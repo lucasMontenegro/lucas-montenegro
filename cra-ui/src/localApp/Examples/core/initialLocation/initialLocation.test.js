@@ -1,11 +1,11 @@
 import describeInitialLocation from "local/core/tests/describeInitialLocation"
-import translations from "../translations"
+import translators from "../linkTranslators"
 import routing from "../routing"
 import location from "./index"
 describe(`src/Example/core/initialLocation/index.js`, () => {
   describeInitialLocation({
     appName: `example`,
-    translations,
+    translators,
     routing,
     location,
   })

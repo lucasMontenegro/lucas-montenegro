@@ -10,6 +10,7 @@ import makeRouter from "./makeRouter"
 import handleRedirect from "./handleRedirect"
 import languageDialog from "./languageDialog"
 import makeLanguageDialogState from "./makeLanguageDialogState"
+import body from "./body"
 function CoreExamples () {
   return (
     <Switch>
@@ -23,6 +24,7 @@ function CoreExamples () {
       {handleRedirect}
       {languageDialog}
       {makeLanguageDialogState}
+      {body}
     </Switch>
   )
 }

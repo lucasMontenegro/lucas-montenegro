@@ -10,14 +10,24 @@ const drawerButtonLabels = makeTranslations({
   en: `Open drawer`,
   es: `Abrir panel lateral`,
 })
+const maxWidth = 1024
 const useStyles = makeStyles({
   root: {
     backgroundColor: `#eaeff1`,
     minHeight: `100vh`,
     overflowX: `hidden`,
   },
+  content: {
+    maxWidth,
+    margin: `0 auto`,
+  },
   primaryAppBar: {
     height: 48,
+    alignItems: `center`,
+  },
+  primaryToolbar: {
+    width: `100%`,
+    maxWidth,
   },
   expansionDiv: {
     flexBasis: `100%`,
@@ -26,8 +36,13 @@ const useStyles = makeStyles({
   secondaryAppBar: {
     zIndex: 0,
     paddingTop: 48,
+    alignItems: `center`,
+  },
+  secondaryToolbar: {
+    display: `flex`,
     flexWrap: `wrap-reverse`,
-    flexDirection: `row`,
+    width: `100%`,
+    maxWidth,
   },
   titleToolbar: {
     flexWrap: `wrap`,
@@ -50,16 +65,16 @@ const useStyles = makeStyles({
     margin: `0 0 0 16px`,
   },
   subtitleText: {
-    padding: `0 8px`,
+    padding: `0 4px`,
   },
   subtitleUnderline: {
     width: `100%`,
-    height: 8,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    height: 4,
+    borderTopLeftRadius: 4,
+    borderTopRightRadius: 4,
     backgroundColor: `white`,
   },
-  secondaryToolbar: {
+  secondaryToolbarContent: {
     alignSelf: `flex-start`,
     justifyContent: `flex-end`,
     alignItems: `center`,
@@ -94,7 +109,7 @@ export default function Body (props) {
         style={viewState.isMobile ? undefined : { width: `calc(100vw - ${drawerWidth}px)` }}
         className={classes.primaryAppBar}
       >
-        <Toolbar>
+        <Toolbar className={classes.primaryToolbar}>
           {viewState.isMobile && (
             <IconButton
               color="inherit"
@@ -119,29 +134,31 @@ export default function Body (props) {
         elevation={0}
         className={classes.secondaryAppBar}
       >
-        <Toolbar className={classes.titleToolbar}>
-          <div className={classes.title}>
-            <Typography color="inherit" variant="body1" component="h1">{title}</Typography>
-          </div>
-          <h2 className={classes.subtitle}>
-            <div>
-              <Typography
-                className={classes.subtitleText}
-                color="inherit"
-                variant="h6"
-                component="div"
-              >
-                {subtitle}
-              </Typography>
-              <div className={classes.subtitleUnderline} />
+        <div className={classes.secondaryToolbar}>
+          <Toolbar className={classes.titleToolbar}>
+            <div className={classes.title}>
+              <Typography color="inherit" variant="body1" component="h1">{title}</Typography>
             </div>
-          </h2>
-        </Toolbar>
-        {secondaryToolbar && (
-          <Toolbar className={classes.secondaryToolbar}>{secondaryToolbar}</Toolbar>
-        )}
+            <h2 className={classes.subtitle}>
+              <div>
+                <Typography
+                  className={classes.subtitleText}
+                  color="inherit"
+                  variant="h6"
+                  component="div"
+                >
+                  {subtitle.toUpperCase()}
+                </Typography>
+                <div className={classes.subtitleUnderline} />
+              </div>
+            </h2>
+          </Toolbar>
+          {secondaryToolbar && (
+            <Toolbar className={classes.secondaryToolbarContent}>{secondaryToolbar}</Toolbar>
+          )}
+        </div>
       </AppBar>
-      {children}
+      <div className={classes.content}>{children}</div>
     </div>
   )
 }

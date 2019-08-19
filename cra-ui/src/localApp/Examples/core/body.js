@@ -5,10 +5,10 @@ import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import Drawer from "@material-ui/core/Drawer"
 import darkTheme from "local/darkTheme"
+const drawerWidth = 256
 function BodyExample (props) {
-  const { languageCode, isMobileParam, drawerWidthParam, secondaryToolbar } = props.match.params
-  const drawerWidth = parseInt(drawerWidthParam)
-  const isMobile = isMobileParam === `isMobile`
+  const { languageCode, isMobileParam, secondaryToolbar } = props.match.params
+  const isMobile = isMobileParam === `isMobileTrue`
   const [count, setCount] = useState(0)
   return (
     <Fragment>
@@ -38,7 +38,7 @@ function BodyExample (props) {
           logo={<Div id="logo">logo</Div>}
           languageDialog={<Div id="languageDialog">languageDialog</Div>}
           primaryToolbar={<Div id="primaryToolbar">primaryToolbar</Div>}
-          secondaryToolbar={secondaryToolbar === `displaySecondaryToolbar` && (
+          secondaryToolbar={secondaryToolbar === `secondaryToolbarTrue` && (
             <div id="secondaryToolbar">secondaryToolbar</div>
           )}
         >
@@ -52,7 +52,7 @@ function BodyExample (props) {
 export default (
   <Route
     exact
-    path="/examples/core/Body/:languageCode/:isMobileParam/:drawerWidthParam/:secondaryToolbar"
+    path="/examples/core/Body/:languageCode/:isMobileParam/:secondaryToolbar"
     component={BodyExample}
   />
 )

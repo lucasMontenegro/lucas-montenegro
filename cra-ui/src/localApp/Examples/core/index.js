@@ -11,6 +11,7 @@ import handleRedirect from "./handleRedirect"
 import languageDialog from "./languageDialog"
 import makeLanguageDialogState from "./makeLanguageDialogState"
 import body from "./body"
+import full from "./full"
 function CoreExamples () {
   return (
     <Switch>
@@ -25,6 +26,7 @@ function CoreExamples () {
       {languageDialog}
       {makeLanguageDialogState}
       {body}
+      {full}
     </Switch>
   )
 }

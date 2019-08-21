@@ -58,7 +58,7 @@ export default function makeRouter (routing) {
       return newLanguage
     }
     if (booting) {
-      return { type: `booting` }
+      return { type: `booting`, languageCode: languageCode.current }
     }
     if (routing.matchRoot(location)) {
       return {
@@ -74,6 +74,7 @@ export default function makeRouter (routing) {
           type: `app`,
           languageCode: changeLanguage(route.languageCode),
           appName: route.appName,
+          location,
         }
       }
     }

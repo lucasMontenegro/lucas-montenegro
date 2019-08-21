@@ -60,8 +60,9 @@ describe(`local/core/makeRouter`, () => {
   })
   it(`should match the app routes`, () => {
     appNames.forEach(appName => supportedLanguages.forEach(languageCode => {
-      navigate(makePathname(languageCode, appName))
-      expectToRender({ type: `app`, appName, languageCode, pathname: `null` })
+      const pathname = makePathname(languageCode, appName)
+      navigate(pathname)
+      expectToRender({ type: `app`, appName, languageCode, pathname })
     }))
   })
   it(`should redirect without language detection`, () => {

@@ -7,13 +7,20 @@ const makeUrl = (languageCode, isMobile, isOpen, foo, width) => (
 )
 function expectDrawer (languageCode, isMobile, isOpen, foo, width) {
   {
-    const selector = isMobile ? `#temporary-drawer` : `#permanent-drawer`
-    const drawer = $(selector)
-    expect(drawer.isDisplayed(), `${selector} isDisplayed`).to.be.true
+    const selector = (
+      isMobile ? `#temporary-drawer > div:nth-child(3)` :
+      `#permanent-drawer > div:nth-child(1)`
+    )
+    const element = $(selector)
+    expect(element.isDisplayed(), `${selector} isDisplayed`).to.be.true
     expect(
-      $(`${selector} > .MuiPaper-root`).getCSSProperty(`width`).value,
-      `${selector} > .MuiPaper-root getCSSProperty width`
+      element.getCSSProperty(`width`).value,
+      `${selector} getCSSProperty width`
     ).to.equal(`${width}px`)
+    expect(
+      element.getAttribute(`class`),
+      `${selector} getAttribute class`
+    ).to.match(/(^| )MuiPaper-root-\d+( | $)/)
   }
   {
     const selector = isMobile ? `#permanent-drawer` : `#temporary-drawer`

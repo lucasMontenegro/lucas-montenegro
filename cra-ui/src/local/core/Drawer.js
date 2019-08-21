@@ -42,7 +42,11 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
     viewState.isMobile ? (
       <MuiDrawer
         id="temporary-drawer"
-        ModalProps={{ keepMounted: true }} // Better open performance on mobile.
+
+        // ModalProps={{ keepMounted: true }}
+        // Better open performance on mobile.
+        // Doesn't work with portals
+
         variant="temporary"
         open={viewState.drawer.isOpen}
         onClose={viewState.drawer.close}

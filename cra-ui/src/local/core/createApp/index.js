@@ -23,7 +23,7 @@ export default function createApp (options) {
   }
   namespace[name] = null
   const clientNames = Object.keys(clients)
-  const appLinks = clientNames.map(clientName => ({
+  const clientLinks = clientNames.map(clientName => ({
     key: clientName,
     RedPortal: makeRedPortal(`${name} > ${clientName} > ClientLink`),
   }))
@@ -36,13 +36,13 @@ export default function createApp (options) {
   return function App ({ location }) {
     const match = useRouter(location)
     const viewState = useViewState(mobileBreakpoint)
-    const matchClient = match.type === `app`
+    const matchClient = match.type === `client`
     return (
       <HandleRedirect match={match}>
         {clientsArray.map(({ clientName, Client }) => (
           <Client
             key={clientName}
-            match={matchClient && match.appName === clientName}
+            match={matchClient && match.clientName === clientName}
             languageCode={match.languageCode}
             location={location}
             viewState={viewState}
@@ -56,7 +56,7 @@ export default function createApp (options) {
             languageCode={match.languageCode}
             width={drawerWidth}
             viewState={viewState}
-            navLinks={appLinks.map(({ key, RedPortal }) => (
+            navLinks={clientLinks.map(({ key, RedPortal }) => (
               <RedPortal key={key} Component={BareLi} />
             ))}
           >

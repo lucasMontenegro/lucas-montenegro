@@ -5,7 +5,7 @@ export default makeTranslations({
       return null
     },
     toLocal() {
-      return { pathname: `/examples/core/full/en/notFound` }
+      return { pathname: `/examples/core/integrated/en/notFound` }
     },
   },
   es: {
@@ -13,7 +13,7 @@ export default makeTranslations({
       return null
     },
     toLocal() {
-      return { pathname: `/examples/core/full/es/notFound` }
+      return { pathname: `/examples/core/integrated/es/notFound` }
     },
   },
 })

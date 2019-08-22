@@ -1,7 +1,7 @@
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 function makePathname (languageCode, foo) {
-  return `/examples/core/full/${languageCode}/example/${foo}`
+  return `/examples/core/integrated/${languageCode}/example/${foo}`
 }
 describe(`local/core/makeLanguageDialogState`, () => {
   let expectToRender, open, close, navigate

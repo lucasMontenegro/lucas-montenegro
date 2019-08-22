@@ -13,4 +13,4 @@ const App = createApp({
   logo: <div>logo</div>,
   titles: makeTranslations(() => `Lucas Montenegro`),
 })
-export default (<Route path="/examples/core/full" component={App} />)
+export default (<Route path="/examples/core/integrated" component={App} />)

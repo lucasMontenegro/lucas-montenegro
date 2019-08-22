@@ -18,27 +18,27 @@ function expectInputValue (id, expected) {
   expect(elem.getValue(), `#${id} getText`).to.equal(expected)
 }
 const mountingPoints = [`Left`, `Right`]
-const appNames = [`Foo`, `Bar`]
+const clientNames = [`Foo`, `Bar`]
 function expectToRender (expected) {
   expectText(`rootCid`, `0`)
   expectInputValue(`rootInput`, expected.rootInput)
   expect($(`#bluePortals`).isDisplayed(), `#bluePortals isDisplayed`).to.be.false
-  if (!expected.subappCids) {
+  if (!expected.clientCids) {
     expect($(`#redPortals`).isDisplayed(), `#redPortals isDisplayed`).to.be.false
     return
   }
-  appNames.forEach(appName => {
-    const cid = expected.subappCids[appName]
+  clientNames.forEach(clientName => {
+    const cid = expected.clientCids[clientName]
     mountingPoints.forEach(mountingPoint => {
-      expectText(`subappCid${mountingPoint}${appName}`, cid)
-      expectText(`rootInput${mountingPoint}${appName}`, expected.rootInput)
+      expectText(`clientCid${mountingPoint}${clientName}`, cid)
+      expectText(`rootInput${mountingPoint}${clientName}`, expected.rootInput)
       expectInputValue(
-        `subappInput${mountingPoint}${appName}`,
-        expected.subappInput[mountingPoint][appName]
+        `clientInput${mountingPoint}${clientName}`,
+        expected.clientInput[mountingPoint][clientName]
       )
       expectText(
-        `subappOpositeInput${mountingPoint}${appName}`,
-        expected.subappInput[mountingPoint][appName]
+        `clientOpositeInput${mountingPoint}${clientName}`,
+        expected.clientInput[mountingPoint][clientName]
       )
     })
   })
@@ -47,8 +47,8 @@ describe(`local/core/portals`, () => {
   describe(`main example`, () => {
     const initiallyExpected = {
       rootInput: ``,
-      subappCids: { Foo: `1`, Bar: `2` },
-      subappInput: {
+      clientCids: { Foo: `1`, Bar: `2` },
+      clientInput: {
         Left: { Foo: ``, Bar: `` },
         Right: { Foo: ``, Bar: `` },
       },
@@ -62,7 +62,7 @@ describe(`local/core/portals`, () => {
       $(`#toggleBluePortals`).click()
       expectToRender({ rootInput: `` })
       $(`#toggleBluePortals`).click()
-      expectToRender({ ...initiallyExpected, subappCids: { Foo: `3`, Bar: `4` } })
+      expectToRender({ ...initiallyExpected, clientCids: { Foo: `3`, Bar: `4` } })
     })
     it(`should mount/unmount the "red" portals`, () => {
       expectToRender(initiallyExpected)
@@ -78,16 +78,16 @@ describe(`local/core/portals`, () => {
       expectToRender({ ...initiallyExpected, rootInput })
     })
     it(`should share props between portals`, () => {
-      const subappInput = {}
+      const clientInput = {}
       mountingPoints.forEach(mountingPoint => {
-        const obj = subappInput[mountingPoint] = {}
-        appNames.forEach(appName => {
+        const obj = clientInput[mountingPoint] = {}
+        clientNames.forEach(clientName => {
           const text = Math.random().toString()
-          $(`#subappInput${mountingPoint}${appName}`).addValue(text)
-          obj[appName] = text
+          $(`#clientInput${mountingPoint}${clientName}`).addValue(text)
+          obj[clientName] = text
         })
       })
-      expectToRender({ ...initiallyExpected, subappInput })
+      expectToRender({ ...initiallyExpected, clientInput })
     })
     it(`should let the Material UI Modal handle focus`, () => {
       const sentinel = $(`#sentinel`)
@@ -97,7 +97,7 @@ describe(`local/core/portals`, () => {
         `#toggleBluePortals`,
         `#toggleRedPortals`,
         ...mountingPoints.reduce((arr, mountingPoint) => {
-          arr.push(...appNames.map(appName => `#subappInput${mountingPoint}${appName}`))
+          arr.push(...clientNames.map(clientName => `#clientInput${mountingPoint}${clientName}`))
           return arr
         }, []),
       ].forEach(selector => {

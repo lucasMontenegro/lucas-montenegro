@@ -1,21 +1,21 @@
 const supportedLanguages = require("../supportedLanguages.js")
 const { expect } = require("../chai")
-const appNames = [`home`, `example`, `notFound`]
-function makePathname (languageCode, appName) {
-  let pathname = `/examples/core/full`
+const clientNames = [`home`, `example`, `notFound`]
+function makePathname (languageCode, clientName) {
+  let pathname = `/examples/core/integrated`
   if (!languageCode) {
     return pathname
   }
   pathname = `${pathname}/${languageCode}`
-  if (!appName) {
+  if (!clientName) {
     return pathname
   }
   let foo = ``
-  if (appName === `example`) {
+  if (clientName === `example`) {
     const n = Math.floor(Math.random() * 1000)
     foo = n % 2 > 0 ? `/${n}/` : `/${n}`
   }
-  return `${pathname}/${appName}${foo}`
+  return `${pathname}/${clientName}${foo}`
 }
 describe(`local/core/makeRouter`, () => {
   let toggleMounted, expectToRender, navigate
@@ -52,17 +52,17 @@ describe(`local/core/makeRouter`, () => {
       expect(mounted.isDisplayed(), `#mounted isDisplayed`).to.be.true
       expect(mounted.getText(), `#mounted getText`).to.equal(`true`)
     }
-    expectToRender({ type: `redirect`, appName: `null` })
+    expectToRender({ type: `redirect`, clientName: `null` })
     toggleMounted() // false
     expectToRender(null)
     toggleMounted() // true
-    expectToRender({ type: `redirect`, appName: `null` })
+    expectToRender({ type: `redirect`, clientName: `null` })
   })
-  it(`should match the app routes`, () => {
-    appNames.forEach(appName => supportedLanguages.forEach(languageCode => {
-      const pathname = makePathname(languageCode, appName)
+  it(`should match the client routes`, () => {
+    clientNames.forEach(clientName => supportedLanguages.forEach(languageCode => {
+      const pathname = makePathname(languageCode, clientName)
       navigate(pathname)
-      expectToRender({ type: `app`, appName, languageCode, pathname })
+      expectToRender({ type: `client`, clientName, languageCode, pathname })
     }))
   })
   it(`should redirect without language detection`, () => {
@@ -70,7 +70,7 @@ describe(`local/core/makeRouter`, () => {
       navigate(makePathname(languageCode))
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `home`),
       })
@@ -80,7 +80,7 @@ describe(`local/core/makeRouter`, () => {
       navigate(referrer)
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `notFound`),
         referrer,
@@ -89,12 +89,12 @@ describe(`local/core/makeRouter`, () => {
   })
   it(`should save the language`, () => {
     const rootPathname = makePathname()
-    appNames.forEach(appName => supportedLanguages.forEach(languageCode => {
-      navigate(makePathname(languageCode, appName))
+    clientNames.forEach(clientName => supportedLanguages.forEach(languageCode => {
+      navigate(makePathname(languageCode, clientName))
       navigate(rootPathname)
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `home`),
       })
@@ -104,7 +104,7 @@ describe(`local/core/makeRouter`, () => {
       navigate(rootPathname)
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `home`),
       })
@@ -114,7 +114,7 @@ describe(`local/core/makeRouter`, () => {
       navigate(rootPathname)
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `home`),
       })
@@ -127,7 +127,7 @@ describe(`local/core/makeRouter`, () => {
       navigate(rootPathname)
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `home`),
       })
@@ -135,7 +135,7 @@ describe(`local/core/makeRouter`, () => {
       navigate(referrer)
       expectToRender({
         type: `redirect`,
-        appName: `null`,
+        clientName: `null`,
         languageCode,
         pathname: makePathname(languageCode, `notFound`),
         referrer,

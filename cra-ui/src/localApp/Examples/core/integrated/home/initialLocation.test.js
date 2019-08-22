@@ -1,11 +1,11 @@
 import describeInitialLocation from "local/core/specDescribers/describeInitialLocation"
-import translators from "./linkTranslators"
+import linkTranslators from "./linkTranslators"
 import routing from "../routing"
 import location from "./initialLocation"
-describe(`localApp/Example/core/full/notFound/initialLocation`, () => {
+describe(`localApp/Example/core/integrated/home/initialLocation`, () => {
   describeInitialLocation({
-    appName: `notFound`,
-    translators,
+    clientName: `home`,
+    linkTranslators,
     routing,
     location,
   })

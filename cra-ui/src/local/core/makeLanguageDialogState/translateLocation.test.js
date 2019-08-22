@@ -5,7 +5,7 @@ jest.mock("local/supportedLanguages", () => ({
 }))
 describe(`local/core/makeLanguageDialogState/translateLocation`, () => {
   it(`should translate locations`, () => {
-    const translators = {
+    const linkTranslators = {
       en: {
         toIntl: str => `${str} toIntl en`,
         toLocal: str => `${str} toLocal en`,
@@ -15,11 +15,11 @@ describe(`local/core/makeLanguageDialogState/translateLocation`, () => {
         toLocal: str => `${str} toLocal es`,
       },
     }
-    expect(translateLocation(`en`, `start`, translators)).toEqual({
+    expect(translateLocation(`en`, `start`, linkTranslators)).toEqual({
       en: `start`,
       es: `start toIntl en toLocal es`,
     })
-    expect(translateLocation(`es`, `start`, translators)).toEqual({
+    expect(translateLocation(`es`, `start`, linkTranslators)).toEqual({
       en: `start toIntl es toLocal en`,
       es: `start`,
     })

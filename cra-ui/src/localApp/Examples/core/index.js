@@ -10,7 +10,7 @@ import handleRedirect from "./handleRedirect"
 import languageDialog from "./languageDialog"
 import makeLanguageDialogState from "./makeLanguageDialogState"
 import body from "./body"
-import full from "./full"
+import integrated from "./integrated"
 import makeClientLocation from "./makeClientLocation"
 function CoreExamples () {
   return (
@@ -25,7 +25,7 @@ function CoreExamples () {
       {languageDialog}
       {makeLanguageDialogState}
       {body}
-      {full}
+      {integrated}
       {makeClientLocation}
     </Switch>
   )

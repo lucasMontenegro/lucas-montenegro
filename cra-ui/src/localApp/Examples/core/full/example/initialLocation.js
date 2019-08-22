@@ -1,1 +1,0 @@
-export default { pathname: `/examples/core/full/en/example/0` }

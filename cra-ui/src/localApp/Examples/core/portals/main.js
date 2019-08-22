@@ -6,18 +6,18 @@ import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { makeBluePortal, makeRedPortal } from "local/core/portals"
-const appNames = [`Foo`, `Bar`]
+const clientNames = [`Foo`, `Bar`]
 const mountingPoints = [`Left`, `Right`]
-const portals = appNames.reduce((byAppName, appName) => {
-  byAppName[appName] = mountingPoints.reduce((byMountingPoint, mountingPoint) => {
-    const name = `Example1${appName}${mountingPoint}`
+const portals = clientNames.reduce((byClientName, clientName) => {
+  byClientName[clientName] = mountingPoints.reduce((byMountingPoint, mountingPoint) => {
+    const name = `Example1${clientName}${mountingPoint}`
     byMountingPoint[mountingPoint] = {
       BluePortal: makeBluePortal(name),
       RedPortal: makeRedPortal(name),
     }
     return byMountingPoint
   }, {})
-  return byAppName
+  return byClientName
 }, {})
 const useCid = (i => function useCid () {
   const cid = useRef(null)
@@ -86,8 +86,8 @@ function PortalExample () {
         </div>
         <Border className={classes.bluePortals}>
           <div id="bluePortals">
-            {bluePortals.mounted && subapps.map(({ key, Subapp }) => (
-              <Subapp key={key} rootInput={text.value} />
+            {bluePortals.mounted && clients.map(({ key, Client }) => (
+              <Client key={key} rootInput={text.value} />
             ))}
           </div>
         </Border>
@@ -106,9 +106,9 @@ function PortalExample () {
             <div id="redPortals" className={classes.columns}>
               {mountingPoints.map(mountingPoint => (
                 <div key={mountingPoint}>
-                  {appNames.map(appName => {
-                    const { RedPortal } = portals[appName][mountingPoint]
-                    return <RedPortal key={appName} Component="div" />
+                  {clientNames.map(clientName => {
+                    const { RedPortal } = portals[clientName][mountingPoint]
+                    return <RedPortal key={clientName} Component="div" />
                   })}
                 </div>
               ))}
@@ -120,7 +120,7 @@ function PortalExample () {
   )
 }
 export default (<Route exact path="/examples/core/portals/main" component={PortalExample} />)
-const useSubappStyles = makeStyles({
+const useClientStyles = makeStyles({
   root: {
     margin: 10,
     padding: 10,
@@ -129,39 +129,39 @@ const useSubappStyles = makeStyles({
     },
   },
 })
-const subapps = appNames.map(appName => ({
-  key: appName,
-  Subapp ({ rootInput }) {
+const clients = clientNames.map(clientName => ({
+  key: clientName,
+  Client ({ rootInput }) {
     const cid = useCid()
     const input = {}
     input.Left = useTextInput()
     input.Right = useTextInput()
-    const classes = useSubappStyles()
+    const classes = useClientStyles()
     return (
       <Fragment>
         {mountingPoints.map(mountingPoint => {
-          const { BluePortal } = portals[appName][mountingPoint]
+          const { BluePortal } = portals[clientName][mountingPoint]
           const oposite = mountingPoint === `Left` ? `Right` : `Left`
           return (
             <BluePortal key={mountingPoint}>
               <Border className={classes.root}>
                 <div>
                   Client CID: &nbsp;
-                  <span id={`subappCid${mountingPoint}${appName}`}>{cid}</span>
+                  <span id={`clientCid${mountingPoint}${clientName}`}>{cid}</span>
                 </div>
                 <div>
                   Root input: &nbsp;
-                  <span id={`rootInput${mountingPoint}${appName}`}>{rootInput}</span>
+                  <span id={`rootInput${mountingPoint}${clientName}`}>{rootInput}</span>
                 </div>
                 <div>
-                  {oposite} subapp input: &nbsp;
-                  <span id={`subappOpositeInput${oposite}${appName}`}>
+                  {oposite} client input: &nbsp;
+                  <span id={`clientOpositeInput${oposite}${clientName}`}>
                     {input[oposite].value}
                   </span>
                 </div>
                 <div>
                   <Input
-                    id={`subappInput${mountingPoint}${appName}`}
+                    id={`clientInput${mountingPoint}${clientName}`}
                     value={input[mountingPoint].value}
                     onChange={input[mountingPoint].update}
                   />

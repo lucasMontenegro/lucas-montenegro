@@ -7,7 +7,7 @@ import CardActions from "@material-ui/core/CardActions"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeRouter from "local/core/makeRouter"
-import routing from "./full/routing"
+import routing from "./integrated/routing"
 const useStyles = makeStyles({
   root: {
     padding: 16,
@@ -82,7 +82,7 @@ function MakeRouter (props) {
   return (
     <Fragment>
       <div>type: <span id="type">{match.type}</span></div>
-      <div>appName: <span id="appName">{match.appName || `null`}</span></div>
+      <div>clientName: <span id="clientName">{match.clientName || `null`}</span></div>
       <div>languageCode: <span id="languageCode">{match.languageCode || `null`}</span></div>
       <div>
         pathname: &nbsp;

@@ -37,7 +37,7 @@ export default function NavLink ({ linkId, active, languageCode, location, label
   const activeLabel = active ? activeLabels[languageCode] : undefined
   const activeClassName = active ? `${classes.item} ${classes.itemActiveItem}` : classes.item
   return (
-    <ListItem component="div" className={activeClassName}>
+    <ListItem component="div" className={activeClassName} disableGutters>
       <ListItemIcon className={classes.itemIcon}>{icons[languageCode]}</ListItemIcon>
       <ListItemText classes={{ primary: classes.itemPrimary }}>
         <Link id={linkId} className={classes.link} to={location} aria-label={activeLabel}>

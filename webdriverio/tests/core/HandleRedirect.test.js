@@ -6,7 +6,7 @@ function expectToRender (text) {
 }
 describe(`local/core/HandleRedirect`, () => {
   it(`should render`, () => {
-    browser.url(`/examples/core/HandleRedirect/main/app`)
+    browser.url(`/examples/core/HandleRedirect/main/client`)
     expectToRender(`did not redirect`)
   })
   it(`should redirect`, () => {

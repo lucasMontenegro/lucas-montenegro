@@ -13,7 +13,7 @@ routing = {
   }
   routes: [
     {
-      appName,
+      clientName,
       languageCode,
       match,
     },
@@ -71,9 +71,9 @@ export default function makeRouter (routing) {
       const route = routing.routes.find(r => r.match(location))
       if (route) {
         return {
-          type: `app`,
+          type: `client`,
           languageCode: changeLanguage(route.languageCode),
-          appName: route.appName,
+          clientName: route.clientName,
           location,
         }
       }

@@ -1,9 +1,9 @@
 import { useState, useRef } from "react"
 import translateLocation from "./translateLocation"
-export default function makeLanguageDialogState (initialLocation, translators) {
+export default function makeLanguageDialogState ({ initialLocation, linkTranslators }) {
   const initialRef = {
     location: initialLocation,
-    translations: translateLocation(`en`, initialLocation, translators),
+    translations: translateLocation(`en`, initialLocation, linkTranslators),
   }
   return function useLanguageDialogState (languageCode, location) {
     const [isOpen, setOpenState] = useState(false)
@@ -11,7 +11,7 @@ export default function makeLanguageDialogState (initialLocation, translators) {
     if (isOpen && location !== ref.current.location) {
       ref.current = {
         location,
-        translations: translateLocation(languageCode, location, translators),
+        translations: translateLocation(languageCode, location, linkTranslators),
       }
     }
     return {

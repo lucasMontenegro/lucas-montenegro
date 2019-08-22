@@ -8,8 +8,8 @@ import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState"
 import supportedLanguages from "local/supportedLanguages"
-import translators from "./full/example/linkTranslators"
-import initialLocation from "./full/example/initialLocation"
+import linkTranslators from "./integrated/example/linkTranslators"
+import initialLocation from "./integrated/example/initialLocation"
 const useStyles = makeStyles({
   root: {
     padding: 32,
@@ -32,14 +32,14 @@ const useStyles = makeStyles({
     },
   },
 })
-const useLanguageDialogState = makeLanguageDialogState(initialLocation, translators)
+const useLanguageDialogState = makeLanguageDialogState({ initialLocation, linkTranslators })
 const initialState = { languageCode: `en`, foo: `0`, location: initialLocation }
 function MakeLanguageDialogStateExample () {
   const classes = useStyles()
   const [state, setState] = useState(initialState)
   const { languageCode, foo, location } = state
   const languageDialogState = useLanguageDialogState(languageCode, location)
-  const pathname = `/examples/core/full/${languageCode}/example/${foo}`
+  const pathname = `/examples/core/integrated/${languageCode}/example/${foo}`
   const update = {
     languageCode (e) {
       const languageCode = e.target.value

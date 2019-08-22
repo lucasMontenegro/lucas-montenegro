@@ -24,7 +24,7 @@ export default function createApp (options) {
   const clientNames = Object.keys(clients)
   const appLinks = clientNames.map(clientName => ({
     key: clientName,
-    RedPortal: makeRedPortal(`${name} > ${clientName} > AppLink`),
+    RedPortal: makeRedPortal(`${name} > ${clientName} > ClientLink`),
   }))
   const drawerContent = clientNames.map(clientName => ({
     key: clientName,

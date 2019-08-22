@@ -8,7 +8,7 @@ const BaseClient = createBaseClient({
   appName: `ExampleApp`,
   clientName: `home`,
   initialLocation,
-  translators: linkTranslators,
+  linkTranslators,
 })
 const appLink = {
   labels: makeTranslations(languageCode => `Home ${languageCode}`),

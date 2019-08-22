@@ -6,8 +6,8 @@ import CardContent from "@material-ui/core/CardContent"
 import CardActions from "@material-ui/core/CardActions"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
-import makeAppLocation from "local/core/makeAppLocation"
-import translators from "./full/example/linkTranslators"
+import makeClientLocation from "local/core/makeClientLocation"
+import linkTranslators from "./full/example/linkTranslators"
 import initialLocation from "./full/example/initialLocation"
 const useStyles = makeStyles({
   root: {
@@ -30,8 +30,8 @@ const useStyles = makeStyles({
       margin: `0 8px`,
     },
   },
-})
-const useAppLocation = makeAppLocation(initialLocation, translators)
+}, { name: `MakeClientLocationExample` })
+const useClientLocation = makeClientLocation({ initialLocation, linkTranslators })
 const initialState = {
   languageCode: `en`,
   foo: ``,
@@ -42,7 +42,7 @@ const initialState = {
     location: { pathname: `/examples/core/full/en/home` },
   },
 }
-function MakeAppLocationExample () {
+function MakeClientLocationExample () {
   const classes = useStyles()
   const [state, setState] = useState(initialState)
   const { languageCode, foo, mounted } = state
@@ -84,7 +84,7 @@ function MakeAppLocationExample () {
           />
           <div>match: <span id="match">{match ? `true` : `false`}</span></div>
           <div>mounted: <span id="mounted">{mounted ? `true` : `false`}</span></div>
-          {mounted && <MakeAppLocation {...state.props} />}
+          {mounted && <UseClientLocation {...state.props} />}
         </CardContent>
         <CardActions className={classes.actions}>
           <Button id="navigate" variant="outlined" color="primary" onClick={update.props}>
@@ -99,14 +99,17 @@ function MakeAppLocationExample () {
   )
 }
 export default (
-  <Route exact path="/examples/core/makeAppLocation" component={MakeAppLocationExample} />
+  <Route exact path="/examples/core/makeClientLocation" component={MakeClientLocationExample} />
 )
-function MakeAppLocation ({ match, languageCode, location }) {
-  const appLocation = useAppLocation(match, languageCode, location)
+function UseClientLocation ({ match, languageCode, location }) {
+  const clientLocation = useClientLocation(match, languageCode, location)
   return (
     <Fragment>
       <div>location.pathname: <span id="pathname">{location.pathname}</span></div>
-      <div>appLocation.pathname: <span id="appPathname">{appLocation.pathname}</span></div>
+      <div>
+        clientLocation.pathname: &nbsp;
+        <span id="clientPathname">{clientLocation.pathname}</span>
+      </div>
     </Fragment>
   )
 }

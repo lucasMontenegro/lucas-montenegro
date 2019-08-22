@@ -7,18 +7,18 @@ import { makeBluePortal } from "local/core/portals"
 import LanguageDialog from "local/core/LanguageDialog"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState"
 import NavLink from "local/core/NavLink"
-import makeAppLocation from "local/core/makeAppLocation"
+import makeClientLocation from "local/core/makeClientLocation"
 export default function createBaseClient (options) {
   const {
     clientName,
     appName,
     initialLocation,
-    translators,
+    linkTranslators,
   } = options
-  const useAppLocation = makeAppLocation(initialLocation, translators)
-  const useLanguageDialogState = makeLanguageDialogState(initialLocation, translators)
+  const useClientLocation = makeClientLocation({ initialLocation, linkTranslators })
+  const useLanguageDialogState = makeLanguageDialogState(initialLocation, linkTranslators)
   const DrawerContent = makeBluePortal(`${appName} > ${clientName} > DrawerContent`)
-  const AppLink = makeBluePortal(`${appName} > ${clientName} > AppLink`)
+  const ClientLink = makeBluePortal(`${appName} > ${clientName} > ClientLink`)
   return function BaseClient (props) {
     const {
       match,
@@ -35,8 +35,8 @@ export default function createBaseClient (options) {
       drawerContent,
       children,
     } = props
-    const appLocation = useAppLocation(match, languageCode, location)
-    const languageDialogState = useLanguageDialogState(languageCode, appLocation)
+    const clientLocation = useClientLocation(match, languageCode, location)
+    const languageDialogState = useLanguageDialogState(languageCode, clientLocation)
     return (
       <Fragment>
         <ThemeProvider theme={theme}>
@@ -58,15 +58,15 @@ export default function createBaseClient (options) {
         </ThemeProvider>
         <ThemeProvider theme={darkTheme}>
           <DrawerContent>{match && drawerContent}</DrawerContent>
-          <AppLink>
+          <ClientLink>
             <NavLink
               active={match}
               languageCode={languageCode}
-              location={appLocation}
+              location={clientLocation}
               labels={appLink.labels}
               icons={appLink.icons}
             />
-          </AppLink>
+          </ClientLink>
         </ThemeProvider>
       </Fragment>
     )

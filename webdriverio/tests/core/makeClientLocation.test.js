@@ -15,10 +15,10 @@ function enterText (elem, str) {
   elem.addValue(new Array(elem.getValue().length).fill('Backspace'))
   elem.addValue(str)
 }
-describe(`local/core/makeAppLocation`, () => {
+describe(`local/core/makeClientLocation`, () => {
   let navigate, toggleMounted, match = false
   before(() => {
-    browser.url(`/examples/core/makeAppLocation`)
+    browser.url(`/examples/core/makeClientLocation`)
     const elements = {
       languageCode: $(`#languageCode`),
       foo: $(`#foo`),
@@ -42,18 +42,18 @@ describe(`local/core/makeAppLocation`, () => {
       toggleMounted()
       expectToRender({
         pathname: makeHomePathname(languageCode),
-        appPathname: makeExamplePathname(languageCode, `0`),
+        clientPathname: makeExamplePathname(languageCode, `0`),
       })
     })
   })
-  it(`should update the app location`, () => {
+  it(`should update the client location`, () => {
     supportedLanguages.forEach(languageCode => {
       ;[`24`, `688`].forEach(foo => {
         navigate({ foo, languageCode })
-        const appPathname = makeExamplePathname(languageCode, foo)
-        expectToRender({ pathname: appPathname, appPathname })
+        const clientPathname = makeExamplePathname(languageCode, foo)
+        expectToRender({ pathname: clientPathname, clientPathname })
         navigate({ foo: ``, languageCode })
-        expectToRender({ pathname: makeHomePathname(languageCode), appPathname })
+        expectToRender({ pathname: makeHomePathname(languageCode), clientPathname })
       })
     })
   })
@@ -65,7 +65,7 @@ describe(`local/core/makeAppLocation`, () => {
         navigate({ foo: ``, languageCode })
         expectToRender({
           pathname: makeHomePathname(languageCode),
-          appPathname: makeExamplePathname(languageCode, foo),
+          clientPathname: makeExamplePathname(languageCode, foo),
         })
       })
     })

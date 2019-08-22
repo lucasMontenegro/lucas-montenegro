@@ -10,19 +10,16 @@ const BaseClient = createBaseClient({
   initialLocation,
   linkTranslators,
 })
-const appLink = {
-  labels: makeTranslations(languageCode => `Example ${languageCode}`),
-  icons: makeTranslations(languageCode => <WorkIcon />),
-}
+const subtitles = makeTranslations(languageCode => `Example App ${languageCode}`)
+const icons = makeTranslations(() => <WorkIcon />)
 export default function ExampleClient (props) {
   return (
     <BaseClient
       {...props}
-      subtitle="Example App"
-      logo={<div>logo</div>}
+      subtitles={subtitles}
+      icons={icons}
       primaryToolbar={<div>primaryToolbar</div>}
       secondaryToolbar={<div>secondaryToolbar</div>}
-      appLink={appLink}
       drawerContent={<div>drawerContent</div>}
     >
       <div>Example App</div>

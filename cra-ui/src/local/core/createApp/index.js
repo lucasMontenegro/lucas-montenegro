@@ -15,7 +15,8 @@ export default function createApp (options) {
     name,
     clients,
     routing,
-    title,
+    logo,
+    titles,
   } = options
   if (name in namespace) {
     throw Error(`Duplicated App name: ${name}`)
@@ -46,7 +47,8 @@ export default function createApp (options) {
             location={location}
             viewState={viewState}
             drawerWidth={drawerWidth}
-            title={title}
+            logo={logo}
+            titles={titles}
           />
         ))}
         <ThemeProvider theme={darkTheme}>

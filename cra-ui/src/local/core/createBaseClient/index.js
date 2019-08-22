@@ -26,12 +26,13 @@ export default function createBaseClient (options) {
       location,
       viewState,
       drawerWidth,
-      title,
-      subtitle,
       logo,
+      titles,
+
+      subtitles,
+      icons,
       primaryToolbar,
       secondaryToolbar,
-      appLink,
       drawerContent,
       children,
     } = props
@@ -45,9 +46,9 @@ export default function createBaseClient (options) {
               languageCode={languageCode}
               drawerWidth={drawerWidth}
               viewState={viewState}
-              title={title}
-              subtitle={subtitle}
               logo={logo}
+              titles={titles}
+              subtitles={subtitles}
               languageDialog={<LanguageDialog state={languageDialogState} />}
               primaryToolbar={primaryToolbar}
               secondaryToolbar={secondaryToolbar}
@@ -63,8 +64,8 @@ export default function createBaseClient (options) {
               active={match}
               languageCode={languageCode}
               location={clientLocation}
-              labels={appLink.labels}
-              icons={appLink.icons}
+              labels={subtitles}
+              icons={icons}
             />
           </ClientLink>
         </ThemeProvider>

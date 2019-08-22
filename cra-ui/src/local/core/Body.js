@@ -87,8 +87,8 @@ export default function Body (props) {
     languageCode,
     drawerWidth,
     viewState,
-    title,
-    subtitle,
+    titles,
+    subtitles,
     logo,
     languageDialog,
     primaryToolbar,
@@ -96,7 +96,9 @@ export default function Body (props) {
     children,
   } = props
   const classes = useStyles()
-  title && subtitle && (document.title = `${title} - ${subtitle}`)
+  const title = titles[languageCode]
+  const subtitle = subtitles[languageCode]
+  title && subtitle && (document.title = `${subtitle} - ${title}`)
   return (
     <div
       className={classes.root}
@@ -137,11 +139,14 @@ export default function Body (props) {
         <div className={classes.secondaryToolbar}>
           <Toolbar className={classes.titleToolbar}>
             <div className={classes.title}>
-              <Typography color="inherit" variant="body1" component="h1">{title}</Typography>
+              <Typography id="title" color="inherit" variant="body1" component="h1">
+                {title}
+              </Typography>
             </div>
             <h2 className={classes.subtitle}>
               <div>
                 <Typography
+                  id="subtitle"
                   className={classes.subtitleText}
                   color="inherit"
                   variant="h6"

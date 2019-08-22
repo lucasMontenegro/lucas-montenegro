@@ -13,7 +13,7 @@ describe(`local/core/Body`, () => {
     ].forEach(({ widths, isMobile }) => (
       [true, false].forEach(secondaryToolbar => {
         navigate(`en`, isMobile, secondaryToolbar)
-        expect(browser.getTitle(), `browser getTitle`).to.match(/^Lucas Montenegro - Example App/)
+        expect(browser.getTitle(), `browser getTitle`).to.match(/^en subtitle - en title/)
         widths.forEach(width => {
           browser.setWindowSize(width, 500)
           ;[
@@ -27,8 +27,8 @@ describe(`local/core/Body`, () => {
               nonexistent: !secondaryToolbar,
             },
             { selector: `#count`, text: `0` },
-            { selector: `h1=Lucas Montenegro` },
-            { selector: `h2=EXAMPLE APP` },
+            { selector: `#title`, text: `en title` },
+            { selector: `#subtitle`, text: `EN SUBTITLE` },
           ].forEach(({ selector, text, nonexistent }) => {
             const element = $(selector)
             if (nonexistent) {
@@ -53,6 +53,14 @@ describe(`local/core/Body`, () => {
         $(selector).getAttribute(`aria-label`),
         `${selector} getAttribute aria-label`
       ).to.have.lengthOf.above(1)
+      ;[
+        { selector: `#title`, text: `${languageCode} title` },
+        { selector: `#subtitle`, text: `${languageCode.toUpperCase()} SUBTITLE` },
+      ].forEach(({ selector, text }) => {
+        const element = $(selector)
+        expect(element.isDisplayedInViewport(), `${selector} isDisplayedInViewport`).to.be.true
+        expect(element.getText(), `${selector} getText`).to.equal(text)
+      })
     })
   })
   it(`should open the drawer`, () => {

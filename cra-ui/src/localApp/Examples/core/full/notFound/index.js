@@ -10,19 +10,16 @@ const BaseClient = createBaseClient({
   initialLocation,
   linkTranslators,
 })
-const appLink = {
-  labels: makeTranslations(languageCode => `Not Found ${languageCode}`),
-  icons: makeTranslations(languageCode => <WorkIcon />),
-}
+const subtitles = makeTranslations(languageCode => `Not Found ${languageCode}`)
+const icons = makeTranslations(() => <WorkIcon />)
 export default function NotFoundClient (props) {
   return (
     <BaseClient
       {...props}
-      subtitle="Not Found"
-      logo={<div>logo</div>}
+      subtitles={subtitles}
+      icons={icons}
       primaryToolbar={<div>primaryToolbar</div>}
       secondaryToolbar={<div>secondaryToolbar</div>}
-      appLink={appLink}
       drawerContent={<div>drawerContent</div>}
     >
       <div>Not Found App</div>

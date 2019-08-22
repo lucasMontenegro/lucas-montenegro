@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import createApp from "local/core/createApp"
+import makeTranslations from "local/makeTranslations"
 import routing from "./routing"
 import home from "./home"
 import example from "./example"
@@ -9,6 +10,7 @@ const App = createApp({
   name: `ExampleApp`,
   routing,
   clients: { home, example, notFound },
-  title: `Lucas Montenegro`,
+  logo: <div>logo</div>,
+  titles: makeTranslations(() => `Lucas Montenegro`),
 })
 export default (<Route path="/examples/core/full" component={App} />)

@@ -5,7 +5,10 @@ import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import Drawer from "@material-ui/core/Drawer"
 import darkTheme from "local/darkTheme"
+import makeTranslations from "local/makeTranslations"
 const drawerWidth = 256
+const titles = makeTranslations(languageCode => `${languageCode} title`)
+const subtitles = makeTranslations(languageCode => `${languageCode} subtitle`)
 function BodyExample (props) {
   const { languageCode, isMobileParam, secondaryToolbar } = props.match.params
   const isMobile = isMobileParam === `isMobileTrue`
@@ -33,8 +36,8 @@ function BodyExample (props) {
               close () {},
             },
           }}
-          title="Lucas Montenegro"
-          subtitle="Example App"
+          titles={titles}
+          subtitles={subtitles}
           logo={<Div id="logo">logo</Div>}
           languageDialog={<Div id="languageDialog">languageDialog</Div>}
           primaryToolbar={<Div id="primaryToolbar">primaryToolbar</Div>}

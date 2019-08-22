@@ -7,7 +7,7 @@ import makeTranslations from "local/makeTranslations"
 import LanguageDialog from "local/core/LanguageDialog"
 import theme from "local/theme"
 const translations = makeTranslations(
-  languageCode => ({ pathname: `/examples/core/router/${languageCode}/example/0` })
+  languageCode => ({ pathname: `/examples/core/LanguageDialog/${languageCode}` })
 )
 function LanguageDialogExample (props) {
   const { languageCode } = props.match.params

@@ -71,17 +71,19 @@ export default function LanguageDialog ({ state }) {
             <List>
               {state.translations && links.map(({ languageCode, value }) => {
                 const active = languageCode === state.languageCode
-                const content = (
-                  active ? value : <Link to={state.translations[languageCode]}>{value}</Link>
-                )
-                const label = active ? activeLinkLabels[languageCode] : undefined
                 return (
                   <ListItem
                     key={languageCode}
-                    aria-label={label}
+                    aria-label={active ? activeLinkLabels[languageCode] : undefined}
                     id={`language-link-${languageCode}`}
                   >
-                    <ListItemText>{content}</ListItemText>
+                    <ListItemText>
+                      {active ? value : (
+                        <Link onClick={state.close} to={state.translations[languageCode]}>
+                          {value}
+                        </Link>
+                      )}
+                    </ListItemText>
                   </ListItem>
                 )
               })}

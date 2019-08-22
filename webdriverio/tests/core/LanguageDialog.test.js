@@ -63,7 +63,7 @@ describe(`local/core/LanguageDialog`, () => {
           const selector = `${liSelector} > div > span > a`
           const anchor = $(selector)
           expectDisplayed(anchor, selector)
-          const href = `${baseUrl}/examples/core/router/${languageCode}/example/0`
+          const href = `${baseUrl}/examples/core/LanguageDialog/${languageCode}`
           expectTextAttribute(anchor, selector, `href`, href)
         }
       })
@@ -86,5 +86,18 @@ describe(`local/core/LanguageDialog`, () => {
     $(`#close-language-dialog`).click()
     dialog.waitForDisplayed(1000, true)
     expect(dialog.isDisplayed(), `#language-dialog isDisplayed`).to.be.false
+  })
+  it(`should close after clicking the link`, () => {
+    supportedLanguages.forEach(languageCode => supportedLanguages.forEach(newLanguage => {
+      if (newLanguage === languageCode) {
+        return
+      }
+      browser.url(`/examples/core/LanguageDialog/${languageCode}`)
+      $(`#open-language-dialog`).click()
+      $(`#language-link-${newLanguage} > div > span > a`).click()
+      const dialog = $(`#language-dialog`)
+      dialog.waitForDisplayed(1000, true)
+      expect(dialog.isDisplayed(), `#language-dialog isDisplayed`).to.be.false
+    }))
   })
 })

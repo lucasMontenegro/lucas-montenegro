@@ -6,7 +6,7 @@ function navigate (languageCode, isMobile, secondaryToolbar) {
   browser.url(`/examples/core/Body/${languageCode}/${isMobileString}/${secondaryToolbarString}`)
 }
 describe(`local/core/Body`, () => {
-  xit(`should be responsive`, () => {
+  it(`should be responsive`, () => {
     ;[
       { widths: [/*300, not working*/400, 600], isMobile: true },
       { widths: [540, 700, 900, 1400], isMobile: false },
@@ -45,7 +45,7 @@ describe(`local/core/Body`, () => {
       })
     ))
   })
-  xit(`should be localized`, () => {
+  it(`should be localized`, () => {
     supportedLanguages.forEach(languageCode => {
       navigate(languageCode, true, true)
       const selector = `#open-temporary-drawer`

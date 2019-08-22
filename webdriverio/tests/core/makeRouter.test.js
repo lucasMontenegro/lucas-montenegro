@@ -2,7 +2,7 @@ const supportedLanguages = require("../supportedLanguages.js")
 const { expect } = require("../chai")
 const appNames = [`home`, `example`, `notFound`]
 function makePathname (languageCode, appName) {
-  let pathname = `/examples/core/router`
+  let pathname = `/examples/core/full`
   if (!languageCode) {
     return pathname
   }

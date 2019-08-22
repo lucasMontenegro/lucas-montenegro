@@ -7,8 +7,8 @@ import CardActions from "@material-ui/core/CardActions"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeAppLocation from "local/core/makeAppLocation"
-import translators from "./linkTranslators"
-import initialLocation from "./initialLocation"
+import translators from "./full/example/linkTranslators"
+import initialLocation from "./full/example/initialLocation"
 const useStyles = makeStyles({
   root: {
     padding: 32,
@@ -39,7 +39,7 @@ const initialState = {
   props: {
     match: false,
     languageCode: `en`,
-    location: { pathname: `/examples/core/router/en/home` },
+    location: { pathname: `/examples/core/full/en/home` },
   },
 }
 function MakeAppLocationExample () {
@@ -47,7 +47,7 @@ function MakeAppLocationExample () {
   const [state, setState] = useState(initialState)
   const { languageCode, foo, mounted } = state
   const match = /^\d+$/.test(foo)
-  const pathname = `/examples/core/router/${languageCode}/${match ? `example/${foo}` : `home`}`
+  const pathname = `/examples/core/full/${languageCode}/${match ? `example/${foo}` : `home`}`
   const update = {
     languageCode (e) {
       const languageCode = e.target.value

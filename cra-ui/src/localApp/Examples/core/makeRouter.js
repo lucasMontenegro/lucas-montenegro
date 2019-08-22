@@ -7,7 +7,7 @@ import CardActions from "@material-ui/core/CardActions"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeRouter from "local/core/makeRouter"
-import routing from "./routing"
+import routing from "./full/routing"
 const useStyles = makeStyles({
   root: {
     padding: 16,

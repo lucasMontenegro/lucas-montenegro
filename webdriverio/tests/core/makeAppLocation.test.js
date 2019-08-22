@@ -1,10 +1,10 @@
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
 function makeExamplePathname (languageCode, foo) {
-  return `/examples/core/router/${languageCode}/example/${foo}`
+  return `/examples/core/full/${languageCode}/example/${foo}`
 }
 function makeHomePathname (languageCode) {
-  return `/examples/core/router/${languageCode}/home`
+  return `/examples/core/full/${languageCode}/home`
 }
 function expectToRender (expected) {
   Object.keys(expected).forEach(key => {

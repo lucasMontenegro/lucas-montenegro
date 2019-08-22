@@ -22,10 +22,11 @@ export default function createBaseClient (options) {
   return function BaseClient (props) {
     const {
       match,
+      languageCode,
+      location,
       viewState,
       drawerWidth,
       title,
-      location,
       subtitle,
       logo,
       primaryToolbar,
@@ -34,15 +35,14 @@ export default function createBaseClient (options) {
       drawerContent,
       children,
     } = props
-    const active = match.type === `app` && match.appName === clientName
-    const appLocation = useAppLocation(active, match.languageCode, location)
-    const languageDialogState = useLanguageDialogState(match.languageCode, appLocation)
+    const appLocation = useAppLocation(match, languageCode, location)
+    const languageDialogState = useLanguageDialogState(languageCode, appLocation)
     return (
       <Fragment>
         <ThemeProvider theme={theme}>
-          {active && (
+          {match && (
             <Body
-              languageCode={match.languageCode}
+              languageCode={languageCode}
               drawerWidth={drawerWidth}
               viewState={viewState}
               title={title}
@@ -57,11 +57,11 @@ export default function createBaseClient (options) {
           )}
         </ThemeProvider>
         <ThemeProvider theme={darkTheme}>
-          <DrawerContent>{active && drawerContent}</DrawerContent>
+          <DrawerContent>{match && drawerContent}</DrawerContent>
           <AppLink>
             <NavLink
-              active={active}
-              languageCode={match.languageCode}
+              active={match}
+              languageCode={languageCode}
               location={appLocation}
               labels={appLink.labels}
               icons={appLink.icons}

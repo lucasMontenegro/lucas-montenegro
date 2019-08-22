@@ -30,21 +30,23 @@ export default function createApp (options) {
     key: clientName,
     RedPortal: makeRedPortal(`${name} > ${clientName} > DrawerContent`),
   }))
-  const clientsArray = clientNames.map(key => ({ key, Client: clients[key] }))
+  const clientsArray = clientNames.map(clientName => ({ clientName, Client: clients[clientName] }))
   const useRouter = makeRouter(routing)
   return function App ({ location }) {
     const match = useRouter(location)
     const viewState = useViewState(mobileBreakpoint)
+    const matchClient = match.type === `app`
     return (
       <HandleRedirect match={match}>
-        {clientsArray.map(({ key, Client }) => (
+        {clientsArray.map(({ clientName, Client }) => (
           <Client
-            key={key}
-            match={match}
+            key={clientName}
+            match={matchClient && match.appName === clientName}
+            languageCode={match.languageCode}
+            location={location}
             viewState={viewState}
             drawerWidth={drawerWidth}
             title={title}
-            location={location}
           />
         ))}
         <ThemeProvider theme={darkTheme}>

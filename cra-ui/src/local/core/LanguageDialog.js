@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useRef } from "react"
 import { makeStyles } from "@material-ui/styles"
 import Dialog from "@material-ui/core/Dialog"
 import DialogTitle from "@material-ui/core/DialogTitle"
@@ -48,6 +48,10 @@ const useStyles = makeStyles(theme => ({
 }))
 export default function LanguageDialog ({ state }) {
   const classes = useStyles()
+  const dialogLanguage = useRef(`en`)
+  if (state.isOpen) {
+    dialogLanguage.current = state.languageCode
+  }
   const icon = <FontAwesomeIcon icon={[`fas`, `language`]} />
   return (
     <Fragment>
@@ -64,13 +68,13 @@ export default function LanguageDialog ({ state }) {
       >
         <DialogTitle id="language-dialog-title" className={classes.dialogTitle} disableTypography>
           <Avatar id="language-dialog-avatar" className={classes.avatar}>{icon}</Avatar>
-          <Typography component="h2" variant="h6">{titles[state.languageCode]}</Typography>
+          <Typography component="h2" variant="h6">{titles[dialogLanguage.current]}</Typography>
         </DialogTitle>
         <DialogContent>
           <nav>
             <List>
               {state.translations && links.map(({ languageCode, value }) => {
-                const active = languageCode === state.languageCode
+                const active = languageCode === dialogLanguage.current
                 return (
                   <ListItem
                     key={languageCode}
@@ -92,7 +96,7 @@ export default function LanguageDialog ({ state }) {
         </DialogContent>
         <DialogActions>
           <Button id="close-language-dialog" onClick={state.close} color="primary">
-            {closeText[state.languageCode]}
+            {closeText[dialogLanguage.current]}
           </Button>
         </DialogActions>
       </Dialog>

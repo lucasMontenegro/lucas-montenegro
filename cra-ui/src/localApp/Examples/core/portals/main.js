@@ -131,7 +131,7 @@ const useClientStyles = makeStyles({
 }, { name: `PortalExampleClient` })
 const clients = clientNames.map(clientName => ({
   key: clientName,
-  PortalExampleClient ({ rootInput }) {
+  Client: function PortalExampleClient ({ rootInput }) {
     const cid = useCid()
     const input = {}
     input.Left = useTextInput()

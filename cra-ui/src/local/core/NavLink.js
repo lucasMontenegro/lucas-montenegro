@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: `auto`,
     marginRight: theme.spacing(2),
   },
-}))
+}), { name: `NavLink` })
 export default function NavLink ({ linkId, active, languageCode, location, labels, icons }) {
   const classes = useStyles()
   const activeLabel = active ? activeLabels[languageCode] : undefined

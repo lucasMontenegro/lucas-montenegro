@@ -31,7 +31,7 @@ const useStyles = makeStyles({
       margin: `0 8px`,
     },
   },
-})
+}, { name: `MakeLanguageDialogStateExample` })
 const useLanguageDialogState = makeLanguageDialogState({ initialLocation, linkTranslators })
 const initialState = { languageCode: `en`, foo: `0`, location: initialLocation }
 function MakeLanguageDialogStateExample () {

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   close: {
     textAlign: `right`,
   },
-})
+}, { name: `Drawer` })
 export default function Drawer ({ languageCode, width, viewState, navLinks, children }) {
   const classes = useStyles()
   const content = (

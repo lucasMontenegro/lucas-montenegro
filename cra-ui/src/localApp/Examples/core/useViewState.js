@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     maxWidth: 512,
     margin: `0 auto`,
   },
-})
+}, { name: `UseViewStateExample` })
 function booleanToString (boolean) {
   return boolean ? `true` : `false`
 }

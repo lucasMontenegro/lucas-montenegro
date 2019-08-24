@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     backgroundColor: theme.palette.primary.dark,
   },
-}))
+}), { name: `LanguageDialog` })
 export default function LanguageDialog ({ state }) {
   const classes = useStyles()
   const dialogLanguage = useRef(`en`)

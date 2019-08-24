@@ -43,7 +43,7 @@ const usePortalExampleStyles = makeStyles({
       flex: `0 1 100%`,
     },
   },
-})
+}, { name: `PortalExample` })
 function useTextInput () {
   const [value, setValue] = useState(``)
   return {
@@ -128,10 +128,10 @@ const useClientStyles = makeStyles({
       margin: 10,
     },
   },
-})
+}, { name: `PortalExampleClient` })
 const clients = clientNames.map(clientName => ({
   key: clientName,
-  Client ({ rootInput }) {
+  PortalExampleClient ({ rootInput }) {
     const cid = useCid()
     const input = {}
     input.Left = useTextInput()
@@ -182,7 +182,7 @@ const useInputStyles = makeStyles({
   textField: {
     width: `100%`,
   },
-})
+}, { name: `Input` })
 function Input (props) {
   const classes = useInputStyles()
   return (
@@ -196,7 +196,7 @@ const useBorderStyles = makeStyles({
     border: `1px solid #37d278`,
     borderRadius: 5,
   },
-})
+}, { name: `Border` })
 function Border ({ className, ...other }) {
   const classes = useBorderStyles()
   return <div {...other} className={className ? `${classes.root} ${className}` : classes.root} />

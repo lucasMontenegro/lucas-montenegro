@@ -5,15 +5,15 @@ import Dialog from "@material-ui/core/Dialog"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
-import { makeBluePortal, makeRedPortal } from "local/core/portals"
+import { createBluePortal, createRedPortal } from "local/core/portals"
 const clientNames = [`Foo`, `Bar`]
 const mountingPoints = [`Left`, `Right`]
 const portals = clientNames.reduce((byClientName, clientName) => {
   byClientName[clientName] = mountingPoints.reduce((byMountingPoint, mountingPoint) => {
     const name = `Example1${clientName}${mountingPoint}`
     byMountingPoint[mountingPoint] = {
-      BluePortal: makeBluePortal(name),
-      RedPortal: makeRedPortal(name),
+      BluePortal: createBluePortal(name),
+      RedPortal: createRedPortal(name),
     }
     return byMountingPoint
   }, {})

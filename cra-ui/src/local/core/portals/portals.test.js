@@ -1,6 +1,6 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import { makeRedPortal, makeBluePortal } from "./index"
+import { createRedPortal, createBluePortal } from "./index"
 import makeUniqueRef from "./makeUniqueRef"
 jest.mock("react-dom", () => ({
   __esModule: true,
@@ -17,29 +17,29 @@ jest.mock("./makeUniqueRef.js", () => ({
 const useUniqueRef = jest.fn()
 makeUniqueRef.mockReturnValue(useUniqueRef)
 describe(`local/core/portals`, () => {
-  describe(`makeBluePortal`, () => {
+  describe(`createBluePortal`, () => {
     it(`should detect repeated names`, () => {
       const name = `Repeated`
-      expect(() => makeBluePortal(name)).not.toThrow()
-      expect(() => makeBluePortal(name)).toThrow()
+      expect(() => createBluePortal(name)).not.toThrow()
+      expect(() => createBluePortal(name)).toThrow()
     })
     it(`should detect repeated instances`, () => {
       useUniqueRef.mockReturnValueOnce(true).mockReturnValueOnce(false)
-      const BluePortal = makeBluePortal(`ExampleBluePortal`)
+      const BluePortal = createBluePortal(`ExampleBluePortal`)
       const node = <BluePortal>Example BluePortal</BluePortal>
       expect(renderer.create(node).toJSON()).toBe(`Example BluePortal`)
       expect(renderer.create(node).toJSON()).toBeNull()
     })
   })
-  describe(`makeRedPortal`, () => {
+  describe(`createRedPortal`, () => {
     it(`should detect repeated names`, () => {
       const name = `Repeated`
-      expect(() => makeRedPortal(name)).not.toThrow()
-      expect(() => makeRedPortal(name)).toThrow()
+      expect(() => createRedPortal(name)).not.toThrow()
+      expect(() => createRedPortal(name)).toThrow()
     })
     it(`should detect repeated instances`, () => {
       useUniqueRef.mockReturnValueOnce(true).mockReturnValueOnce(false)
-      const RedPortal = makeRedPortal(`ExampleRedPortal`)
+      const RedPortal = createRedPortal(`ExampleRedPortal`)
       const node = <RedPortal Component="div" props={{ id: `red-portal` }} />
       expect(renderer.create(node).toJSON()).toEqual({
         type: 'div',

@@ -3,7 +3,7 @@ import { ThemeProvider } from "@material-ui/styles"
 import theme from "local/theme"
 import darkTheme from "local/darkTheme"
 import Body from "local/core/Body"
-import { makeBluePortal } from "local/core/portals"
+import { createBluePortal } from "local/core/portals"
 import LanguageDialog from "local/core/LanguageDialog"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState"
 import NavLink from "local/core/NavLink"
@@ -22,8 +22,8 @@ export default function createBaseClient (options) {
     forwardLocation: customClientLocation,
   })
   const useLanguageDialogState = makeLanguageDialogState({ initialLocation, linkTranslators })
-  const DrawerContent = makeBluePortal(`${appName} > ${clientName} > DrawerContent`)
-  const ClientLink = makeBluePortal(`${appName} > ${clientName} > ClientLink`)
+  const DrawerContent = createBluePortal(`${appName} > ${clientName} > DrawerContent`)
+  const ClientLink = createBluePortal(`${appName} > ${clientName} > ClientLink`)
   return function BaseClient (props) {
     const {
       match,

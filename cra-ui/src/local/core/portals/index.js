@@ -10,7 +10,7 @@ const checkName = (namespace => function checkName (name) {
 const getDiv = (namespace => function getDiv (name) {
   return namespace[name] || (namespace[name] = document.createElement(`div`))
 })({})
-export function makeRedPortal (name) {
+export function createRedPortal (name) {
   const fullName = `${name} > RedPortal`
   checkName(fullName)
   const useUniqueRef = makeUniqueRef(fullName)
@@ -26,7 +26,7 @@ export function makeRedPortal (name) {
     return unique ? <Component {...other} ref={portalRefHandler} /> : null
   }
 }
-export function makeBluePortal (name) {
+export function createBluePortal (name) {
   const fullName = `${name} > BluePortal`
   checkName(fullName)
   const useUniqueRef = makeUniqueRef(fullName)

@@ -5,7 +5,7 @@ import makeRouter from "local/core/makeRouter"
 import HandleRedirect from "local/core/HandleRedirect"
 import useViewState from "local/core/useViewState"
 import Drawer from "local/core/Drawer"
-import { makeRedPortal } from "local/core/portals"
+import { createRedPortal } from "local/core/portals"
 import BareLi from "local/core/BareLi"
 const mobileBreakpoint = 100
 const drawerWidth = 256
@@ -25,11 +25,11 @@ export default function createApp (options) {
   const clientNames = Object.keys(clients)
   const clientLinks = clientNames.map(clientName => ({
     key: clientName,
-    RedPortal: makeRedPortal(`${name} > ${clientName} > ClientLink`),
+    RedPortal: createRedPortal(`${name} > ${clientName} > ClientLink`),
   }))
   const drawerContent = clientNames.map(clientName => ({
     key: clientName,
-    RedPortal: makeRedPortal(`${name} > ${clientName} > DrawerContent`),
+    RedPortal: createRedPortal(`${name} > ${clientName} > DrawerContent`),
   }))
   const clientsArray = clientNames.map(clientName => ({ clientName, Client: clients[clientName] }))
   const useRouter = makeRouter(routing)

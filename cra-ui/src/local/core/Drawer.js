@@ -38,6 +38,7 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
       <nav id="drawer-nav" aria-label={navLabels[languageCode]}><List>{navLinks}</List></nav>
     </Fragment>
   )
+  const PaperProps = { style: { width } }
   return (
     viewState.isMobile ? (
       <MuiDrawer
@@ -50,13 +51,13 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
         variant="temporary"
         open={viewState.drawer.isOpen}
         onClose={viewState.drawer.close}
-        PaperProps={{ style: { width } }}
+        PaperProps={PaperProps}
       >
         {content}
       </MuiDrawer>
     ) :
     (
-      <MuiDrawer id="permanent-drawer" variant="permanent" PaperProps={{ style: { width } }}>
+      <MuiDrawer id="permanent-drawer" variant="permanent" PaperProps={PaperProps}>
         {content}
       </MuiDrawer>
     )

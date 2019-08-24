@@ -1,5 +1,4 @@
 import { createMuiTheme } from "@material-ui/core/styles"
-import config from "local/config"
 let theme = createMuiTheme({
   typography: {
     h5: {
@@ -30,7 +29,6 @@ export default {
     },
     MuiDrawer: {
       paper: {
-        width: `${config.drawerWidth}px`,
         padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
       },
     },

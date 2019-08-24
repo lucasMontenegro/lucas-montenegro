@@ -14,8 +14,13 @@ export default function createBaseClient (options) {
     appName,
     initialLocation,
     linkTranslators,
+    customClientLocation,
   } = options
-  const useClientLocation = makeClientLocation({ initialLocation, linkTranslators })
+  const useClientLocation = makeClientLocation({
+    initialLocation,
+    linkTranslators,
+    forwardLocation: customClientLocation,
+  })
   const useLanguageDialogState = makeLanguageDialogState({ initialLocation, linkTranslators })
   const DrawerContent = makeBluePortal(`${appName} > ${clientName} > DrawerContent`)
   const ClientLink = makeBluePortal(`${appName} > ${clientName} > ClientLink`)

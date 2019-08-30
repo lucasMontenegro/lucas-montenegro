@@ -23,13 +23,21 @@ exports.config = {
     ],
     suites: {
         core: [
-            './tests/core/drawer.test.js',
+            './tests/core/Body.test.js',
+            './tests/core/Drawer.test.js',
+            './tests/core/HandleRedirect.test.js',
             './tests/core/LanguageDialog.test.js',
             './tests/core/links.test.js',
-            './tests/core/NavButton.test.js',
-            './tests/core/PortalGun.test.js',
-            './tests/core/Router.test.js'
-        ]
+            './tests/core/makeClientLocation.test.js',
+            './tests/core/makeLanguageDialogState.test.js',
+            './tests/core/makeRouter.test.js',
+            './tests/core/NavLink.test.js',
+            './tests/core/portals.test.js',
+            './tests/core/useViewState.test.js',
+        ],
+        clients: [
+            './tests/clients/createNotFound.test.js',
+        ],
     },
     // Patterns to exclude.
     exclude: [

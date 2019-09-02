@@ -2,7 +2,7 @@ import describeLinkTranslators from "local/core/specDescribers/describeLinkTrans
 import makeTranslations from "local/makeTranslations"
 import linkTranslators from "./linkTranslators"
 import routing from "../routing"
-describe(`localApp/Example/core/integrated/example/linkTranslators`, () => {
+describe(`app/Example/core/integrated/example/linkTranslators`, () => {
   describeLinkTranslators({
     clientName: `example`,
     linkTranslators,

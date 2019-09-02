@@ -2,19 +2,19 @@ import describeLinkTranslators from "local/core/specDescribers/describeLinkTrans
 import makeTranslations from "local/makeTranslations"
 import linkTranslators from "./linkTranslators"
 import routing from "../routing"
-describe(`localApp/Example/core/integrated/home/linkTranslators`, () => {
+describe(`app/Example/core/integrated/notFound/linkTranslators`, () => {
   describeLinkTranslators({
-    clientName: `home`,
+    clientName: `notFound`,
     linkTranslators,
     routing,
     locations: makeTranslations({
       en: [
-        { pathname: `/examples/core/integrated/en/home` },
-        { pathname: `/examples/core/integrated/en/home/` },
+        { pathname: `/examples/core/integrated/en/notFound` },
+        { pathname: `/examples/core/integrated/en/notFound/` },
       ],
       es: [
-        { pathname: `/examples/core/integrated/es/home` },
-        { pathname: `/examples/core/integrated/es/home/` },
+        { pathname: `/examples/core/integrated/es/notFound` },
+        { pathname: `/examples/core/integrated/es/notFound/` },
       ],
     }),
   })

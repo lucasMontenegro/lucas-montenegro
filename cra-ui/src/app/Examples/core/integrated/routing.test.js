@@ -1,6 +1,6 @@
 import describeRouting from "local/core/specDescribers/describeRouting"
 import routing from "./routing"
-describe(`localApp/Examples/core/integrated/routing`, () => {
+describe(`app/Examples/core/integrated/routing`, () => {
   describeRouting({
     languageCodes: [`en`, `es`],
     routing,

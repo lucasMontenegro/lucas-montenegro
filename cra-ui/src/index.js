@@ -1,1 +1,1 @@
-import "./localApp"
+import "./app"

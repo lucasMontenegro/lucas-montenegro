@@ -1,11 +1,8 @@
 import supportedLanguages from "local/supportedLanguages"
 export default function describeRouting (opts) {
-  const { languageCodes, routing, exampleLocations } = opts
+  const { routing, exampleLocations } = opts
   const clientNames = [`home`, ...opts.clientNames, `notFound`]
   const allRoutes = []
-  it(`should support all languages`, () => {
-    expect(languageCodes).toEqual(supportedLanguages)
-  })
   it(`should have the right format`, () => {
     expect(routing).toBeInstanceOf(Object)
     expect(routing.matchRoot).toBeInstanceOf(Function)

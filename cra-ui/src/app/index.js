@@ -18,7 +18,7 @@ const app = (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         {
-          process.env.NODE_ENV === `production`? {mainRoute} :
+          process.env.NODE_ENV === `production` ? mainRoute :
           (
             <Switch>
               <Route path="/examples" component={Examples} />

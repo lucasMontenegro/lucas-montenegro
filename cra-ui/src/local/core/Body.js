@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react" // delete
+// import React, { Fragment } from "react"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
@@ -16,10 +17,20 @@ const useStyles = makeStyles({
     backgroundColor: `#eaeff1`,
     minHeight: `100vh`,
     overflowX: `hidden`,
+    display: `flex`,
+    flexDirection: `column`,
+    alignItems: `center`,
   },
   content: {
+    width: `100%`,
     maxWidth,
-    margin: `0 auto`,
+    padding: 16,
+    flexShrink: 0,
+    flexGrow: 1,
+    display: `flex`,
+    flexDirection: `column`,
+    alignItems: `center`,
+    justifyContent: `center`,
   },
   primaryAppBar: {
     height: 48,
@@ -28,6 +39,7 @@ const useStyles = makeStyles({
   primaryToolbar: {
     width: `100%`,
     maxWidth,
+//    justifyContent: `flex-end`,
   },
   expansionDiv: {
     flexBasis: `100%`,
@@ -35,7 +47,8 @@ const useStyles = makeStyles({
   },
   secondaryAppBar: {
     zIndex: 0,
-    paddingTop: 48,
+    paddingTop: 48, // delete
+//    paddingTop: 8,
     alignItems: `center`,
   },
   secondaryToolbar: {
@@ -54,8 +67,13 @@ const useStyles = makeStyles({
   },
   title: {
     alignSelf: `flex-start`,
-    alignItems: `center`,
+    alignItems: `center`, // delete
     margin: 0,
+//    display: `flex`,
+//    alignItems: `center`,
+//    "& > *": {
+//      margin: `0 4px`,
+//    },
   },
   subtitle: {
     alignSelf: `flex-end`,
@@ -90,21 +108,39 @@ export default function Body (props) {
     titles,
     subtitles,
     logo,
-    languageDialog,
+    languageDialog, // delete
     primaryToolbar,
     secondaryToolbar,
+//    responsiveToolbar,
     children,
   } = props
   const classes = useStyles()
   const title = titles[languageCode]
   const subtitle = subtitles[languageCode]
   title && subtitle && (document.title = `${subtitle} - ${title}`)
+//  const drawerButton = viewState.isMobile && (
+//    <Fragment>
+//      <IconButton
+//        color="inherit"
+//        edge="start"
+//        id="open-temporary-drawer"
+//        aria-controls="temporary-drawer"
+//        aria-label={drawerButtonLabels[languageCode]}
+//        onClick={viewState.drawer.open}
+//      >
+//        <MenuIcon />
+//      </IconButton>
+//      <div className={classes.expansionDiv}></div>
+//    </Fragment>
+//  )
+//  const responsivePrimaryToolbar = viewState.isMobile ? responsiveToolbar : undefined
+//  const responsiveSecondaryToolbar = viewState.isMobile ? undefined : responsiveToolbar
   return (
     <div
       className={classes.root}
       style={viewState.isMobile ? undefined : { paddingLeft: drawerWidth }}
     >
-      <AppBar
+      <AppBar // delete
         color="primary"
         position="fixed"
         elevation={0}
@@ -130,15 +166,33 @@ export default function Body (props) {
           {languageDialog}
         </Toolbar>
       </AppBar>
+      {/*(drawerButton || primaryToolbar || responsivePrimaryToolbar) && (
+        <AppBar
+          id="primary-appbar"
+          color="primary"
+          position="fixed"
+          elevation={0}
+          style={viewState.isMobile ? undefined : { width: `calc(100vw - ${drawerWidth}px)` }}
+          className={classes.primaryAppBar}
+        >
+          <Toolbar className={classes.primaryToolbar}>
+            {drawerButton}
+            {primaryToolbar}
+            {responsivePrimaryToolbar}
+          </Toolbar>
+        </AppBar>
+      )*/}
       <AppBar
         color="primary"
         position="static"
         elevation={0}
         className={classes.secondaryAppBar}
+//        style={primaryToolbar ? { paddingTop: 48 } : undefined}
       >
         <div className={classes.secondaryToolbar}>
           <Toolbar className={classes.titleToolbar}>
             <div className={classes.title}>
+              {/*logo*/}
               <Typography id="title" color="inherit" variant="body1" component="h1">
                 {title}
               </Typography>
@@ -158,9 +212,15 @@ export default function Body (props) {
               </div>
             </h2>
           </Toolbar>
-          {secondaryToolbar && (
+          {secondaryToolbar && ( // delete
             <Toolbar className={classes.secondaryToolbarContent}>{secondaryToolbar}</Toolbar>
           )}
+          {/*(secondaryToolbar || responsiveSecondaryToolbar) && (
+            <Toolbar id="secondary-toolbar-content" className={classes.secondaryToolbarContent}>
+              {secondaryToolbar}
+              {responsiveSecondaryToolbar}
+            </Toolbar>
+          )*/}
         </div>
       </AppBar>
       <div className={classes.content}>{children}</div>

@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react"
 import { Route } from "react-router-dom"
+import { makeStyles } from "@material-ui/styles"
 import Drawer from "@material-ui/core/Drawer"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
@@ -92,15 +93,15 @@ function Example (props) {
           </Button>
         </div>
       </Drawer>
-    <div style={{ paddingLeft: 264 }}>
-      {appName === `home` && <h4 id="home">Home</h4>}
-      <NotFound
-        match={appName === `notFound`}
-        languageCode={props.match.params.languageCode}
-        location={props.location}
-        anotherProp="foo"
-      />
-    </div>
+      <div style={{ paddingLeft: 264 }}>
+        {appName === `home` && <h4 id="home">Home</h4>}
+        <NotFound
+          match={appName === `notFound`}
+          languageCode={props.match.params.languageCode}
+          location={props.location}
+          anotherProp="foo"
+        />
+      </div>
     </Fragment>
   )
 }
@@ -115,8 +116,21 @@ function createBaseClientSpy (options) {
     linkTranslators,
     customClientLocation,
   } = options
+  const useStyles = makeStyles({
+    content: {
+      minHeight: `100vh`,
+      padding: 16,
+      maxWidth: 1024,
+      margin: `0 auto`,
+      display: `flex`,
+      flexDirection: `column`,
+      alignItems: `center`,
+      justifyContent: `center`,
+    },
+  }, { name: `BaseClientSpy` })
   return function BaseClientSpy (props) {
     const { match, languageCode, subtitles, icons, children, anotherProp } = props
+    const classes = useStyles()
     return (
       <div id="BaseClientSpy">
         <h4>Base Client Spy</h4>
@@ -140,7 +154,7 @@ function createBaseClientSpy (options) {
         {match && (
           <Fragment>
             <h4>Not Found</h4>
-            {children}
+            <div className={classes.content}>{children}</div>
           </Fragment>
         )}
       </div>

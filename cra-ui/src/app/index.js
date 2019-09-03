@@ -19,7 +19,12 @@ const app = (
       <ThemeProvider theme={theme}>
         {
           process.env.NODE_ENV === `production`? {mainRoute} :
-          <Switch><Route path="/examples" component={Examples} />{mainRoute}</Switch>
+          (
+            <Switch>
+              <Route path="/examples" component={Examples} />
+              {mainRoute}
+            </Switch>
+          )
         }
       </ThemeProvider>
     </BrowserRouter>

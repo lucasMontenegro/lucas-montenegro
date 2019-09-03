@@ -131,12 +131,13 @@ export default function Body (props) {
   )
   const responsivePrimaryToolbar = viewState.isMobile ? responsiveToolbar : undefined
   const responsiveSecondaryToolbar = viewState.isMobile ? undefined : responsiveToolbar
+  const renderPrimaryAppBar = drawerButton || primaryToolbar || responsivePrimaryToolbar
   return (
     <div
       className={classes.root}
       style={viewState.isMobile ? undefined : { paddingLeft: drawerWidth }}
     >
-      {(drawerButton || primaryToolbar || responsivePrimaryToolbar) && (
+      {renderPrimaryAppBar && (
         <AppBar
           id="primary-appbar"
           color="primary"
@@ -157,7 +158,7 @@ export default function Body (props) {
         position="static"
         elevation={0}
         className={classes.secondaryAppBar}
-        style={primaryToolbar ? { paddingTop: 48 } : undefined}
+        style={renderPrimaryAppBar ? { paddingTop: 48 } : undefined}
       >
         <div className={classes.secondaryToolbar}>
           <Toolbar className={classes.titleToolbar}>

@@ -10,12 +10,27 @@ const drawerWidth = 256
 const titles = makeTranslations(languageCode => `${languageCode} title`)
 const subtitles = makeTranslations(languageCode => `${languageCode} subtitle`)
 function BodyExample (props) {
-  const { languageCode, isMobileParam, secondaryToolbar } = props.match.params
-  const isMobile = isMobileParam === `isMobileTrue`
+  const [
+    languageCode,
+    isMobile,
+    primaryToolbar,
+    secondaryToolbar,
+    responsiveToolbar,
+  ] = props.location.search.slice(1).split(`&`)
   const [count, setCount] = useState(0)
+  const viewState = {
+    isMobile: isMobile === `true`,
+    drawer: {
+      isOpen: false,
+      open () {
+        setCount(count => count + 1)
+      },
+      close () {},
+    },
+  }
   return (
     <Fragment>
-      {isMobile || (
+      {viewState.isMobile || (
         <ThemeProvider theme={darkTheme}>
           <Drawer variant="permanent" PaperProps={{ style: { width: drawerWidth } }}>
             <div id="drawer">{lorem}</div>
@@ -26,23 +41,18 @@ function BodyExample (props) {
         <Body
           languageCode={languageCode}
           drawerWidth={drawerWidth}
-          viewState={{
-            isMobile,
-            drawer: {
-              isOpen: false,
-              open () {
-                setCount(count => count + 1)
-              },
-              close () {},
-            },
-          }}
+          viewState={viewState}
           titles={titles}
           subtitles={subtitles}
           logo={<Div id="logo">logo</Div>}
-          languageDialog={<Div id="languageDialog">languageDialog</Div>}
-          primaryToolbar={<Div id="primaryToolbar">primaryToolbar</Div>}
-          secondaryToolbar={secondaryToolbar === `secondaryToolbarTrue` && (
-            <div id="secondaryToolbar">secondaryToolbar</div>
+          primaryToolbar={primaryToolbar !== `undefined` && (
+            <Div id="primaryToolbar">{primaryToolbar}</Div>
+          )}
+          secondaryToolbar={secondaryToolbar !== `undefined` && (
+            <Div id="secondaryToolbar">{secondaryToolbar}</Div>
+          )}
+          responsiveToolbar={responsiveToolbar !== `undefined` && (
+            <Div id="responsiveToolbar">{responsiveToolbar}</Div>
           )}
         >
           <Div>count: <span id="count">{count}</span></Div>
@@ -52,13 +62,7 @@ function BodyExample (props) {
     </Fragment>
   )
 }
-export default (
-  <Route
-    exact
-    path="/examples/core/Body/:languageCode/:isMobileParam/:secondaryToolbar"
-    component={BodyExample}
-  />
-)
+export default (<Route exact path="/examples/core/Body" component={BodyExample} />)
 function Div (props) {
   return <div {...props} style={{ padding: `0 8px` }} />
 }

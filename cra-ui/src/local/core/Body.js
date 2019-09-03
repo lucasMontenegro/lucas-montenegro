@@ -1,5 +1,4 @@
-import React from "react" // delete
-// import React, { Fragment } from "react"
+import React, { Fragment } from "react"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
@@ -39,7 +38,7 @@ const useStyles = makeStyles({
   primaryToolbar: {
     width: `100%`,
     maxWidth,
-//    justifyContent: `flex-end`,
+    justifyContent: `flex-end`,
   },
   expansionDiv: {
     flexBasis: `100%`,
@@ -47,8 +46,7 @@ const useStyles = makeStyles({
   },
   secondaryAppBar: {
     zIndex: 0,
-    paddingTop: 48, // delete
-//    paddingTop: 8,
+    paddingTop: 8,
     alignItems: `center`,
   },
   secondaryToolbar: {
@@ -67,13 +65,12 @@ const useStyles = makeStyles({
   },
   title: {
     alignSelf: `flex-start`,
-    alignItems: `center`, // delete
     margin: 0,
-//    display: `flex`,
-//    alignItems: `center`,
-//    "& > *": {
-//      margin: `0 4px`,
-//    },
+    display: `flex`,
+    alignItems: `center`,
+    "& > *": {
+      margin: `0 4px`,
+    },
   },
   subtitle: {
     alignSelf: `flex-end`,
@@ -108,65 +105,38 @@ export default function Body (props) {
     titles,
     subtitles,
     logo,
-    languageDialog, // delete
     primaryToolbar,
     secondaryToolbar,
-//    responsiveToolbar,
+    responsiveToolbar,
     children,
   } = props
   const classes = useStyles()
   const title = titles[languageCode]
   const subtitle = subtitles[languageCode]
   title && subtitle && (document.title = `${subtitle} - ${title}`)
-//  const drawerButton = viewState.isMobile && (
-//    <Fragment>
-//      <IconButton
-//        color="inherit"
-//        edge="start"
-//        id="open-temporary-drawer"
-//        aria-controls="temporary-drawer"
-//        aria-label={drawerButtonLabels[languageCode]}
-//        onClick={viewState.drawer.open}
-//      >
-//        <MenuIcon />
-//      </IconButton>
-//      <div className={classes.expansionDiv}></div>
-//    </Fragment>
-//  )
-//  const responsivePrimaryToolbar = viewState.isMobile ? responsiveToolbar : undefined
-//  const responsiveSecondaryToolbar = viewState.isMobile ? undefined : responsiveToolbar
+  const drawerButton = viewState.isMobile && (
+    <Fragment>
+      <IconButton
+        color="inherit"
+        edge="start"
+        id="open-temporary-drawer"
+        aria-controls="temporary-drawer"
+        aria-label={drawerButtonLabels[languageCode]}
+        onClick={viewState.drawer.open}
+      >
+        <MenuIcon />
+      </IconButton>
+      <div className={classes.expansionDiv}></div>
+    </Fragment>
+  )
+  const responsivePrimaryToolbar = viewState.isMobile ? responsiveToolbar : undefined
+  const responsiveSecondaryToolbar = viewState.isMobile ? undefined : responsiveToolbar
   return (
     <div
       className={classes.root}
       style={viewState.isMobile ? undefined : { paddingLeft: drawerWidth }}
     >
-      <AppBar // delete
-        color="primary"
-        position="fixed"
-        elevation={0}
-        style={viewState.isMobile ? undefined : { width: `calc(100vw - ${drawerWidth}px)` }}
-        className={classes.primaryAppBar}
-      >
-        <Toolbar className={classes.primaryToolbar}>
-          {viewState.isMobile && (
-            <IconButton
-              color="inherit"
-              edge="start"
-              id="open-temporary-drawer"
-              aria-controls="temporary-drawer"
-              aria-label={drawerButtonLabels[languageCode]}
-              onClick={viewState.drawer.open}
-            >
-              <MenuIcon />
-            </IconButton>
-          )}
-          {logo}
-          <div className={classes.expansionDiv}></div>
-          {primaryToolbar}
-          {languageDialog}
-        </Toolbar>
-      </AppBar>
-      {/*(drawerButton || primaryToolbar || responsivePrimaryToolbar) && (
+      {(drawerButton || primaryToolbar || responsivePrimaryToolbar) && (
         <AppBar
           id="primary-appbar"
           color="primary"
@@ -181,18 +151,18 @@ export default function Body (props) {
             {responsivePrimaryToolbar}
           </Toolbar>
         </AppBar>
-      )*/}
+      )}
       <AppBar
         color="primary"
         position="static"
         elevation={0}
         className={classes.secondaryAppBar}
-//        style={primaryToolbar ? { paddingTop: 48 } : undefined}
+        style={primaryToolbar ? { paddingTop: 48 } : undefined}
       >
         <div className={classes.secondaryToolbar}>
           <Toolbar className={classes.titleToolbar}>
             <div className={classes.title}>
-              {/*logo*/}
+              {logo}
               <Typography id="title" color="inherit" variant="body1" component="h1">
                 {title}
               </Typography>
@@ -212,15 +182,12 @@ export default function Body (props) {
               </div>
             </h2>
           </Toolbar>
-          {secondaryToolbar && ( // delete
-            <Toolbar className={classes.secondaryToolbarContent}>{secondaryToolbar}</Toolbar>
-          )}
-          {/*(secondaryToolbar || responsiveSecondaryToolbar) && (
+          {(secondaryToolbar || responsiveSecondaryToolbar) && (
             <Toolbar id="secondary-toolbar-content" className={classes.secondaryToolbarContent}>
               {secondaryToolbar}
               {responsiveSecondaryToolbar}
             </Toolbar>
-          )*/}
+          )}
         </div>
       </AppBar>
       <div className={classes.content}>{children}</div>

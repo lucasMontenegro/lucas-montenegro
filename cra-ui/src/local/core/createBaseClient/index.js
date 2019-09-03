@@ -38,6 +38,7 @@ export default function createBaseClient (options) {
       icons,
       primaryToolbar,
       secondaryToolbar,
+      responsiveToolbar,
       drawerContent,
       children,
     } = props
@@ -54,9 +55,14 @@ export default function createBaseClient (options) {
               logo={logo}
               titles={titles}
               subtitles={subtitles}
-              languageDialog={<LanguageDialog state={languageDialogState} />}
               primaryToolbar={primaryToolbar}
               secondaryToolbar={secondaryToolbar}
+              responsiveToolbar={(
+                <Fragment>
+                  {responsiveToolbar}
+                  <LanguageDialog state={languageDialogState} />
+                </Fragment>
+              )}
             >
               {children}
             </Body>

@@ -4,6 +4,7 @@ import makeTranslations from "local/makeTranslations"
 import initialLocation from "./initialLocation"
 import linkTranslators from "./linkTranslators"
 import WorkIcon from "@material-ui/icons/Work"
+import ToolbarItem from "../ToolbarItem"
 const BaseClient = createBaseClient({
   appName: `ExampleApp`,
   clientName: `example`,
@@ -18,8 +19,9 @@ export default function ExampleClient (props) {
       {...props}
       subtitles={subtitles}
       icons={icons}
-      primaryToolbar={<div>primaryToolbar</div>}
-      secondaryToolbar={<div>secondaryToolbar</div>}
+      primaryToolbar={<ToolbarItem>primaryToolbar</ToolbarItem>}
+      secondaryToolbar={<ToolbarItem>secondaryToolbar</ToolbarItem>}
+      responsiveToolbar={<ToolbarItem>responsiveToolbar</ToolbarItem>}
       drawerContent={<div>drawerContent</div>}
     >
       <div>Example App</div>

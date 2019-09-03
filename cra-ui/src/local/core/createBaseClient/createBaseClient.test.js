@@ -35,7 +35,7 @@ Body.mockImplementation(function Body (props) {
         ]}
         values={props}
       />
-      {props.languageDialog}
+      {props.responsiveToolbar}
     </div>
   )
 })
@@ -159,6 +159,7 @@ describe(`local/core/createBaseClient`, () => {
         icons="icons"
         primaryToolbar="primaryToolbar"
         secondaryToolbar="secondaryToolbar"
+        responsiveToolbar={<div>responsiveToolbar</div>}
         drawerContent="drawerContent"
       >
         children
@@ -178,6 +179,7 @@ describe(`local/core/createBaseClient`, () => {
             <div>primaryToolbar</div>
             <div>secondaryToolbar</div>
             <div>children</div>
+            <div>responsiveToolbar</div>
             <div className="language-dialog">
               <div>initialLocation</div>
               <div>linkTranslators</div>

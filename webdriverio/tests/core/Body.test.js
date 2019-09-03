@@ -1,79 +1,140 @@
 const { expect } = require("../chai")
 const supportedLanguages = require("../supportedLanguages")
-function navigate (languageCode, isMobile, secondaryToolbar) {
-  const isMobileString = `isMobile${isMobile ? `True` : `False`}`
-  const secondaryToolbarString = `secondaryToolbar${secondaryToolbar ? `True` : `False`}`
-  browser.url(`/examples/core/Body/${languageCode}/${isMobileString}/${secondaryToolbarString}`)
+function navigate (values) {
+  const search = [
+    `languageCode`,
+    `isMobile`,
+    `primaryToolbar`,
+    `secondaryToolbar`,
+    `responsiveToolbar`,
+  ].map(key => (values[key] || `undefined`)).join(`&`)
+  browser.url(`/examples/core/Body?${search}`)
 }
+function expectToRender (items) {
+  Object.keys(items).forEach(selector => {
+    const { displayed, text, label } = items[selector]
+    const element = $(selector)
+    if (displayed || text || label) {
+      expect(element.isDisplayedInViewport(), `${selector} isDisplayedInViewport`).to.be.true
+    } else {
+      expect(element.isExisting(), `${selector} isExisting`).to.be.false
+      return
+    }
+    if (text) {
+      const expectTo = expect(element.getText(), `${selector} getText`).to
+      if (typeof text === `number`) {
+        expectTo.have.lengthOf.above(text)
+      } else {
+        expectTo.equal(text)
+      }
+    }
+    if (label) {
+      const expectTo = expect(
+        $(selector).getAttribute(`aria-label`),
+        `${selector} getAttribute aria-label`
+      ).to
+      if (typeof label === `number`) {
+        expectTo.have.lengthOf.above(label)
+      } else {
+        expectTo.equal(label)
+      }
+    }
+  })
+}
+const responsivity = [
+  { widths: [300, 400, 600], isMobile: true },
+  { widths: [540, 700, 900, 1400], isMobile: false },
+]
 describe(`local/core/Body`, () => {
-  it(`should be responsive`, () => {
-    ;[
-      { widths: [/*300, not working*/400, 600], isMobile: true },
-      { widths: [540, 700, 900, 1400], isMobile: false },
-    ].forEach(({ widths, isMobile }) => (
-      [true, false].forEach(secondaryToolbar => {
-        navigate(`en`, isMobile, secondaryToolbar)
-        expect(browser.getTitle(), `browser getTitle`).to.match(/^en subtitle - en title/)
+  it(`should render`, () => {
+    supportedLanguages.forEach(languageCode => {
+      responsivity.forEach(({ widths, isMobile }) => {
         widths.forEach(width => {
+          if (width < 396) {
+            console.log(`width < 396 not supported`)
+            return
+          }
           browser.setWindowSize(width, 500)
-          ;[
-            { selector: `#open-temporary-drawer`, nonexistent: !isMobile },
-            { selector: `#logo`, text: `logo` },
-            { selector: `#primaryToolbar`, text: `primaryToolbar` },
-            { selector: `#languageDialog`, text: `languageDialog` },
-            {
-              selector: `#secondaryToolbar`,
-              text: `secondaryToolbar`,
-              nonexistent: !secondaryToolbar,
-            },
-            { selector: `#count`, text: `0` },
-            { selector: `#title`, text: `en title` },
-            { selector: `#subtitle`, text: `EN SUBTITLE` },
-          ].forEach(({ selector, text, nonexistent }) => {
-            const element = $(selector)
-            if (nonexistent) {
-              expect(element.isExisting(), `${selector} isExisting`).to.be.false
-            } else {
-              expect(
-                element.isDisplayedInViewport(),
-                `${selector} isDisplayedInViewport`
-              ).to.be.true
-              text && expect(element.getText(), `${selector} getText`).to.equal(text)
-            }
+          navigate({
+            languageCode,
+            isMobile: isMobile ? `true` : `false`,
+            primaryToolbar: `primaryToolbar`,
+            secondaryToolbar: `secondaryToolbar`,
+            responsiveToolbar: `responsiveToolbar`,
+          })
+          {
+            const title = `${languageCode} subtitle - ${languageCode} title`
+            expect(browser.getTitle().slice(0, title.length), `browser getTitle`).to.equal(title)
+          }
+          expectToRender({
+            "#logo": { text: `logo` },
+            "#title": { text: `${languageCode} title` },
+            "#subtitle": { text: `${languageCode.toUpperCase()} SUBTITLE` },
+            "#count": { text: `0` },
+            "#open-temporary-drawer": { label: isMobile ? 1 : null },
+            "#primaryToolbar": { text: `primaryToolbar` },
+            "#secondaryToolbar": { text: `secondaryToolbar` },
+            "#responsiveToolbar": { text: `responsiveToolbar` },
           })
         })
       })
-    ))
+    })
+    browser.setWindowSize(800, 500)
   })
-  it(`should be localized`, () => {
-    supportedLanguages.forEach(languageCode => {
-      navigate(languageCode, true, true)
-      const selector = `#open-temporary-drawer`
-      expect(
-        $(selector).getAttribute(`aria-label`),
-        `${selector} getAttribute aria-label`
-      ).to.have.lengthOf.above(1)
-      ;[
-        { selector: `#title`, text: `${languageCode} title` },
-        { selector: `#subtitle`, text: `${languageCode.toUpperCase()} SUBTITLE` },
-      ].forEach(({ selector, text }) => {
-        const element = $(selector)
-        expect(element.isDisplayedInViewport(), `${selector} isDisplayedInViewport`).to.be.true
-        expect(element.getText(), `${selector} getText`).to.equal(text)
+  it(`should not render an empty primary Appbar`, () => {
+    navigate({
+      languageCode: `en`,
+      isMobile: `false`,
+      secondaryToolbar: `secondaryToolbar`,
+      responsiveToolbar: `responsiveToolbar`,
+    })
+    expectToRender({
+      "#logo": { text: `logo` },
+      "#primary-appbar": { displayed: false },
+      "#open-temporary-drawer": { displayed: false },
+      "#primaryToolbar": { displayed: false },
+      "#secondaryToolbar": { text: `secondaryToolbar` },
+      "#responsiveToolbar": { text: `responsiveToolbar` },
+    })
+  })
+  it(`should not render an empty secondary toolbar`, () => {
+    ;[true, false].forEach(isMobile => {
+      navigate({
+        languageCode: `en`,
+        isMobile: isMobile ? `true` : `false`,
+        primaryToolbar: `primaryToolbar`,
       })
+      expectToRender({
+        "#logo": { text: `logo` },
+        "#open-temporary-drawer": { displayed: isMobile },
+        "#primaryToolbar": { text: `primaryToolbar` },
+        "#secondary-toolbar-content": { displayed: false },
+        "#secondaryToolbar": { displayed: false },
+        "#responsiveToolbar": { displayed: false },
+      })
+    })
+    navigate({
+      languageCode: `en`,
+      isMobile: `true`,
+      primaryToolbar: `primaryToolbar`,
+      responsiveToolbar: `responsiveToolbar`,
+    })
+    expectToRender({
+      "#logo": { text: `logo` },
+      "#open-temporary-drawer": { displayed: true },
+      "#primaryToolbar": { text: `primaryToolbar` },
+      "#secondary-toolbar-content": { displayed: false },
+      "#secondaryToolbar": { displayed: false },
+      "#responsiveToolbar": { text: `responsiveToolbar` },
     })
   })
   it(`should open the drawer`, () => {
-    navigate(`en`, true, true)
+    navigate({ languageCode: `en`, isMobile: `true` })
     const button = $(`#open-temporary-drawer`)
-    const count = $(`#count`)
-    function expectCount (text) {
-      expect(count.getText(), `#count getText`).to.equal(text)
-    }
-    expectCount(`0`)
+    expectToRender({ "#count": { text: `0` } })
     button.click()
-    expectCount(`1`)
+    expectToRender({ "#count": { text: `1` } })
     button.click()
-    expectCount(`2`)
+    expectToRender({ "#count": { text: `2` } })
   })
 })

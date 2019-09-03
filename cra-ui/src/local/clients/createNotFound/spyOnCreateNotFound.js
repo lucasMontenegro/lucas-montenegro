@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, Fragment } from "react"
 import { makeStyles } from "@material-ui/styles"
 import Typography from "@material-ui/core/Typography"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -32,14 +32,7 @@ const links = {
 }
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: 16,
-    minHeight: `calc(100vh - 48px)`,
-    display: `flex`,
-    alignItems: `center`,
-    justifyContent: `center`,
-  },
-  message: {
-    flexBasis: 600,
+    maxWidth: 600,
   },
   referrer: {
     margin: 16,
@@ -50,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     margin: 16,
     textAlign: `right`,
   },
-}))
+}), { name: `NotFound` })
 export default function spyOnCreateNotFound ({ createBaseClient }) {
   return function createNotFound (options) {
     const {
@@ -90,7 +83,7 @@ export default function spyOnCreateNotFound ({ createBaseClient }) {
         <BaseClient {...props} subtitles={subtitles} icons={icons}>
           <div className={classes.root}>
             {referrer.current ? (
-              <div className={classes.message}>
+              <Fragment>
                 <Typography id="error-message" variant="body1" color="textPrimary">
                   {messages.error[languageCode]}
                 </Typography>
@@ -107,9 +100,9 @@ export default function spyOnCreateNotFound ({ createBaseClient }) {
                     {links.close[languageCode]}
                   </Link>
                 </div>
-              </div>
+              </Fragment>
             ) : (
-              <div className={classes.message}>
+              <Fragment>
                 <Typography id="default-message" variant="body1" color="textPrimary">
                   {messages.default[languageCode]}
                 </Typography>
@@ -118,7 +111,7 @@ export default function spyOnCreateNotFound ({ createBaseClient }) {
                     {links.home[languageCode]}
                   </Link>
                 </div>
-              </div>
+              </Fragment>
             )}
           </div>
         </BaseClient>

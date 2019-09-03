@@ -1,0 +1,1 @@
+export default { pathname: `/examples/core/integrated/en/home` }

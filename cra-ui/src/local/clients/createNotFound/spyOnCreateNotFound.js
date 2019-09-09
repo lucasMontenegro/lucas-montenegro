@@ -2,6 +2,7 @@ import React, { useRef, Fragment } from "react"
 import { makeStyles } from "@material-ui/styles"
 import Typography from "@material-ui/core/Typography"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import supportedLanguages from "local/supportedLanguages"
 import makeTranslations from "local/makeTranslations"
 import { Link } from "local/core/links"
 const subtitles = makeTranslations({
@@ -11,9 +12,21 @@ const subtitles = makeTranslations({
 const icon = <FontAwesomeIcon icon={[`far`, `dizzy`]} />
 const icons = makeTranslations(() => icon)
 const messages = {
-  default: makeTranslations({
-    en: `Broken links redirect to this page. There is nothing to show you right now.`,
-    es: `Los links inservibles redirigen a esta página. Por ahora no hay nada para mostrar.`,
+  default: supportedLanguages.reduce((messages, languageCode) => {
+    messages[languageCode] = messages[languageCode].map((text, i) => ({
+      key: `${languageCode}${i}`,
+      text,
+    }))
+    return messages
+  }, {
+    en: [
+      `Broken links redirect to this page.`,
+      `There is nothing to show you right now.`,
+    ],
+    es: [
+      `Los links inservibles redirigen a esta página.`,
+      `Por ahora no hay nada para mostrar.`,
+    ],
   }),
   error: makeTranslations({
     en: `Couldn't find the page you where looking for:`,
@@ -103,9 +116,11 @@ export default function spyOnCreateNotFound ({ createBaseClient }) {
               </Fragment>
             ) : (
               <Fragment>
-                <Typography id="default-message" variant="body1" color="textPrimary">
-                  {messages.default[languageCode]}
-                </Typography>
+                <div id="default-message">
+                  {messages.default[languageCode].map(({ key, text }) => (
+                    <Typography key={key} variant="body1" color="textPrimary">{text}</Typography>
+                  ))}
+                </div>
                 <div className={classes.link}>
                   <Link id="go-to-home" to={routing.locations.home[languageCode]}>
                     {links.home[languageCode]}

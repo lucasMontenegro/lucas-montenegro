@@ -17,6 +17,10 @@ const useStyles = makeStyles({
   close: {
     textAlign: `right`,
   },
+  paper: {
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
 }, { name: `Drawer` })
 export default function Drawer ({ languageCode, width, viewState, navLinks, children }) {
   const classes = useStyles()
@@ -39,6 +43,7 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
     </Fragment>
   )
   const PaperProps = { style: { width } }
+  const drawerClasses = { paper: classes.paper }
   return (
     viewState.isMobile ? (
       <MuiDrawer
@@ -48,6 +53,7 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
         // Better open performance on mobile.
         // Doesn't work with portals
 
+        classes={drawerClasses}
         variant="temporary"
         open={viewState.drawer.isOpen}
         onClose={viewState.drawer.close}
@@ -57,7 +63,7 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
       </MuiDrawer>
     ) :
     (
-      <MuiDrawer id="permanent-drawer" variant="permanent" PaperProps={PaperProps}>
+      <MuiDrawer id="permanent-drawer" classes={drawerClasses} variant="permanent" PaperProps={PaperProps}>
         {content}
       </MuiDrawer>
     )

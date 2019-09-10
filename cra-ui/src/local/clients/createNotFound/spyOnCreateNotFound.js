@@ -2,9 +2,9 @@ import React, { useRef, Fragment } from "react"
 import { makeStyles } from "@material-ui/styles"
 import Typography from "@material-ui/core/Typography"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import supportedLanguages from "local/supportedLanguages"
 import makeTranslations from "local/makeTranslations"
 import { Link } from "local/core/links"
+import supportedLanguages from "local/supportedLanguages"
 const subtitles = makeTranslations({
   en: `Not Found`,
   es: `No Encontrado`,
@@ -71,7 +71,7 @@ export default function spyOnCreateNotFound ({ createBaseClient }) {
       initialLocation,
       linkTranslators,
     })
-    return function NotFound (props) {
+    function NotFound (props) {
       const classes = useStyles()
       const savedLocation = useRef(null)
       const referrer = useRef(``)
@@ -132,5 +132,7 @@ export default function spyOnCreateNotFound ({ createBaseClient }) {
         </BaseClient>
       )
     }
+    NotFound.propTypes = createBaseClient.clientPropTypes
+    return NotFound
   }
 }

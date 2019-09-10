@@ -1,4 +1,5 @@
 import supportedLanguages from "local/supportedLanguages"
+import PropTypes from "prop-types"
 const hashtable = supportedLanguages.reduce((hashtable, languageCode) => {
   hashtable[languageCode] = null
   return hashtable
@@ -26,4 +27,7 @@ export default function makeTranslations (translation, convert) {
     return translation
   }
   throw TypeError(`Expected object or function`)
+}
+export function makeTranslationsPropType (propType) {
+  return PropTypes.shape(makeTranslations(() => propType.isRequired))
 }

@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import i18n from "local/i18n"
+import PropTypes from "prop-types"
+import { languageCodePropType } from "local/supportedLanguages"
+import makeLocationPropType from "local/core/propTypes/makeLocationPropType"
 /*
 routing = {
   matchRoot,
@@ -103,3 +106,9 @@ export default function makeRouter (routing) {
     }
   }
 }
+export const matchPropType = PropTypes.shape({
+  type: PropTypes.oneOf([`booting`, `client`, `redirect`]).isRequired,
+  languageCode: languageCodePropType.isRequired,
+  clientName: PropTypes.string,
+  location: makeLocationPropType().isRequired,
+})

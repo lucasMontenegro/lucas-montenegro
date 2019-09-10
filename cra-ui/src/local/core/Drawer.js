@@ -5,6 +5,9 @@ import List from "@material-ui/core/List"
 import IconButton from "@material-ui/core/IconButton"
 import CloseIcon from "@material-ui/icons/Close"
 import makeTranslations from "local/makeTranslations"
+import PropTypes from "prop-types"
+import { languageCodePropType } from "local/supportedLanguages"
+import { viewStatePropType } from "local/core/useViewState"
 const navLabels = makeTranslations({
   en: `Navigation buttons`,
   es: `Botones de navegación`,
@@ -68,4 +71,11 @@ export default function Drawer ({ languageCode, width, viewState, navLinks, chil
       </MuiDrawer>
     )
   )
+}
+Drawer.propTypes = {
+  languageCode: languageCodePropType.isRequired,
+  width: PropTypes.number.isRequired,
+  viewState: viewStatePropType.isRequired,
+  navLinks: PropTypes.node,
+  children: PropTypes.node,
 }

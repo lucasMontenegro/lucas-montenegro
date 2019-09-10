@@ -4,7 +4,10 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import { Link } from "local/core/links"
-import makeTranslations from "local/makeTranslations"
+import PropTypes from "prop-types"
+import makeTranslations, { makeTranslationsPropType } from "local/makeTranslations"
+import { languageCodePropType } from "local/supportedLanguages"
+import makeLocationPropType from "local/core/propTypes/makeLocationPropType"
 const activeLabels = makeTranslations({
   en: `Active link`,
   es: `Link activo`,
@@ -46,4 +49,12 @@ export default function NavLink ({ linkId, active, languageCode, location, label
       </ListItemText>
     </ListItem>
   )
+}
+NavLink.propTypes = {
+  linkId: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+  languageCode: languageCodePropType.isRequired,
+  location: makeLocationPropType().isRequired,
+  labels: makeTranslationsPropType(PropTypes.string).isRequired,
+  icons: makeTranslationsPropType(PropTypes.node).isRequired,
 }

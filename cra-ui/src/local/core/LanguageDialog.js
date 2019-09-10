@@ -14,6 +14,7 @@ import Avatar from "@material-ui/core/Avatar"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "local/core/links"
 import makeTranslations from "local/makeTranslations"
+import { languageDialogStatePropType } from "local/core/makeLanguageDialogState"
 const links = makeTranslations({
   en: `English`,
   es: `Español`,
@@ -102,4 +103,7 @@ export default function LanguageDialog ({ state }) {
       </Dialog>
     </Fragment>
   )
+}
+LanguageDialog.propTypes = {
+  state: languageDialogStatePropType.isRequired,
 }

@@ -5,7 +5,10 @@ import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/styles"
 import IconButton from "@material-ui/core/IconButton"
 import MenuIcon from "@material-ui/icons/Menu"
-import makeTranslations from "local/makeTranslations"
+import PropTypes from "prop-types"
+import makeTranslations, { makeTranslationsPropType } from "local/makeTranslations"
+import { languageCodePropType } from "local/supportedLanguages"
+import { viewStatePropType } from "local/core/useViewState"
 const drawerButtonLabels = makeTranslations({
   en: `Open drawer`,
   es: `Abrir panel lateral`,
@@ -194,4 +197,16 @@ export default function Body (props) {
       <div className={classes.content}>{children}</div>
     </div>
   )
+}
+Body.propTypes = {
+  languageCode: languageCodePropType.isRequired,
+  drawerWidth: PropTypes.number.isRequired,
+  viewState: viewStatePropType.isRequired,
+  titles: makeTranslationsPropType(PropTypes.string).isRequired,
+  subtitles: makeTranslationsPropType(PropTypes.string).isRequired,
+  logo: PropTypes.node.isRequired,
+  primaryToolbar: PropTypes.node,
+  secondaryToolbar: PropTypes.node,
+  responsiveToolbar: PropTypes.node,
+  children: PropTypes.node,
 }

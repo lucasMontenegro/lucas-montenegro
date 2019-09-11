@@ -77,6 +77,7 @@ export default function createBaseClient (options) {
           <DrawerContent>{match && drawerContent}</DrawerContent>
           <ClientLink>
             <NavLink
+              linkId={`${appName}-${clientName}-navLink`}
               active={match}
               languageCode={languageCode}
               location={clientLocation}

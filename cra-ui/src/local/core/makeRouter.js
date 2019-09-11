@@ -61,7 +61,11 @@ export default function makeRouter (routing) {
       return newLanguage
     }
     if (booting) {
-      return { type: `booting`, languageCode: languageCode.current }
+      return {
+        type: `booting`,
+        languageCode: languageCode.current,
+        location,
+      }
     }
     if (routing.matchRoot(location)) {
       return {

@@ -8,6 +8,7 @@ import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeRouter from "local/core/makeRouter"
 import routing from "./integrated/routing"
+import makeLocationPropType from "local/core/propTypes/makeLocationPropType"
 const useStyles = makeStyles({
   root: {
     padding: 16,
@@ -32,7 +33,7 @@ const useStyles = makeStyles({
   },
 }, { name: `MakeRouterExample` })
 const initialLocation = { pathname: `` }
-function MakeRouterExample (props) {
+function MakeRouterExample () {
   const classes = useStyles()
   const [pathname, setPathname] = useState(``)
   function updatePathname (e) {
@@ -74,8 +75,8 @@ function MakeRouterExample (props) {
 }
 export default (<Route path="/examples/core/makeRouter" component={MakeRouterExample} />)
 const useRouter = makeRouter(routing)
-function MakeRouter (props) {
-  const match = useRouter(props.location)
+function MakeRouter ({ location }) {
+  const match = useRouter(location)
   if (match.type === `booting`) {
     return null
   }
@@ -99,3 +100,4 @@ function MakeRouter (props) {
     </Fragment>
   )
 }
+MakeRouter.propTypes = { location: makeLocationPropType().isRequired }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import { Route } from "react-router-dom"
 import { ThemeProvider } from "@material-ui/styles"
 import AppBar from "@material-ui/core/AppBar"
@@ -12,13 +12,9 @@ const translations = makeTranslations(
 function LanguageDialogExample (props) {
   const { languageCode } = props.match.params
   const [isOpen, setOpenState] = useState(false)
-  const translationsRef = useRef(null)
-  if (translationsRef.current === null && isOpen) {
-    translationsRef.current = translations
-  }
   const languageDialogState = {
     languageCode,
-    translations: translationsRef.current,
+    translations,
     isOpen,
     open () {
       setOpenState(true)

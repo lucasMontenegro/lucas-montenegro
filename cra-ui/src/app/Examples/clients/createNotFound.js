@@ -7,6 +7,9 @@ import Button from "@material-ui/core/Button"
 import makeTranslations from "local/makeTranslations"
 import { spyOnCreateNotFound } from "local/clients/createNotFound"
 import { Link } from "local/core/links"
+import PropTypes from "prop-types"
+import { languageCodePropType } from "local/supportedLanguages"
+import { makeTranslationsPropType } from "local/makeTranslations"
 const routing = {
   locations: {
     home: makeTranslations(languageCode => ({
@@ -128,8 +131,15 @@ function createBaseClientSpy (options) {
       justifyContent: `center`,
     },
   }, { name: `BaseClientSpy` })
-  return function BaseClientSpy (props) {
-    const { match, languageCode, subtitles, icons, children, anotherProp } = props
+  function BaseClientSpy (props) {
+    const {
+      match,
+      languageCode,
+      subtitles,
+      icons,
+      children,
+      anotherProp,
+    } = props
     const classes = useStyles()
     return (
       <div id="BaseClientSpy">
@@ -160,6 +170,15 @@ function createBaseClientSpy (options) {
       </div>
     )
   }
+  BaseClientSpy.propTypes = {
+    match: PropTypes.bool.isRequired,
+    languageCode: languageCodePropType.isRequired,
+    subtitles: makeTranslationsPropType(PropTypes.string).isRequired,
+    icons: makeTranslationsPropType(PropTypes.element).isRequired,
+    children: PropTypes.element.isRequired,
+    anotherProp: PropTypes.string.isRequired,
+  }
+  return BaseClientSpy
 }
 const createNotFound = spyOnCreateNotFound({ createBaseClient: createBaseClientSpy })
 const NotFound = createNotFound({

@@ -21,7 +21,13 @@ export default (
 function HandleRedirectExample (props) {
   const { type } = props.match.params
   return (
-    <HandleRedirect match={{ type, location: `/examples/core/HandleRedirect/target` }}>
+    <HandleRedirect
+      match={{
+        type,
+        languageCode: `en`,
+        location: { pathname: `/examples/core/HandleRedirect/target` },
+      }}
+    >
       <div id="message">did not redirect</div>
     </HandleRedirect>
   )

@@ -49,10 +49,10 @@ function UseViewStateExample () {
     </div>
   )
 }
-function UseViewStateExampleWrapper (props) {
+function UseViewStateExampleWrapper () {
   return (
     <ThemeProvider theme={theme}>
-      <UseViewStateExample {...props} />
+      <UseViewStateExample />
     </ThemeProvider>
   )
 }

@@ -39,7 +39,7 @@ function NavLinkExample () {
                       linkId={`nav-link-${active}-${languageCode}`}
                       active={active === `true`}
                       languageCode={languageCode}
-                      location="/examples/core/NavLink/target"
+                      location={{ pathname: `/examples/core/NavLink/target` }}
                       labels={labels}
                       icons={icons}
                     />

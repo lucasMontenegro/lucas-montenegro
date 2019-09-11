@@ -19,7 +19,7 @@ function TargetPage () {
 const components = { Link }
 const routes = [true, false].map(external => Object.keys(components).map(name => {
   const Component = components[name]
-  const to = external ? undefined : target
+  const to = external ? undefined : { pathname: target }
   const href = external ? target : undefined
   return {
     name: external ? `External${name}` : name,

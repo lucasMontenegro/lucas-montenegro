@@ -9,6 +9,9 @@ import Button from "@material-ui/core/Button"
 import makeClientLocation from "local/core/makeClientLocation"
 import linkTranslators from "./integrated/example/linkTranslators"
 import initialLocation from "./integrated/example/initialLocation"
+import PropTypes from "prop-types"
+import { languageCodePropType } from "local/supportedLanguages"
+import makeLocationPropType from "local/core/propTypes/makeLocationPropType"
 const useStyles = makeStyles({
   root: {
     padding: 32,
@@ -112,4 +115,9 @@ function UseClientLocation ({ match, languageCode, location }) {
       </div>
     </Fragment>
   )
+}
+UseClientLocation.propTypes = {
+  match: PropTypes.bool.isRequired,
+  languageCode: languageCodePropType.isRequired,
+  location: makeLocationPropType().isRequired,
 }

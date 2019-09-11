@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { createBluePortal, createRedPortal } from "local/core/portals"
+import PropTypes from "prop-types"
 const clientNames = [`Foo`, `Bar`]
 const mountingPoints = [`Left`, `Right`]
 const portals = clientNames.reduce((byClientName, clientName) => {
@@ -84,7 +85,7 @@ function PortalExample () {
             Mount/Unmount Blue Portals
           </Button>
         </div>
-        <Border className={classes.bluePortals}>
+        <Border>
           <div id="bluePortals">
             {bluePortals.mounted && clients.map(({ key, Client }) => (
               <Client key={key} rootInput={text.value} />
@@ -101,7 +102,7 @@ function PortalExample () {
             Mount/Unmount Red Portals
           </Button>
         </div>
-        <Border className={classes.redPortals}>
+        <Border>
           {redPortals.mounted && (
             <div id="redPortals" className={classes.columns}>
               {mountingPoints.map(mountingPoint => (
@@ -129,9 +130,8 @@ const useClientStyles = makeStyles({
     },
   },
 }, { name: `PortalExampleClient` })
-const clients = clientNames.map(clientName => ({
-  key: clientName,
-  Client: function PortalExampleClient ({ rootInput }) {
+const clients = clientNames.map(clientName => {
+  function PortalExampleClient ({ rootInput }) {
     const cid = useCid()
     const input = {}
     input.Left = useTextInput()
@@ -172,8 +172,13 @@ const clients = clientNames.map(clientName => ({
         })}
       </Fragment>
     )
-  },
-}))
+  }
+  PortalExampleClient.propTypes = { rootInput: PropTypes.string.isRequired }
+  return {
+    key: clientName,
+    Client: PortalExampleClient,
+  }
+})
 const useInputStyles = makeStyles({
   root: {
     width: `200px`,
@@ -191,13 +196,22 @@ function Input (props) {
     </Paper>
   )
 }
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+}
 const useBorderStyles = makeStyles({
   root: {
     border: `1px solid #37d278`,
     borderRadius: 5,
   },
 }, { name: `Border` })
-function Border ({ className, ...other }) {
+function Border ({ className, children }) {
   const classes = useBorderStyles()
-  return <div {...other} className={className ? `${classes.root} ${className}` : classes.root} />
+  return <div className={`${classes.root} ${className}`}>{children}</div>
+}
+Border.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 }

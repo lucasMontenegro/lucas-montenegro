@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import makeUniqueRef from "local/core/portals/makeUniqueRef"
+import PropTypes from "prop-types"
 function MakeUniqueRefExample (props) {
   const Component = (
     props.match.params.nodeEnv === `production` ? MakeUniqueRefProduction :
@@ -25,6 +26,10 @@ class ErrorBoundary extends React.Component {
   render () {
     return <div id={`boundary${this.props.id}`}>{this.state.error || this.props.children }</div>
   }
+}
+ErrorBoundary.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
 }
 const useUniqueRefDevelopment = makeUniqueRef(`DevelopmentExample`)
 function MakeUniqueRefDevelopment () {

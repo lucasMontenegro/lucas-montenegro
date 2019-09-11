@@ -102,7 +102,7 @@ export default function createBaseClient (options) {
   }
   return BaseClient
 }
-createBaseClient.clientPropTypes = {
+export const clientPropTypes = createBaseClient.clientPropTypes = {
   match: PropTypes.bool.isRequired,
   languageCode: languageCodePropType.isRequired,
   location: makeLocationPropType().isRequired,

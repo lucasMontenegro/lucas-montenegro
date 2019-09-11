@@ -1,4 +1,4 @@
-const { expect } = require("./chai")
+const { expect } = require("local/chai")
 describe(`local/throwPropTypeErrors`, () => {
   it(`should not render`, () => {
     browser.url(`/examples/throwPropTypeErrors/it-works`)

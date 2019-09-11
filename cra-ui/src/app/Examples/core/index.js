@@ -11,7 +11,7 @@ import languageDialog from "./languageDialog"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState/example"
 import body from "./body"
 import integrated from "./integrated"
-import makeClientLocation from "./makeClientLocation"
+import makeClientLocation from "local/core/makeClientLocation/example"
 function CoreExamples () {
   return (
     <Switch>

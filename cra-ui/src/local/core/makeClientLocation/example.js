@@ -6,9 +6,9 @@ import CardContent from "@material-ui/core/CardContent"
 import CardActions from "@material-ui/core/CardActions"
 import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
+import makeTranslations from "local/makeTranslations"
 import makeClientLocation from "local/core/makeClientLocation"
-import linkTranslators from "./integrated/example/linkTranslators"
-import initialLocation from "./integrated/example/initialLocation"
+import makePathname from "./makePathname"
 import PropTypes from "prop-types"
 import { languageCodePropType } from "local/supportedLanguages"
 import makeLocationPropType from "local/core/propTypes/makeLocationPropType"
@@ -34,15 +34,29 @@ const useStyles = makeStyles({
     },
   },
 }, { name: `MakeClientLocationExample` })
-const useClientLocation = makeClientLocation({ initialLocation, linkTranslators })
+const useClientLocation = makeClientLocation({
+  initialLocation: { pathname: makePathname.example(`en`, `0`) },
+  linkTranslators: makeTranslations(languageCode => {
+    const str = `/${languageCode}/example/`
+    const re = new RegExp(`^.{${str.length}}(\\d+)$`)
+    return {
+      toIntl({ pathname }) {
+        return re.exec(pathname)[1]
+      },
+      toLocal(foo) {
+        return { pathname: `${str}${foo}` }
+      },
+    }
+  }),
+})
 const initialState = {
   languageCode: `en`,
-  foo: ``,
-  mounted: false,
+  foo: `0`,
+  mounted: true,
   props: {
     match: false,
     languageCode: `en`,
-    location: { pathname: `/examples/core/integrated/en/home` },
+    location: { pathname: makePathname.home(`en`) },
   },
 }
 function MakeClientLocationExample () {
@@ -50,7 +64,9 @@ function MakeClientLocationExample () {
   const [state, setState] = useState(initialState)
   const { languageCode, foo, mounted } = state
   const match = /^\d+$/.test(foo)
-  const pathname = `/examples/core/integrated/${languageCode}/${match ? `example/${foo}` : `home`}`
+  const pathname = (
+    match ? makePathname.example(languageCode, foo) : makePathname.home(languageCode)
+  )
   const update = {
     languageCode (e) {
       const languageCode = e.target.value
@@ -65,37 +81,38 @@ function MakeClientLocationExample () {
     },
     props () {
       setState(state => ({ ...state, props: { match, languageCode, location: { pathname } } }))
-    }
+    },
   }
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
         <CardContent className={classes.content}>
-          <TextField
-            id="languageCode"
-            label="languageCode"
-            value={languageCode}
-            onChange={update.languageCode}
-            margin="normal"
-          />
-          <TextField
-            id="foo"
-            label="foo"
-            value={foo}
-            onChange={update.foo}
-            margin="normal"
-          />
+          {[
+            { name: `languageCode`, value: languageCode },
+            { name: `foo`, value: foo },
+          ].map(({ name, value }) => (
+            <TextField
+              key={name}
+              id={name}
+              label={name}
+              value={value}
+              onChange={update[name]}
+              margin="normal"
+            />
+          ))}
           <div>match: <span id="match">{match ? `true` : `false`}</span></div>
           <div>mounted: <span id="mounted">{mounted ? `true` : `false`}</span></div>
           {mounted && <UseClientLocation {...state.props} />}
         </CardContent>
         <CardActions className={classes.actions}>
-          <Button id="navigate" variant="outlined" color="primary" onClick={update.props}>
-            NAVIGATE
-          </Button>
-          <Button id="toggleMounted" variant="outlined" color="primary" onClick={update.mounted}>
-            MOUNT/UNMOUNT
-          </Button>
+          {[
+            { id: `navigate`, onClick: update.props, text: `NAVIGATE` },
+            { id: `toggleMounted`, onClick: update.mounted, text: `MOUNT/UNMOUNT` },
+          ].map(({ id, onClick, text }) => (
+            <Button key={id} id={id} variant="outlined" color="primary" onClick={onClick}>
+              {text}
+            </Button>
+          ))}
         </CardActions>
       </Card>
     </div>

@@ -25,6 +25,10 @@ exports.config = {
     base: [
       `src/local/throwPropTypeErrors/throwPropTypeErrors.wdio.js`,
     ],
+    core: [
+      `src/local/core/makeClientLocation/makeClientLocation.wdio.js`,
+      `src/local/core/makeLanguageDialogState/makeLanguageDialogState.wdio.js`,
+    ],
     /**
     core: [
       `./tests/core/Body.test.js`,
@@ -32,8 +36,6 @@ exports.config = {
       `./tests/core/HandleRedirect.test.js`,
       `./tests/core/LanguageDialog.test.js`,
       `./tests/core/links.test.js`,
-      `./tests/core/makeClientLocation.test.js`,
-      `./tests/core/makeLanguageDialogState.test.js`,
       `./tests/core/makeRouter.test.js`,
       `./tests/core/NavLink.test.js`,
       `./tests/core/portals.test.js`,

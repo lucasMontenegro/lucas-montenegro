@@ -29,7 +29,6 @@ exports.config = {
             './tests/core/LanguageDialog.test.js',
             './tests/core/links.test.js',
             './tests/core/makeClientLocation.test.js',
-            './tests/core/makeLanguageDialogState.test.js',
             './tests/core/makeRouter.test.js',
             './tests/core/NavLink.test.js',
             './tests/core/portals.test.js',

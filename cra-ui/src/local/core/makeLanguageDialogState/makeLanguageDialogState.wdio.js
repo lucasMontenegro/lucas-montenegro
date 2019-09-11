@@ -1,8 +1,7 @@
-const { expect } = require("../chai")
-const supportedLanguages = require("../supportedLanguages")
-function makePathname (languageCode, foo) {
-  return `/examples/core/integrated/${languageCode}/example/${foo}`
-}
+import { expect } from "local/wdio/chai"
+import addInputText from "local/wdio/addInputText"
+import supportedLanguages from "local/supportedLanguages"
+import makePathname from "./makePathname"
 describe(`local/core/makeLanguageDialogState`, () => {
   let expectToRender, open, close, navigate
   const initialValues = {
@@ -15,15 +14,15 @@ describe(`local/core/makeLanguageDialogState`, () => {
     {
       const pathname = $(`#pathname`)
       const isOpen = $(`#isOpen`)
-      const links = supportedLanguages.map(languageCode => ({
+      const translations = supportedLanguages.map(languageCode => ({
         languageCode,
-        element: $(`#pathname-${languageCode}`),
-        message: `#pathname-${languageCode} getText`,
+        element: $(`#translation-${languageCode}`),
+        message: `#translation-${languageCode} getText`,
       }))
       expectToRender = function expectToRender (expected) {
         expect(pathname.getText(), `#pathname getText`).to.equal(expected.pathname)
         expect(isOpen.getText(), `#isOpen getText`).to.equal(expected.isOpen)
-        links.forEach(({ languageCode, element, message }) => {
+        translations.forEach(({ languageCode, element, message }) => {
           expect(element.getText(), message).to.equal(makePathname(languageCode, expected.foo))
         })
       }
@@ -42,14 +41,9 @@ describe(`local/core/makeLanguageDialogState`, () => {
     }
     {
       const button = $(`#navigate`)
-      const elements = { languageCode: $(`#languageCode`), foo: $(`#foo`) }
-      function addValue (element, str) {
-        element.addValue(new Array(element.getValue().length).fill('Backspace'))
-        element.addValue(str)
-      }
-      navigate = function navigate (languageCode, foo) {
-        addValue(elements.languageCode, languageCode)
-        addValue(elements.foo, foo)
+      const elements = [$(`#languageCode`), $(`#foo`)]
+      navigate = function navigate (...args) {
+        elements.forEach((element, i) => addInputText(element, args[i]))
         button.click()
       }
     }
@@ -58,11 +52,11 @@ describe(`local/core/makeLanguageDialogState`, () => {
     expectToRender(initialValues)
   })
   it(`should open and close`, () => {
-    const openValues = { ...initialValues, isOpen: `true` }
+    const values = { ...initialValues, isOpen: `true` }
     open()
-    expectToRender(openValues)
+    expectToRender(values)
     open()
-    expectToRender(openValues)
+    expectToRender(values)
     close()
     expectToRender(initialValues)
     close()
@@ -81,12 +75,12 @@ describe(`local/core/makeLanguageDialogState`, () => {
   it(`should update`, () => {
     supportedLanguages.forEach(languageCode => {
       ;[
-        { foo: `6345`, shouldOpen: true },
-        { foo: `983`, shouldOpen: false },
-      ].forEach(({ foo, shouldOpen }) => {
-        shouldOpen ? close() : open()
+        { foo: `6345`, startClosed: true },
+        { foo: `983`, startClosed: false },
+      ].forEach(({ foo, startClosed }) => {
+        startClosed ? close() : open()
         navigate(languageCode, foo)
-        shouldOpen && open()
+        startClosed && open()
         expectToRender({
           pathname: makePathname(languageCode, foo),
           foo,

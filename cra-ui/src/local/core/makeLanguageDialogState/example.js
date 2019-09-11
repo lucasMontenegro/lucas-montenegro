@@ -8,8 +8,8 @@ import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState"
 import supportedLanguages from "local/supportedLanguages"
-import linkTranslators from "./integrated/example/linkTranslators"
-import initialLocation from "./integrated/example/initialLocation"
+import makeTranslations from "local/makeTranslations"
+import makePathname from "./makePathname"
 const useStyles = makeStyles({
   root: {
     padding: 32,
@@ -32,14 +32,32 @@ const useStyles = makeStyles({
     },
   },
 }, { name: `MakeLanguageDialogStateExample` })
-const useLanguageDialogState = makeLanguageDialogState({ initialLocation, linkTranslators })
-const initialState = { languageCode: `en`, foo: `0`, location: initialLocation }
+const initialState = {
+  languageCode: `en`,
+  foo: `0`,
+  location: { pathname: makePathname(`en`, `0`) },
+}
+const useLanguageDialogState = makeLanguageDialogState({
+  initialLocation: initialState.location,
+  linkTranslators: makeTranslations(languageCode => {
+    const str = `/${languageCode}/example/`
+    const re = new RegExp(`^.{${str.length}}(\\d+)$`)
+    return {
+      toIntl({ pathname }) {
+        return re.exec(pathname)[1]
+      },
+      toLocal(foo) {
+        return { pathname: `${str}${foo}` }
+      },
+    }
+  }),
+})
 function MakeLanguageDialogStateExample () {
   const classes = useStyles()
   const [state, setState] = useState(initialState)
   const { languageCode, foo, location } = state
+  const pathname = makePathname(languageCode, foo)
   const languageDialogState = useLanguageDialogState(languageCode, location)
-  const pathname = `/examples/core/integrated/${languageCode}/example/${foo}`
   const update = {
     languageCode (e) {
       const languageCode = e.target.value
@@ -51,26 +69,25 @@ function MakeLanguageDialogStateExample () {
     },
     location () {
       setState(state => ({ ...state, location: { pathname } }))
-    }
+    },
   }
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
         <CardContent className={classes.content}>
-          <TextField
-            id="languageCode"
-            label="languageCode"
-            value={languageCode}
-            onChange={update.languageCode}
-            margin="normal"
-          />
-          <TextField
-            id="foo"
-            label="foo"
-            value={foo}
-            onChange={update.foo}
-            margin="normal"
-          />
+          {[
+            { name: `languageCode`, value: languageCode },
+            { name: `foo`, value: foo },
+          ].map(({ name, value }) => (
+            <TextField
+              key={name}
+              id={name}
+              label={name}
+              value={value}
+              onChange={update[name]}
+              margin="normal"
+            />
+          ))}
           <div>pathname: <span id="pathname">{pathname}</span></div>
           <div>
             isOpen: &nbsp;
@@ -78,37 +95,28 @@ function MakeLanguageDialogStateExample () {
           </div>
           <ul>
             {supportedLanguages.map(languageCode => (
-              <li key={languageCode} id={`pathname-${languageCode}`}>
+              <li key={languageCode} id={`translation-${languageCode}`}>
                 {languageDialogState.translations[languageCode].pathname}
               </li>
             ))}
           </ul>
         </CardContent>
         <CardActions className={classes.actions}>
-          <Button
-            id="open"
-            variant="outlined"
-            color="primary"
-            onClick={languageDialogState.open}
-          >
-            OPEN
-          </Button>
-          <Button
-            id="close"
-            variant="outlined"
-            color="primary"
-            onClick={languageDialogState.close}
-          >
-            CLOSE
-          </Button>
-          <Button
-            id="navigate"
-            variant="outlined"
-            color="primary"
-            onClick={update.location}
-          >
-            NAVIGATE
-          </Button>
+          {[
+            { id: `open`, onClick: languageDialogState.open, text: `OPEN` },
+            { id: `close`, onClick: languageDialogState.close, text: `CLOSE` },
+            { id: `navigate`, onClick: update.location, text: `NAVIGATE` },
+          ].map(({ id, onClick, text }) => (
+            <Button
+              key={id}
+              id={id}
+              variant="outlined"
+              color="primary"
+              onClick={onClick}
+            >
+              {text}
+            </Button>
+          ))}
         </CardActions>
       </Card>
     </div>

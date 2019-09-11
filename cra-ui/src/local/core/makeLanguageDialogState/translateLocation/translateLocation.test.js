@@ -1,4 +1,4 @@
-import translateLocation from "./translateLocation"
+import translateLocation from "./index"
 jest.mock("local/supportedLanguages", () => ({
   __esModule: true,
   default: [`en`, `es`],

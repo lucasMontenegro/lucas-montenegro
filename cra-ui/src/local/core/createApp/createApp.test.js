@@ -1,5 +1,6 @@
 import React, { Fragment } from "react"
 import renderer from "react-test-renderer"
+
 jest.mock(`@material-ui/styles`, () => ({
   __esModule: true,
   ThemeProvider (props) {
@@ -11,7 +12,9 @@ jest.mock(`@material-ui/styles`, () => ({
     )
   },
 }))
+
 jest.mock(`local/darkTheme`, () => ({ __esModule: true, default: `darkTheme` }))
+
 jest.mock(`local/core/makeRouter`, () => ({ __esModule: true, default: jest.fn() }))
 import makeRouter from "local/core/makeRouter"
 makeRouter.mockImplementation(
@@ -21,6 +24,7 @@ makeRouter.mockImplementation(
     }
   }
 )
+
 jest.mock(`local/core/HandleRedirect`, () => ({
   __esModule: true,
   default: function HandleRedirect (props) {
@@ -32,12 +36,14 @@ jest.mock(`local/core/HandleRedirect`, () => ({
     )
   },
 }))
+
 jest.mock(`local/core/useViewState`, () => ({
   __esModule: true,
   default: function useViewState (mobileBreakpoint) {
     return mobileBreakpoint
   },
 }))
+
 jest.mock(`local/core/Drawer`, () => ({
   __esModule: true,
   default: function Drawer (props) {
@@ -50,6 +56,7 @@ jest.mock(`local/core/Drawer`, () => ({
     )
   },
 }))
+
 jest.mock(`local/core/portals`, () => ({ __esModule: true, createRedPortal: jest.fn() }))
 import { createRedPortal } from "local/core/portals"
 createRedPortal.mockImplementation(function createRedPortal (name) {
@@ -62,31 +69,34 @@ createRedPortal.mockImplementation(function createRedPortal (name) {
     )
   }
 })
+
 jest.mock(`local/core/BareLi`, () => ({ __esModule: true, default: `BareLi` }))
+
+const clientNames = [`foo`, `bar`, `baz`]
+const options = {
+  clients: clientNames.reduce((clients, name) => {
+    clients[name] = function Client (props) {
+      return (
+        <div className={`client ${name}`}>
+          <div>{JSON.stringify(props.match)}</div>
+          <div>{props.languageCode}</div>
+          <div className="location-type">{props.location.type}</div>
+          <div>{props.viewState}</div>
+          <div>{props.drawerWidth}</div>
+          <div>{props.logo}</div>
+          <div>{props.titles}</div>
+        </div>
+      )
+    }
+    return clients
+  }, {}),
+  routing: `routing`,
+  logo: `logo`,
+  titles: `titles`,
+}
+
 import createApp from "local/core/createApp"
 describe(`local/core/createApp`, () => {
-  const clientNames = [`foo`, `bar`, `baz`]
-  const options = {
-    clients: clientNames.reduce((clients, name) => {
-      clients[name] = function Client (props) {
-        return (
-          <div className={`client ${name}`}>
-            <div>{JSON.stringify(props.match)}</div>
-            <div>{props.languageCode}</div>
-            <div className="location-type">{props.location.type}</div>
-            <div>{props.viewState}</div>
-            <div>{props.drawerWidth}</div>
-            <div>{props.logo}</div>
-            <div>{props.titles}</div>
-          </div>
-        )
-      }
-      return clients
-    }, {}),
-    routing: `routing`,
-    logo: `logo`,
-    titles: `titles`,
-  }
   it(`should create the App component`, () => {
     const App = createApp({ ...options, name: `name1` })
     expect(App).toBeInstanceOf(Function)

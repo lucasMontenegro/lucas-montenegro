@@ -37,6 +37,9 @@ export default function createApp (options) {
   function App ({ location }) {
     const match = useRouter(location)
     const viewState = useViewState(mobileBreakpoint)
+    if (match.type === `initializing`) {
+      return null
+    }
     const matchClient = match.type === `client`
     return (
       <HandleRedirect match={match}>

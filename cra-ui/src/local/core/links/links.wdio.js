@@ -1,5 +1,5 @@
-const { expect } = require("../chai")
-const baseUrl = require("../baseUrl")
+import { expect } from "local/wdio/chai"
+import baseUrl from "local/wdio/baseUrl"
 const targetPath = `/examples/core/links/TargetPage`
 function expectId ({ id, external }) {
   const elem = $(`#instance-id`)

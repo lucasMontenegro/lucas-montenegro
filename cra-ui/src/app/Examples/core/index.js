@@ -1,6 +1,6 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
-import links from "./links"
+import links from "local/core/links/example"
 import drawer from "local/core/Drawer/example"
 import useViewState from "./useViewState"
 import navLink from "./navLink"

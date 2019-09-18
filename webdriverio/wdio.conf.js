@@ -23,7 +23,6 @@ exports.config = {
     ],
     suites: {
         core: [
-            './tests/core/LanguageDialog.test.js',
             './tests/core/links.test.js',
             './tests/core/NavLink.test.js',
             './tests/core/useViewState.test.js',

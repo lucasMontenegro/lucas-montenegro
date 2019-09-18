@@ -1,6 +1,6 @@
-const { expect } = require("../chai")
-const supportedLanguages = require("../supportedLanguages")
-const baseUrl = require("../baseUrl")
+import { expect } from "local/wdio/chai"
+import supportedLanguages from "local/supportedLanguages"
+import baseUrl from "local/wdio/baseUrl"
 describe(`local/core/LanguageDialog`, () => {
   it(`should render the button`, () => {
     supportedLanguages.forEach(languageCode => {

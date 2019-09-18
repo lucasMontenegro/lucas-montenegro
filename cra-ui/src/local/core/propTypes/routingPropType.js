@@ -11,10 +11,13 @@ export default PropTypes.shape({
     languageCode: languageCodePropType.isRequired,
     clientName: PropTypes.string.isRequired,
     match: PropTypes.func.isRequired,
-  })),
+  })).isRequired,
   languageRoutes: PropTypes.shape({
-    root: routesArrayPropType,
-    notFound: routesArrayPropType,
-  }),
-  locations: PropTypes.objectOf(linkTranslationsPropType),
+    root: languageRoutePropType.isRequired,
+    notFound: languageRoutePropType.isRequired,
+  }).isRequired,
+  locations: PropTypes.shape({
+    home: linkTranslationsPropType.isRequired,
+    notFound: linkTranslationsPropType.isRequired,
+  }).isRequired,
 })

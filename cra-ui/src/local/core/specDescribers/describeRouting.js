@@ -164,5 +164,11 @@ export default function describeRouting (opts) {
         })
       })
     })
+    it(`should not have notFound locations with state property`, () => {
+      // location.state is used for storing a referrer location
+      Object.values(routing.locations.notFound).forEach(location => {
+        expect(location).not.toHaveProperty(`state`)
+      })
+    })
   })
 }

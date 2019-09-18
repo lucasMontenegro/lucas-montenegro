@@ -28,14 +28,9 @@ exports.config = {
             './tests/core/HandleRedirect.test.js',
             './tests/core/LanguageDialog.test.js',
             './tests/core/links.test.js',
-            './tests/core/makeClientLocation.test.js',
-            './tests/core/makeRouter.test.js',
             './tests/core/NavLink.test.js',
             './tests/core/portals.test.js',
             './tests/core/useViewState.test.js',
-        ],
-        clients: [
-            './tests/clients/createNotFound.test.js',
         ],
     },
     // Patterns to exclude.

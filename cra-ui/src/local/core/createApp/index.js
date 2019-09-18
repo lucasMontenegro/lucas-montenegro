@@ -70,10 +70,6 @@ export default function createApp (options) {
       </HandleRedirect>
     )
   }
-  if (process.env.NODE_ENV !== `test`) {
-    App.propTypes = {
-      location: makeLocationPropType().isRequired,
-    }
-  }
+  App.propTypes = { location: makeLocationPropType().isRequired }
   return App
 }

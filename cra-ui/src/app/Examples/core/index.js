@@ -1,7 +1,7 @@
 import React from "react"
 import { Switch, Route } from "react-router-dom"
 import links from "./links"
-import drawer from "./drawer"
+import drawer from "local/core/Drawer/example"
 import useViewState from "./useViewState"
 import navLink from "./navLink"
 import portals from "local/core/portals/example"

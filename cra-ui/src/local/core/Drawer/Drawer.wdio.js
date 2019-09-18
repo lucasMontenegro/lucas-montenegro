@@ -1,5 +1,5 @@
-const { expect } = require("../chai")
-const supportedLanguages = require("../supportedLanguages")
+import { expect } from "local/wdio/chai"
+import supportedLanguages from "local/supportedLanguages"
 const makeFoo = () => Math.floor(Math.random() * 1000000).toString()
 const makeWidth = () => (Math.floor(Math.random() * 100) + 200).toString()
 const makeUrl = (languageCode, isMobile, isOpen, foo, width) => (

@@ -10,7 +10,7 @@ jest.mock(`react-dom`, () => ({
     },
   },
 }))
-jest.mock(`./makeUniqueRef.js`, () => ({
+jest.mock(`./makeUniqueRef/index.js`, () => ({
   __esModule: true,
   default: jest.fn(),
 }))

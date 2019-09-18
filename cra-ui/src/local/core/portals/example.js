@@ -120,7 +120,7 @@ function PortalExample () {
     </Dialog>
   )
 }
-export default (<Route exact path="/examples/core/portals/main" component={PortalExample} />)
+export default (<Route exact path="/examples/core/portals" component={PortalExample} />)
 const useClientStyles = makeStyles({
   root: {
     margin: 10,

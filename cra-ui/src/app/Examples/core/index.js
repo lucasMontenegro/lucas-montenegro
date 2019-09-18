@@ -4,7 +4,8 @@ import links from "./links"
 import drawer from "./drawer"
 import useViewState from "./useViewState"
 import navLink from "./navLink"
-import portals from "./portals"
+import portals from "local/core/portals/example"
+import makeUniqueRef from "local/core/portals/makeUniqueRef/example"
 import makeRouter from "local/core/makeRouter/example"
 import handleRedirect from "./handleRedirect"
 import languageDialog from "./languageDialog"
@@ -20,6 +21,7 @@ function CoreExamples () {
       {useViewState}
       {navLink}
       {portals}
+      {makeUniqueRef}
       {makeRouter}
       {handleRedirect}
       {languageDialog}

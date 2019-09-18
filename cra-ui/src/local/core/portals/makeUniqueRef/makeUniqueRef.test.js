@@ -1,5 +1,5 @@
 import * as react from "react"
-import makeUniqueRef from "./makeUniqueRef"
+import makeUniqueRef from "./index"
 jest.mock(`react`, () => ({
   __esModule: true,
   useRef: jest.fn(),

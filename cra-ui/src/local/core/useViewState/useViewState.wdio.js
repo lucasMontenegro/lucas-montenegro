@@ -1,4 +1,4 @@
-const { expect } = require("../chai")
+import { expect } from "local/wdio/chai"
 describe(`local/core/useViewState`, () => {
   beforeEach(() => {
     browser.url(`/examples/core/useViewState`)

@@ -10,7 +10,7 @@ import makeRouter from "local/core/makeRouter/example"
 import handleRedirect from "local/core/HandleRedirect/example"
 import languageDialog from "./languageDialog"
 import makeLanguageDialogState from "local/core/makeLanguageDialogState/example"
-import body from "./body"
+import body from "local/core/Body/example"
 import integrated from "./integrated"
 import makeClientLocation from "local/core/makeClientLocation/example"
 function CoreExamples () {

@@ -1,5 +1,5 @@
-const { expect } = require("../chai")
-const supportedLanguages = require("../supportedLanguages")
+import { expect } from "local/wdio/chai"
+import supportedLanguages from "local/supportedLanguages"
 function navigate (values) {
   const search = [
     `languageCode`,

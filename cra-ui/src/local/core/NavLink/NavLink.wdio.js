@@ -1,6 +1,6 @@
-const { expect } = require("../chai")
-const supportedLanguages = require("../supportedLanguages")
-const baseUrl = require("../baseUrl")
+import { expect } from "local/wdio/chai"
+import supportedLanguages from "local/supportedLanguages"
+import baseUrl from "local/wdio/baseUrl"
 function expectToRender (active, languageCode) {
   const liSelector = `#li-${active}-${languageCode}`
   const li = $(liSelector)

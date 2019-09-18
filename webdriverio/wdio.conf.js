@@ -25,11 +25,9 @@ exports.config = {
         core: [
             './tests/core/Body.test.js',
             './tests/core/Drawer.test.js',
-            './tests/core/HandleRedirect.test.js',
             './tests/core/LanguageDialog.test.js',
             './tests/core/links.test.js',
             './tests/core/NavLink.test.js',
-            './tests/core/portals.test.js',
             './tests/core/useViewState.test.js',
         ],
     },

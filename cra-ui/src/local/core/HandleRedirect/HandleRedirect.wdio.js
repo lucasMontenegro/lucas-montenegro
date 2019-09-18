@@ -1,4 +1,4 @@
-const { expect } = require("../chai")
+import { expect } from "local/wdio/chai"
 function expectToRender (text) {
   const message = $(`#message`)
   expect(message.isDisplayed(), `#message isDisplayed`).to.be.true

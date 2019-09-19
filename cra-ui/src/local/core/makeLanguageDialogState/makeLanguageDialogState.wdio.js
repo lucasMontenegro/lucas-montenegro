@@ -1,5 +1,4 @@
 import { expect } from "chai"
-import addInputText from "local/wdio/addInputText"
 import supportedLanguages from "local/supportedLanguages"
 import makePathname from "./makePathname"
 describe(`local/core/makeLanguageDialogState`, () => {
@@ -43,7 +42,7 @@ describe(`local/core/makeLanguageDialogState`, () => {
       const button = $(`#navigate`)
       const elements = [$(`#languageCode`), $(`#foo`)]
       navigate = function navigate (...args) {
-        elements.forEach((element, i) => addInputText(element, args[i]))
+        elements.forEach((element, i) => element.setValue(args[i]))
         button.click()
       }
     }

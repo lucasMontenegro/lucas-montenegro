@@ -1,13 +1,12 @@
 import supportedLanguages from "local/supportedLanguages"
 import { expect } from "chai"
-import addInputText from "local/wdio/addInputText"
 function expectToRender (expected) {
   Object.keys(expected).forEach(selector => {
     expect($(selector).getText(), `${selector} getText`).to.equal(expected[selector])
   })
 }
 function setDetectedLanguage (str) {
-  addInputText($(`#languageCode`), str)
+  $(`#languageCode`).setValue(str)
   $(`#setDetectedLanguage`).click()
 }
 describe(`local/core/makeRouter`, () => {

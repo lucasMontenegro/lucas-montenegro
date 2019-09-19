@@ -73,7 +73,7 @@ describe(`local/core/portals`, () => {
   it(`should pass props down`, () => {
     expectToRender(initiallyExpected)
     const rootInput = Math.random().toString()
-    $(`#rootInput`).addValue(rootInput)
+    $(`#rootInput`).setValue(rootInput)
     expectToRender({ ...initiallyExpected, rootInput })
   })
   it(`should share props between portals`, () => {
@@ -82,7 +82,7 @@ describe(`local/core/portals`, () => {
       const obj = clientInput[mountingPoint] = {}
       clientNames.forEach(clientName => {
         const text = Math.random().toString()
-        $(`#clientInput${mountingPoint}${clientName}`).addValue(text)
+        $(`#clientInput${mountingPoint}${clientName}`).setValue(text)
         obj[clientName] = text
       })
     })

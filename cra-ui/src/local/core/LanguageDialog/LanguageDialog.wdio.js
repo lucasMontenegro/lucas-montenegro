@@ -1,6 +1,5 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 import supportedLanguages from "local/supportedLanguages"
-import baseUrl from "local/wdio/baseUrl"
 describe(`local/core/LanguageDialog`, () => {
   it(`should render the button`, () => {
     supportedLanguages.forEach(languageCode => {
@@ -63,7 +62,7 @@ describe(`local/core/LanguageDialog`, () => {
           const selector = `${liSelector} > div > span > a`
           const anchor = $(selector)
           expectDisplayed(anchor, selector)
-          const href = `${baseUrl}/examples/core/LanguageDialog/${languageCode}`
+          const href = `/examples/core/LanguageDialog/${languageCode}`
           expectTextAttribute(anchor, selector, `href`, href)
         }
       })

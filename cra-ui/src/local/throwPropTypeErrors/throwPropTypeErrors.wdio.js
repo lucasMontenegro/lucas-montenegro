@@ -1,4 +1,4 @@
-const { expect } = require("local/wdio/chai")
+import { expect } from "chai"
 describe(`local/throwPropTypeErrors`, () => {
   it(`should not render`, () => {
     browser.url(`/examples/throwPropTypeErrors/it-works`)

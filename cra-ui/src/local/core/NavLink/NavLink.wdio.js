@@ -1,6 +1,5 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 import supportedLanguages from "local/supportedLanguages"
-import baseUrl from "local/wdio/baseUrl"
 function expectToRender (active, languageCode) {
   const liSelector = `#li-${active}-${languageCode}`
   const li = $(liSelector)
@@ -19,7 +18,7 @@ function expectToRender (active, languageCode) {
     expect(
       navLink.getAttribute(`href`),
       `${liSelector} ${selector} getAttribute href`
-    ).to.equal(`${baseUrl}/examples/core/NavLink/target`)
+    ).to.equal(`/examples/core/NavLink/target`)
   }
   if (active) {
     const selector = `${liSelector} > div`

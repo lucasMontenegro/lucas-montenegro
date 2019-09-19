@@ -1,5 +1,5 @@
 import supportedLanguages from "local/supportedLanguages"
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 import addInputText from "local/wdio/addInputText"
 function expectToRender (expected) {
   Object.keys(expected).forEach(selector => {

@@ -1,4 +1,4 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 describe(`local/core/portals/makeUniqueRef`, () => {
   function expectToRender (expected) {
     expected.forEach(({ selector, text }) => {

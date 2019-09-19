@@ -1,6 +1,12 @@
-import { expect } from "local/wdio/chai"
-import baseUrl from "local/wdio/baseUrl"
+import { expect } from "chai"
+const { baseUrl } = browser.config
 const targetPath = `/examples/core/links/TargetPage`
+function waitForBody () {
+  $(`body`).waitForExist(1000)
+}
+function waitForMessage () {
+  $(`#message`).waitForExist(2000)
+}
 function expectId ({ id, external }) {
   const elem = $(`#instance-id`)
   expect(elem.isDisplayed(), `#instance-id isDisplayed`).to.be.true
@@ -24,6 +30,7 @@ function expectRenderCount (n) {
 }
 function expectToNavigate ({ selector, navigate, pathname, external }) {
   browser.url(pathname)
+  waitForBody()
   const id = expectId({ external })
   expectRenderCount(1)
   const link = $(`#link`)
@@ -41,6 +48,7 @@ function expectToNavigate ({ selector, navigate, pathname, external }) {
 }
 function expectToFocus (pathname) {
   browser.url(pathname)
+  waitForBody()
   const topButton = $(`#top-button`)
   topButton.click()
   expect(topButton.isFocused(), `#top-button isFocused`).to.be.true
@@ -51,10 +59,12 @@ function expectToFocus (pathname) {
 }
 function navigateWithClick () {
   $(`#link`).click()
+  waitForMessage()
 }
 function navigateWithKeyboard () {
   $(`#top-button`).click()
   browser.keys([`Tab`, `Enter`])
+  waitForMessage()
 }
 function describeSimpleList (name) {
   describe(name, () => {

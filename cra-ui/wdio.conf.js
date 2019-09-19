@@ -1,6 +1,4 @@
 exports.config = {
-  port: 9515, // default for ChromeDriver
-  path: `/`,
   //
   // ====================
   // Runner Configuration
@@ -18,33 +16,31 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: [
-    `./src/**/*.wdio.js`
-  ],
+  specs: [`./src/**/*.wdio.js`],
   suites: {
     base: [
       `src/local/throwPropTypeErrors/throwPropTypeErrors.wdio.js`,
     ],
+    browser: [
+      `src/app/Examples/browserSetWindowSize/browserSetWindowSize.wdio.js`,
+    ],
     core: [
+      `src/local/core/Body/Body.wdio.js`,
+      `src/local/core/Drawer/Drawer.wdio.js`,
+      `src/local/core/HandleRedirect/HandleRedirect.wdio.js`,
+      `src/local/core/LanguageDialog/LanguageDialog.wdio.js`,
+      `src/local/core/links/links.wdio.js`,
       `src/local/core/makeClientLocation/makeClientLocation.wdio.js`,
       `src/local/core/makeLanguageDialogState/makeLanguageDialogState.wdio.js`,
-    ],
-    /**
-    core: [
-      `./tests/core/Body.test.js`,
-      `./tests/core/Drawer.test.js`,
-      `./tests/core/HandleRedirect.test.js`,
-      `./tests/core/LanguageDialog.test.js`,
-      `./tests/core/links.test.js`,
-      `./tests/core/makeRouter.test.js`,
-      `./tests/core/NavLink.test.js`,
-      `./tests/core/portals.test.js`,
-      `./tests/core/useViewState.test.js`,
+      `src/local/core/makeRouter/makeRouter.wdio.js`,
+      `src/local/core/NavLink/NavLink.wdio.js`,
+      `src/local/core/portals/portals.wdio.js`,
+      `src/local/core/portals/makeUniqueRef/makeUniqueRef.wdio.js`,
+      `src/local/core/useViewState/useViewState.wdio.js`,
     ],
     clients: [
-      `./tests/clients/createNotFound.test.js`,
+      `src/local/clients/createNotFound/NotFoundView/NotFoundView.wdio.js`,
     ],
-    /**/
   },
   // Patterns to exclude.
   exclude: [
@@ -78,7 +74,7 @@ exports.config = {
     // 5 instances get started at a time.
     maxInstances: 1,
     //
-    browserName: `chrome`,
+    browserName: `firefox`,
     // If outputDir is provided WebdriverIO can capture driver session logs
     // it is possible to configure which logTypes to include/exclude.
     // excludeDriverLogs: [`*`], // pass `*` to exclude all driver session logs
@@ -131,7 +127,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: [`chromedriver`],
+  services: [`selenium-standalone`],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -164,6 +160,7 @@ exports.config = {
         }],
       ],
     })
+    require("chai").config.truncateThreshold = 0
   },
   //
   // =====
@@ -204,7 +201,7 @@ exports.config = {
    */
   // beforeCommand: function (commandName, args) {
   // },
-  
+
   /**
    * Hook that gets executed before the suite starts
    * @param {Object} suite suite details
@@ -241,7 +238,7 @@ exports.config = {
    */
   // afterSuite: function (suite) {
   // },
-  
+
   /**
    * Runs after a WebdriverIO command gets executed
    * @param {String} commandName hook command name

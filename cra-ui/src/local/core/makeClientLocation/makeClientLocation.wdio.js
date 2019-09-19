@@ -1,4 +1,4 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 import addInputText from "local/wdio/addInputText"
 import supportedLanguages from "local/supportedLanguages"
 import makePathname from "./makePathname"

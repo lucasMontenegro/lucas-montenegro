@@ -1,9 +1,8 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 import supportedLanguages from "local/supportedLanguages"
-import baseUrl from "local/wdio/baseUrl"
 function makeUrl (languageCode, hidden, referrer) {
   return (
-    `${baseUrl}/examples/clients/createNotFound/NotFoundView/${languageCode}/${hidden}/${referrer}`
+    `/examples/clients/createNotFound/NotFoundView/${languageCode}/${hidden}/${referrer}`
   )
 }
 describe(`local/clients/createNotFound`, () => {
@@ -22,11 +21,10 @@ describe(`local/clients/createNotFound`, () => {
         expect(element.isDisplayed(), `${selector} isDisplayed`).to.be.true
         expect(element.getText(), `${selector} getText`).to.have.lengthOf.above(1)
       }
-      expectLink = function expectLink (selector, value) {
+      expectLink = function expectLink (selector, href) {
         const element = $(selector)
         expect(element.isDisplayed(), `${selector} isDisplayed`).to.be.true
-        expect(element.getAttribute(`href`), `${selector} getAttribute href`)
-          .to.equal(`${baseUrl}${value}`)
+        expect(element.getAttribute(`href`), `${selector} getAttribute href`).to.equal(href)
         expect(element.getText(), `${selector} getText`).to.have.lengthOf.above(1)
       }
     })

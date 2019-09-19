@@ -1,4 +1,4 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 import supportedLanguages from "local/supportedLanguages"
 function navigate (values) {
   const search = [
@@ -50,10 +50,6 @@ describe(`local/core/Body`, () => {
     supportedLanguages.forEach(languageCode => {
       responsivity.forEach(({ widths, isMobile }) => {
         widths.forEach(width => {
-          if (width < 396) {
-            console.log(`width < 396 not supported`)
-            return
-          }
           browser.setWindowSize(width, 500)
           navigate({
             languageCode,

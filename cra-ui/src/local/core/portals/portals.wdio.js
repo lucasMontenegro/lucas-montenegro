@@ -1,4 +1,4 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 function expectText (id, expected) {
   const elem = $(`#${id}`)
   if (typeof expected !== `string`) {
@@ -103,7 +103,9 @@ describe(`local/core/portals`, () => {
       browser.keys(`Tab`)
       expect($(selector).isFocused(), `${selector} isFocused`).to.be.true
     })
-    browser.keys([`Tab`, `Tab`])
+    for (let i = 0; i < 10 && !sentinel.isFocused(); i++) {
+      browser.keys(`Tab`)
+    }
     expect(sentinel.isFocused(), `#sentinel isFocused`).to.be.true
   })
 })

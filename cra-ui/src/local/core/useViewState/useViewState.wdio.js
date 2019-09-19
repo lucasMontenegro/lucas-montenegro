@@ -1,4 +1,4 @@
-import { expect } from "local/wdio/chai"
+import { expect } from "chai"
 describe(`local/core/useViewState`, () => {
   beforeEach(() => {
     browser.url(`/examples/core/useViewState`)

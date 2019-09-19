@@ -9,6 +9,6 @@ export default createApp({
   name: `main`,
   routing,
   clients: { home, notFound },
-  logo: <Logo width="48" height="48" aria-label="Lucas Montenegro logo" />,
+  logo: <Logo width="32" height="32" aria-label="Lucas Montenegro logo" />,
   titles: makeTranslations(() => `Lucas Montenegro`),
 })

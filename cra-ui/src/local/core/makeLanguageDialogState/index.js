@@ -1,5 +1,8 @@
 import { useState, useRef } from "react"
 import translateLocation from "./translateLocation"
+import PropTypes from "prop-types"
+import { languageCodePropType } from "local/supportedLanguages"
+import linkTranslationsPropType from "local/core/propTypes/linkTranslationsPropType"
 export default function makeLanguageDialogState ({ initialLocation, linkTranslators }) {
   const initialRef = {
     location: initialLocation,
@@ -27,3 +30,10 @@ export default function makeLanguageDialogState ({ initialLocation, linkTranslat
     }
   }
 }
+export const languageDialogStatePropType = PropTypes.shape({
+  languageCode: languageCodePropType.isRequired,
+  translations: linkTranslationsPropType.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  open: PropTypes.func.isRequired,
+  close: PropTypes.func.isRequired,
+})

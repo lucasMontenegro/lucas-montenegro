@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import makeUniqueRef from "./makeUniqueRef"
+import PropTypes from "prop-types"
 const checkName = (namespace => function checkName (name) {
   if (name in namespace) {
     throw Error(`${name}: Repeated name in portals namespace`)
@@ -20,19 +21,26 @@ export function createRedPortal (name) {
     node ? node.appendChild(div) : (savedNode && savedNode.removeChild(div))
     savedNode = node
   }
-  return function RedPortal ({ Component, props }) {
+  function RedPortal ({ Component, props }) {
     const unique = useUniqueRef()
     const other = props || {}
     return unique ? <Component {...other} ref={portalRefHandler} /> : null
   }
+  RedPortal.propTypes = {
+    Component: PropTypes.elementType.isRequired,
+    props: PropTypes.object,
+  }
+  return RedPortal
 }
 export function createBluePortal (name) {
   const fullName = `${name} > BluePortal`
   checkName(fullName)
   const useUniqueRef = makeUniqueRef(fullName)
   const div = getDiv(name)
-  return function BluePortal ({ children }) {
+  function BluePortal ({ children }) {
     const unique = useUniqueRef()
     return unique ? ReactDOM.createPortal(children, div) : null
   }
+  BluePortal.propTypes = { children: PropTypes.node }
+  return BluePortal
 }

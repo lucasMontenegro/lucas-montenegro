@@ -1,6 +1,7 @@
 import supportedLanguages from "local/supportedLanguages"
 export default function describeRouting (opts) {
   const { routing, exampleLocations } = opts
+  const languageCodes = opts.languageCodes || supportedLanguages
   const clientNames = [`home`, ...opts.clientNames, `notFound`]
   const allRoutes = []
   it(`should have the right format`, () => {
@@ -70,7 +71,7 @@ export default function describeRouting (opts) {
           }, {})
         return actual
       }, {})
-      const langs = supportedLanguages.reduce((langs, languageCode) => {
+      const langs = languageCodes.reduce((langs, languageCode) => {
         langs[languageCode] = 1
         return langs
       }, {})
@@ -83,7 +84,7 @@ export default function describeRouting (opts) {
     it(`should not have colliding routes`, () => {
       clientNames.forEach(clientName => {
         const locationsByLanguage = exampleLocations.main[clientName]
-        supportedLanguages.forEach(languageCode => {
+        languageCodes.forEach(languageCode => {
           locationsByLanguage[languageCode].forEach(location => {
             const caps = allRoutes.filter(route => route.match(location))
             expect(caps.length).toEqual(2)
@@ -108,7 +109,7 @@ export default function describeRouting (opts) {
             return actual
           }, {})
         ).toEqual(
-          supportedLanguages.reduce((expected, languageCode) => {
+          languageCodes.reduce((expected, languageCode) => {
             expected[languageCode] = 1
             return expected
           }, {})
@@ -116,7 +117,7 @@ export default function describeRouting (opts) {
       })
     })
     it(`should not have colliding routes`, () => {
-      supportedLanguages.forEach(languageCode => {
+      languageCodes.forEach(languageCode => {
         exampleLocations.languageRoutes.root[languageCode].forEach(location => {
           const caps = allRoutes.filter(route => route.match(location))
           expect(caps.length).toBeLessThan(3)
@@ -143,7 +144,7 @@ export default function describeRouting (opts) {
   describe(`routing.locations`, () => {
     it(`should support all the languages`, () => {
       Object.values(routing.locations).forEach(locationsByLanguage => (
-        supportedLanguages.forEach(languageCode => (
+        languageCodes.forEach(languageCode => (
           expect(languageCode in locationsByLanguage).toBe(true)
         ))
       ))
@@ -161,6 +162,12 @@ export default function describeRouting (opts) {
           expect(`clientName` in notFound).toBe(false)
           expect(notFound.languageCode).toEqual(languageCode)
         })
+      })
+    })
+    it(`should not have notFound locations with state property`, () => {
+      // location.state is used for storing a referrer location
+      Object.values(routing.locations.notFound).forEach(location => {
+        expect(location).not.toHaveProperty(`state`)
       })
     })
   })

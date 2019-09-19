@@ -1,5 +1,5 @@
 import React from "react"
-import createBaseClient from "local/core/createBaseClient"
+import createBaseClient, { clientPropTypes } from "local/core/createBaseClient"
 import makeTranslations from "local/makeTranslations"
 import initialLocation from "./initialLocation"
 import linkTranslators from "./linkTranslators"
@@ -31,3 +31,4 @@ export default function NotFoundClient (props) {
     </BaseClient>
   )
 }
+NotFoundClient.propTypes = clientPropTypes

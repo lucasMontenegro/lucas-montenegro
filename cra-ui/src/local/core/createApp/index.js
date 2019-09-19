@@ -7,6 +7,7 @@ import useViewState from "local/core/useViewState"
 import Drawer from "local/core/Drawer"
 import { createRedPortal } from "local/core/portals"
 import BareLi from "local/core/BareLi"
+import makeLocationPropType from "local/core/propTypes/makeLocationPropType"
 const mobileBreakpoint = 100
 const drawerWidth = 256
 const namespace = {}
@@ -33,9 +34,12 @@ export default function createApp (options) {
   }))
   const clientsArray = clientNames.map(clientName => ({ clientName, Client: clients[clientName] }))
   const useRouter = makeRouter(routing)
-  return function App ({ location }) {
+  function App ({ location }) {
     const match = useRouter(location)
     const viewState = useViewState(mobileBreakpoint)
+    if (match.type === `initializing`) {
+      return null
+    }
     const matchClient = match.type === `client`
     return (
       <HandleRedirect match={match}>
@@ -66,4 +70,6 @@ export default function createApp (options) {
       </HandleRedirect>
     )
   }
+  App.propTypes = { location: makeLocationPropType().isRequired }
+  return App
 }

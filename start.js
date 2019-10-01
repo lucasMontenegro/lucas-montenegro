@@ -1,1 +1,1 @@
-require("local/app")
+require("local/startProcess")

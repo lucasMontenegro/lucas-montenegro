@@ -1,1 +1,1 @@
-require("local/server")
+require("local/app")

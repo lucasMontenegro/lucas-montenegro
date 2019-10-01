@@ -19,8 +19,10 @@
     "jest": "^24.9.0"
   },
   "scripts": {
+    "install": "chmod u+x ./scripts/*.sh",
     "build": ". ./scripts/build.sh",
-    "start": "node server"
+    "start": "./scripts/start.sh",
+    "test": "./scripts/jest.sh"
   },
   "repository": {
     "type": "git",

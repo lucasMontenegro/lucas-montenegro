@@ -22,7 +22,8 @@
     "install": "chmod u+x ./scripts/*.sh",
     "build": ". ./scripts/build.sh",
     "start": "./scripts/start.sh",
-    "test": "./scripts/jest.sh"
+    "test": "./scripts/jest.sh",
+    "db-spec": "./scripts/db-spec.sh"
   },
   "repository": {
     "type": "git",

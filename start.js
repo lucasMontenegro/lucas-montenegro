@@ -1,1 +1,1 @@
-require("local/startProcess")
+require("local/server")

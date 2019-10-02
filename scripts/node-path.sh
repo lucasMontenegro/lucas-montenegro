@@ -1,1 +1,1 @@
-export NODE_PATH="$(pwd)/nodePath"
+export NODE_PATH="$(pwd)/src"

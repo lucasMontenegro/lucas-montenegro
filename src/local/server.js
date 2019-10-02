@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path")
 const cluster = require("cluster")
 const numCPUs = require("os").cpus().length
-const buildpath = path.resolve(__dirname, `../cra-ui/build`)
+const buildpath = process.env.BUILD_PATH
 const isDev = process.env.NODE_ENV !== `production`
 const PORT = process.env.PORT || 5000
 // Multi-process to utilize all CPU cores.

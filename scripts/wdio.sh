@@ -1,2 +1,2 @@
 . ./scripts/node-path.sh
-jest --watch $@
+wdio wdio.conf.js $@

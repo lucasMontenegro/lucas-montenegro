@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/server/start should create the app (NODE_ENV foo, cluster.isMaster false) 1`] = `
+Array [
+  Array [
+    "startHttp",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/server/start should create the app (NODE_ENV foo, cluster.isMaster true) 1`] = `
+Array [
+  Array [
+    "startHttp",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/server/start should create the app (NODE_ENV production, cluster.isMaster false) 1`] = `
+Array [
+  Array [
+    "startHttp",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/server/start should create the app (NODE_ENV production, cluster.isMaster true) 1`] = `
+Array [
+  Array [
+    "console.log",
+    Array [
+      "Node cluster master 'process.pid' is running",
+    ],
+  ],
+  Array [
+    "cluster.fork",
+    Array [],
+  ],
+  Array [
+    "cluster.fork",
+    Array [],
+  ],
+  Array [
+    "cluster.on",
+    Array [
+      "exit",
+      "local/server/start/handleClusterExit",
+    ],
+  ],
+]
+`;

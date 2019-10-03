@@ -1,5 +1,5 @@
-const cartesianProduct = require("local/helpers/cartesianProduct")
-describe(`local/helpers/cartesianProduct`, () => {
+const cartesianProduct = require("local/utils/cartesianProduct")
+describe(`local/utils/cartesianProduct`, () => {
   it(`should throw when an empty set is found`, () => {
     expect(() => cartesianProduct([[1, 2], [], [`A`, `B`]]))
       .toThrow(`Expected non-empty array in collection`)

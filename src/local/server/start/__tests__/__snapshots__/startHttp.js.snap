@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/server/start/startHttp should configure and start the http app (PORT 80) 1`] = `
+Array [
+  Array [
+    "express",
+    Array [],
+  ],
+  Array [
+    "express.static",
+    Array [
+      "'process.env.BUILD_PATH'",
+    ],
+  ],
+  Array [
+    "app.use",
+    Array [
+      "express.static",
+    ],
+  ],
+  Array [
+    "api",
+    Array [],
+  ],
+  Array [
+    "app.use",
+    Array [
+      "/api",
+      "api",
+    ],
+  ],
+  Array [
+    "app.get",
+    Array [
+      "*",
+      "local/server/start/sendFrontEndApp",
+    ],
+  ],
+  Array [
+    "handleAppListen",
+    Array [
+      80,
+    ],
+  ],
+  Array [
+    "app.listen",
+    Array [
+      80,
+      "handleAppListen",
+    ],
+  ],
+]
+`;
+
+exports[`local/server/start/startHttp should configure and start the http app (PORT null) 1`] = `
+Array [
+  Array [
+    "express",
+    Array [],
+  ],
+  Array [
+    "express.static",
+    Array [
+      "'process.env.BUILD_PATH'",
+    ],
+  ],
+  Array [
+    "app.use",
+    Array [
+      "express.static",
+    ],
+  ],
+  Array [
+    "api",
+    Array [],
+  ],
+  Array [
+    "app.use",
+    Array [
+      "/api",
+      "api",
+    ],
+  ],
+  Array [
+    "app.get",
+    Array [
+      "*",
+      "local/server/start/sendFrontEndApp",
+    ],
+  ],
+  Array [
+    "handleAppListen",
+    Array [
+      5000,
+    ],
+  ],
+  Array [
+    "app.listen",
+    Array [
+      5000,
+      "handleAppListen",
+    ],
+  ],
+]
+`;

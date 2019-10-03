@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/server/start/handleClusterExit should log 1`] = `
+Array [
+  Array [
+    "console.log",
+    Array [
+      "Node cluster worker 'worker.process.pid' exited: code 'code', signal 'signal'",
+    ],
+  ],
+]
+`;

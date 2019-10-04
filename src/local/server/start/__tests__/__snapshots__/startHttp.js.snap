@@ -15,18 +15,19 @@ Array [
   Array [
     "app.use",
     Array [
-      "express.static",
+      Array [
+        "express.static",
+        Array [
+          "'process.env.BUILD_PATH'",
+        ],
+      ],
     ],
-  ],
-  Array [
-    "api",
-    Array [],
   ],
   Array [
     "app.use",
     Array [
       "/api",
-      "api",
+      "local/server/start/api",
     ],
   ],
   Array [
@@ -46,7 +47,12 @@ Array [
     "app.listen",
     Array [
       80,
-      "handleAppListen",
+      Array [
+        "handleAppListen",
+        Array [
+          80,
+        ],
+      ],
     ],
   ],
 ]
@@ -67,18 +73,19 @@ Array [
   Array [
     "app.use",
     Array [
-      "express.static",
+      Array [
+        "express.static",
+        Array [
+          "'process.env.BUILD_PATH'",
+        ],
+      ],
     ],
-  ],
-  Array [
-    "api",
-    Array [],
   ],
   Array [
     "app.use",
     Array [
       "/api",
-      "api",
+      "local/server/start/api",
     ],
   ],
   Array [
@@ -98,7 +105,12 @@ Array [
     "app.listen",
     Array [
       5000,
-      "handleAppListen",
+      Array [
+        "handleAppListen",
+        Array [
+          5000,
+        ],
+      ],
     ],
   ],
 ]

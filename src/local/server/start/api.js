@@ -1,7 +1,4 @@
 const express = require("express")
 const todo = require("local/todo/router")
-module.exports = function api () {
-  const router = express.Router()
-  router.use(`/todo`, todo())
-  return router
-}
+const api = module.exports = express.Router()
+api.use(`/todo`, todo)

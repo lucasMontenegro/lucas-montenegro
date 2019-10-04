@@ -1,28 +1,23 @@
 const mockFn = jest.fn()
+const makeFn = name => (...args) => {
+  const arr = [name, args]
+  mockFn(...arr)
+  return arr
+}
 jest.mock(`express`, () => jest.fn())
 const express = require("express")
 express.mockImplementation((...args) => {
   mockFn(`express`, args)
   return [`use`, `get`, `listen`].reduce((app, name) => {
-    app[name] = (...args) => mockFn(`app.${name}`, args)
+    app[name] = makeFn(`app.${name}`)
     return app
   }, {})
 })
-express.static = (...args) => {
-  mockFn(`express.static`, args)
-  return `express.static`
-}
-jest.mock(`local/server/start/api`, () => jest.fn())
-require("local/server/start/api").mockImplementation((...args) => {
-  mockFn(`api`, args)
-  return `api`
-})
+express.static = makeFn(`express.static`)
+jest.mock(`local/server/start/api`, () => `local/server/start/api`)
 jest.mock(`local/server/start/sendFrontEndApp`, () => `local/server/start/sendFrontEndApp`)
 jest.mock(`local/server/start/handleAppListen`, () => jest.fn())
-require("local/server/start/handleAppListen").mockImplementation((...args) => {
-  mockFn(`handleAppListen`, args)
-  return `handleAppListen`
-})
+require("local/server/start/handleAppListen").mockImplementation(makeFn(`handleAppListen`))
 const mockGlobals = require("local/utils/mockGlobals")
 const globals = { process: { env: { BUILD_PATH: `'process.env.BUILD_PATH'` } } }
 const oldGlobals = mockGlobals(globals)

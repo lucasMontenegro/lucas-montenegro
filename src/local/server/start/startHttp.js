@@ -8,7 +8,7 @@ module.exports = function startHttp () {
   // Priority serve any static files.
   app.use(express.static(process.env.BUILD_PATH))
   // Answer API requests.
-  app.use(`/api`, api())
+  app.use(`/api`, api)
   // All remaining requests return the React app, so it can handle routing.
   app.get(`*`, sendFrontEndApp)
   const PORT = process.env.PORT || 5000

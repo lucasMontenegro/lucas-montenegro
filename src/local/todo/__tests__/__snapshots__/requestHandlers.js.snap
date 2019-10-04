@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/todo/requestHandlers requestHandlers.delete should handle requests 1`] = `
+Array [
+  Array [
+    "db.todo.delete",
+    Array [
+      Array [
+        "req.user.sub",
+        "req.params.todo_id",
+      ],
+    ],
+  ],
+  Array [
+    "res.end",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/todo/requestHandlers requestHandlers.get should handle requests 1`] = `
+Array [
+  Array [
+    "db.todo.read",
+    Array [
+      "req.user.sub",
+    ],
+  ],
+  Array [
+    "res.json",
+    Array [
+      Array [
+        "db.todo.read",
+        Array [
+          "req.user.sub",
+        ],
+      ],
+    ],
+  ],
+]
+`;
+
+exports[`local/todo/requestHandlers requestHandlers.post should handle requests 1`] = `
+Array [
+  Array [
+    "db.todo.create",
+    Array [
+      Array [
+        "req.user.sub",
+        "req.body.description",
+        "req.body.priority",
+      ],
+    ],
+  ],
+  Array [
+    "res.end",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/todo/requestHandlers requestHandlers.put should handle requests 1`] = `
+Array [
+  Array [
+    "db.todo.update",
+    Array [
+      Array [
+        "req.user.sub",
+        "req.params.todo_id",
+        "req.body.priority",
+        "req.body.status",
+      ],
+    ],
+  ],
+  Array [
+    "res.end",
+    Array [],
+  ],
+]
+`;

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/server/pg/HandleMonitorLog should not do anything (NODE_ENV production, info.event error) 1`] = `
+Object {
+  "info": Object {
+    "event": "error",
+  },
+  "mockFnCalls": Array [],
+}
+`;
+
+exports[`local/server/pg/HandleMonitorLog should hide the message (NODE_ENV production, info.event notAnError) 1`] = `
+Object {
+  "info": Object {
+    "display": false,
+    "event": "notAnError",
+  },
+  "mockFnCalls": Array [],
+}
+`;
+
+exports[`local/server/pg/HandleMonitorLog should save the message (NODE_ENV foo, info.event error) 1`] = `
+Object {
+  "info": Object {
+    "event": "error",
+  },
+  "mockFnCalls": Array [
+    Array [
+      "saveMonitorError",
+      Array [
+        "msg",
+        Object {
+          "event": "error",
+        },
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`local/server/pg/HandleMonitorLog should not do anything (NODE_ENV foo, info.event notAnError) 1`] = `
+Object {
+  "info": Object {
+    "event": "notAnError",
+  },
+  "mockFnCalls": Array [],
+}
+`;

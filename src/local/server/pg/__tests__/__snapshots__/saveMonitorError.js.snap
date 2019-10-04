@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/server/pg/saveMonitorError should save the error message (info.time false) 1`] = `
+Object {
+  "info": Object {
+    "time": false,
+  },
+  "mockFnCalls": Array [
+    Array [
+      "fs.appendFile",
+      Array [
+        "/pg-errors.log",
+        "'os.EOL'msg",
+        "local/utils/simpleErrorCallback",
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`local/server/pg/saveMonitorError should save the error message (info.time true) 1`] = `
+Object {
+  "info": Object {
+    "time": true,
+  },
+  "mockFnCalls": Array [
+    Array [
+      "fs.appendFile",
+      Array [
+        "/pg-errors.log",
+        "'os.EOL''os.EOL'msg",
+        "local/utils/simpleErrorCallback",
+      ],
+    ],
+  ],
+}
+`;

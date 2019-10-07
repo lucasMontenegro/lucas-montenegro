@@ -18,6 +18,7 @@
     "express-jwt": "^5.3.1",
     "express-jwt-authz": "^2.3.1",
     "express-validator": "^6.2.0",
+    "global": "^4.4.0",
     "i18next": "^17.0.18",
     "i18next-browser-languagedetector": "^3.0.3",
     "jwks-rsa": "^1.6.0",

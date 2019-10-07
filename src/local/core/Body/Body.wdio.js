@@ -15,6 +15,7 @@ function expectToRender (items) {
     const { displayed, text, label } = items[selector]
     const element = $(selector)
     if (displayed || text || label) {
+      element.waitForDisplayed()
       expect(element.isDisplayedInViewport(), `${selector} isDisplayedInViewport`).to.be.true
     } else {
       expect(element.isExisting(), `${selector} isExisting`).to.be.false

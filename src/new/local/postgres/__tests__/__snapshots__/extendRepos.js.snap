@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/postgres/extendRepos should extend the repo 1`] = `
+Object {
+  "db": Object {},
+  "dc": Object {},
+}
+`;

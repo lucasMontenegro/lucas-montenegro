@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/postgres/HandleMonitorLog should hide the message (isProduction true, info.event notAnError) 1`] = `
+Object {
+  "info": Object {
+    "display": false,
+    "event": "notAnError",
+  },
+  "mockFnCalls": Array [],
+}
+`;
+
+exports[`new/local/postgres/HandleMonitorLog should not do anything (isProduction false, info.event notAnError) 1`] = `
+Object {
+  "info": Object {
+    "event": "notAnError",
+  },
+  "mockFnCalls": Array [],
+}
+`;
+
+exports[`new/local/postgres/HandleMonitorLog should not do anything (isProduction true, info.event error) 1`] = `
+Object {
+  "info": Object {
+    "event": "error",
+  },
+  "mockFnCalls": Array [],
+}
+`;
+
+exports[`new/local/postgres/HandleMonitorLog should save the message (isProduction false, info.event error) 1`] = `
+Object {
+  "info": Object {
+    "event": "error",
+  },
+  "mockFnCalls": Array [
+    Array [
+      "saveMonitorError",
+      Array [
+        "msg",
+        Object {
+          "event": "error",
+        },
+      ],
+    ],
+  ],
+}
+`;

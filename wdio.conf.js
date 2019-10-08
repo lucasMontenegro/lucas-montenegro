@@ -156,7 +156,7 @@ exports.config = {
     require("@babel/register")({
       presets: [
         [`@babel/preset-env`, {
-          targets: { node: 8 },
+          targets: { node: true },
         }],
       ],
     })

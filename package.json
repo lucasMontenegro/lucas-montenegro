@@ -1,7 +1,7 @@
 {
   "name": "lucas-montenegro",
   "version": "0.0.1",
-  "description": "https://lucas-montenegro.herokuapp.com/",
+  "description": "https://lucasmontenegro.com.ar/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -44,13 +44,21 @@
     "@wdio/selenium-standalone-service": "^5.13.2",
     "@wdio/spec-reporter": "^5.13.2",
     "@wdio/sync": "^5.14.3",
+    "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
     "react-scripts": "^3.1.2",
-    "react-test-renderer": "^16.10.1"
+    "react-test-renderer": "^16.10.1",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "engines": {
+    "node": "10.16.3"
   },
   "scripts": {
     "install": "chmod u+x ./scripts/*.sh",
-    "build": "react-scripts build",
+    "build": "./scripts/build.sh",
+    "build-server": "./scripts/build-server.sh",
     "start": "./scripts/start.sh",
     "cra": "react-scripts start",
     "test": "react-scripts test",

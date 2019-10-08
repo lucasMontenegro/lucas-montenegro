@@ -4,11 +4,11 @@ const createMockFn = name => (...args) => {
   mockFn(...arr)
   return arr
 }
-jest.mock(`local/server/pg`, () => ({}))
+jest.mock(`new/local/postgres`, () => ({}))
 ;[`create`, `read`, `update`, `delete`].reduce((db, crud) => {
   db.todo[crud] = createMockFn(`db.todo.${crud}`)
   return db
-}, require("local/server/pg").db = { todo: {} })
+}, require("new/local/postgres").db = { todo: {} })
 const req = {
   user: { sub: `req.user.sub` },
   body: {

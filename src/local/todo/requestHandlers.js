@@ -1,5 +1,5 @@
 const syncRequestHandler = require("local/utils/syncRequestHandler")
-const { db } = require("local/server/pg")
+const { db } = require("new/local/postgres")
 exports.post = syncRequestHandler(async (req, res) => {
   const { body } = req
   await db.todo.create([req.user.sub, body.description, body.priority])

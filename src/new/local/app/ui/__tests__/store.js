@@ -1,6 +1,6 @@
-jest.mock(`new/local/app/ui/routes`, () => ({
+jest.mock(`new/local/app/ui/Routes`, () => ({
   __esModule: true,
-  default: `new/local/app/ui/routes`,
+  default: () => `new/local/app/ui/Routes`,
 }))
 describe(`new/local/app/ui/store`, () => {
   it(`should run`, () => {

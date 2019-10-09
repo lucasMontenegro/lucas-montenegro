@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/app/ui/Routes should render (isProduction false) 1`] = `
+<div
+  className="BrowserRouter"
+>
+  <div
+    className="Switch"
+  >
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      />
+      <div
+        className="component"
+      >
+        new/local/app/ui/App
+      </div>
+    </div>
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      >
+        /examples
+      </div>
+      <div
+        className="component"
+      >
+        new/local/app/ui/Examples
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new/local/app/ui/Routes should render (isProduction true) 1`] = `
+<div
+  className="BrowserRouter"
+>
+  <div
+    className="Switch"
+  >
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      />
+      <div
+        className="component"
+      >
+        new/local/app/ui/App
+      </div>
+    </div>
+  </div>
+</div>
+`;

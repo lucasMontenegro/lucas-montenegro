@@ -3,12 +3,11 @@
 exports[`local/todo/requestHandlers requestHandlers.delete should handle requests 1`] = `
 Array [
   Array [
-    "db.todo.delete",
+    "db.result",
     Array [
-      Array [
-        "req.user.sub",
-        "req.params.todo_id",
-      ],
+      "DELETE FROM todo WHERE user_id='req.user.sub' AND todo_id='req.params.todo_id'",
+      null,
+      "new/local/utils/postgres/extractRowCount",
     ],
   ],
   Array [
@@ -21,18 +20,18 @@ Array [
 exports[`local/todo/requestHandlers requestHandlers.get should handle requests 1`] = `
 Array [
   Array [
-    "db.todo.read",
+    "db.any",
     Array [
-      "req.user.sub",
+      "SELECT todo_id,description,priority,status,created_on,updated_on FROM todo WHERE user_id='req.user.sub'",
     ],
   ],
   Array [
     "res.json",
     Array [
       Array [
-        "db.todo.read",
+        "db.any",
         Array [
-          "req.user.sub",
+          "SELECT todo_id,description,priority,status,created_on,updated_on FROM todo WHERE user_id='req.user.sub'",
         ],
       ],
     ],
@@ -43,13 +42,9 @@ Array [
 exports[`local/todo/requestHandlers requestHandlers.post should handle requests 1`] = `
 Array [
   Array [
-    "db.todo.create",
+    "db.none",
     Array [
-      Array [
-        "req.user.sub",
-        "req.body.description",
-        "req.body.priority",
-      ],
+      "INSERT INTO todo(user_id,description,priority)VALUES('req.user.sub','req.body.description','req.body.priority')",
     ],
   ],
   Array [
@@ -62,14 +57,9 @@ Array [
 exports[`local/todo/requestHandlers requestHandlers.put should handle requests 1`] = `
 Array [
   Array [
-    "db.todo.update",
+    "db.none",
     Array [
-      Array [
-        "req.user.sub",
-        "req.params.todo_id",
-        "req.body.priority",
-        "req.body.status",
-      ],
+      "UPDATE todo SET priority='req.body.priority',status='req.body.status',updated_on=NOW()WHERE user_id='req.user.sub' AND todo_id='req.params.todo_id'",
     ],
   ],
   Array [

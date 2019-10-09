@@ -1,4 +1,4 @@
-const { body, param } = require("express-validator")
+import { body, param } from "express-validator"
 const description = body(`description`)
   .isString()
   .withMessage(`Invalid to-do item description`)
@@ -15,7 +15,8 @@ const todo_id = param(`todo_id`)
 const status = body(`status`)
   .isIn([`done`, `pending`])
   .withMessage(`The to-do item status must be "done" or "pending"`)
-exports.post = [description, priority]
-exports.get = null
-exports.put = [todo_id, priority, status]
-exports.delete = todo_id
+export default {
+  post: [description, priority],
+  put: [todo_id, priority, status],
+  delete: todo_id,
+}

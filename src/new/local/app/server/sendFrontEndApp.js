@@ -1,6 +1,6 @@
-const path = require("path")
-const { default: globals } = require("new/local/utils/globals")
+import path from "path"
+import globals from "new/local/utils/globals"
 const str = path.resolve(globals.process.env.BUILD_PATH, `index.html`)
-exports.default = function sendFrontEndApp (req, res) {
+export default function sendFrontEndApp (req, res) {
   res.sendFile(str)
 }

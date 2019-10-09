@@ -1,3 +1,4 @@
+import g from "global"
 // renaming "global" to "globals"
-// declaring a variable named "global" may cause troubles
-exports.default = require("global")
+// declaring a variable named "global" may cause trouble
+export default g

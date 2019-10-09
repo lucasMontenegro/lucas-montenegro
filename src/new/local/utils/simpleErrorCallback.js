@@ -1,5 +1,5 @@
-const { default: globals } = require("new/local/utils/globals")
-exports.default =  function simpleErrorCallback (e) {
+import globals from "new/local/utils/globals"
+export default function simpleErrorCallback (e) {
   if (e) {
     globals.console.error(e)
   }

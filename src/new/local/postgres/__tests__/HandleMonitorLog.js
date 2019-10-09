@@ -1,11 +1,12 @@
+import saveMonitorError from "new/local/postgres/saveMonitorError"
+import isProduction from "new/local/utils/isProduction"
+import HandleMonitorLog from "new/local/postgres/HandleMonitorLog"
 const mockFn = jest.fn()
-jest.mock(`new/local/postgres/saveMonitorError`, () => ({}))
-require("new/local/postgres/saveMonitorError").default = (...args) => {
+jest.mock(`new/local/postgres/saveMonitorError`, () => ({ __esModule: true, default: jest.fn() }))
+saveMonitorError.mockImplementation((...args) => {
   mockFn(`saveMonitorError`, args)
-}
-jest.mock(`new/local/utils/isProduction`, () => ({ default: jest.fn() }))
-const { default: isProduction } = require("new/local/utils/isProduction")
-const { default: HandleMonitorLog } = require("new/local/postgres/HandleMonitorLog")
+})
+jest.mock(`new/local/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`new/local/postgres/HandleMonitorLog`, () => {
   afterEach(() => mockFn.mockClear())
   test.each([

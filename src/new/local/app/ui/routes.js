@@ -1,7 +1,7 @@
-const React = require("react")
-const { BrowserRouter, Switch, Route } = require("react-router-dom")
-const { default: App } = require("new/local/app/ui/App")
-exports.default = (
+import React from "react"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import App from "new/local/app/ui/App"
+export default (
   <BrowserRouter>
     <Route component={App} />
   </BrowserRouter>

@@ -1,13 +1,11 @@
+import globals from "new/local/utils/globals"
+import isProduction from "new/local/utils/isProduction"
+import throwPropTypeErrors from "new/local/app/ui/throwPropTypeErrors"
 jest.mock(`new/local/utils/globals`, () => ({
-  default: {
-    console: {},
-    process: { env: {} },
-  },
+  __esModule: true,
+  default: { console: {} },
 }))
-const { default: globals } = require("new/local/utils/globals")
-jest.mock(`new/local/utils/isProduction`, () => ({ default: jest.fn() }))
-const { default: isProduction } = require("new/local/utils/isProduction")
-const { default: throwPropTypeErrors } = require("new/local/app/ui/throwPropTypeErrors")
+jest.mock(`new/local/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`new/local/app/ui/throwPropTypeErrors`, () => {
   afterEach(() => {
     delete globals.console.error

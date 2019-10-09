@@ -1,9 +1,11 @@
+import globals from "new/local/utils/globals"
+import handleClusterExit from "new/local/app/server/handleClusterExit"
 const mockFn = jest.fn()
 jest.mock(`new/local/utils/globals`, () => ({
+  __esModule: true,
   default: { console: {} },
 }))
-require("new/local/utils/globals").default.console.log = (...args) => mockFn(`console.log`, args)
-const { default: handleClusterExit } = require("new/local/app/server/handleClusterExit")
+globals.console.log = (...args) => mockFn(`console.log`, args)
 describe(`new/local/app/server/handleClusterExit`, () => {
   it(`should log`, () => {
     handleClusterExit({ process: { pid: `'worker.process.pid'` } }, `'code'`, `'signal'`)

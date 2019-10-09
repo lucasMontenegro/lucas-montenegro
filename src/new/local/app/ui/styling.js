@@ -1,11 +1,11 @@
-const React = require("react")
-const { default: CssBaseline } = require("@material-ui/core/CssBaseline")
-const { ThemeProvider } = require("@material-ui/styles")
-const { createMuiTheme } = require("@material-ui/core/styles")
-require("typeface-roboto")
-require("new/local/app/ui/fontAwesome")
-const { default: store } = require("new/local/app/ui/store")
-exports.default = (
+import React from "react"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import { ThemeProvider } from "@material-ui/styles"
+import { createMuiTheme } from "@material-ui/core/styles"
+import "typeface-roboto"
+import "new/local/app/ui/fontAwesome"
+import store from "new/local/app/ui/store"
+export default (
   <ThemeProvider theme={createMuiTheme()}>
     <CssBaseline />
     {store}

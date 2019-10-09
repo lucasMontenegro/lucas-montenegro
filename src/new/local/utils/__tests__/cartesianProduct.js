@@ -1,4 +1,4 @@
-const { default: cartesianProduct } = require("new/local/utils/cartesianProduct")
+import cartesianProduct from "new/local/utils/cartesianProduct"
 describe(`new/local/utils/cartesianProduct`, () => {
   it(`should throw when an empty set is found`, () => {
     expect(() => cartesianProduct([[1, 2], [], [`A`, `B`]]))

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`new/local/app/server should create the app (NODE_ENV foo, cluster.isMaster false) 1`] = `
+exports[`new/local/app/server should create the app (isProduction false, cluster.isMaster false) 1`] = `
 Array [
   Array [
     "startHttp",
@@ -9,7 +9,7 @@ Array [
 ]
 `;
 
-exports[`new/local/app/server should create the app (NODE_ENV foo, cluster.isMaster true) 1`] = `
+exports[`new/local/app/server should create the app (isProduction false, cluster.isMaster true) 1`] = `
 Array [
   Array [
     "startHttp",
@@ -18,7 +18,7 @@ Array [
 ]
 `;
 
-exports[`new/local/app/server should create the app (NODE_ENV production, cluster.isMaster false) 1`] = `
+exports[`new/local/app/server should create the app (isProduction true, cluster.isMaster false) 1`] = `
 Array [
   Array [
     "startHttp",
@@ -27,7 +27,7 @@ Array [
 ]
 `;
 
-exports[`new/local/app/server should create the app (NODE_ENV production, cluster.isMaster true) 1`] = `
+exports[`new/local/app/server should create the app (isProduction true, cluster.isMaster true) 1`] = `
 Array [
   Array [
     "console.log",

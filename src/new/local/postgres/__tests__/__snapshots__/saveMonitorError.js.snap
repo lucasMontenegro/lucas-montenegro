@@ -9,7 +9,7 @@ Object {
     Array [
       "fs.appendFile",
       Array [
-        "/pg-errors.log",
+        "/cwd/pg-errors.log",
         "'os.EOL'msg",
         "new/local/utils/simpleErrorCallback",
       ],
@@ -27,7 +27,7 @@ Object {
     Array [
       "fs.appendFile",
       Array [
-        "/pg-errors.log",
+        "/cwd/pg-errors.log",
         "'os.EOL''os.EOL'msg",
         "new/local/utils/simpleErrorCallback",
       ],

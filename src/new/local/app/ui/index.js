@@ -1,6 +1,6 @@
-const { default: ReactDOM } = require("react-dom")
-const { default: styling } = require("new/local/app/ui/styling")
-const { default: throwPropTypeErrors } = require("new/local/app/ui/throwPropTypeErrors")
-const { default: globals } = require("new/local/utils/globals")
+import ReactDOM from "react-dom"
+import styling from "new/local/app/ui/styling"
+import throwPropTypeErrors from "new/local/app/ui/throwPropTypeErrors"
+import globals from "new/local/utils/globals"
 throwPropTypeErrors()
 ReactDOM.render(styling, globals.document.getElementById(`root`))

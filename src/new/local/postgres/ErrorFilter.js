@@ -1,5 +1,5 @@
-const monitor = require("pg-monitor")
-exports.default = function ErrorFilter () {
+import monitor from "pg-monitor"
+export default function ErrorFilter () {
   const matchers = []
   return {
     ignore (fn) {

@@ -1,8 +1,5 @@
-const { default: startDb } = require("new/local/postgres/startDb")
-const { db, pgp, ignoreError } = startDb()
-exports.pgp = pgp
-exports.db = db
-exports.ignoreError = ignoreError
-exports.closeDb = function closeDb () {
+import startDb from "new/local/postgres/startDb"
+export const { db, pgp, ignoreError } = startDb()
+export function closeDb () {
   db.$config.pgp.end()
 }

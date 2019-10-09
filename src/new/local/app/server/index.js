@@ -1,11 +1,12 @@
-const cluster = require("cluster")
-const os = require("os")
-const { default: startHttp } = require("new/local/app/server/startHttp")
-const { default: handleClusterExit } = require("new/local/app/server/handleClusterExit")
-const { default: globals } = require("new/local/utils/globals")
-exports.default = function start () {
+import cluster from "cluster"
+import os from "os"
+import startHttp from "new/local/app/server/startHttp"
+import handleClusterExit from "new/local/app/server/handleClusterExit"
+import globals from "new/local/utils/globals"
+import isProduction from "new/local/utils/isProduction"
+export default function start () {
   // Multi-process to utilize all CPU cores.
-  if (globals.process.env.NODE_ENV === `production` && cluster.isMaster) {
+  if (isProduction() && cluster.isMaster) {
     globals.console.log(`Node cluster master ${globals.process.pid} is running`)
     // Fork workers.
     for (let i = 0, n = os.cpus().length; i < n; i++) {

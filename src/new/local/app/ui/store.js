@@ -1,10 +1,10 @@
-const React = require("react")
-const { createStore, combineReducers } = require("redux")
-const { Provider } = require("react-redux")
-const { default: routes } = require("new/local/app/ui/routes")
-const reducers = exports.reducers = {
+import React from "react"
+import { createStore, combineReducers } from "redux"
+import { Provider } from "react-redux"
+import routes from "new/local/app/ui/routes"
+export const reducers = {
   core (state={}, action) {
     return state
   },
 }
-exports.default = (<Provider store={createStore(combineReducers(reducers))}>{routes}</Provider>)
+export default (<Provider store={createStore(combineReducers(reducers))}>{routes}</Provider>)

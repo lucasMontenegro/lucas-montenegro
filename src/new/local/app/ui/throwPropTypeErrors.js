@@ -1,6 +1,6 @@
-const { default: globals } = require("new/local/utils/globals")
-const { default: isProduction } = require("new/local/utils/isProduction")
-exports.default = function throwPropTypeErrors () {
+import globals from "new/local/utils/globals"
+import isProduction from "new/local/utils/isProduction"
+export default function throwPropTypeErrors () {
   if (isProduction()) {
     return
   }

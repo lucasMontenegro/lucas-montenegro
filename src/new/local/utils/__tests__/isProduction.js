@@ -1,6 +1,6 @@
-jest.mock(`new/local/utils/globals`, () => ({ default: {} }))
-const { default: globals } = require("new/local/utils/globals")
-const { default: isProduction } = require("new/local/utils/isProduction")
+import globals from "new/local/utils/globals"
+import isProduction from "new/local/utils/isProduction"
+jest.mock(`new/local/utils/globals`, () => ({ __esModule: true, default: {} }))
 describe(`new/local/utils/isProduction`, () => {
   test.each([
     [`production`, true],

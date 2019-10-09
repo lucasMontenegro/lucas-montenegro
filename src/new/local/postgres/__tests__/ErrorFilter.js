@@ -1,9 +1,10 @@
+import monitor from "pg-monitor"
+import ErrorFilter from "new/local/postgres/ErrorFilter"
 const mockFn = jest.fn()
-jest.mock(`pg-monitor`, () => ({}))
-require("pg-monitor").error = (...args) => {
+jest.mock(`pg-monitor`, () => ({ __esModule: true, default: {} }))
+monitor.error = (...args) => {
   mockFn(`monitor.error`, args)
 }
-const { default: ErrorFilter } = require("new/local/postgres/ErrorFilter")
 describe(`new/local/postgres/ErrorFilter`, () => {
   afterEach(() => mockFn.mockClear())
   test.each([

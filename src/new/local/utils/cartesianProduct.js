@@ -1,4 +1,4 @@
-exports.default = function cartesianProduct (collection) {
+export default function cartesianProduct (collection) {
   const product = []
   const states = collection.map(set => ({ i: 0, n: set.length }))
   const reversedStates = [...states].reverse()

@@ -1,5 +1,5 @@
-const express = require("express")
-const { default: todo } = require("new/local/todo/router")
+import express from "express"
+import todo from "new/local/todo/router"
 const api = express.Router()
 api.use(`/todo`, todo)
-exports.default = api
+export default api

@@ -1,12 +1,12 @@
-const pgPromise = require("pg-promise")
-const monitor = require("pg-monitor")
-const Bluebird = require("bluebird")
-const { default: HandleMonitorLog } = require("new/local/postgres/HandleMonitorLog")
-const { default: ErrorFilter } = require("new/local/postgres/ErrorFilter")
-const { default: extendRepos } = require("new/local/postgres/extendRepos")
-const { default: globals } = require("new/local/utils/globals")
-const { default: isProduction } = require("new/local/utils/isProduction")
-exports.default = function startDb () {
+import pgPromise from "pg-promise"
+import monitor from "pg-monitor"
+import Bluebird from "bluebird"
+import HandleMonitorLog from "new/local/postgres/HandleMonitorLog"
+import ErrorFilter from "new/local/postgres/ErrorFilter"
+import extendRepos from "new/local/postgres/extendRepos"
+import globals from "new/local/utils/globals"
+import isProduction from "new/local/utils/isProduction"
+export default function startDb () {
   const errorFilter = ErrorFilter()
   const initOptions = {
     promiseLib: Bluebird,

@@ -1,9 +1,14 @@
 jest.mock(`react-dom`, () => ({
+  __esModule: true,
   default: { render: jest.fn() },
 }))
-jest.mock(`new/local/app/ui/styling`, () => ({ default: `new/local/app/ui/styling` }))
-jest.mock(`new/local/app/ui/throwPropTypeErrors`, () => ({ default: () => {} }))
+jest.mock(`new/local/app/ui/styling`, () => ({
+  __esModule: true,
+  default: `new/local/app/ui/styling`,
+}))
+jest.mock(`new/local/app/ui/throwPropTypeErrors`, () => ({ __esModule: true, default: () => {} }))
 jest.mock(`new/local/utils/globals`, () => ({
+  __esModule: true,
   default: {
     document: { getElementById: () => {} },
   },

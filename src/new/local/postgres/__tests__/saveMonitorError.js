@@ -1,18 +1,20 @@
+import os from "os"
+import fs from "fs"
+import saveMonitorError from "new/local/postgres/saveMonitorError"
 const mockFn = jest.fn()
-jest.mock(`os`, () => ({ EOL: `'os.EOL'` }))
-jest.mock(`fs`, () => ({}))
-require("fs").appendFile = (...args) => {
+jest.mock(`os`, () => ({ __esModule: true, default: { EOL: `'os.EOL'` } }))
+jest.mock(`fs`, () => ({ __esModule: true, default: {} }))
+fs.appendFile = (...args) => {
   mockFn(`fs.appendFile`, args)
 }
 jest.mock(`new/local/utils/simpleErrorCallback`, () => ({
+  __esModule: true,
   default: `new/local/utils/simpleErrorCallback`,
 }))
 jest.mock(`new/local/utils/globals`, () => ({
-  default: {
-    process: { env: { NODE_PATH: `/nodePath` } },
-  },
+  __esModule: true,
+  default: { process: { cwd: () => `/cwd` } },
 }))
-const { default: saveMonitorError } = require("new/local/postgres/saveMonitorError")
 describe(`new/local/postgres/saveMonitorError`, () => {
   afterEach(() => mockFn.mockClear())
   test.each([

@@ -30,7 +30,7 @@ exports[`new/local/app/ui/Routes should render (isProduction false) 1`] = `
       <div
         className="component"
       >
-        new/local/app/ui/Examples
+        new/local/paperbase/Examples
       </div>
     </div>
   </div>

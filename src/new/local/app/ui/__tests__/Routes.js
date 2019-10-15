@@ -17,9 +17,9 @@ jest.mock(`new/local/app/ui/App`, () => ({
   __esModule: true,
   default: `new/local/app/ui/App`,
 }))
-jest.mock(`new/local/app/ui/Examples`, () => ({
+jest.mock(`new/local/paperbase/Examples`, () => ({
   __esModule: true,
-  default: `new/local/app/ui/Examples`,
+  default: `new/local/paperbase/Examples`,
 }))
 jest.mock(`new/local/utils/isProduction`, () => ({
   __esModule: true,

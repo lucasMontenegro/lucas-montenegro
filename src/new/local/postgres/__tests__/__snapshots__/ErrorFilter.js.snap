@@ -51,3 +51,9 @@ Array [
   ],
 ]
 `;
+
+exports[`new/local/postgres/ErrorFilter should utilize the dependency APIs correctly 1`] = `
+Object {
+  "pg-monitor": "^1.2.2",
+}
+`;

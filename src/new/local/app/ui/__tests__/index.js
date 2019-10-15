@@ -14,6 +14,9 @@ jest.mock(`new/local/utils/globals`, () => ({
   },
 }))
 describe(`new/local/app/ui`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`react-dom`])).toMatchSnapshot()
+  })
   it(`should run`, () => {
     require("new/local/app/ui")
   })

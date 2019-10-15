@@ -53,6 +53,9 @@ jest.mock(`new/local/utils/globals`, () => ({
 }))
 jest.mock(`new/local/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`new/local/postgres/startDb`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`pg-promise`, `pg-monitor`])).toMatchSnapshot()
+  })
   test.each([
     [true],
     [false],

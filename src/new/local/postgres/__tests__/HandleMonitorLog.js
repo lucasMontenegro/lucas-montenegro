@@ -8,6 +8,9 @@ saveMonitorError.mockImplementation((...args) => {
 })
 jest.mock(`new/local/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`new/local/postgres/HandleMonitorLog`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`pg-monitor`])).toMatchSnapshot()
+  })
   afterEach(() => mockFn.mockClear())
   test.each([
     [`not do anything`, true, `error`],

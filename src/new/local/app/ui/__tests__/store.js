@@ -3,6 +3,9 @@ jest.mock(`new/local/app/ui/Routes`, () => ({
   default: () => `new/local/app/ui/Routes`,
 }))
 describe(`new/local/app/ui/store`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`react`, `redux`, `react-redux`])).toMatchSnapshot()
+  })
   it(`should run`, () => {
     require("new/local/app/ui/store")
   })

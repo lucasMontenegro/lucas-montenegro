@@ -6,6 +6,9 @@ monitor.error = (...args) => {
   mockFn(`monitor.error`, args)
 }
 describe(`new/local/postgres/ErrorFilter`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`pg-monitor`])).toMatchSnapshot()
+  })
   afterEach(() => mockFn.mockClear())
   test.each([
     [`not log`, [false, true, false]],

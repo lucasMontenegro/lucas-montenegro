@@ -1,6 +1,9 @@
 import makeTranslations from "new/local/utils/makeTranslations"
 jest.mock(`new/local/supportedLanguages`, () => ({ __esModule: true, default: [`en`, `es`] }))
 describe(`new/local/utils/makeTranslations`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`prop-types`])).toMatchSnapshot()
+  })
   it(`should create translations`, () => {
     expect(makeTranslations(languageCode => languageCode)).toEqual({ en: `en`, es: `es` })
   })

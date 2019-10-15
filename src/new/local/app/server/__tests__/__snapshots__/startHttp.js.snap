@@ -115,3 +115,9 @@ Array [
   ],
 ]
 `;
+
+exports[`new/local/app/server/startHttp should utilize the dependency APIs correctly 1`] = `
+Object {
+  "express": "^4.17.1",
+}
+`;

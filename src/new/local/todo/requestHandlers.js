@@ -1,4 +1,4 @@
-import minifySql from "new/local/utils/minifySql"
+import minifySql from "new/local/utils/postgres/minifySql"
 import syncRequestHandler from "new/local/utils/syncRequestHandler"
 import { db, pgp } from "new/local/postgres"
 import extractRowCount from "new/local/utils/postgres/extractRowCount"

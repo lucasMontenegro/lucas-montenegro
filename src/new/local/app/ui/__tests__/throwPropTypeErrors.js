@@ -7,6 +7,9 @@ jest.mock(`new/local/utils/globals`, () => ({
 }))
 jest.mock(`new/local/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`new/local/app/ui/throwPropTypeErrors`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`prop-types`])).toMatchSnapshot()
+  })
   afterEach(() => {
     delete globals.console.error
     delete globals.console.msg

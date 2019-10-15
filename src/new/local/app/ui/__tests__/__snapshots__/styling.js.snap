@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/app/ui/styling should utilize the dependency APIs correctly 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "@material-ui/styles": "^4.5.0",
+  "react": "^16.10.1",
+  "typeface-roboto": "0.0.75",
+}
+`;

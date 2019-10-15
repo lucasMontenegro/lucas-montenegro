@@ -1,5 +1,4 @@
 import { db, pgp } from "new/local/postgres"
-import pgpInstance from "new/local/utils/jest/pgpInstance"
 import requestHandlers from "new/local/todo/requestHandlers"
 const mockFn = jest.fn()
 const createMockFn = name => (...args) => {
@@ -12,7 +11,7 @@ jest.mock(`new/local/postgres`, () => ({
   db: {},
   pgp: { as: {} },
 }))
-pgp.as.format = (...args) => pgpInstance.as.format(...args)
+pgp.as.format = (...args) => jestUtils.pgpInstance.as.format(...args)
 ;[`none`, `any`, `result`].reduce((db, name) => {
   db[name] = createMockFn(`db.${name}`)
   return db

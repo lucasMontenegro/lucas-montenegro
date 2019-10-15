@@ -24,6 +24,15 @@ jest.mock(`new/local/todo/requestHandlers`, () => ({
   }, {}),
 }))
 describe(`new/local/todo/router`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([
+      `express`,
+      `express-jwt`,
+      `jwks-rsa`,
+      `express-jwt-authz`,
+      `body-parser`,
+    ])).toMatchSnapshot()
+  })
   it(`should run`, () => {
     require("new/local/todo/router")
   })

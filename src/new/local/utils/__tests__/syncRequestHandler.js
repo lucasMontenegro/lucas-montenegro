@@ -5,6 +5,9 @@ jest.mock(`new/local/utils/globals`, () => ({
   default: { console: { error: jest.fn() } },
 }))
 describe(`local/utils/syncRequestHandler`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`express`])).toMatchSnapshot()
+  })
   it(`should resolve promises`, async () => {
     const result = {}
     const asyncFn = async (req, res) => result

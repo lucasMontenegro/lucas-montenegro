@@ -26,6 +26,9 @@ jest.mock(`new/local/utils/isProduction`, () => ({
   default: jest.fn(),
 }))
 describe(`new/local/app/ui/Routes`, () => {
+  it(`should utilize the dependency APIs correctly`, () => {
+    expect(jestUtils.getDependencies([`react`, `react-router-dom`])).toMatchSnapshot()
+  })
   test.each([[true], [false]])(`should render (isProduction %j)`, isProductionValue => {
     isProduction.mockReturnValueOnce(isProductionValue)
     expect(renderer.create(<Routes />).toJSON()).toMatchSnapshot()

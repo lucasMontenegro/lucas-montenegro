@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/ui/Routes should render (isProduction false) 1`] = `
+<div
+  className="BrowserRouter"
+>
+  <div
+    className="Switch"
+  >
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      >
+        /examples
+      </div>
+      <div
+        className="component"
+      >
+        new/local/ui/Routes/Examples
+      </div>
+    </div>
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      >
+        /old-examples
+      </div>
+      <div
+        className="component"
+      >
+        new/local/ui/Routes/OldExamples
+      </div>
+    </div>
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      />
+      <div
+        className="component"
+      >
+        new/local/ui/App
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new/local/ui/Routes should render (isProduction true) 1`] = `
+<div
+  className="BrowserRouter"
+>
+  <div
+    className="Route"
+  >
+    <div
+      className="path"
+    />
+    <div
+      className="component"
+    >
+      new/local/ui/App
+    </div>
+  </div>
+</div>
+`;
+
+exports[`new/local/ui/Routes should utilize the dependency APIs correctly 1`] = `
+Object {
+  "react": "^16.10.1",
+  "react-router-dom": "^5.1.2",
+}
+`;

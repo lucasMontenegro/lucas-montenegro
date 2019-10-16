@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`new/local/app/ui/store should utilize the dependency APIs correctly 1`] = `
-Object {
-  "react": "^16.10.1",
-  "react-redux": "^7.1.1",
-  "redux": "^4.0.4",
-}
-`;

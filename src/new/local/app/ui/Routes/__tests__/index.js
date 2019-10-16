@@ -13,17 +13,21 @@ jest.mock(`react-router-dom`, () => ({
     </div>
   ),
 }))
+jest.mock(`new/local/utils/isProduction`, () => ({
+  __esModule: true,
+  default: jest.fn(),
+}))
 jest.mock(`new/local/app/ui/App`, () => ({
   __esModule: true,
   default: `new/local/app/ui/App`,
 }))
-jest.mock(`new/local/paperbase/Examples`, () => ({
+jest.mock(`new/local/app/ui/Routes/Examples`, () => ({
   __esModule: true,
-  default: `new/local/paperbase/Examples`,
+  default: `new/local/app/ui/Routes/Examples`,
 }))
-jest.mock(`new/local/utils/isProduction`, () => ({
+jest.mock(`new/local/app/ui/Routes/OldExamples`, () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: `new/local/app/ui/Routes/OldExamples`,
 }))
 describe(`new/local/app/ui/Routes`, () => {
   it(`should utilize the dependency APIs correctly`, () => {

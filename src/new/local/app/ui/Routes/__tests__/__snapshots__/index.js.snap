@@ -12,11 +12,13 @@ exports[`new/local/app/ui/Routes should render (isProduction false) 1`] = `
     >
       <div
         className="path"
-      />
+      >
+        /examples
+      </div>
       <div
         className="component"
       >
-        new/local/app/ui/App
+        new/local/app/ui/Routes/Examples
       </div>
     </div>
     <div
@@ -25,12 +27,24 @@ exports[`new/local/app/ui/Routes should render (isProduction false) 1`] = `
       <div
         className="path"
       >
-        /examples
+        /old-examples
       </div>
       <div
         className="component"
       >
-        new/local/paperbase/Examples
+        new/local/app/ui/Routes/OldExamples
+      </div>
+    </div>
+    <div
+      className="Route"
+    >
+      <div
+        className="path"
+      />
+      <div
+        className="component"
+      >
+        new/local/app/ui/App
       </div>
     </div>
   </div>
@@ -42,19 +56,15 @@ exports[`new/local/app/ui/Routes should render (isProduction true) 1`] = `
   className="BrowserRouter"
 >
   <div
-    className="Switch"
+    className="Route"
   >
     <div
-      className="Route"
+      className="path"
+    />
+    <div
+      className="component"
     >
-      <div
-        className="path"
-      />
-      <div
-        className="component"
-      >
-        new/local/app/ui/App
-      </div>
+      new/local/app/ui/App
     </div>
   </div>
 </div>

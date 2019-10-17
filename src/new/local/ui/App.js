@@ -4,13 +4,14 @@ import routing from "new/local/ui/routing"
 import logo from "new/local/ui/logo"
 import home from "new/local/home"
 import notFound from "new/local/notFound"
+const appName = `main`
 export default createApp({
-  name: `main`,
+  name: appName,
   routing,
   logo,
   clients: {
-    home: home(routing),
-    notFound: notFound(routing),
+    home: home(appName, routing),
+    notFound: notFound(appName, routing),
   },
   titles: makeTranslations(() => `Lucas Montenegro`),
 })

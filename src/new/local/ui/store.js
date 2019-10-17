@@ -1,7 +1,7 @@
 import React from "react"
 import { createStore, combineReducers } from "redux"
 import { Provider } from "react-redux"
-import Routes from "new/local/ui/Routes"
+import routes from "new/local/ui/routes"
 export const reducers = {
   core (state={}, action) {
     return state
@@ -9,6 +9,6 @@ export const reducers = {
 }
 export default (
   <Provider store={createStore(combineReducers(reducers))}>
-    <Routes />
+    {routes}
   </Provider>
 )

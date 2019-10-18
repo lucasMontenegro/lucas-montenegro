@@ -60,7 +60,7 @@
     "build": "./scripts/build.sh",
     "build-server": "./scripts/build-server.sh",
     "start": "./scripts/start.sh",
-    "cra": "react-scripts start",
+    "cra": "./scripts/cra.sh",
     "test": "react-scripts test",
     "db-spec": "./scripts/db-spec.sh",
     "wdio": "./scripts/wdio.sh"

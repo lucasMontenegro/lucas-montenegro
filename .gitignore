@@ -16,3 +16,6 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+# dynamically created entry point
+src/index.js

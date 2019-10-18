@@ -63,7 +63,8 @@
     "cra": "./scripts/cra.sh",
     "test": "react-scripts test",
     "db-spec": "./scripts/db-spec.sh",
-    "wdio": "./scripts/wdio.sh"
+    "wdio": "./scripts/wdio.sh",
+    "test-old-examples": "./scripts/test-old-examples.sh"
   },
   "repository": {
     "type": "git",

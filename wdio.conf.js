@@ -1,4 +1,7 @@
 exports.config = {
+  // port to find chromedriver
+  port: 9515, // default for ChromeDriver
+  path: `/`,
   //
   // ====================
   // Runner Configuration
@@ -17,31 +20,6 @@ exports.config = {
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
   specs: [`./src/**/*.wdio.js`],
-  suites: {
-    base: [
-      `src/local/throwPropTypeErrors/throwPropTypeErrors.wdio.js`,
-    ],
-    browser: [
-      `src/app/Examples/browserSetWindowSize/browserSetWindowSize.wdio.js`,
-    ],
-    core: [
-      `src/local/core/Body/Body.wdio.js`,
-      `src/local/core/Drawer/Drawer.wdio.js`,
-      `src/local/core/HandleRedirect/HandleRedirect.wdio.js`,
-      `src/local/core/LanguageDialog/LanguageDialog.wdio.js`,
-      `src/local/core/links/links.wdio.js`,
-      `src/local/core/makeClientLocation/makeClientLocation.wdio.js`,
-      `src/local/core/makeLanguageDialogState/makeLanguageDialogState.wdio.js`,
-      `src/local/core/makeRouter/makeRouter.wdio.js`,
-      `src/local/core/NavLink/NavLink.wdio.js`,
-      `src/local/core/portals/portals.wdio.js`,
-      `src/local/core/portals/makeUniqueRef/makeUniqueRef.wdio.js`,
-      `src/local/core/useViewState/useViewState.wdio.js`,
-    ],
-    clients: [
-      `src/local/clients/createNotFound/NotFoundView/NotFoundView.wdio.js`,
-    ],
-  },
   // Patterns to exclude.
   exclude: [
     // `path/to/excluded/files`
@@ -74,7 +52,7 @@ exports.config = {
     // 5 instances get started at a time.
     maxInstances: 1,
     //
-    browserName: `firefox`,
+    browserName: `chromium`,
     // If outputDir is provided WebdriverIO can capture driver session logs
     // it is possible to configure which logTypes to include/exclude.
     // excludeDriverLogs: [`*`], // pass `*` to exclude all driver session logs
@@ -118,7 +96,7 @@ exports.config = {
   //
   // Default timeout in milliseconds for request
   // if Selenium Grid doesn't send response
-  connectionRetryTimeout: 90000,
+  connectionRetryTimeout: 5000,
   //
   // Default request retries count
   connectionRetryCount: 3,
@@ -127,7 +105,8 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: [`selenium-standalone`],
+  services: [`chromedriver`],
+  chromeDriverLogs: `./`,
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -150,7 +129,7 @@ exports.config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: `bdd`,
-    timeout: 240000,
+    timeout: 20000,
   },
   before () {
     require("@babel/register")({

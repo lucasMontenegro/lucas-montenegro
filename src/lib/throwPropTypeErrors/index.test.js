@@ -7,7 +7,7 @@ jest.mock(`lib/utils/globals`, () => ({
 }))
 jest.mock(`lib/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`lib/throwPropTypeErrors`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`prop-types`])).toMatchSnapshot()
   })
   afterEach(() => {

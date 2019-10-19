@@ -1,5 +1,5 @@
 describe(`languages/propType`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`prop-types`])).toMatchSnapshot()
   })
   it(`should run`, () => {

@@ -1,6 +1,6 @@
 import extractRowCount from "lib/utils/postgres/extractRowCount"
 describe(`lib/utils/postgres/extractRowCount`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`pg-promise`])).toMatchSnapshot()
   })
   it(`should extract the row count from the pg-promise result object`, () => {

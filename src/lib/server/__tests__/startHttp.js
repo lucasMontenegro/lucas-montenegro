@@ -34,7 +34,7 @@ jest.mock(`lib/utils/globals`, () => ({
 }))
 describe(`lib/server/startHttp`, () => {
   afterEach(() => mockFn.mockClear())
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`express`])).toMatchSnapshot()
   })
   test.each([

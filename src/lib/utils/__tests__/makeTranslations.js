@@ -1,7 +1,7 @@
 import makeTranslations from "lib/utils/makeTranslations"
 jest.mock(`languages/supported`, () => ({ __esModule: true, default: [`en`, `es`] }))
 describe(`lib/utils/makeTranslations`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`prop-types`])).toMatchSnapshot()
   })
   it(`should create translations`, () => {

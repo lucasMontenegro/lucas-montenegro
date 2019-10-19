@@ -5,7 +5,7 @@ jest.mock(`lib/utils/globals`, () => ({
   default: { console: { error: jest.fn() } },
 }))
 describe(`lib/utils/syncRequestHandler`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`express`])).toMatchSnapshot()
   })
   it(`should resolve promises`, async () => {

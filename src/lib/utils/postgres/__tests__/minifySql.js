@@ -1,6 +1,6 @@
 import minifySql from "lib/utils/postgres/minifySql"
 describe(`lib/utils/postgres/minifySql`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`pg-minify`])).toMatchSnapshot()
   })
   it(`should minify SQL queries`, () => {

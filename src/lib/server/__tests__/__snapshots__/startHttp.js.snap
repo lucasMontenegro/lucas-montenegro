@@ -116,7 +116,7 @@ Array [
 ]
 `;
 
-exports[`lib/server/startHttp should utilize the dependency APIs correctly 1`] = `
+exports[`lib/server/startHttp should use the right dependency versions 1`] = `
 Object {
   "express": "^4.17.1",
 }

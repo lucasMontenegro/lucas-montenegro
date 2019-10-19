@@ -1,7 +1,7 @@
 import todo from "lib/todo/router"
 jest.mock(`lib/todo/router`, () => ({ __esModule: true, default: () => {} }))
 describe(`server/api`, () => {
-  it(`should utilize the dependency APIs correctly`, () => {
+  it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`express`])).toMatchSnapshot()
   })
   it(`should run`, () => {

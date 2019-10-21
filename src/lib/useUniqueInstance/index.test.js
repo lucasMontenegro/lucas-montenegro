@@ -32,10 +32,10 @@ describe(`lib/useUniqueInstance`, () => {
       effects[i]()()
       refs[i] = makeRefs()
     }
-    const expectUnique = () => expect(useUniqueInstance(getName)).toBe(true)
+    const expectUnique = () => expect(useUniqueInstance(getName)).toBe(`foo`)
     const expectRepeated = () => {
       if (isProductionValue) {
-        expect(useUniqueInstance(getName)).toBe(false)
+        expect(useUniqueInstance(getName)).toBeNull()
       } else {
         expect(() => useUniqueInstance(getName)).toThrow(error)
       }

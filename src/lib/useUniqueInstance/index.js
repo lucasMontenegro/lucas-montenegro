@@ -18,6 +18,10 @@ export default function useUniqueInstance (getName) {
       delete namespace[nameStr]
     }
   }, [uniqueBool, nameStr])
-  if (uniqueBool || isProduction()) return uniqueBool
+  if (uniqueBool) {
+    return nameStr
+  } else if (isProduction()) {
+    return null
+  }
   throw Error(`${nameStr}: Only one instance is allowed`)
 }

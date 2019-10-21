@@ -4,11 +4,11 @@ import useUniqueInstance from "lib/useUniqueInstance"
 import queryString from "query-string"
 import globals from "lib/utils/globals"
 function Message ({ id }) {
-  const unique = useUniqueInstance(() => `useUniqueInstance example component`)
+  const name = useUniqueInstance(() => `foo`)
   return (
     <div>
       {id} &nbsp;
-      <span id={id}>{JSON.stringify(unique)}</span>
+      <span id={id}>{JSON.stringify(name)}</span>
     </div>
   )
 }

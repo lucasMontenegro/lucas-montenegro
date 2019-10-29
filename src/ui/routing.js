@@ -1,48 +1,7 @@
+import supportedLanguages from "languages/supported"
 export default {
-  locations: {
-    home: {
-      en: { pathname: `/english/home` },
-      es: { pathname: `/español/inicio` },
-    },
-    notFound: {
-      en: { pathname: `/english/not-found` },
-      es: { pathname: `/español/no-encontrado` },
-    },
-  },
-  linkTranslators: {
-    home: {
-      en: {
-        toIntl () {},
-        toLocal () {
-          return { pathname: `/english/home` }
-        },
-      },
-      es: {
-        toIntl () {},
-        toLocal () {
-          return { pathname: `/español/inicio` }
-        },
-      },
-    },
-    notFound: {
-      en: {
-        toIntl({ state }) {
-          return state
-        },
-        toLocal(state) {
-          return { pathname: `/english/not-found`, state }
-        },
-      },
-      es: {
-        toIntl({ state }) {
-          return state
-        },
-        toLocal(state) {
-          return { pathname: `/español/no-encontrado`, state }
-        },
-      },
-    },
-  },
+  languageCodes: supportedLanguages,
+  clientNames: [`home`, `notFound`],
   routes: {
     matchRoot (location) {
       return /^\/?$/.test(location.pathname)
@@ -105,5 +64,49 @@ export default {
         },
       },
     ],
+  },
+  linkTranslators: {
+    home: {
+      en: {
+        toIntl () {},
+        toLocal () {
+          return { pathname: `/english/home` }
+        },
+      },
+      es: {
+        toIntl () {},
+        toLocal () {
+          return { pathname: `/español/inicio` }
+        },
+      },
+    },
+    notFound: {
+      en: {
+        toIntl({ state }) {
+          return state
+        },
+        toLocal(state) {
+          return { pathname: `/english/not-found`, state }
+        },
+      },
+      es: {
+        toIntl({ state }) {
+          return state
+        },
+        toLocal(state) {
+          return { pathname: `/español/no-encontrado`, state }
+        },
+      },
+    },
+  },
+  locations: {
+    home: {
+      en: { pathname: `/english/home` },
+      es: { pathname: `/español/inicio` },
+    },
+    notFound: {
+      en: { pathname: `/english/not-found` },
+      es: { pathname: `/español/no-encontrado` },
+    },
   },
 }

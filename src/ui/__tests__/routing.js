@@ -1,12 +1,12 @@
 import supportedLanguages from "languages/supported"
-import describeRouting from "lib/routing/describeRouting"
-import describeNotFoundRouting from "lib/notFound/describeRouting"
+import describeRouting from "lib/routing/describer"
 import routing from "ui/routing"
 describe(`ui/routing`, () => {
+  it(`should use the right dependency versions`, () => {
+    expect(jestUtils.getDependencies([`react-router-dom`])).toMatchSnapshot()
+  })
   describeRouting({
     routing,
-    languageCodes: supportedLanguages,
-    clientNames: [],
     exampleLocations: {
       matchRoot: [
         { pathname: `` },
@@ -56,20 +56,6 @@ describe(`ui/routing`, () => {
           { pathname: `/español/404` },
         ],
       },
-    },
-  })
-  describeNotFoundRouting({
-    routing,
-    languageCodes: supportedLanguages,
-    exampleLocations: {
-      en: [
-        { pathname: `/english/not-found`, state: {} },
-        { pathname: `/english/not-found/`, state: {} },
-      ],
-      es: [
-        { pathname: `/español/no-encontrado`, state: {} },
-        { pathname: `/español/no-encontrado/`, state: {} },
-      ],
     },
   })
 })

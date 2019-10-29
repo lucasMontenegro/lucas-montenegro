@@ -1,6 +1,10 @@
 import supportedLanguages from "languages/supported"
 export default {
   languageCodes: supportedLanguages,
+  languageNames: {
+    en: `English`,
+    es: `Español`,
+  },
   clientNames: [`home`, `notFound`],
   routes: {
     matchRoot (location) {

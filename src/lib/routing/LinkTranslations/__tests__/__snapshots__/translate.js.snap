@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/routing/LinkTranslations/translate should translate the location to every language 1`] = `
+Array [
+  Object {
+    "key": "en",
+    "languageName": "English",
+    "location": Object {
+      "pathname": "location",
+    },
+  },
+  Object {
+    "key": "es",
+    "languageName": "Spanish",
+    "location": Array [
+      "translators.es.toLocal",
+      Array [
+        Array [
+          "translators.en.toIntl",
+          Array [
+            Object {
+              "pathname": "location",
+            },
+          ],
+        ],
+      ],
+    ],
+  },
+]
+`;

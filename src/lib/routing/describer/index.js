@@ -5,11 +5,12 @@ import describeNotFound from "lib/routing/describer/notFound"
 export default function describeRouting ({ routing, exampleLocations }) {
   it(`should have the right object shape`, () => {
     expect(routing.languageCodes).toBeInstanceOf(Array)
+    expect(routing.languageNames).toBeInstanceOf(Object)
     expect(routing.clientNames).toBeInstanceOf(Array)
     expect(routing.locations).toBeInstanceOf(Object)
     expect(routing.linkTranslators).toBeInstanceOf(Object)
     expect(routing.routes).toBeInstanceOf(Object)
-    expect(Object.keys(routing)).toHaveLength(5)
+    expect(Object.keys(routing)).toHaveLength(6)
   })
   describe(`routing.languageCodes`, () => {
     const { languageCodes } = routing
@@ -18,6 +19,13 @@ export default function describeRouting ({ routing, exampleLocations }) {
         obj[code] = null
         return obj
       }, {})))
+    })
+  })
+  describe(`routing.languageNames`, () => {
+    const cases = routing.languageCodes.map(languageCode => [languageCode])
+    test.each(cases)(`should support the "%s" language code`, languageCode => {
+      expect(routing.languageNames).toHaveProperty(languageCode)
+      expect(typeof routing.languageNames[languageCode]).toBe(`string`)
     })
   })
   describe(`routing.clientNames`, () => {

@@ -14,8 +14,8 @@ function LanguageDetector () {
       <h5>languageDetector</h5>
       <SetValue
         className="init"
-        value="undefined"
-        onClick={() => languageDetector.init()}
+        value="[`en`, `es`]"
+        onClick={() => languageDetector.init([`en`, `es`])}
       />
       <GetValue
         className="get"

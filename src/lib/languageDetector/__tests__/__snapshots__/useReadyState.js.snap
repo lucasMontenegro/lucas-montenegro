@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`lib/languageDetector should use the right dependency versions 1`] = `
+exports[`lib/languageDetector/useReadyState should use the right dependency versions 1`] = `
 Object {
   "i18next": "^17.0.18",
   "react": "^16.10.1",

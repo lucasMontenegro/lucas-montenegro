@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/languageDetector/init init (isInitialized false, production false) should initialize i18next 1`] = `
+Array [
+  Array [
+    "i18next.use",
+    Array [
+      "i18next-browser-languagedetector",
+    ],
+  ],
+  Array [
+    "i18next.init",
+    Array [
+      Object {
+        "debug": true,
+        "fallbackLng": "foo",
+        "whitelist": Array [
+          "foo",
+          "bar",
+        ],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`lib/languageDetector/init init (isInitialized false, production true) should initialize i18next 1`] = `
+Array [
+  Array [
+    "i18next.use",
+    Array [
+      "i18next-browser-languagedetector",
+    ],
+  ],
+  Array [
+    "i18next.init",
+    Array [
+      Object {
+        "debug": false,
+        "fallbackLng": "foo",
+        "whitelist": Array [
+          "foo",
+          "bar",
+        ],
+      },
+    ],
+  ],
+]
+`;
+
+exports[`lib/languageDetector/init should use the right dependency versions 1`] = `
+Object {
+  "i18next": "^17.0.18",
+  "i18next-browser-languagedetector": "^3.0.3",
+}
+`;

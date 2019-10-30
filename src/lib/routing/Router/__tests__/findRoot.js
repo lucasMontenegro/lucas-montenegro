@@ -22,7 +22,7 @@ describe(`lib/routing/Router/findRoot`, () => {
       match = true
       languageDetector.get = () => `foo`
       const result = router.findRoot()
-      expect(result).toEqual({ render: {}, languageCode: `foo`, redirect: {} })
+      expect(result).toEqual({ render: {}, redirect: {} })
       expect(result.render).toBe(router.renderEmpty)
       expect(result.redirect).toBe(router.locations.home.foo)
     })

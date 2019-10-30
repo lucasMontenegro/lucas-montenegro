@@ -44,7 +44,7 @@ describe(`lib/routing/Router/findLanguageOnly`, () => {
       languageDetector.set.mockClear()
     })
     it(`should return a route that redirects to home`, () => {
-      expect(result).toEqual({ render: {}, languageCode: `bar`, redirect: {} })
+      expect(result).toEqual({ render: {}, redirect: {} })
       expect(result.render).toBe(router.renderEmpty)
       expect(result.redirect).toBe(router.locations.home.bar)
     })

@@ -8,7 +8,7 @@ import findLanguage404 from "lib/routing/Router/findLanguage404"
 import redirect404 from "lib/routing/Router/redirect404"
 export default class Router {
   constructor (routing) {
-    languageDetector.init()
+    languageDetector.init(routing.languageCodes)
     this.locations = routing.locations
     const clientNames = Object.keys(routing.routes.client.reduce((obj, route) => {
       obj[route.clientName] = null

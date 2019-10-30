@@ -4,7 +4,7 @@ export default function findClient (location) {
   if (route) {
     const { languageCode, render } = route
     languageDetector.set(languageCode)
-    return { render, languageCode, redirect: null }
+    return { render, redirect: null }
   }
   return null
 }

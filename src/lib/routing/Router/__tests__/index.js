@@ -34,6 +34,7 @@ describe(`lib/routing/Router`, () => {
   describe(`new Router`, () => {
     let router
     const routing = {
+      languageCodes: [],
       locations: {},
       routes: {
         client: [
@@ -48,7 +49,8 @@ describe(`lib/routing/Router`, () => {
       router = new Router(routing)
     })
     it(`should initialize the language detector`, () => {
-      expect(languageDetector.init.mock.calls).toEqual([[]])
+      expect(languageDetector.init.mock.calls).toEqual([[[]]])
+      expect(languageDetector.init.mock.calls[0][0]).toBe(routing.languageCodes)
     })
     it(`should expose properties`, () => {
       expect(router.locations).toBe(routing.locations)

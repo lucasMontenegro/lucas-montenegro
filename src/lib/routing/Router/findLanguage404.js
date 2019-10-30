@@ -6,7 +6,6 @@ export default function findLanguage404 (location) {
     languageDetector.set(languageCode)
     return {
       render: this.renderEmpty,
-      languageCode,
       redirect: {
         ...this.locations.notFound[languageCode],
         state: location,

@@ -48,7 +48,7 @@ describe(`lib/routing/Router/useRoute`, () => {
       expect(savedRoute).toEqual({ current: `savedRoute` })
     })
     it(`should return a route that renders nothing`, () => {
-      expect(result).toEqual({ render: {}, languageCode: `en`, redirect: null })
+      expect(result).toEqual({ render: {}, redirect: null })
       expect(result.render).toBe(router.renderEmpty)
     })
   })

@@ -6,7 +6,6 @@ export default function findLanguageOnly (location) {
     languageDetector.set(languageCode)
     return {
       render: this.renderEmpty,
-      languageCode,
       redirect: this.locations.home[languageCode],
     }
   }

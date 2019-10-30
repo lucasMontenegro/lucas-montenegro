@@ -18,7 +18,6 @@ describe(`lib/routing/Router/redirect404`, () => {
     const result = router.redirect404(location)
     expect(result).toEqual({
       render: {},
-      languageCode: `foo`,
       redirect: { pathname: `foo`, state: {} },
     })
     expect(result.render).toBe(router.renderEmpty)

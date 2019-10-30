@@ -41,7 +41,7 @@ describe(`lib/routing/Router/findClient`, () => {
       languageDetector.set.mockClear()
     })
     it(`should return a route that renders the proper client`, () => {
-      expect(result).toEqual({ render: {}, languageCode: `bar`, redirect: null })
+      expect(result).toEqual({ render: {}, redirect: null })
       expect(result.render).toBe(render)
     })
   })

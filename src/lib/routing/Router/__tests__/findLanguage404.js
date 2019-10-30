@@ -50,7 +50,6 @@ describe(`lib/routing/Router/findLanguage404`, () => {
     it(`should return a route that redirects to notFound`, () => {
       expect(result).toEqual({
         render: {},
-        languageCode: `bar`,
         redirect: { pathname: `bar`, state: {} },
       })
       expect(result.render).toBe(router.renderEmpty)

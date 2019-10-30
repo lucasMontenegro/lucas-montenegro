@@ -13,7 +13,6 @@ export default function useRoute (location) {
   }
   return {
     render: this.renderEmpty,
-    languageCode: `en`,
     redirect: null,
   }
 }

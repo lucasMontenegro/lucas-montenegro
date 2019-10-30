@@ -8,7 +8,7 @@ describe(`ui/routing`, () => {
   describeRouting({
     routing,
     exampleLocations: {
-      matchRoot: [
+      root: [
         { pathname: `` },
         { pathname: `/` },
       ],
@@ -48,7 +48,7 @@ describe(`ui/routing`, () => {
           ],
         },
       },
-      clientNotFound: {
+      unknownClient: {
         en: [
           { pathname: `/english/404` },
         ],

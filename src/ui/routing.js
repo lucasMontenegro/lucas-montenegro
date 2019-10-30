@@ -6,8 +6,8 @@ export default {
     es: `Español`,
   },
   clientNames: [`home`, `notFound`],
-  routes: {
-    matchRoot (location) {
+  matchers: {
+    root (location) {
       return /^\/?$/.test(location.pathname)
     },
     languageOnly: [
@@ -54,7 +54,7 @@ export default {
         },
       },
     ],
-    clientNotFound: [
+    unknownClient: [
       {
         languageCode: `en`,
         match (location) {

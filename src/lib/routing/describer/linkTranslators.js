@@ -1,4 +1,4 @@
-export default function describeLinkTranslators ({ routing, exampleLocations, filterRoutes }) {
+export default function describeLinkTranslators ({ routing, exampleLocations, runMatchers }) {
   const { languageCodes, clientNames, linkTranslators } = routing
   describe(`routing.linkTranslators`, () => {
     it(`should have the right object shape`, () => {
@@ -33,25 +33,25 @@ export default function describeLinkTranslators ({ routing, exampleLocations, fi
               )
               test.each(cases)(msg, (i, newLanguage, location) => {
                 {
-                  const captures = filterRoutes(location)
-                  expect(captures.matchRoot).toBe(false)
+                  const captures = runMatchers(location)
+                  expect(captures.root).toBe(false)
                   expect(captures.languageOnly).toHaveLength(0)
                   expect(captures.client).toHaveLength(1)
                   expect(captures.client[0]).toHaveProperty(`languageCode`, oldLanguage)
                   expect(captures.client[0]).toHaveProperty(`clientName`, clientName)
-                  expect(captures.clientNotFound).toHaveLength(1)
-                  expect(captures.clientNotFound[0]).toHaveProperty(`languageCode`, oldLanguage)
+                  expect(captures.unknownClient).toHaveLength(1)
+                  expect(captures.unknownClient[0]).toHaveProperty(`languageCode`, oldLanguage)
                 }
                 const intl = translator.toIntl(location)
                 const local = byClient[newLanguage].toLocal(intl)
-                const captures = filterRoutes(local)
-                expect(captures.matchRoot).toBe(false)
+                const captures = runMatchers(local)
+                expect(captures.root).toBe(false)
                 expect(captures.languageOnly).toHaveLength(0)
                 expect(captures.client).toHaveLength(1)
                 expect(captures.client[0]).toHaveProperty(`languageCode`, newLanguage)
                 expect(captures.client[0]).toHaveProperty(`clientName`, clientName)
-                expect(captures.clientNotFound).toHaveLength(1)
-                expect(captures.clientNotFound[0]).toHaveProperty(`languageCode`, newLanguage)
+                expect(captures.unknownClient).toHaveLength(1)
+                expect(captures.unknownClient[0]).toHaveProperty(`languageCode`, newLanguage)
               })
             }
           })

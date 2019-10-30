@@ -1,4 +1,4 @@
-import describeRoutes from "lib/routing/describer/routes"
+import describeMatchers from "lib/routing/describer/matchers"
 import describeLinkTranslators from "lib/routing/describer/linkTranslators"
 import describeLocations from "lib/routing/describer/locations"
 import describeNotFound from "lib/routing/describer/notFound"
@@ -9,7 +9,7 @@ export default function describeRouting ({ routing, exampleLocations }) {
     expect(routing.clientNames).toBeInstanceOf(Array)
     expect(routing.locations).toBeInstanceOf(Object)
     expect(routing.linkTranslators).toBeInstanceOf(Object)
-    expect(routing.routes).toBeInstanceOf(Object)
+    expect(routing.matchers).toBeInstanceOf(Object)
     expect(Object.keys(routing)).toHaveLength(6)
   })
   describe(`routing.languageCodes`, () => {
@@ -37,14 +37,14 @@ export default function describeRouting ({ routing, exampleLocations }) {
       }, {})))
     })
   })
-  function filterRoutes (location) {
-    return [`languageOnly`, `client`, `clientNotFound`].reduce((captures, name) => {
-      captures[name] = routing.routes[name].filter(route => route.match(location))
+  function runMatchers (location) {
+    return [`languageOnly`, `client`, `unknownClient`].reduce((captures, name) => {
+      captures[name] = routing.matchers[name].filter(matcher => matcher.match(location))
       return captures
-    }, { matchRoot: routing.routes.matchRoot(location) })
+    }, { root: routing.matchers.root(location) })
   }
-  describeRoutes({ routing, exampleLocations, filterRoutes })
-  describeLinkTranslators({ routing, exampleLocations, filterRoutes })
-  describeLocations({ routing, exampleLocations, filterRoutes })
+  describeMatchers({ routing, exampleLocations, runMatchers })
+  describeLinkTranslators({ routing, exampleLocations, runMatchers })
+  describeLocations({ routing, exampleLocations, runMatchers })
   describeNotFound({ routing, exampleLocations })
 }

@@ -8,7 +8,7 @@ describe(`lib/routing/Router/findLanguageOnly`, () => {
   let match
   const router = {
     findLanguageOnly,
-    routes: {
+    matchers: {
       languageOnly: [
         { languageCode: `foo`, match: () => false },
         { languageCode: `bar`, match: () => match },
@@ -20,7 +20,7 @@ describe(`lib/routing/Router/findLanguageOnly`, () => {
       home: { bar: {} },
     },
   }
-  describe(`findLanguageOnly (routes.languageOnly.find => null)`, () => {
+  describe(`findLanguageOnly (matchers.languageOnly.find => null)`, () => {
     let result
     beforeAll(() => {
       match = false
@@ -33,7 +33,7 @@ describe(`lib/routing/Router/findLanguageOnly`, () => {
       expect(result).toBeNull()
     })
   })
-  describe(`findLanguageOnly (routes.languageOnly.find => route)`, () => {
+  describe(`findLanguageOnly (matchers.languageOnly.find => matcher)`, () => {
     let result
     beforeAll(() => {
       match = true

@@ -9,7 +9,7 @@ describe(`lib/routing/Router/findClient`, () => {
   let match
   const router = {
     findClient,
-    routes: {
+    matchers: {
       client: [
         { languageCode: `foo`, match: () => false },
         { languageCode: `bar`, render, match: () => match },
@@ -17,7 +17,7 @@ describe(`lib/routing/Router/findClient`, () => {
       ],
     },
   }
-  describe(`findClient (routes.client.find => null)`, () => {
+  describe(`findClient (matchers.client.find => null)`, () => {
     let result
     beforeAll(() => {
       match = false
@@ -30,7 +30,7 @@ describe(`lib/routing/Router/findClient`, () => {
       expect(result).toBeNull()
     })
   })
-  describe(`findClient (routes.client.find => route)`, () => {
+  describe(`findClient (matchers.client.find => matcher)`, () => {
     let result
     beforeAll(() => {
       match = true

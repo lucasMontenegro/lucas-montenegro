@@ -5,7 +5,7 @@ describe(`lib/routing/Router/findRoot`, () => {
   let match
   const router = {
     findRoot,
-    routes: { matchRoot: () => match },
+    matchers: { root: () => match },
     renderEmpty: {},
     locations: {
       home: { foo: {} },

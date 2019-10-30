@@ -4,7 +4,7 @@ import findRoute from "lib/routing/Router/findRoute"
 import findRoot from "lib/routing/Router/findRoot"
 import findLanguageOnly from "lib/routing/Router/findLanguageOnly"
 import findClient from "lib/routing/Router/findClient"
-import findLanguage404 from "lib/routing/Router/findLanguage404"
+import findUnknownClient from "lib/routing/Router/findUnknownClient"
 import redirect404 from "lib/routing/Router/redirect404"
 import Router from "lib/routing/Router"
 jest.mock(`lib/languageDetector`, () => ({
@@ -16,7 +16,7 @@ jest.mock(`lib/routing/Router/findRoute`, () => ({ __esModule: true, default: {}
 jest.mock(`lib/routing/Router/findRoot`, () => ({ __esModule: true, default: {} }))
 jest.mock(`lib/routing/Router/findLanguageOnly`, () => ({ __esModule: true, default: {} }))
 jest.mock(`lib/routing/Router/findClient`, () => ({ __esModule: true, default: {} }))
-jest.mock(`lib/routing/Router/findLanguage404`, () => ({ __esModule: true, default: {} }))
+jest.mock(`lib/routing/Router/findUnknownClient`, () => ({ __esModule: true, default: {} }))
 jest.mock(`lib/routing/Router/redirect404`, () => ({ __esModule: true, default: {} }))
 describe(`lib/routing/Router`, () => {
   describe(`Router.prototype`, () => {
@@ -26,7 +26,7 @@ describe(`lib/routing/Router`, () => {
       expect(Router.prototype.findRoot).toBe(findRoot)
       expect(Router.prototype.findLanguageOnly).toBe(findLanguageOnly)
       expect(Router.prototype.findClient).toBe(findClient)
-      expect(Router.prototype.findLanguage404).toBe(findLanguage404)
+      expect(Router.prototype.findUnknownClient).toBe(findUnknownClient)
       expect(Router.prototype.redirect404).toBe(redirect404)
       expect(Object.keys(Router.prototype)).toHaveLength(7)
     })
@@ -36,7 +36,7 @@ describe(`lib/routing/Router`, () => {
     const routing = {
       languageCodes: [],
       locations: {},
-      routes: {
+      matchers: {
         client: [
           { clientName: `foo`, other: `other` },
           { clientName: `bar`, other: `other` },
@@ -55,7 +55,7 @@ describe(`lib/routing/Router`, () => {
     it(`should expose properties`, () => {
       expect(router.locations).toBe(routing.locations)
       expect(router.renderEmpty).toEqual({ foo: false, bar: false, baz: false })
-      expect(router.routes).toEqual({
+      expect(router.matchers).toEqual({
         client: [
           {
             render: { foo: true, bar: false, baz: false },

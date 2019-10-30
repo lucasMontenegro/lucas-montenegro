@@ -32,15 +32,15 @@ describe(`lib/routing/Router/findRoute`, () => {
     mockReturnRoute(router, `findClient`)
     expectReturnValue(router)
   })
-  it(`should find the "language not found" route`, () => {
+  it(`should handle locations that don't match any known client`, () => {
     const router = makeRouter()
     mockReturnNull(router, [`findRoot`, `findLanguageOnly`, `findClient`])
-    mockReturnRoute(router, `findLanguage404`)
+    mockReturnRoute(router, `findUnknownClient`)
     expectReturnValue(router)
   })
   it(`should redirect when no route is found`, () => {
     const router = makeRouter()
-    mockReturnNull(router, [`findRoot`, `findLanguageOnly`, `findClient`, `findLanguage404`])
+    mockReturnNull(router, [`findRoot`, `findLanguageOnly`, `findClient`, `findUnknownClient`])
     mockReturnRoute(router, `redirect404`)
     expectReturnValue(router)
   })

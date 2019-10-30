@@ -1,8 +1,8 @@
 import languageDetector from "lib/languageDetector"
 export default function findLanguageOnly (location) {
-  const route = this.routes.languageOnly.find(r => r.match(location))
-  if (route) {
-    const { languageCode } = route
+  const matcher = this.matchers.languageOnly.find(m => m.match(location))
+  if (matcher) {
+    const { languageCode } = matcher
     languageDetector.set(languageCode)
     return {
       render: this.renderEmpty,

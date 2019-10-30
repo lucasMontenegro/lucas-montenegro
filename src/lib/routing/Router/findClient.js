@@ -1,8 +1,8 @@
 import languageDetector from "lib/languageDetector"
 export default function findClient (location) {
-  const route = this.routes.client.find(r => r.match(location))
-  if (route) {
-    const { languageCode, render } = route
+  const matcher = this.matchers.client.find(m => m.match(location))
+  if (matcher) {
+    const { languageCode, render } = matcher
     languageDetector.set(languageCode)
     return { render, redirect: null }
   }

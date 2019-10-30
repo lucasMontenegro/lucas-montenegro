@@ -3,7 +3,7 @@ export default function findRoute (location) {
     this.findRoot(location)
     || this.findLanguageOnly(location)
     || this.findClient(location)
-    || this.findLanguage404(location)
+    || this.findUnknownClient(location)
     || this.redirect404(location)
   )
 }

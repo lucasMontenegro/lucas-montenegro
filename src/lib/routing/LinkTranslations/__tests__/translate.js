@@ -1,4 +1,6 @@
 import translate from "lib/routing/LinkTranslations/translate"
+import languageDetector from "lib/languageDetector"
+jest.mock(`lib/languageDetector`, () => ({ __esModule: true, default: {} }))
 describe(`lib/routing/LinkTranslations/translate`, () => {
   const linkTranslations = {
     translate,
@@ -19,15 +21,28 @@ describe(`lib/routing/LinkTranslations/translate`, () => {
       { languageCode: `es`, languageName: `Spanish` },
     ],
   }
-  const location = { pathname: `location` }
-  let links
-  beforeAll(() => {
-    links = linkTranslations.translate(`en`, location)
+  describe(`linkTranslations.translate (languageCode is supported)`, () => {
+    const location = { pathname: `location` }
+    let links
+    beforeAll(() => {
+      languageDetector.get = () => `en`
+      links = linkTranslations.translate(location)
+    })
+    it(`should translate to every language`, () => {
+      expect(links).toMatchSnapshot()
+    })
+    it(`should not translate a location to its own language`, () => {
+      expect(links[0].location).toBe(location)
+    })
   })
-  it(`should translate the location to every language`, () => {
-    expect(links).toMatchSnapshot()
-  })
-  it(`should not translate a location to its own language`, () => {
-    expect(links[0].location).toBe(location)
+  describe(`linkTranslations.translate (languageCode not supported)`, () => {
+    let links
+    beforeAll(() => {
+      languageDetector.get = () => `pt`
+      links = linkTranslations.translate({})
+    })
+    it(`should return an empty array`, () => {
+      expect(links).toEqual([])
+    })
   })
 })

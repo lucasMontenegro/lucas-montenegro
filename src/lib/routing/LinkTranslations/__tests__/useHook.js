@@ -22,7 +22,7 @@ describe(`lib/routing/LinkTranslations/useHook`, () => {
     beforeAll(() => {
       savedLocation.current = location
       savedLinks.current = links
-      result = linkTranslations.useHook(`foo`, location)()
+      result = linkTranslations.useHook(location)()
     })
     it(`should not call linkTranslations.translate`, () => {
       expect(linkTranslations.translate.mock.calls).toEqual([])
@@ -45,11 +45,11 @@ describe(`lib/routing/LinkTranslations/useHook`, () => {
       savedLocation.current = {}
       savedLinks.current = []
       linkTranslations.translate.mockReturnValueOnce(links)
-      result = linkTranslations.useHook(`foo`, location)()
+      result = linkTranslations.useHook(location)()
     })
     it(`should call linkTranslations.translate`, () => {
-      expect(linkTranslations.translate.mock.calls).toEqual([[`foo`, {}]])
-      expect(linkTranslations.translate.mock.calls[0][1]).toBe(location)
+      expect(linkTranslations.translate.mock.calls).toEqual([[{}]])
+      expect(linkTranslations.translate.mock.calls[0][0]).toBe(location)
       linkTranslations.translate.mockClear()
     })
     it(`should update the refs`, () => {

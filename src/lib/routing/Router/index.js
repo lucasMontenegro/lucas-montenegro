@@ -9,12 +9,22 @@ import redirect404 from "lib/routing/Router/redirect404"
 export default class Router {
   constructor (routing) {
     languageDetector.init(routing.languageCodes)
-    this.locations = routing.locations
-    const clientNames = Object.keys(routing.matchers.client.reduce((obj, matcher) => {
-      obj[matcher.clientName] = null
-      return obj
-    }, {}))
-    const makeRenderObject = name => clientNames.reduce((render, str) => {
+    {
+      const initialLanguage = routing.languageCodes[0]
+      this.locations = [`home`, `notFound`].reduce((byClient, clientName) => {
+        const location = routing.locations[clientName]
+        const translators = routing.linkTranslators[clientName]
+        const intl = translators[initialLanguage].toIntl(location)
+        byClient[clientName] = routing.languageCodes.reduce((byLanguage, newLanguage) => {
+          byLanguage[newLanguage] = (
+            initialLanguage === newLanguage ? location : translators[newLanguage].toLocal(intl)
+          )
+          return byLanguage
+        }, {})
+        return byClient
+      }, {})
+    }
+    const makeRenderObject = name => routing.clientNames.reduce((render, str) => {
       render[str] = name === str
       return render
     }, {})

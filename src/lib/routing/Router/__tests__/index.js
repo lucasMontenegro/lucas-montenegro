@@ -34,13 +34,49 @@ describe(`lib/routing/Router`, () => {
   describe(`new Router`, () => {
     let router
     const routing = {
-      languageCodes: [],
-      locations: {},
+      languageCodes: [`en`, `es`],
+      clientNames: [`home`, `foo`, `notFound`],
+      locations: {
+        home: { pathname: `initial home` },
+        notFound: { pathname: `initial notFound` },
+      },
+      linkTranslators: {
+        home: {
+          en: {
+            toIntl ({ pathname }) {
+              return `${pathname} > home.en.toIntl`
+            },
+            toLocal (str) {
+              return { pathname: `${str} > home.en.toLocal` }
+            },
+          },
+          es: {
+            toLocal (str) {
+              return { pathname: `${str} > home.es.toLocal` }
+            },
+          },
+        },
+        notFound: {
+          en: {
+            toIntl ({ pathname }) {
+              return `${pathname} > notFound.en.toIntl`
+            },
+            toLocal (str) {
+              return { pathname: `${str} > notFound.en.toLocal` }
+            },
+          },
+          es: {
+            toLocal (str) {
+              return { pathname: `${str} > notFound.es.toLocal` }
+            },
+          },
+        },
+      },
       matchers: {
         client: [
+          { clientName: `home`, other: `other` },
           { clientName: `foo`, other: `other` },
-          { clientName: `bar`, other: `other` },
-          { clientName: `baz`, other: `other` },
+          { clientName: `notFound`, other: `other` },
         ],
         other: `other`,
       },
@@ -49,29 +85,44 @@ describe(`lib/routing/Router`, () => {
       router = new Router(routing)
     })
     it(`should initialize the language detector`, () => {
-      expect(languageDetector.init.mock.calls).toEqual([[[]]])
+      expect(languageDetector.init.mock.calls).toEqual([[[`en`, `es`]]])
       expect(languageDetector.init.mock.calls[0][0]).toBe(routing.languageCodes)
     })
-    it(`should expose properties`, () => {
-      expect(router.locations).toBe(routing.locations)
-      expect(router.renderEmpty).toEqual({ foo: false, bar: false, baz: false })
+    it(`should create the initial client locations`, () => {
+      expect(router.locations).toEqual({
+        home: {
+          en: { pathname: `initial home` },
+          es: { pathname: `initial home > home.en.toIntl > home.es.toLocal` },
+        },
+        notFound: {
+          en: { pathname: `initial notFound` },
+          es: { pathname: `initial notFound > notFound.en.toIntl > notFound.es.toLocal` },
+        },
+      })
+    })
+    it(`should create the "render" object that hides all clients`, () => {
+      expect(router.renderEmpty).toEqual({ home: false, foo: false, notFound: false })
+    })
+    it(`should add the "render" object to each matcher`, () => {
       expect(router.matchers).toEqual({
         client: [
           {
-            render: { foo: true, bar: false, baz: false },
+            render: { home: true, foo: false, notFound: false },
             other: `other`,
           },
           {
-            render: { foo: false, bar: true, baz: false },
+            render: { home: false, foo: true, notFound: false },
             other: `other`,
           },
           {
-            render: { foo: false, bar: false, baz: true },
+            render: { home: false, foo: false, notFound: true },
             other: `other`,
           },
         ],
         other: `other`,
       })
+    })
+    it(`should not expose anything else`, () => {
       expect(Object.keys(router)).toHaveLength(3)
     })
   })

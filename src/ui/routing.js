@@ -1,11 +1,14 @@
-import supportedLanguages from "languages/supported"
 export default {
-  languageCodes: supportedLanguages,
+  languageCodes: [`en`, `es`],
   languageNames: {
     en: `English`,
     es: `Español`,
   },
   clientNames: [`home`, `notFound`],
+  locations: {
+    home: { pathname: `/english/home` },
+    notFound: { pathname: `/english/not-found` },
+  },
   matchers: {
     root (location) {
       return /^\/?$/.test(location.pathname)
@@ -101,16 +104,6 @@ export default {
           return { pathname: `/español/no-encontrado`, state }
         },
       },
-    },
-  },
-  locations: {
-    home: {
-      en: { pathname: `/english/home` },
-      es: { pathname: `/español/inicio` },
-    },
-    notFound: {
-      en: { pathname: `/english/not-found` },
-      es: { pathname: `/español/no-encontrado` },
     },
   },
 }

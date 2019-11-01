@@ -1,4 +1,3 @@
-import supportedLanguages from "languages/supported"
 import describeRouting from "lib/routing/describer"
 import routing from "ui/routing"
 describe(`ui/routing`, () => {

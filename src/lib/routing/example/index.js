@@ -49,8 +49,7 @@ class Client {
 const home = new Client(`home`, routingExample)
 const foo = new Client(`foo`, routingExample)
 const notFound = new Client(`notFound`, routingExample)
-const router = new Router(routingExample)
-function App ({ location }) {
+function App ({ location, router }) {
   const route = router.useRoute(location)
   return (
     <Div id="routing-example" color="SeaGreen">
@@ -89,6 +88,7 @@ function App ({ location }) {
   )
 }
 function Example ({ location }) {
-  return <CreateDestroy Component={App} props={{ location }} />
+  const router = new Router(routingExample)
+  return <CreateDestroy Component={App} props={{ location, router }} />
 }
 export default (<Route path="/routing" component={Example} />)

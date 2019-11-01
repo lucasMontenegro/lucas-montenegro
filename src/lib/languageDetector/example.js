@@ -21,7 +21,7 @@ function LanguageDetector () {
         className="get"
         value={detectorGet}
         onClick={() => {
-          setDetectorGet(JSON.stringify(languageDetector.get()))
+          setDetectorGet(languageDetector.get())
         }}
       />
       {[`en`, `es`].map(languageCode => (

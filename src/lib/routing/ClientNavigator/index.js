@@ -1,9 +1,9 @@
-import useHook from "lib/routing/ClientLocation/useHook"
-export default class ClientLocation {
+import useClientLocation from "lib/routing/ClientNavigator/useClientLocation"
+export default class ClientNavigator {
   constructor (clientName, routing) {
     this.initialLanguage = routing.languageCodes[0]
     this.initialLocation = routing.locations[clientName]
     this.translators = routing.linkTranslators[clientName]
   }
 }
-ClientLocation.prototype.useHook = useHook
+ClientNavigator.prototype.useClientLocation = useClientLocation

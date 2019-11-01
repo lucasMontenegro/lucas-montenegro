@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import languageDetector from "lib/languageDetector"
-export default function useHook (match, location) {
+export default function useClientLocation (match, location) {
   const languageCode = languageDetector.get()
   const savedLanguage = useRef(this.initialLanguage)
   const savedLocation = useRef(this.initialLocation)

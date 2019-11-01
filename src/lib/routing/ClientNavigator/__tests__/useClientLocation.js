@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import languageDetector from "lib/languageDetector"
-import useHook from "lib/routing/ClientLocation/useHook"
+import useClientLocation from "lib/routing/ClientNavigator/useClientLocation"
 jest.mock(`react`, () => ({ __esModule: true, useRef: jest.fn() }))
 const savedLanguage = {}
 const savedLocation = {}
@@ -8,27 +8,27 @@ function mockUseRef () {
   useRef.mockReturnValueOnce(savedLanguage)
   useRef.mockReturnValueOnce(savedLocation)
 }
-function testUseRef (clientLocation) {
+function testUseRef (clientNavigator) {
   it(`should set up the React refs`, () => {
     expect(useRef.mock.calls).toEqual([[{}], [{}]])
-    expect(useRef.mock.calls[0][0]).toBe(clientLocation.initialLanguage)
-    expect(useRef.mock.calls[1][0]).toBe(clientLocation.initialLocation)
+    expect(useRef.mock.calls[0][0]).toBe(clientNavigator.initialLanguage)
+    expect(useRef.mock.calls[1][0]).toBe(clientNavigator.initialLocation)
     useRef.mockClear()
   })
 }
 jest.mock(`lib/languageDetector`, () => ({ __esModule: true, default: {} }))
-describe(`lib/routing/ClientLocation/useHook`, () => {
+describe(`lib/routing/ClientNavigator/useClientLocation`, () => {
   it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`react`])).toMatchSnapshot()
   })
   {
-    const clientLocation = {
-      useHook,
+    const clientNavigator = {
+      useClientLocation,
       initialLanguage: {},
       initialLocation: {},
     }
     const cases = [[`en`, `en`], [`en`, `es`]]
-    const msg = `useHook (match true, oldLanguage %s, newLanguage %s)`
+    const msg = `useClientLocation (match true, oldLanguage %s, newLanguage %s)`
     describe.each(cases)(msg, (oldLanguage, newLanguage) => {
       const location = {}
       let result
@@ -37,9 +37,9 @@ describe(`lib/routing/ClientLocation/useHook`, () => {
         savedLanguage.current = oldLanguage
         savedLocation.current = {}
         mockUseRef()
-        result = clientLocation.useHook(true, location)
+        result = clientNavigator.useClientLocation(true, location)
       })
-      testUseRef(clientLocation)
+      testUseRef(clientNavigator)
       it(`should update the refs`, () => {
         expect(savedLanguage).toEqual({ current: newLanguage })
         expect(savedLocation).toEqual({ current: {} })
@@ -50,9 +50,9 @@ describe(`lib/routing/ClientLocation/useHook`, () => {
       })
     })
   }
-  describe(`useHook (match false, oldLanguage en, newLanguage es)`, () => {
-    const clientLocation = {
-      useHook,
+  describe(`useClientLocation (match false, oldLanguage en, newLanguage es)`, () => {
+    const clientNavigator = {
+      useClientLocation,
       initialLanguage: {},
       initialLocation: {},
       translators: {
@@ -82,9 +82,9 @@ describe(`lib/routing/ClientLocation/useHook`, () => {
       savedLanguage.current = `en`
       savedLocation.current = location
       mockUseRef()
-      result = clientLocation.useHook(false, { pathname: `new location` })
+      result = clientNavigator.useClientLocation(false, { pathname: `new location` })
     })
-    testUseRef(clientLocation)
+    testUseRef(clientNavigator)
     it(`should update the refs`, () => {
       expect(savedLanguage).toEqual({ current: `es` })
       expect(savedLocation).toEqual({
@@ -103,9 +103,9 @@ describe(`lib/routing/ClientLocation/useHook`, () => {
       expect(result).toBe(savedLocation.current)
     })
   })
-  describe(`useHook (match false, oldLanguage en, newLanguage en)`, () => {
-    const clientLocation = {
-      useHook,
+  describe(`useClientLocation (match false, oldLanguage en, newLanguage en)`, () => {
+    const clientNavigator = {
+      useClientLocation,
       initialLanguage: {},
       initialLocation: {},
     }
@@ -116,9 +116,9 @@ describe(`lib/routing/ClientLocation/useHook`, () => {
       savedLanguage.current = `en`
       savedLocation.current = location
       mockUseRef()
-      result = clientLocation.useHook(false, { pathname: `new location` })
+      result = clientNavigator.useClientLocation(false, { pathname: `new location` })
     })
-    testUseRef(clientLocation)
+    testUseRef(clientNavigator)
     it(`should not change the refs`, () => {
       expect(savedLanguage).toEqual({ current: `en` })
       expect(savedLocation).toEqual({ current: { pathname: `saved location` } })

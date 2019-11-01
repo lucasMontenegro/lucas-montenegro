@@ -1,14 +1,17 @@
-import useHook from "lib/routing/ClientLocation/useHook"
-import ClientLocation from "lib/routing/ClientLocation"
-jest.mock(`lib/routing/ClientLocation/useHook`, () => ({ __esModule: true, default: {} }))
-describe(`lib/routing/ClientLocation`, () => {
-  describe(`ClientLocation.prototype`, () => {
+import useClientLocation from "lib/routing/ClientNavigator/useClientLocation"
+import ClientNavigator from "lib/routing/ClientNavigator"
+jest.mock(`lib/routing/ClientNavigator/useClientLocation`, () => ({
+  __esModule: true,
+  default: {},
+}))
+describe(`lib/routing/ClientNavigator`, () => {
+  describe(`ClientNavigator.prototype`, () => {
     it(`should expose the methods`, () => {
-      expect(ClientLocation.prototype.useHook).toBe(useHook)
-      expect(Object.keys(ClientLocation.prototype)).toHaveLength(1)
+      expect(ClientNavigator.prototype.useClientLocation).toBe(useClientLocation)
+      expect(Object.keys(ClientNavigator.prototype)).toHaveLength(1)
     })
   })
-  describe(`new ClientLocation`, () => {
+  describe(`new ClientNavigator`, () => {
     const routing = {
       languageCodes: [`en`, `es`],
       locations: { foo: {} },
@@ -16,7 +19,7 @@ describe(`lib/routing/ClientLocation`, () => {
     }
     let result
     beforeAll(() => {
-      result = new ClientLocation(`foo`, routing)
+      result = new ClientNavigator(`foo`, routing)
     })
     it(`should save the initial language`, () => {
       expect(result).toHaveProperty(`initialLanguage`, `en`)

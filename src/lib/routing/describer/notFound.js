@@ -1,15 +1,12 @@
 export default function describeNotFound ({ routing, exampleLocations }) {
   const { languageCodes, locations } = routing
   describe(`Not Found routing only`, () => {
-    {
-      const cases = languageCodes.map(languageCode => [languageCode])
-      describe.each(cases)(`routing.locations.notFound.%s`, languageCode => {
-        it(`should not have a "state" property`, () => {
-          // location.state is used for storing a referrer location
-          expect(routing.locations.notFound[languageCode]).not.toHaveProperty(`state`)
-        })
+    describe(`routing.locations.notFound`, () => {
+      it(`should not have a "state" property`, () => {
+        // location.state is used for storing a referrer location
+        expect(routing.locations.notFound).not.toHaveProperty(`state`)
       })
-    }
+    })
     {
       const cases = languageCodes.map(oldLanguage => [oldLanguage])
       const translator = routing.linkTranslators.notFound

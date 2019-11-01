@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/utils/react/Navigation should use the right dependency versions 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+  "react-router-dom": "^5.1.2",
+}
+`;

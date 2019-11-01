@@ -1,7 +1,7 @@
 import languageDetector from "lib/languageDetector"
 export default function translate (location) {
   const oldLanguage = languageDetector.get()
-  const fromOldLanguage = this.translators[oldLanguage]
+  const fromOldLanguage = this.functions[oldLanguage]
   if (fromOldLanguage) {
     const intl = fromOldLanguage.toIntl(location)
     return this.links.map(({ languageCode, languageName }) => ({
@@ -9,7 +9,7 @@ export default function translate (location) {
       languageName,
       location: (
         oldLanguage === languageCode ? location :
-        this.translators[languageCode].toLocal(intl)
+        this.functions[languageCode].toLocal(intl)
       ),
     }))
   }

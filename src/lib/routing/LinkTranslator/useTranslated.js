@@ -1,5 +1,5 @@
 import { useRef } from "react"
-export default function useHook (location) {
+export default function useTranslated (location) {
   const savedLocation = useRef(`savedLocation`)
   const savedLinks = useRef(`savedLinks`)
   return () => {

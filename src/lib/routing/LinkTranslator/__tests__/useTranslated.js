@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import useHook from "lib/routing/LinkTranslations/useHook"
+import useTranslated from "lib/routing/LinkTranslator/useTranslated"
 jest.mock(`react`, () => ({ __esModule: true, useRef: jest.fn() }))
 const savedLocation = {}
 const savedLinks = {}
@@ -7,25 +7,25 @@ const savedLinks = {}
   const obj = { savedLocation, savedLinks }
   useRef.mockImplementation(str => obj[str])
 }
-describe(`lib/routing/LinkTranslations/useHook`, () => {
+describe(`lib/routing/LinkTranslator/useTranslated`, () => {
   it(`should use the right dependency versions`, () => {
     expect(jestUtils.getDependencies([`react`])).toMatchSnapshot()
   })
-  const linkTranslations = {
-    useHook,
+  const linkTranslator = {
+    useTranslated,
     translate: jest.fn(),
   }
-  describe(`linkTranslations.useHook (same location)`, () => {
+  describe(`linkTranslator.useTranslated (same location)`, () => {
     const location = {}
     const links = []
     let result
     beforeAll(() => {
       savedLocation.current = location
       savedLinks.current = links
-      result = linkTranslations.useHook(location)()
+      result = linkTranslator.useTranslated(location)()
     })
-    it(`should not call linkTranslations.translate`, () => {
-      expect(linkTranslations.translate.mock.calls).toEqual([])
+    it(`should not call linkTranslator.translate`, () => {
+      expect(linkTranslator.translate.mock.calls).toEqual([])
     })
     it(`should not update the refs`, () => {
       expect(savedLocation).toEqual({ current: {} })
@@ -37,20 +37,20 @@ describe(`lib/routing/LinkTranslations/useHook`, () => {
       expect(result).toBe(links)
     })
   })
-  describe(`linkTranslations.useHook (new location)`, () => {
+  describe(`linkTranslator.useTranslated (new location)`, () => {
     const location = {}
     const links = []
     let result
     beforeAll(() => {
       savedLocation.current = {}
       savedLinks.current = []
-      linkTranslations.translate.mockReturnValueOnce(links)
-      result = linkTranslations.useHook(location)()
+      linkTranslator.translate.mockReturnValueOnce(links)
+      result = linkTranslator.useTranslated(location)()
     })
-    it(`should call linkTranslations.translate`, () => {
-      expect(linkTranslations.translate.mock.calls).toEqual([[{}]])
-      expect(linkTranslations.translate.mock.calls[0][0]).toBe(location)
-      linkTranslations.translate.mockClear()
+    it(`should call linkTranslator.translate`, () => {
+      expect(linkTranslator.translate.mock.calls).toEqual([[{}]])
+      expect(linkTranslator.translate.mock.calls[0][0]).toBe(location)
+      linkTranslator.translate.mockClear()
     })
     it(`should update the refs`, () => {
       expect(savedLocation).toEqual({ current: {} })

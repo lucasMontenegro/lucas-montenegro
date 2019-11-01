@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`lib/routing/LinkTranslations/translate linkTranslations.translate (languageCode is supported) should translate to every language 1`] = `
+exports[`lib/routing/LinkTranslator/translate linkTranslator.translate (languageCode is supported) should translate to every language 1`] = `
 Array [
   Object {
     "key": "en",
@@ -13,10 +13,10 @@ Array [
     "key": "es",
     "languageName": "Spanish",
     "location": Array [
-      "translators.es.toLocal",
+      "functions.es.toLocal",
       Array [
         Array [
-          "translators.en.toIntl",
+          "functions.en.toIntl",
           Array [
             Object {
               "pathname": "location",

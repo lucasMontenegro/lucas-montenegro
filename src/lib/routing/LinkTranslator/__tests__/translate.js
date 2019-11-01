@@ -1,18 +1,18 @@
-import translate from "lib/routing/LinkTranslations/translate"
+import translate from "lib/routing/LinkTranslator/translate"
 import languageDetector from "lib/languageDetector"
 jest.mock(`lib/languageDetector`, () => ({ __esModule: true, default: {} }))
-describe(`lib/routing/LinkTranslations/translate`, () => {
-  const linkTranslations = {
+describe(`lib/routing/LinkTranslator/translate`, () => {
+  const linkTranslator = {
     translate,
-    translators: {
+    functions: {
       en: {
         toIntl (...args) {
-          return [`translators.en.toIntl`, args]
+          return [`functions.en.toIntl`, args]
         },
       },
       es: {
         toLocal (...args) {
-          return [`translators.es.toLocal`, args]
+          return [`functions.es.toLocal`, args]
         },
       },
     },
@@ -21,12 +21,12 @@ describe(`lib/routing/LinkTranslations/translate`, () => {
       { languageCode: `es`, languageName: `Spanish` },
     ],
   }
-  describe(`linkTranslations.translate (languageCode is supported)`, () => {
+  describe(`linkTranslator.translate (languageCode is supported)`, () => {
     const location = { pathname: `location` }
     let links
     beforeAll(() => {
       languageDetector.get = () => `en`
-      links = linkTranslations.translate(location)
+      links = linkTranslator.translate(location)
     })
     it(`should translate to every language`, () => {
       expect(links).toMatchSnapshot()
@@ -35,11 +35,11 @@ describe(`lib/routing/LinkTranslations/translate`, () => {
       expect(links[0].location).toBe(location)
     })
   })
-  describe(`linkTranslations.translate (languageCode not supported)`, () => {
+  describe(`linkTranslator.translate (languageCode not supported)`, () => {
     let links
     beforeAll(() => {
       languageDetector.get = () => `pt`
-      links = linkTranslations.translate({})
+      links = linkTranslator.translate({})
     })
     it(`should return an empty array`, () => {
       expect(links).toEqual([])

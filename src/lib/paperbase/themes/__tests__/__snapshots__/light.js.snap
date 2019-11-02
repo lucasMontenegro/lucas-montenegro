@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/paperbase/themes/light should use the right dependency versions 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+}
+`;

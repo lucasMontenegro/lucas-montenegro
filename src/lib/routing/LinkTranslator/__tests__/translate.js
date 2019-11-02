@@ -17,8 +17,22 @@ describe(`lib/routing/LinkTranslator/translate`, () => {
       },
     },
     links: [
-      { key: `en`, text: `English`, languageCode: `en` },
-      { key: `es`, text: `Spanish`, languageCode: `es` },
+      {
+        languageCode: `en`,
+        otherProps: {
+          key: `en`,
+          id: `translate-to-en`,
+          text: `English`,
+        },
+      },
+      {
+        languageCode: `es`,
+        otherProps: {
+          key: `es`,
+          id: `translate-to-es`,
+          text: `Spanish`,
+        },
+      },
     ],
   }
   describe(`linkTranslator.translate (languageCode is supported)`, () => {
@@ -31,8 +45,8 @@ describe(`lib/routing/LinkTranslator/translate`, () => {
     it(`should translate to every language`, () => {
       expect(links).toMatchSnapshot()
     })
-    it(`should not translate a location to its own language`, () => {
-      expect(links[0].location).toBe(location)
+    it(`should not include a location for the active link`, () => {
+      expect(links[0].location).toBe(null)
     })
   })
   describe(`linkTranslator.translate (languageCode not supported)`, () => {

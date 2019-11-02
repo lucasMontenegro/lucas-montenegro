@@ -3,16 +3,14 @@
 exports[`lib/routing/LinkTranslator/translate linkTranslator.translate (languageCode is supported) should translate to every language 1`] = `
 Array [
   Object {
-    "key": "en",
-    "languageCode": "en",
-    "location": Object {
-      "pathname": "location",
+    "location": null,
+    "otherProps": Object {
+      "id": "translate-to-en",
+      "key": "en",
+      "text": "English",
     },
-    "text": "English",
   },
   Object {
-    "key": "es",
-    "languageCode": "es",
     "location": Array [
       "functions.es.toLocal",
       Array [
@@ -26,7 +24,11 @@ Array [
         ],
       ],
     ],
-    "text": "Spanish",
+    "otherProps": Object {
+      "id": "translate-to-es",
+      "key": "es",
+      "text": "Spanish",
+    },
   },
 ]
 `;

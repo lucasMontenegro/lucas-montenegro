@@ -4,14 +4,12 @@ export default function translate (location) {
   const fromOldLanguage = this.functions[oldLanguage]
   if (fromOldLanguage) {
     const intl = fromOldLanguage.toIntl(location)
-    return this.links.map(({ key, text, languageCode }) => ({
-      key,
-      text,
-      languageCode,
+    return this.links.map(({ languageCode, otherProps }) => ({
       location: (
-        oldLanguage === languageCode ? location :
+        oldLanguage === languageCode ? null :
         this.functions[languageCode].toLocal(intl)
       ),
+      otherProps,
     }))
   }
   return []

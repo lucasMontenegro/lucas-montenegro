@@ -21,8 +21,22 @@ describe(`lib/routing/LinkTranslator`, () => {
       const linkTranslator = new LinkTranslator(`foo`, routing)
       expect(linkTranslator.functions).toBe(routing.linkTranslators.foo)
       expect(linkTranslator.links).toEqual([
-        { key: `en`, text: `English`, languageCode: `en` },
-        { key: `es`, text: `Spanish`, languageCode: `es` },
+        {
+          languageCode: `en`,
+          otherProps: {
+            key: `en`,
+            id: `translate-to-en`,
+            text: `English`,
+          },
+        },
+        {
+          languageCode: `es`,
+          otherProps: {
+            key: `es`,
+            id: `translate-to-es`,
+            text: `Spanish`,
+          },
+        },
       ])
       expect(Object.keys(linkTranslator)).toHaveLength(2)
     })

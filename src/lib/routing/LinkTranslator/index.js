@@ -4,8 +4,9 @@ export default class LinkTranslator {
   constructor (clientName, routing) {
     this.functions = routing.linkTranslators[clientName]
     this.links = routing.languageCodes.map(languageCode => ({
+      key: languageCode,
+      text: routing.languageNames[languageCode],
       languageCode,
-      languageName: routing.languageNames[languageCode],
     }))
   }
 }

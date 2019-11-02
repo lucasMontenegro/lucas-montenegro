@@ -31,8 +31,8 @@ class Client {
           <h6>Translated Links</h6>
           {links && (
             <ul className="links">
-              {links.map(({ key, languageName, location }) => (
-                <li key={key}><Link className={key} to={location}>{languageName}</Link></li>
+              {links.map(({ key, text, location }) => (
+                <li key={key}><Link className={key} to={location}>{text}</Link></li>
               ))}
             </ul>
           )}

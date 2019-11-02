@@ -17,8 +17,8 @@ describe(`lib/routing/LinkTranslator/translate`, () => {
       },
     },
     links: [
-      { languageCode: `en`, languageName: `English` },
-      { languageCode: `es`, languageName: `Spanish` },
+      { key: `en`, text: `English`, languageCode: `en` },
+      { key: `es`, text: `Spanish`, languageCode: `es` },
     ],
   }
   describe(`linkTranslator.translate (languageCode is supported)`, () => {

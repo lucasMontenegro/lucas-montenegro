@@ -1,4 +1,3 @@
-import languageDetector from "lib/languageDetector"
 import useRoute from "lib/routing/Router/useRoute"
 import findRoute from "lib/routing/Router/findRoute"
 import findRoot from "lib/routing/Router/findRoot"
@@ -8,7 +7,6 @@ import findUnknownClient from "lib/routing/Router/findUnknownClient"
 import redirect404 from "lib/routing/Router/redirect404"
 export default class Router {
   constructor (routing) {
-    languageDetector.init(routing.languageCodes)
     {
       const initialLanguage = routing.languageCodes[0]
       this.locations = [`home`, `notFound`].reduce((byClient, clientName) => {

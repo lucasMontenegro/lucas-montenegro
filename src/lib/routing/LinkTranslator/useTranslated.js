@@ -1,12 +1,11 @@
-import { useRef } from "react"
+import { useCallback } from "react"
 export default function useTranslated (location) {
-  const savedLocation = useRef(`savedLocation`)
-  const savedLinks = useRef(`savedLinks`)
-  return () => {
-    if (savedLocation.current !== location) {
-      savedLocation.current = location
-      savedLinks.current = this.translate(location)
+  let savedLinks
+  return useCallback(() => {
+    if (!savedLinks) {
+      // eslint-disable-next-line
+      savedLinks = this.translate(location)
     }
-    return savedLinks.current
-  }
+    return savedLinks
+  }, [location])
 }

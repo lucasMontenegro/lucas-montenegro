@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/paperbase/LanguageDialog/view should use the right dependency versions 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "@material-ui/styles": "^4.5.0",
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

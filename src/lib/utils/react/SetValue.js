@@ -1,7 +1,7 @@
 import React from "react"
 import Div from "lib/utils/react/Div"
 import Button from "@material-ui/core/Button"
-export default function ButtonPlusValue ({ id, className, value, onClick }) {
+export default function SetValue ({ id, className, value, onClick }) {
   return (
     <Div id={id} className={className} color="brown">
       <h6>{id || className}</h6>

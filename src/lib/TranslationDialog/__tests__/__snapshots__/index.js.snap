@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/TranslationDialog TranslationDialog (isOpen false) should not render links 1`] = `
+<div
+  className="Dialog"
+>
+  <div
+    className="DialogContent"
+  >
+    <nav>
+      <div
+        className="List"
+      />
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`lib/TranslationDialog TranslationDialog (isOpen true) should render links 1`] = `
+<div
+  className="Dialog"
+>
+  <div
+    className="DialogContent"
+  >
+    <nav>
+      <div
+        className="List"
+      >
+        <div
+          className="ListItem"
+        >
+          <div
+            className="ListItemText"
+          />
+        </div>
+        <div
+          className="ListItem"
+        >
+          <div
+            className="ListItemText"
+          >
+            <div
+              className="Link"
+            />
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`lib/TranslationDialog should use the right dependency versions 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "@material-ui/icons": "^4.4.3",
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

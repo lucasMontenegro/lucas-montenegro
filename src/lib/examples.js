@@ -1,19 +1,31 @@
+import "typeface-roboto"
 import React from "react"
 import ReactDOM from "react-dom"
+import { ThemeProvider } from "@material-ui/styles"
+import { createMuiTheme } from "@material-ui/core/styles"
+import CssBaseline from "@material-ui/core/CssBaseline"
 import { BrowserRouter, Switch } from "react-router-dom"
+
 import throwPropTypeErrors from "lib/throwPropTypeErrors/example"
 import languageDetector from "lib/languageDetector/example"
 import routing from "lib/routing/example"
-import paperbase from "lib/paperbase/examples"
 import links from "lib/links/examples"
+import TranslationDialog from "lib/TranslationDialog/example"
+//import paperbase from "lib/paperbase/example"
+//import view from "lib/view/example"
 ReactDOM.render((
-  <BrowserRouter>
-    <Switch>
-      {throwPropTypeErrors}
-      {languageDetector}
-      {routing}
-      {links}
-      {paperbase}
-    </Switch>
-  </BrowserRouter>
+  <ThemeProvider theme={createMuiTheme()}>
+    <CssBaseline />
+    <BrowserRouter>
+      <Switch>
+        {throwPropTypeErrors}
+        {languageDetector}
+        {routing}
+        {links}
+        {TranslationDialog}
+        {/*paperbase*/}
+        {/*view*/}
+      </Switch>
+    </BrowserRouter>
+  </ThemeProvider>
 ), document.getElementById(`root`))

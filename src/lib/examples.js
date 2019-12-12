@@ -11,8 +11,7 @@ import languageDetector from "lib/languageDetector/example"
 import routing from "lib/routing/example"
 import links from "lib/links/examples"
 import TranslationDialog from "lib/TranslationDialog/example"
-//import paperbase from "lib/paperbase/example"
-//import view from "lib/view/example"
+import react from "lib/react/examples"
 ReactDOM.render((
   <ThemeProvider theme={createMuiTheme()}>
     <CssBaseline />
@@ -23,8 +22,7 @@ ReactDOM.render((
         {routing}
         {links}
         {TranslationDialog}
-        {/*paperbase*/}
-        {/*view*/}
+        {react}
       </Switch>
     </BrowserRouter>
   </ThemeProvider>

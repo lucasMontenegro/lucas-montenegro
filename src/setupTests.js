@@ -3,8 +3,7 @@ import packageJson from "../package.json"
 global.jestUtils = {
   getDependencies (names) {
     return names.reduce((deps, name) => {
-      deps[name] = packageJson.dependencies[name]
-      deps[name] = packageJson.devDependencies[name]
+      deps[name] = packageJson.dependencies[name] || packageJson.devDependencies[name]
       return deps
     }, {})
   },

@@ -1,9 +1,8 @@
-import "typeface-roboto"
 import React from "react"
 import ReactDOM from "react-dom"
 import { ThemeProvider } from "@material-ui/styles"
 import { createMuiTheme } from "@material-ui/core/styles"
-import CssBaseline from "@material-ui/core/CssBaseline"
+import CssBaseline from "lib/react/CssBaseline"
 import { BrowserRouter, Switch } from "react-router-dom"
 
 import throwPropTypeErrors from "lib/throwPropTypeErrors/example"

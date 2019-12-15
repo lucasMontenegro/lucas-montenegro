@@ -4,6 +4,7 @@ import DarkMode from "./DarkMode/example"
 import Logo from "./Logo/example"
 import Theme from "./Theme/example"
 import fontAwesome from "./fontAwesome/example"
+import CssBaseline from "./CssBaseline/example"
 export default (
   <Route
     path="/react"
@@ -13,6 +14,7 @@ export default (
         {Logo}
         {Theme}
         {fontAwesome}
+        {CssBaseline}
       </Switch>
     )}
   />

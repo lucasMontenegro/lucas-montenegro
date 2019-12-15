@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,7 +51,7 @@
      inkscape:snap-bbox="true"
      inkscape:snap-page="true" />
   <rect
-     style="fill:#00646b;fill-rule:evenodd;stroke-width:0"
+     style="fill:#02838c;fill-rule:evenodd;stroke-width:0;fill-opacity:1"
      id="rect4549"
      x="2.7271001e-06"
      y="2.7271001e-06"

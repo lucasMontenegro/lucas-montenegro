@@ -1,11 +1,11 @@
-import routingDescriber from "../routingDescriber"
-import routing from "../routingExample"
+import routingDescriber from "../describer"
+import routingExample from "../routingExample"
 describe(`../routingExample.js`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react-router-dom`])).toMatchSnapshot()
   })
   routingDescriber({
-    routing,
+    routing: routingExample,
     exampleLocations: {
       root: [
         { pathname: `/routing` },

@@ -2,7 +2,7 @@ import describeMatchers from "./matchers"
 import describeLinkTranslators from "./linkTranslators"
 import describeLocations from "./locations"
 import describeNotFound from "./notFound"
-export default function describeRouting ({ routing, exampleLocations }) {
+export default function routingDescriber ({ routing, exampleLocations }) {
   it(`should have the right object shape`, () => {
     expect(routing.languageCodes).toBeInstanceOf(Array)
     expect(routing.languageNames).toBeInstanceOf(Object)

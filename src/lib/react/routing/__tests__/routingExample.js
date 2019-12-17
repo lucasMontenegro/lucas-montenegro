@@ -8,65 +8,69 @@ describe(`../routingExample.js`, () => {
     routing: routingExample,
     exampleLocations: {
       root: [
-        { pathname: `/routing` },
-        { pathname: `/routing/` },
+        { pathname: `/react/routing` },
+        { pathname: `/react/routing/` },
       ],
       languageOnly: {
         en: [
-          { pathname: `/routing/en` },
-          { pathname: `/routing/en/` },
+          { pathname: `/react/routing/en` },
+          { pathname: `/react/routing/en/` },
         ],
         es: [
-          { pathname: `/routing/es` },
-          { pathname: `/routing/es/` },
+          { pathname: `/react/routing/es` },
+          { pathname: `/react/routing/es/` },
         ],
       },
       client: {
         home: {
           en: [
-            { pathname: `/routing/en/home` },
-            { pathname: `/routing/en/home/` },
+            { pathname: `/react/routing/en/home/4` },
+            { pathname: `/react/routing/en/home/4/` },
+            { pathname: `/react/routing/en/home/9` },
+            { pathname: `/react/routing/en/home/9/` },
           ],
           es: [
-            { pathname: `/routing/es/home` },
-            { pathname: `/routing/es/home/` },
+            { pathname: `/react/routing/es/home/4` },
+            { pathname: `/react/routing/es/home/4/` },
+            { pathname: `/react/routing/es/home/9` },
+            { pathname: `/react/routing/es/home/9/` },
           ],
         },
         foo: {
           en: [
-            { pathname: `/routing/en/foo/2` },
-            { pathname: `/routing/en/foo/2/` },
-            { pathname: `/routing/en/foo/7` },
-            { pathname: `/routing/en/foo/7/` },
+            { pathname: `/react/routing/en/foo/2` },
+            { pathname: `/react/routing/en/foo/2/` },
+            { pathname: `/react/routing/en/foo/7` },
+            { pathname: `/react/routing/en/foo/7/` },
           ],
           es: [
-            { pathname: `/routing/es/foo/2` },
-            { pathname: `/routing/es/foo/2/` },
-            { pathname: `/routing/es/foo/7` },
-            { pathname: `/routing/es/foo/7/` },
+            { pathname: `/react/routing/es/foo/2` },
+            { pathname: `/react/routing/es/foo/2/` },
+            { pathname: `/react/routing/es/foo/7` },
+            { pathname: `/react/routing/es/foo/7/` },
           ],
         },
         notFound: {
           en: [
-            { pathname: `/routing/en/notFound` },
-            { pathname: `/routing/en/notFound/` },
-            { pathname: `/routing/en/notFound`, state: {} },
-            { pathname: `/routing/en/notFound/`, state: {} },
+            { pathname: `/react/routing/en/notFound` },
+            { pathname: `/react/routing/en/notFound/` },
+            { pathname: `/react/routing/en/notFound`, state: {} },
+            { pathname: `/react/routing/en/notFound/`, state: {} },
           ],
           es: [
-            { pathname: `/routing/es/notFound` },
-            { pathname: `/routing/es/notFound/` },
-            { pathname: `/routing/es/notFound`, state: {} },
-            { pathname: `/routing/es/notFound/`, state: {} },
+            { pathname: `/react/routing/es/notFound` },
+            { pathname: `/react/routing/es/notFound/` },
+            { pathname: `/react/routing/es/notFound`, state: {} },
+            { pathname: `/react/routing/es/notFound/`, state: {} },
           ],
         },
       },
       unknownClient: {
         en: [
-          { pathname: `/routing/en/404` },
+          { pathname: `/react/routing/en/404` },
         ],
         es: [
-          { pathname: `/routing/es/404` },
+          { pathname: `/react/routing/es/404` },
         ],
       },
     },

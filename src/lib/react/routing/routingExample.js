@@ -6,25 +6,25 @@ export default {
     es: `Spanish`,
   },
   locations: {
-    home: { pathname: `/routing/en/home` },
-    foo: { pathname: `/routing/en/foo/5` },
-    notFound: { pathname: `/routing/en/notFound` },
+    home: { pathname: `/react/routing/en/home/2` },
+    foo: { pathname: `/react/routing/en/foo/5` },
+    notFound: { pathname: `/react/routing/en/notFound` },
   },
   matchers: {
     root (location) {
-      return /^\/routing\/?$/.test(location.pathname)
+      return /^\/react\/routing\/?$/.test(location.pathname)
     },
     languageOnly: [
       {
         languageCode: `en`,
         match (location) {
-          return /^\/routing\/en\/?$/.test(location.pathname)
+          return /^\/react\/routing\/en\/?$/.test(location.pathname)
         },
       },
       {
         languageCode: `es`,
         match (location) {
-          return /^\/routing\/es\/?$/.test(location.pathname)
+          return /^\/react\/routing\/es\/?$/.test(location.pathname)
         },
       },
     ],
@@ -33,42 +33,42 @@ export default {
         clientName: `home`,
         languageCode: `en`,
         match (location) {
-          return /^\/routing\/en\/home\/?$/.test(location.pathname)
+          return /^\/react\/routing\/en\/home\/\d\/?$/.test(location.pathname)
         },
       },
       {
         clientName: `home`,
         languageCode: `es`,
         match (location) {
-          return /^\/routing\/es\/home\/?$/.test(location.pathname)
+          return /^\/react\/routing\/es\/home\/\d\/?$/.test(location.pathname)
         },
       },
       {
         clientName: `foo`,
         languageCode: `en`,
         match (location) {
-          return /^\/routing\/en\/foo\/\d\/?$/.test(location.pathname)
+          return /^\/react\/routing\/en\/foo\/\d\/?$/.test(location.pathname)
         },
       },
       {
         clientName: `foo`,
         languageCode: `es`,
         match (location) {
-          return /^\/routing\/es\/foo\/\d\/?$/.test(location.pathname)
+          return /^\/react\/routing\/es\/foo\/\d\/?$/.test(location.pathname)
         },
       },
       {
         clientName: `notFound`,
         languageCode: `en`,
         match (location) {
-          return /^\/routing\/en\/notFound\/?$/.test(location.pathname)
+          return /^\/react\/routing\/en\/notFound\/?$/.test(location.pathname)
         },
       },
       {
         clientName: `notFound`,
         languageCode: `es`,
         match (location) {
-          return /^\/routing\/es\/notFound\/?$/.test(location.pathname)
+          return /^\/react\/routing\/es\/notFound\/?$/.test(location.pathname)
         },
       },
     ],
@@ -76,13 +76,13 @@ export default {
       {
         languageCode: `en`,
         match (location) {
-          return /^\/routing\/en\/.+/.test(location.pathname)
+          return /^\/react\/routing\/en\/.+/.test(location.pathname)
         },
       },
       {
         languageCode: `es`,
         match (location) {
-          return /^\/routing\/es\/.+/.test(location.pathname)
+          return /^\/react\/routing\/es\/.+/.test(location.pathname)
         },
       },
     ],
@@ -90,37 +90,37 @@ export default {
   linkTranslators: {
     home: {
       en: {
-        toIntl() {
-          return null
+        toIntl(location) {
+          return location.pathname.charAt(23)
         },
-        toLocal() {
-          return { pathname: `/routing/en/home` }
+        toLocal(n) {
+          return { pathname: `/react/routing/en/home/${n}` }
         },
       },
       es: {
-        toIntl() {
-          return null
+        toIntl(location) {
+          return location.pathname.charAt(23)
         },
-        toLocal() {
-          return { pathname: `/routing/es/home` }
+        toLocal(n) {
+          return { pathname: `/react/routing/es/home/${n}` }
         },
       },
     },
     foo: {
       en: {
         toIntl(location) {
-          return location.pathname.charAt(16)
+          return location.pathname.charAt(22)
         },
         toLocal(n) {
-          return { pathname: `/routing/en/foo/${n}` }
+          return { pathname: `/react/routing/en/foo/${n}` }
         },
       },
       es: {
         toIntl(location) {
-          return location.pathname.charAt(16)
+          return location.pathname.charAt(22)
         },
         toLocal(n) {
-          return { pathname: `/routing/es/foo/${n}` }
+          return { pathname: `/react/routing/es/foo/${n}` }
         },
       },
     },
@@ -130,7 +130,7 @@ export default {
           return location.state
         },
         toLocal(state) {
-          return { pathname: `/routing/en/notFound`, state }
+          return { pathname: `/react/routing/en/notFound`, state }
         },
       },
       es: {
@@ -138,7 +138,7 @@ export default {
           return location.state
         },
         toLocal(state) {
-          return { pathname: `/routing/es/notFound`, state }
+          return { pathname: `/react/routing/es/notFound`, state }
         },
       },
     },

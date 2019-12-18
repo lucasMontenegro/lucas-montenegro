@@ -6,6 +6,7 @@ import Theme from "./Theme/example"
 import fontAwesome from "./fontAwesome/example"
 import CssBaseline from "./CssBaseline/example"
 import throwPropTypeErrors from "./throwPropTypeErrors/example"
+import links from "./links/examples"
 export default (
   <Route
     path="/react"
@@ -17,6 +18,7 @@ export default (
         {fontAwesome}
         {CssBaseline}
         {throwPropTypeErrors}
+        {links}
       </Switch>
     )}
   />

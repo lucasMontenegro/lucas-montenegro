@@ -9,24 +9,15 @@ describe(`../StringifyObject`, () => {
       `prop-types`,
     ])).toMatchSnapshot()
   })
-  {
-    const id = `id`
-    const className = `className`
-    const source = { foo: `123` }
-    const cases = [
-      [{ id, className, source, }],
-      [{     className, source, }],
-      [{ id,            source, }],
-      [{                source, }],
-      [{ id, className,         }],
-      [{     className,         }],
-      [{ id,                    }],
-      [{                        }],
-    ]
-    describe.each(cases)(`StringifyObject (%j)`, props => {
-      it(`should render`, () => {
-        expect(renderer.create(<StringifyObject {...props} />).toJSON()).toMatchSnapshot()
-      })
+  describe(`StringifyObject`, () => {
+    it(`should render`, () => {
+      expect(renderer.create(
+        <StringifyObject
+          id="id"
+          className="className"
+          source={{ foo: `123` }}
+        />
+      ).toJSON()).toMatchSnapshot()
     })
-  }
+  })
 })

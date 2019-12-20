@@ -1,5 +1,5 @@
 import React from "react"
-import Div from "lib/utils/react/Div"
+import Div from "lib/react/utils/Div"
 import Link from "./Link"
 import { Route, Switch } from "react-router-dom"
 function Target () {

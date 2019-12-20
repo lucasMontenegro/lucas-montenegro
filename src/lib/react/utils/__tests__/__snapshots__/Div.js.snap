@@ -1,0 +1,472 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../Div Div ({"box":256,"children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue","children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue","children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue","style":{"borderRadius":8},"children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue","style":{"borderRadius":8},"children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue","style":{"borderRadius":8}}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue","style":{"borderRadius":8}}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256,"color":"blue"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256,"style":{"borderRadius":8},"children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"style":{"borderRadius":8},"children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"box":256,"style":{"borderRadius":8}}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256,"style":{"borderRadius":8}}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"box":256}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"color":"blue","children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"color":"blue","children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"color":"blue","style":{"borderRadius":8},"children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"color":"blue","style":{"borderRadius":8},"children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"color":"blue","style":{"borderRadius":8}}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"color":"blue","style":{"borderRadius":8}}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"color":"blue"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"color":"blue"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"style":{"borderRadius":8},"children":"lorem ipsum"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"style":{"borderRadius":8},"children":"lorem ipsum"}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({"style":{"borderRadius":8}}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({"style":{"borderRadius":8}}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div Div ({}) should render 2`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+/>
+`;
+
+exports[`../Div should use the right versions of its dependencies 1`] = `
+Object {
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

@@ -1,6 +1,6 @@
 import React from "react"
 import Div from "lib/react/utils/Div"
-import StringifyObject from "lib/utils/react/StringifyObject"
+import StringifyObject from "lib/react/utils/StringifyObject"
 import languageDetector from "lib/languageDetector"
 import Link from "lib/react/links/Link"
 import { useRoute, RoutingProvider } from "./context"

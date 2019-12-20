@@ -1,6 +1,6 @@
 import DarkMode, { useDarkMode } from "./index.js"
 import React from "react"
-import GetValue from "lib/utils/react/GetValue"
+import GetValue from "lib/react/utils/GetValue"
 import { Route } from "react-router-dom"
 function ToggleDarkMode () {
   const darkMode = useDarkMode()

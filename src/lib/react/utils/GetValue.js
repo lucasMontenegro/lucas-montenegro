@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 export default function GetValue ({ id, className, value, onClick }) {
   return (
     <Div id={id} className={className} color="black">
-      <h6>{id || className}</h6>
+      <h5>{id || className}</h5>
       <Div>
         <Button
           className="button"

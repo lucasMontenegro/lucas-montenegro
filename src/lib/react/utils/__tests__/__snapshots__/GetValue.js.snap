@@ -12,9 +12,9 @@ exports[`../GetValue GetValue ({"className":"className"}) should render 1`] = `
     }
   }
 >
-  <h6>
+  <h5>
     className
-  </h6>
+  </h5>
   <div
     style={
       Object {
@@ -67,9 +67,9 @@ exports[`../GetValue GetValue ({"id":"id","className":"className"}) should rende
     }
   }
 >
-  <h6>
+  <h5>
     id
-  </h6>
+  </h5>
   <div
     style={
       Object {
@@ -121,9 +121,9 @@ exports[`../GetValue GetValue ({"id":"id"}) should render 1`] = `
     }
   }
 >
-  <h6>
+  <h5>
     id
-  </h6>
+  </h5>
   <div
     style={
       Object {
@@ -174,7 +174,7 @@ exports[`../GetValue GetValue ({}) should render 1`] = `
     }
   }
 >
-  <h6 />
+  <h5 />
   <div
     style={
       Object {

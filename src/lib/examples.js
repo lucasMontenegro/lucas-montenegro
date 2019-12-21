@@ -11,6 +11,7 @@ import routing from "lib/routing/example"
 import links from "lib/links/examples"
 import TranslationDialog from "lib/TranslationDialog/example"
 import react from "lib/react/examples"
+import Translation from "lib/Translation/example"
 ReactDOM.render((
   <ThemeProvider theme={createMuiTheme()}>
     <CssBaseline />
@@ -22,6 +23,7 @@ ReactDOM.render((
         {links}
         {TranslationDialog}
         {react}
+        {Translation}
       </Switch>
     </BrowserRouter>
   </ThemeProvider>

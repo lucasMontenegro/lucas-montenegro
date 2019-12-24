@@ -1,10 +1,10 @@
-import describeRouting from "lib/routing/describer"
-import routing from "ui/routing"
-describe(`ui/routing`, () => {
-  it(`should use the right dependency versions`, () => {
+import routingDescriber from "lib/react/routing/describer"
+import routing from "../routing"
+describe(`../routing`, () => {
+  it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react-router-dom`])).toMatchSnapshot()
   })
-  describeRouting({
+  routingDescriber({
     routing,
     exampleLocations: {
       root: [

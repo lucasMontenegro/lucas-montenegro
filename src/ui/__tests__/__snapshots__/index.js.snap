@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <App /> (language detector ready false) should render 1`] = `null`;
+
+exports[`../index.js <App /> (language detector ready true) should render 1`] = `
+<div
+  className="RoutingProvider"
+>
+  <div
+    className="HandleRedirection"
+  />
+  <div
+    className="Home"
+  />
+  <div
+    className="NotFound"
+  />
+</div>
+`;
+
+exports[`../index.js should render 1`] = `
+<div
+  className="DarkMode"
+>
+  <div
+    className="Theme"
+  >
+    <div
+      className="CssBaseline"
+    />
+    <div
+      className="BrowserRouter"
+    >
+      <div
+        className="Route"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`../index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "react": "^16.10.1",
+  "react-dom": "^16.10.1",
+  "react-router-dom": "^5.1.2",
+}
+`;

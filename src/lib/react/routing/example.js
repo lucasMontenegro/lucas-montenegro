@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import Div from "lib/react/utils/Div"
 import StringifyObject from "lib/react/utils/StringifyObject"
 import languageDetector from "lib/languageDetector"
 import Link from "lib/react/links/Link"
 import { useRoute, RoutingProvider } from "./context"
+import GetValue from "lib/react/utils/GetValue"
+import HandleRedirection from "./HandleRedirection"
 import routingExample from "./routingExample"
 import { Route } from "react-router-dom"
 function CurrentLanguage () {
@@ -52,6 +54,20 @@ function UseRoute () {
     </Div>
   )
 }
+function Redirection () {
+  const [enabled, saveEnabled] = useState(false)
+  return (
+    <Div color="red">
+      <h4>Handle Redirection</h4>
+      <GetValue
+        id="enable-redirection"
+        value={enabled}
+        onClick={() => saveEnabled(!enabled)}
+      />
+      {enabled ? <HandleRedirection /> : null}
+    </Div>
+  )
+}
 function Example (props) {
   languageDetector.init(routingExample.languageCodes)
   return languageDetector.useReadyState() ? (
@@ -60,6 +76,7 @@ function Example (props) {
       <CurrentLocation location={props.location} />
       <TestLinks />
       <UseRoute />
+      <Redirection />
     </RoutingProvider>
   ) : null
 }

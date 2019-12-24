@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../HandleRedirection HandleRedirection (redirect location {"pathname":"/somewhere"}) should render 1`] = `
+<div
+  className="redirect"
+>
+  {"pathname":"/somewhere"}
+</div>
+`;
+
+exports[`../HandleRedirection HandleRedirection (redirect location null) should render 1`] = `null`;
+
+exports[`../HandleRedirection should use the right versions of its dependencies 1`] = `
+Object {
+  "react": "^16.10.1",
+  "react-router-dom": "^5.1.2",
+}
+`;

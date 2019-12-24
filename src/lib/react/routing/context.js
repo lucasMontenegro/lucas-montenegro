@@ -1,6 +1,6 @@
 import React, { createContext, useMemo, useContext } from "react"
 import Router from "./Router"
-const RoutingContext = createContext({
+export const RoutingContext = createContext({
   routing: null,
   route: {
     render: {},

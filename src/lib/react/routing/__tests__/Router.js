@@ -38,6 +38,7 @@ describe(`../Router`, () => {
       })
       it(`should return a route that redirects to home`, () => {
         expect(route).toEqual({
+          location: { pathname: `/react/routing` },
           render: {},
           redirect: { pathname: `/react/routing/en/home/2` },
         })
@@ -56,6 +57,7 @@ describe(`../Router`, () => {
       })
       it(`should return a route that redirects to home`, () => {
         expect(route).toEqual({
+          location: { pathname: `/react/routing/en` },
           render: {},
           redirect: { pathname: `/react/routing/en/home/2` },
         })
@@ -75,6 +77,7 @@ describe(`../Router`, () => {
       })
       it(`should return a route that renders the proper client`, () => {
         expect(route).toEqual({
+          location: { pathname: `/react/routing/es/foo/8` },
           clientName: `foo`,
           render: { foo: true },
           redirect: null,
@@ -98,6 +101,7 @@ describe(`../Router`, () => {
       })
       it(`should return a route that redirects to notFound`, () => {
         expect(route).toEqual({
+          location,
           render: {},
           redirect: {
             pathname: `/react/routing/en/notFound`,
@@ -119,6 +123,7 @@ describe(`../Router`, () => {
       })
       it(`should return a route that redirects to notFound`, () => {
         expect(route).toEqual({
+          location,
           render: {},
           redirect: {
             pathname: `/react/routing/es/notFound`,

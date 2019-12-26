@@ -23,6 +23,7 @@ export default class Router {
     // detect root route
     if (this.matchers.root(location)) {
       return {
+        location,
         render: {},
         redirect: this.locations.home.get(),
       }
@@ -32,6 +33,7 @@ export default class Router {
       if (matcher) {
         languageDetector.set(matcher.languageCode)
         return {
+          location,
           render: {},
           redirect: this.locations.home.get(),
         }
@@ -43,6 +45,7 @@ export default class Router {
         languageDetector.set(matcher.languageCode)
         const { clientName } = matcher
         return {
+          location,
           clientName,
           render: { [clientName]: true },
           redirect: null,
@@ -54,6 +57,7 @@ export default class Router {
       if (matcher) {
         languageDetector.set(matcher.languageCode)
         return {
+          location,
           render: {},
           redirect: {
             ...this.locations.notFound.get(),
@@ -63,6 +67,7 @@ export default class Router {
       }
     }
     return { // 404 redirection
+      location,
       render: {},
       redirect: {
         ...this.locations.notFound.get(),

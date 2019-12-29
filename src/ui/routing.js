@@ -1,4 +1,5 @@
-export default {
+import extendRouting from "lib/react/routing/extend"
+export default extendRouting({
   languageCodes: [`en`, `es`],
   languageNames: {
     en: `English`,
@@ -106,4 +107,4 @@ export default {
       },
     },
   },
-}
+})

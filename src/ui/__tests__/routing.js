@@ -1,5 +1,6 @@
 import routingDescriber from "lib/react/routing/describer"
 import routing from "../routing"
+jest.mock(`lib/react/routing/extend`, () => ({ __esModule: true, default: x => x }))
 describe(`../routing`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react-router-dom`])).toMatchSnapshot()

@@ -1,11 +1,13 @@
-import Translation from "lib/Translation"
 import languageDetector from "lib/languageDetector"
-import Router from "../Router"
+import extend from "../extend"
 import routing from "../routingExample"
-jest.mock(`lib/Translation`, () => ({ __esModule: true, default: jest.fn() }))
-let currentLanguage
-Translation.mockImplementation(obj => ({ get: () => obj[currentLanguage] }))
+import Router from "../Router"
 jest.mock(`lib/languageDetector`, () => ({ __esModule: true, default: {} }))
+jest.mock(`../extend`, () => ({ __esModule: true, default: x => x }))
+routing.translatedLocations = {
+  home: { get: () => ({ pathname: `/translated-home-location` }) },
+  notFound: { get: () => ({ pathname: `/translated-notFound-location` }) },
+}
 describe(`../Router`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react-router-dom`])).toMatchSnapshot()
@@ -15,43 +17,28 @@ describe(`../Router`, () => {
     beforeAll(() => {
       router = new Router(routing)
     })
-    {
-      const msg = (
-        `should create the initial client locations (client name %s, current language %s)`
-      )
-      const cases = [
-        [`home`, `en`, { pathname: `/react/routing/en/home/2` }],
-        [`home`, `es`, { pathname: `/react/routing/es/home/2` }],
-        [`notFound`, `en`, { pathname: `/react/routing/en/notFound` }],
-        [`notFound`, `es`, { pathname: `/react/routing/es/notFound` }],
-      ]
-      test.each(cases)(msg, (clientName, languageCode, expected) => {
-        currentLanguage = languageCode
-        expect(router.locations[clientName].get()).toEqual(expected)
-      })
-    }
+    it(`should set up the instance`, () => {
+      expect(router.matchers).toBe(routing.matchers)
+      expect(router.locations).toBe(routing.translatedLocations)
+    })
     describe(`router.findRoute (root route)`, () => {
       let route
       beforeAll(() => {
-        currentLanguage = `en`
         route = router.findRoute({ pathname: `/react/routing` })
       })
       it(`should return a route that redirects to home`, () => {
         expect(route).toEqual({
           location: { pathname: `/react/routing` },
           render: {},
-          redirect: { pathname: `/react/routing/en/home/2` },
+          redirect: { pathname: `/translated-home-location` },
         })
       })
     })
     describe(`router.findRoute (language-only route)`, () => {
       let route
-      const setLanguage = jest.fn(str => {
-        currentLanguage = str
-      })
+      const setLanguage = jest.fn()
       beforeAll(() => {
         languageDetector.set = setLanguage
-        currentLanguage = `es`
         route = router.findRoute({ pathname: `/react/routing/en` })
         delete languageDetector.set
       })
@@ -59,7 +46,7 @@ describe(`../Router`, () => {
         expect(route).toEqual({
           location: { pathname: `/react/routing/en` },
           render: {},
-          redirect: { pathname: `/react/routing/en/home/2` },
+          redirect: { pathname: `/translated-home-location` },
         })
       })
       it(`should call languageDetector.set`, () => {
@@ -71,7 +58,6 @@ describe(`../Router`, () => {
       const setLanguage = jest.fn()
       beforeAll(() => {
         languageDetector.set = setLanguage
-        currentLanguage = `en`
         route = router.findRoute({ pathname: `/react/routing/es/foo/8` })
         delete languageDetector.set
       })
@@ -89,13 +75,10 @@ describe(`../Router`, () => {
     })
     describe(`router.findRoute (detect unknown client)`, () => {
       let route
-      const setLanguage = jest.fn(str => {
-        currentLanguage = str
-      })
+      const setLanguage = jest.fn()
       const location = { pathname: `/react/routing/en/bar` }
       beforeAll(() => {
         languageDetector.set = setLanguage
-        currentLanguage = `es`
         route = router.findRoute(location)
         delete languageDetector.set
       })
@@ -104,7 +87,7 @@ describe(`../Router`, () => {
           location,
           render: {},
           redirect: {
-            pathname: `/react/routing/en/notFound`,
+            pathname: `/translated-notFound-location`,
             state: { pathname: `/react/routing/en/bar` },
           },
         })
@@ -118,7 +101,6 @@ describe(`../Router`, () => {
       let route
       const location = { pathname: `/react/routing/404` }
       beforeAll(() => {
-        currentLanguage = `es`
         route = router.findRoute(location)
       })
       it(`should return a route that redirects to notFound`, () => {
@@ -126,7 +108,7 @@ describe(`../Router`, () => {
           location,
           render: {},
           redirect: {
-            pathname: `/react/routing/es/notFound`,
+            pathname: `/translated-notFound-location`,
             state: { pathname: `/react/routing/404` },
           },
         })

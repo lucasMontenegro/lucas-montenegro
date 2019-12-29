@@ -1,23 +1,8 @@
-import Translation from "lib/Translation"
 import languageDetector from "lib/languageDetector"
 export default class Router {
   constructor (routing) {
     this.matchers = routing.matchers
-    const initialLanguage = routing.languageCodes[0]
-    this.locations = [`home`, `notFound`].reduce((byClient, clientName) => {
-      const location = routing.locations[clientName]
-      const translators = routing.linkTranslators[clientName]
-      const intl = translators[initialLanguage].toIntl(location)
-      byClient[clientName] = new Translation(
-        routing.languageCodes.reduce((byLanguage, newLanguage) => {
-          byLanguage[newLanguage] = (
-            initialLanguage === newLanguage ? location : translators[newLanguage].toLocal(intl)
-          )
-          return byLanguage
-        }, {})
-      )
-      return byClient
-    }, {})
+    this.locations = routing.translatedLocations
   }
   findRoute (location) {
     // detect root route

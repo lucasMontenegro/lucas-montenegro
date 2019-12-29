@@ -1,4 +1,5 @@
-export default {
+import extendRouting from "./extend"
+export default extendRouting({
   clientNames: [`home`, `foo`, `notFound`],
   languageCodes: [`en`, `es`],
   languageNames: {
@@ -143,4 +144,4 @@ export default {
       },
     },
   },
-}
+})

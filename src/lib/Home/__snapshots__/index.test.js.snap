@@ -2,233 +2,329 @@
 
 exports[`./index.js <Home /> (render true, is dark false, language "en") should render 1`] = `
 <div
-  className="Container classes-root"
+  className="Container"
   maxWidth="lg"
 >
-  <div
-    align="center"
-    className="Typography"
-    component="h1"
-    variant="h4"
+  <section
+    className="classes-section"
   >
-    Hi! My Name Is Lucas 
-    <br />
-     Welcome To My Personal Website
-  </div>
-  <div
-    className="Toolbar classes-toolbar"
-  >
-    <button
-      color="primary"
-      onClick={[Function]}
-      variant="contained"
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
     >
-      Get In Touch
-    </button>
-  </div>
-  <div
-    className="OnlineProfileSvg"
-    isDark={false}
-  />
-  <div
-    align="center"
-    className="Typography"
-    component="h2"
-    variant="h4"
-  >
-    Contact
-  </div>
-  <div
-    align="center"
-    className="Typography"
-    component="p"
-    variant="h5"
-  >
-    A contact form is coming soon. 
-    <br />
-    You can check my 
-    <a
-      href="https://github.com/lucasMontenegro"
-      target="__blank"
+      Hi! My Name Is Lucas 
+      <br />
+       Welcome To My Personal Website
+    </div>
+    <div
+      className="Toolbar classes-toolbar"
     >
-      GitHub profile
-    </a>
-     instead.
-  </div>
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Get In Touch
+      </button>
+    </div>
+    <div
+      className="OnlineProfileSvg"
+      isDark={false}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      I'm a Computer Programmer focused on Web Development
+    </div>
+    <div
+      className="TechnologiesSvg"
+      isDark={false}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h2"
+      variant="h4"
+    >
+      Contact
+    </div>
+    <div
+      align="center"
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      A contact form is coming soon. 
+      <br />
+      You can check 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        my GitHub profile
+      </a>
+       instead.
+    </div>
+  </section>
 </div>
 `;
 
 exports[`./index.js <Home /> (render true, is dark false, language "es") should render 1`] = `
 <div
-  className="Container classes-root"
+  className="Container"
   maxWidth="lg"
 >
-  <div
-    align="center"
-    className="Typography"
-    component="h1"
-    variant="h4"
+  <section
+    className="classes-section"
   >
-    Hola! Mi nombre es Lucas 
-    <br />
-     Bienvenido A Mi Página Web Personal
-  </div>
-  <div
-    className="Toolbar classes-toolbar"
-  >
-    <button
-      color="primary"
-      onClick={[Function]}
-      variant="contained"
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
     >
-      Pongámonos En Contacto
-    </button>
-  </div>
-  <div
-    className="OnlineProfileSvg"
-    isDark={false}
-  />
-  <div
-    align="center"
-    className="Typography"
-    component="h2"
-    variant="h4"
-  >
-    Contacto
-  </div>
-  <div
-    align="center"
-    className="Typography"
-    component="p"
-    variant="h5"
-  >
-    Un formulario de contacto estará disponible muy pronto. 
-    <br />
-    Por ahora podés visitar mi 
-    <a
-      href="https://github.com/lucasMontenegro"
-      target="__blank"
+      Hola! mi nombre es Lucas 
+      <br />
+       Bienvenido a mi Página Web Personal
+    </div>
+    <div
+      className="Toolbar classes-toolbar"
     >
-      perfil en GitHub
-    </a>
-    .
-  </div>
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Pongámonos En Contacto
+      </button>
+    </div>
+    <div
+      className="OnlineProfileSvg"
+      isDark={false}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Soy un Programador de Computadoras centrado en Desarrollo de Páginas Web
+    </div>
+    <div
+      className="TechnologiesSvg"
+      isDark={false}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h2"
+      variant="h4"
+    >
+      Contacto
+    </div>
+    <div
+      align="center"
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Un formulario de contacto estará disponible muy pronto. 
+      <br />
+      Por ahora podés visitar 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        mi perfil en GitHub
+      </a>
+      .
+    </div>
+  </section>
 </div>
 `;
 
 exports[`./index.js <Home /> (render true, is dark true, language "en") should render 1`] = `
 <div
-  className="Container classes-root"
+  className="Container"
   maxWidth="lg"
 >
-  <div
-    align="center"
-    className="Typography"
-    component="h1"
-    variant="h4"
+  <section
+    className="classes-section"
   >
-    Hi! My Name Is Lucas 
-    <br />
-     Welcome To My Personal Website
-  </div>
-  <div
-    className="Toolbar classes-toolbar"
-  >
-    <button
-      color="primary"
-      onClick={[Function]}
-      variant="contained"
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
     >
-      Get In Touch
-    </button>
-  </div>
-  <div
-    className="OnlineProfileSvg"
-    isDark={true}
-  />
-  <div
-    align="center"
-    className="Typography"
-    component="h2"
-    variant="h4"
-  >
-    Contact
-  </div>
-  <div
-    align="center"
-    className="Typography"
-    component="p"
-    variant="h5"
-  >
-    A contact form is coming soon. 
-    <br />
-    You can check my 
-    <a
-      href="https://github.com/lucasMontenegro"
-      target="__blank"
+      Hi! My Name Is Lucas 
+      <br />
+       Welcome To My Personal Website
+    </div>
+    <div
+      className="Toolbar classes-toolbar"
     >
-      GitHub profile
-    </a>
-     instead.
-  </div>
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Get In Touch
+      </button>
+    </div>
+    <div
+      className="OnlineProfileSvg"
+      isDark={true}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      I'm a Computer Programmer focused on Web Development
+    </div>
+    <div
+      className="TechnologiesSvg"
+      isDark={true}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h2"
+      variant="h4"
+    >
+      Contact
+    </div>
+    <div
+      align="center"
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      A contact form is coming soon. 
+      <br />
+      You can check 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        my GitHub profile
+      </a>
+       instead.
+    </div>
+  </section>
 </div>
 `;
 
 exports[`./index.js <Home /> (render true, is dark true, language "es") should render 1`] = `
 <div
-  className="Container classes-root"
+  className="Container"
   maxWidth="lg"
 >
-  <div
-    align="center"
-    className="Typography"
-    component="h1"
-    variant="h4"
+  <section
+    className="classes-section"
   >
-    Hola! Mi nombre es Lucas 
-    <br />
-     Bienvenido A Mi Página Web Personal
-  </div>
-  <div
-    className="Toolbar classes-toolbar"
-  >
-    <button
-      color="primary"
-      onClick={[Function]}
-      variant="contained"
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
     >
-      Pongámonos En Contacto
-    </button>
-  </div>
-  <div
-    className="OnlineProfileSvg"
-    isDark={true}
-  />
-  <div
-    align="center"
-    className="Typography"
-    component="h2"
-    variant="h4"
-  >
-    Contacto
-  </div>
-  <div
-    align="center"
-    className="Typography"
-    component="p"
-    variant="h5"
-  >
-    Un formulario de contacto estará disponible muy pronto. 
-    <br />
-    Por ahora podés visitar mi 
-    <a
-      href="https://github.com/lucasMontenegro"
-      target="__blank"
+      Hola! mi nombre es Lucas 
+      <br />
+       Bienvenido a mi Página Web Personal
+    </div>
+    <div
+      className="Toolbar classes-toolbar"
     >
-      perfil en GitHub
-    </a>
-    .
-  </div>
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Pongámonos En Contacto
+      </button>
+    </div>
+    <div
+      className="OnlineProfileSvg"
+      isDark={true}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Soy un Programador de Computadoras centrado en Desarrollo de Páginas Web
+    </div>
+    <div
+      className="TechnologiesSvg"
+      isDark={true}
+    />
+  </section>
+  <section
+    className="classes-section"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h2"
+      variant="h4"
+    >
+      Contacto
+    </div>
+    <div
+      align="center"
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Un formulario de contacto estará disponible muy pronto. 
+      <br />
+      Por ahora podés visitar 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        mi perfil en GitHub
+      </a>
+      .
+    </div>
+  </section>
 </div>
 `;
 

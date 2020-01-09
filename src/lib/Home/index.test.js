@@ -8,7 +8,7 @@ import renderer from "react-test-renderer"
 jest.mock(`@material-ui/core/styles`, () => ({
   __esModule: true,
   makeStyles: jest.fn(() => () => ({
-    root: `classes-root`,
+    section: `classes-section`,
     toolbar: `classes-toolbar`,
   })),
 }))
@@ -36,7 +36,7 @@ jest.mock(`@material-ui/core/Container`, () => {
   const React = jest.requireActual("react")
   return {
     __esModule: true,
-    default: props => <div {...props} className={`Container ${props.className}`} />,
+    default: props => <div {...props} className="Container" />,
   }
 })
 jest.mock(`@material-ui/core/Typography`, () => {
@@ -60,6 +60,10 @@ jest.mock(`@material-ui/core/Button`, () => {
 jest.mock(`./OnlineProfileSvg`, () => {
   const React = jest.requireActual("react")
   return { __esModule: true, default: props => <div {...props} className="OnlineProfileSvg" /> }
+})
+jest.mock(`./TechnologiesSvg`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <div {...props} className="TechnologiesSvg" /> }
 })
 describe(`./index.js`, () => {
   let Home

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <TechnologiesSvg isDark={false} /> should render 1`] = `
+<div
+  className="classes-container"
+>
+  <div
+    className="light-svg"
+  />
+</div>
+`;
+
+exports[`../index.js <TechnologiesSvg isDark={true} /> should render 1`] = `
+<div
+  className="classes-container"
+>
+  <div
+    className="dark-svg"
+  />
+</div>
+`;
+
+exports[`../index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

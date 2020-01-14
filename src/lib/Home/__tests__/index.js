@@ -7,10 +7,13 @@ import Button from "@material-ui/core/Button"
 import renderer from "react-test-renderer"
 jest.mock(`@material-ui/core/styles`, () => ({
   __esModule: true,
-  makeStyles: jest.fn(() => () => ({
-    section: `classes-section`,
-    toolbar: `classes-toolbar`,
-  })),
+  makeStyles (styles, options) {
+    const classes = Object.keys(styles({ spacing () {} })).reduce((classes, key) => {
+      classes[key] = `${options.name}-${key}`
+      return classes
+    }, {})
+    return () => classes
+  },
 }))
 jest.mock(`react`, () => {
   const actual = jest.requireActual("react")
@@ -20,6 +23,24 @@ jest.mock(`react`, () => {
     default: actual,
     useRef: jest.fn(),
   }
+})
+jest.mock(`@material-ui/core/Typography`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: props => <div {...props} className="Typography" />,
+  }
+})
+jest.mock(`@material-ui/core/Toolbar`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: props => <div {...props} className={`Toolbar ${props.className}`} />,
+  }
+})
+jest.mock(`@material-ui/core/Button`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: jest.fn(props => <button {...props} />) }
 })
 jest.mock(`@material-ui/core/Link`, () => {
   const React = jest.requireActual("react")
@@ -39,54 +60,30 @@ jest.mock(`@material-ui/core/Container`, () => {
     default: props => <div {...props} className="Container" />,
   }
 })
-jest.mock(`@material-ui/core/Typography`, () => {
+jest.mock(`../SvgImage`, () => {
   const React = jest.requireActual("react")
-  return {
-    __esModule: true,
-    default: React.forwardRef((props, ref) => <div {...props} ref={ref} className="Typography" />),
-  }
+  return { __esModule: true, default: props => <div {...props} className="SvgImage" /> }
 })
-jest.mock(`@material-ui/core/Toolbar`, () => {
-  const React = jest.requireActual("react")
-  return {
-    __esModule: true,
-    default: props => <div {...props} className={`Toolbar ${props.className}`} />,
-  }
-})
-jest.mock(`@material-ui/core/Button`, () => {
-  const React = jest.requireActual("react")
-  return { __esModule: true, default: jest.fn(props => <button {...props} />) }
-})
-jest.mock(`./OnlineProfileSvg`, () => {
-  const React = jest.requireActual("react")
-  return { __esModule: true, default: props => <div {...props} className="OnlineProfileSvg" /> }
-})
-jest.mock(`./TechnologiesSvg`, () => {
-  const React = jest.requireActual("react")
-  return { __esModule: true, default: props => <div {...props} className="TechnologiesSvg" /> }
-})
-describe(`./index.js`, () => {
+jest.mock(`../svg`, () => ({
+  __esModule: true,
+  default: {
+    onlineProfile: `svg.onlineProfile`,
+    technologies: `svg.technologies`,
+    website: `svg.website`,
+  },
+}))
+describe(`../index.js`, () => {
   let Home
   beforeAll(() => {
-    Home = require("./index.js").default
+    Home = require("../index.js").default
   })
   it(`should use the right verions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`@material-ui/core`, `react`])).toMatchSnapshot()
   })
-  describe(`makeStyles callback`, () => {
-    it(`should run`, () => {
-      makeStyles.mock.calls[0][0]({ spacing: () => {} })
-    })
-  })
   describe(`<Home /> (render false)`, () => {
-    let html
-    beforeAll(() => {
-      useDarkMode.mockReturnValueOnce({})
-      useRoute.mockReturnValueOnce({ render: {} })
-      html = renderer.create(<Home />)
-    })
     it(`should render`, () => {
-      expect(html.toJSON()).toBeNull()
+      useRoute.mockReturnValueOnce({ render: {} })
+      expect(renderer.create(<Home />).toJSON()).toBeNull()
     })
   })
   {

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../svg should use the right versions of its dependencies 1`] = `
+Object {
+  "react-scripts": "^3.1.2",
+}
+`;
+
+exports[`../svg svg.onlineProfile.dark should render 1`] = `
+<svg
+  className="foo"
+>
+  dark.svg
+</svg>
+`;
+
+exports[`../svg svg.onlineProfile.light should render 1`] = `
+<svg
+  className="foo"
+>
+  light.svg
+</svg>
+`;
+
+exports[`../svg svg.technologies.dark should render 1`] = `
+<svg
+  className="foo"
+>
+  dark.svg
+</svg>
+`;
+
+exports[`../svg svg.technologies.light should render 1`] = `
+<svg
+  className="foo"
+>
+  light.svg
+</svg>
+`;
+
+exports[`../svg svg.website.dark should render 1`] = `
+<svg
+  className="foo"
+>
+  dark.svg
+</svg>
+`;
+
+exports[`../svg svg.website.light should render 1`] = `
+<svg
+  className="foo"
+>
+  light.svg
+</svg>
+`;

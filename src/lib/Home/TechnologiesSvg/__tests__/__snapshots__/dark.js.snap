@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`../dark.svg should use the right versions of its dependencies 1`] = `
-Object {
-  "react-scripts": "^3.1.2",
-}
-`;

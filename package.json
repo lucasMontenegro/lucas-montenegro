@@ -67,7 +67,8 @@
     "test": "react-scripts test",
     "db-spec": "./scripts/db-spec.sh",
     "wdio": "./scripts/wdio.sh",
-    "test-old-examples": "./scripts/test-old-examples.sh"
+    "test-old-examples": "./scripts/test-old-examples.sh",
+    "node-example": "./scripts/node-example.sh"
   },
   "repository": {
     "type": "git",

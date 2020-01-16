@@ -93,7 +93,7 @@ const translation = new Translation({
         <Section innerRef={props.innerRef}>
           <Heading>Contact</Heading>
           <Body>
-            A contact form is coming soon. You can check <GitHubProfile>my GitHub
+            A contact form is coming up soon. You can check <GitHubProfile>my GitHub
             profile</GitHubProfile> instead.
           </Body>
         </Section>

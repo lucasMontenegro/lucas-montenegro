@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`./index.js httpServer (port 1234, api {"name":"api"}) should set up an ExpressJS app 1`] = `
+Array [
+  Array [
+    "app.use",
+    Array [
+      "express.static('/build-path')",
+    ],
+  ],
+  Array [
+    "app.use",
+    Array [
+      "/api",
+      Object {
+        "name": "api",
+      },
+    ],
+  ],
+  Array [
+    "app.get",
+    Array [
+      "*",
+      [Function],
+    ],
+  ],
+  Array [
+    "app.listen",
+    Array [
+      1234,
+      [Function],
+    ],
+  ],
+]
+`;
+
+exports[`./index.js httpServer (port 1234, api undefined) should set up an ExpressJS app 1`] = `
+Array [
+  Array [
+    "app.use",
+    Array [
+      "express.static('/build-path')",
+    ],
+  ],
+  Array [
+    "app.get",
+    Array [
+      "*",
+      [Function],
+    ],
+  ],
+  Array [
+    "app.listen",
+    Array [
+      1234,
+      [Function],
+    ],
+  ],
+]
+`;
+
+exports[`./index.js httpServer (port undefined, api {"name":"api"}) should set up an ExpressJS app 1`] = `
+Array [
+  Array [
+    "app.use",
+    Array [
+      "express.static('/build-path')",
+    ],
+  ],
+  Array [
+    "app.use",
+    Array [
+      "/api",
+      Object {
+        "name": "api",
+      },
+    ],
+  ],
+  Array [
+    "app.get",
+    Array [
+      "*",
+      [Function],
+    ],
+  ],
+  Array [
+    "app.listen",
+    Array [
+      5000,
+      [Function],
+    ],
+  ],
+]
+`;
+
+exports[`./index.js httpServer (port undefined, api undefined) should set up an ExpressJS app 1`] = `
+Array [
+  Array [
+    "app.use",
+    Array [
+      "express.static('/build-path')",
+    ],
+  ],
+  Array [
+    "app.get",
+    Array [
+      "*",
+      [Function],
+    ],
+  ],
+  Array [
+    "app.listen",
+    Array [
+      5000,
+      [Function],
+    ],
+  ],
+]
+`;
+
+exports[`./index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "express": "^4.17.1",
+}
+`;

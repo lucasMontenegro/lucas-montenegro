@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/postgres/startDb should configure pg-promise (isProduction false) 1`] = `
+Array [
+  Array [
+    "ErrorFilter",
+    Array [],
+  ],
+  Array [
+    "pgPromise",
+    Array [
+      Object {
+        "error": "errorFilter.logger",
+        "extend": "new/local/postgres/extendRepos",
+        "promiseLib": "Bluebird",
+      },
+    ],
+  ],
+  Array [
+    "pgp",
+    Array [
+      Object {
+        "database": "'process.env.PG_DATABASE'",
+        "host": "'process.env.PG_HOST'",
+        "password": "'process.env.PG_PASSWORD'",
+        "user": "'process.env.PG_USER'",
+      },
+    ],
+  ],
+  Array [
+    "monitor.setTheme",
+    Array [
+      "matrix",
+    ],
+  ],
+  Array [
+    "HandleMonitorLog",
+    Array [],
+  ],
+  Array [
+    "monitor.setLog",
+    Array [
+      "HandleMonitorLog()",
+    ],
+  ],
+  Array [
+    "monitor.attach",
+    Array [
+      Object {
+        "error": "errorFilter.logger",
+        "extend": "new/local/postgres/extendRepos",
+        "promiseLib": "Bluebird",
+      },
+      Array [],
+    ],
+  ],
+  Array [
+    "ErrorFilter",
+    Array [],
+  ],
+  Array [
+    "pgPromise",
+    Array [
+      Object {
+        "error": "errorFilter.logger",
+        "extend": "new/local/postgres/extendRepos",
+        "promiseLib": "Bluebird",
+      },
+    ],
+  ],
+  Array [
+    "pgp",
+    Array [
+      Object {
+        "database": "'process.env.PG_DATABASE'",
+        "host": "'process.env.PG_HOST'",
+        "password": "'process.env.PG_PASSWORD'",
+        "user": "'process.env.PG_USER'",
+      },
+    ],
+  ],
+  Array [
+    "monitor.setTheme",
+    Array [
+      "matrix",
+    ],
+  ],
+  Array [
+    "HandleMonitorLog",
+    Array [],
+  ],
+  Array [
+    "monitor.setLog",
+    Array [
+      "HandleMonitorLog()",
+    ],
+  ],
+  Array [
+    "monitor.attach",
+    Array [
+      Object {
+        "error": "errorFilter.logger",
+        "extend": "new/local/postgres/extendRepos",
+        "promiseLib": "Bluebird",
+      },
+      Array [
+        "connect",
+        "disconnect",
+        "task",
+        "transact",
+        "query",
+      ],
+    ],
+  ],
+]
+`;
+
+exports[`new/local/postgres/startDb should configure pg-promise (isProduction true) 1`] = `
+Array [
+  Array [
+    "ErrorFilter",
+    Array [],
+  ],
+  Array [
+    "pgPromise",
+    Array [
+      Object {
+        "error": "errorFilter.logger",
+        "extend": "new/local/postgres/extendRepos",
+        "promiseLib": "Bluebird",
+      },
+    ],
+  ],
+  Array [
+    "pgp",
+    Array [
+      Object {
+        "database": "'process.env.PG_DATABASE'",
+        "host": "'process.env.PG_HOST'",
+        "password": "'process.env.PG_PASSWORD'",
+        "user": "'process.env.PG_USER'",
+      },
+    ],
+  ],
+  Array [
+    "monitor.setTheme",
+    Array [
+      "matrix",
+    ],
+  ],
+  Array [
+    "HandleMonitorLog",
+    Array [],
+  ],
+  Array [
+    "monitor.setLog",
+    Array [
+      "HandleMonitorLog()",
+    ],
+  ],
+  Array [
+    "monitor.attach",
+    Array [
+      Object {
+        "error": "errorFilter.logger",
+        "extend": "new/local/postgres/extendRepos",
+        "promiseLib": "Bluebird",
+      },
+      Array [],
+    ],
+  ],
+]
+`;
+
+exports[`new/local/postgres/startDb should utilize the dependency APIs correctly 1`] = `
+Object {
+  "pg-monitor": "^1.2.2",
+  "pg-promise": "^9.2.1",
+}
+`;

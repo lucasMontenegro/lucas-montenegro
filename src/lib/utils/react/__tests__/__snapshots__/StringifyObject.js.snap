@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/utils/react/StringifyObject should use the right dependency versions 1`] = `
+Object {
+  "react": "^16.10.1",
+  "stringify-object": "^3.3.0",
+}
+`;

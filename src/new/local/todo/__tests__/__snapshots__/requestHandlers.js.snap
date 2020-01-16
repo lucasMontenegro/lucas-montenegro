@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/todo/requestHandlers requestHandlers.delete should handle requests 1`] = `
+Array [
+  Array [
+    "db.result",
+    Array [
+      "DELETE FROM todo WHERE user_id='req.user.sub' AND todo_id='req.params.todo_id'",
+      null,
+      "new/local/utils/postgres/extractRowCount",
+    ],
+  ],
+  Array [
+    "res.end",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/todo/requestHandlers requestHandlers.get should handle requests 1`] = `
+Array [
+  Array [
+    "db.any",
+    Array [
+      "SELECT todo_id,description,priority,status,created_on,updated_on FROM todo WHERE user_id='req.user.sub'",
+    ],
+  ],
+  Array [
+    "res.json",
+    Array [
+      Array [
+        "db.any",
+        Array [
+          "SELECT todo_id,description,priority,status,created_on,updated_on FROM todo WHERE user_id='req.user.sub'",
+        ],
+      ],
+    ],
+  ],
+]
+`;
+
+exports[`local/todo/requestHandlers requestHandlers.post should handle requests 1`] = `
+Array [
+  Array [
+    "db.none",
+    Array [
+      "INSERT INTO todo(user_id,description,priority)VALUES('req.user.sub','req.body.description','req.body.priority')",
+    ],
+  ],
+  Array [
+    "res.end",
+    Array [],
+  ],
+]
+`;
+
+exports[`local/todo/requestHandlers requestHandlers.put should handle requests 1`] = `
+Array [
+  Array [
+    "db.none",
+    Array [
+      "UPDATE todo SET priority='req.body.priority',status='req.body.status',updated_on=NOW()WHERE user_id='req.user.sub' AND todo_id='req.params.todo_id'",
+    ],
+  ],
+  Array [
+    "res.end",
+    Array [],
+  ],
+]
+`;

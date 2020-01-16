@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/languageDetector/set should use the right dependency versions 1`] = `
+Object {
+  "i18next": "^17.0.18",
+}
+`;

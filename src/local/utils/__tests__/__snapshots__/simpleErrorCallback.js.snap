@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`local/utils/simpleErrorCallback should log if there is an error (error "error message") 1`] = `
+Array [
+  Array [
+    "console.error",
+    Array [
+      "error message",
+    ],
+  ],
+]
+`;
+
+exports[`local/utils/simpleErrorCallback should log if there is an error (error null) 1`] = `
+Array [
+  Array [
+    "console.error",
+    Array [
+      "error message",
+    ],
+  ],
+]
+`;

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`./index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "prop-types": "^15.7.2",
+}
+`;

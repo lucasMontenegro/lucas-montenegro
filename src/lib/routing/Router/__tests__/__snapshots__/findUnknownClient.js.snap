@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/routing/Router/findUnknownClient should use the right dependency versions 1`] = `
+Object {
+  "react-router-dom": "^5.1.2",
+}
+`;

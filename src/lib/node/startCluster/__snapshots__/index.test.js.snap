@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`./index.js startCluster(cb) (isProduction => true, cluster.isMaster === true) should set up the cluster 1`] = `
+Array [
+  Array [
+    "cluster.fork",
+    Array [],
+  ],
+  Array [
+    "cluster.fork",
+    Array [],
+  ],
+  Array [
+    "cluster.on",
+    Array [
+      "exit",
+      [Function],
+    ],
+  ],
+]
+`;

@@ -1,0 +1,504 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <Home /> (render true, is dark false, language "en") should render 1`] = `
+<div
+  className="Container"
+  maxWidth="md"
+>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Hi! My name is Lucas 
+      <br />
+       Welcome to my Personal Website
+    </div>
+    <div
+      className="Toolbar lib-home-call_to_action-toolbar"
+    >
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Get in Touch
+      </button>
+    </div>
+    <div
+      className="SvgImage"
+      isDark={false}
+      source="svg.onlineProfile"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Skill Set
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      I'm a Computer Programmer focused on Web Development. I can be part of teams working with technologies like JavaScript, React, NodeJS, etc.
+    </div>
+    <div
+      className="SvgImage"
+      isDark={false}
+      source="svg.technologies"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Experience
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      I've made this website to showcase my abilities as a programmer. Take a look around or check the 
+      <a
+        href="https://github.com/lucasMontenegro/lucas-montenegro"
+        target="__blank"
+      >
+        source code on GitHub
+      </a>
+      .
+    </div>
+    <div
+      className="SvgImage"
+      isDark={false}
+      source="svg.website"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Contact
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      A contact form is coming soon. You can check 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        my GitHub profile
+      </a>
+       instead.
+    </div>
+  </section>
+</div>
+`;
+
+exports[`../index.js <Home /> (render true, is dark false, language "es") should render 1`] = `
+<div
+  className="Container"
+  maxWidth="md"
+>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Hola! mi nombre es Lucas 
+      <br />
+       Bienvenido a mi Página Web Personal
+    </div>
+    <div
+      className="Toolbar lib-home-call_to_action-toolbar"
+    >
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Pongámonos en Contacto
+      </button>
+    </div>
+    <div
+      className="SvgImage"
+      isDark={false}
+      source="svg.onlineProfile"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Capacitación Profesional
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS, etc.
+    </div>
+    <div
+      className="SvgImage"
+      isDark={false}
+      source="svg.technologies"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Experiencia
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
+      <a
+        href="https://github.com/lucasMontenegro/lucas-montenegro"
+        target="__blank"
+      >
+        código fuente en GitHub
+      </a>
+      .
+    </div>
+    <div
+      className="SvgImage"
+      isDark={false}
+      source="svg.website"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Contacto
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Un formulario de contacto estará disponible muy pronto. Por ahora podés visitar 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        mi perfil en GitHub
+      </a>
+      .
+    </div>
+  </section>
+</div>
+`;
+
+exports[`../index.js <Home /> (render true, is dark true, language "en") should render 1`] = `
+<div
+  className="Container"
+  maxWidth="md"
+>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Hi! My name is Lucas 
+      <br />
+       Welcome to my Personal Website
+    </div>
+    <div
+      className="Toolbar lib-home-call_to_action-toolbar"
+    >
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Get in Touch
+      </button>
+    </div>
+    <div
+      className="SvgImage"
+      isDark={true}
+      source="svg.onlineProfile"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Skill Set
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      I'm a Computer Programmer focused on Web Development. I can be part of teams working with technologies like JavaScript, React, NodeJS, etc.
+    </div>
+    <div
+      className="SvgImage"
+      isDark={true}
+      source="svg.technologies"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Experience
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      I've made this website to showcase my abilities as a programmer. Take a look around or check the 
+      <a
+        href="https://github.com/lucasMontenegro/lucas-montenegro"
+        target="__blank"
+      >
+        source code on GitHub
+      </a>
+      .
+    </div>
+    <div
+      className="SvgImage"
+      isDark={true}
+      source="svg.website"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Contact
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      A contact form is coming soon. You can check 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        my GitHub profile
+      </a>
+       instead.
+    </div>
+  </section>
+</div>
+`;
+
+exports[`../index.js <Home /> (render true, is dark true, language "es") should render 1`] = `
+<div
+  className="Container"
+  maxWidth="md"
+>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Hola! mi nombre es Lucas 
+      <br />
+       Bienvenido a mi Página Web Personal
+    </div>
+    <div
+      className="Toolbar lib-home-call_to_action-toolbar"
+    >
+      <button
+        color="primary"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Pongámonos en Contacto
+      </button>
+    </div>
+    <div
+      className="SvgImage"
+      isDark={true}
+      source="svg.onlineProfile"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Capacitación Profesional
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS, etc.
+    </div>
+    <div
+      className="SvgImage"
+      isDark={true}
+      source="svg.technologies"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Experiencia
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
+      <a
+        href="https://github.com/lucasMontenegro/lucas-montenegro"
+        target="__blank"
+      >
+        código fuente en GitHub
+      </a>
+      .
+    </div>
+    <div
+      className="SvgImage"
+      isDark={true}
+      source="svg.website"
+    />
+  </section>
+  <section
+    className="lib-home-section-root"
+    innerRef={
+      Object {
+        "current": null,
+      }
+    }
+  >
+    <div
+      align="center"
+      className="Typography"
+      component="h1"
+      variant="h4"
+    >
+      Contacto
+    </div>
+    <div
+      className="Typography"
+      component="p"
+      variant="h5"
+    >
+      Un formulario de contacto estará disponible muy pronto. Por ahora podés visitar 
+      <a
+        href="https://github.com/lucasMontenegro"
+        target="__blank"
+      >
+        mi perfil en GitHub
+      </a>
+      .
+    </div>
+  </section>
+</div>
+`;
+
+exports[`../index.js should use the right verions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

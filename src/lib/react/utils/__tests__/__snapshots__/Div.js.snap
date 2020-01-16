@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../Div Div ({"color":"blue"}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid blue",
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div Div ({}) should render 1`] = `
+<div
+  style={
+    Object {
+      "border": undefined,
+      "borderRadius": 8,
+      "margin": 4,
+      "minHeight": 256,
+      "padding": 4,
+    }
+  }
+>
+  lorem ipsum
+</div>
+`;
+
+exports[`../Div should use the right versions of its dependencies 1`] = `
+Object {
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

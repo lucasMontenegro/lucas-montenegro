@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/server/api should utilize the dependency APIs correctly 1`] = `
+Object {
+  "express": "^4.17.1",
+}
+`;

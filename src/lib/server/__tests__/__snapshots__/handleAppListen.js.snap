@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/server/handleAppListen should log (isProduction false) 1`] = `
+Array [
+  Array [
+    "console.log",
+    Array [
+      "Node dev server: listening on port 'PORT'",
+    ],
+  ],
+]
+`;
+
+exports[`lib/server/handleAppListen should log (isProduction true) 1`] = `
+Array [
+  Array [
+    "console.log",
+    Array [
+      "Node cluster worker 'process.pid': listening on port 'PORT'",
+    ],
+  ],
+]
+`;

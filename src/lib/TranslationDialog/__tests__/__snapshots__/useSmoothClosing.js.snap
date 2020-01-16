@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/TranslationDialog/useSmoothClosing should use the right dependency versions 1`] = `
+Object {
+  "react": "^16.10.1",
+}
+`;

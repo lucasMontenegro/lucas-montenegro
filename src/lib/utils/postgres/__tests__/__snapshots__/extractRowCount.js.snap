@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/utils/postgres/extractRowCount should use the right dependency versions 1`] = `
+Object {
+  "pg-promise": "^9.2.1",
+}
+`;

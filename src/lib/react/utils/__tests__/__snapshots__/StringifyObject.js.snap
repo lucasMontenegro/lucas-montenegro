@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../StringifyObject StringifyObject should render 1`] = `
+<div
+  style={
+    Object {
+      "border": "2px solid RosyBrown",
+      "margin": 4,
+      "minHeight": undefined,
+      "padding": 4,
+    }
+  }
+>
+  <pre
+    className="className"
+    id="id"
+  >
+    {
+  foo: "123"
+}
+  </pre>
+</div>
+`;
+
+exports[`../StringifyObject should use the right versions of its dependencies 1`] = `
+Object {
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+  "stringify-object": "^3.3.0",
+}
+`;

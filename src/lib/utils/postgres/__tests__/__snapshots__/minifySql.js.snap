@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lib/utils/postgres/minifySql should minify SQL queries 1`] = `"SELECT*FROM my_table WHERE foo=$1 LIMIT 20"`;
+
+exports[`lib/utils/postgres/minifySql should use the right dependency versions 1`] = `
+Object {
+  "pg-minify": "^1.5.1",
+}
+`;

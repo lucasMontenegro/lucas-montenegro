@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../extend should create routing.translatedLocations 1`] = `
+Object {
+  "foo": Translation {
+    "value": Object {
+      "en": Object {
+        "pathname": "/react/routing/en/foo/5",
+      },
+      "es": Object {
+        "pathname": "/react/routing/es/foo/5",
+      },
+    },
+  },
+  "home": Translation {
+    "value": Object {
+      "en": Object {
+        "pathname": "/react/routing/en/home/2",
+      },
+      "es": Object {
+        "pathname": "/react/routing/es/home/2",
+      },
+    },
+  },
+  "notFound": Translation {
+    "value": Object {
+      "en": Object {
+        "pathname": "/react/routing/en/notFound",
+      },
+      "es": Object {
+        "pathname": "/react/routing/es/notFound",
+        "state": undefined,
+      },
+    },
+  },
+}
+`;

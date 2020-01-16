@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/todo/router should utilize the dependency APIs correctly 1`] = `
+Object {
+  "body-parser": "^1.19.0",
+  "express": "^4.17.1",
+  "express-jwt": "^5.3.1",
+  "express-jwt-authz": "^2.3.1",
+  "jwks-rsa": "^1.6.0",
+}
+`;

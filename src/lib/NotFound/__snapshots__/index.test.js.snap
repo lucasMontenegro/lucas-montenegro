@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`./index.js <NotFound /> (match with referrer) should render 1`] = `
+<div
+  className="classes-root"
+>
+  <div
+    className="classes-content"
+  >
+    <div
+      color="textPrimary"
+      variant="body1"
+    >
+      translation.error
+    </div>
+    <div
+      className="classes-referrer"
+      color="textSecondary"
+      variant="body2"
+    >
+      /foo?x=1#abc
+    </div>
+    <div
+      className="classes-link"
+    >
+      <a
+        to="/translated-notFound-location"
+      >
+        translation.close
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`./index.js <NotFound /> (match without referrer, referrer not in location) should render 1`] = `
+<div
+  className="classes-root"
+>
+  <div
+    className="classes-content"
+  >
+    <div
+      color="textPrimary"
+      variant="body1"
+    >
+      translation.greeting
+    </div>
+    <div
+      className="classes-link"
+    >
+      <a
+        id="go-to-home"
+        to="/translated-home-location"
+      >
+        translation.home
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`./index.js <NotFound /> (match without referrer, referrer set to null) should render 1`] = `
+<div
+  className="classes-root"
+>
+  <div
+    className="classes-content"
+  >
+    <div
+      color="textPrimary"
+      variant="body1"
+    >
+      translation.greeting
+    </div>
+    <div
+      className="classes-link"
+    >
+      <a
+        id="go-to-home"
+        to="/translated-home-location"
+      >
+        translation.home
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`./index.js <NotFound /> (match without referrer, referrer set to undefined) should render 1`] = `
+<div
+  className="classes-root"
+>
+  <div
+    className="classes-content"
+  >
+    <div
+      color="textPrimary"
+      variant="body1"
+    >
+      translation.greeting
+    </div>
+    <div
+      className="classes-link"
+    >
+      <a
+        id="go-to-home"
+        to="/translated-home-location"
+      >
+        translation.home
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`./index.js <NotFound /> (no match) should render 1`] = `null`;
+
+exports[`./index.js should use the versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new/local/server/sendFrontEndApp should send index.html 1`] = `
+Array [
+  Array [
+    "res.sendFile",
+    Array [
+      "/buildPath/index.html",
+    ],
+  ],
+]
+`;

@@ -1,15 +1,74 @@
 {
   "name": "lucas-montenegro",
   "version": "0.0.1",
-  "description": "https://lucas-montenegro.herokuapp.com/",
+  "description": "https://lucasmontenegro.com.ar/",
   "private": true,
   "dependencies": {
-    "express": "^4.17.1"
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.5",
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
+    "@material-ui/styles": "^4.5.0",
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^2.3.1",
+    "express-validator": "^6.2.0",
+    "global": "^4.4.0",
+    "i18next": "^17.0.18",
+    "i18next-browser-languagedetector": "^3.0.3",
+    "jwks-rsa": "^1.6.0",
+    "pg-minify": "^1.5.1",
+    "pg-monitor": "^1.2.2",
+    "pg-promise": "^9.2.1",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.8.3",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "stringify-object": "^3.3.0",
+    "typeface-roboto": "0.0.75"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/register": "^7.6.2",
+    "@wdio/cli": "^5.14.3",
+    "@wdio/local-runner": "^5.14.3",
+    "@wdio/mocha-framework": "^5.14.3",
+    "@wdio/spec-reporter": "^5.13.2",
+    "@wdio/sync": "^5.14.3",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "chromedriver": "^73.0.0",
+    "react-scripts": "^3.1.2",
+    "react-test-renderer": "^16.10.1",
+    "wdio-chromedriver-service": "^5.0.2",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "engines": {
+    "node": "10.16.3"
+  },
   "scripts": {
-    "build": ". ./scripts/build.sh",
-    "start": "node server"
+    "install": "chmod u+x ./scripts/*.sh",
+    "build": "./scripts/build.sh",
+    "build-server": "./scripts/build-server.sh",
+    "start": "./scripts/start.sh",
+    "cra": "./scripts/cra.sh",
+    "test": "react-scripts test",
+    "db-spec": "./scripts/db-spec.sh",
+    "wdio": "./scripts/wdio.sh",
+    "test-old-examples": "./scripts/test-old-examples.sh",
+    "node-example": "./scripts/node-example.sh"
   },
   "repository": {
     "type": "git",
@@ -26,5 +85,12 @@
   "bugs": {
     "url": "https://github.com/lucasMontenegro/lucas-montenegro/issues"
   },
-  "homepage": "https://github.com/lucasMontenegro/lucas-montenegro#readme"
+  "homepage": "https://github.com/lucasMontenegro/lucas-montenegro#readme",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "proxy": "https://lucasmontenegro.com.ar"
 }

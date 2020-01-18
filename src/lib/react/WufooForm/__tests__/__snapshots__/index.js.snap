@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <WufooForm /> should render 1`] = `
+<div
+  id="wufoo-hash"
+/>
+`;
+
+exports[`../index.js <WufooForm /> should set up a react effect 1`] = `
+Array [
+  Array [
+    [Function],
+    Array [
+      "hash",
+      "512",
+    ],
+  ],
+]
+`;
+
+exports[`../index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "react": "^16.10.1",
+}
+`;

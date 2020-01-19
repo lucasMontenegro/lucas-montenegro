@@ -6,7 +6,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
   maxWidth="md"
 >
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -19,7 +19,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
        Welcome to my Personal Website
     </div>
     <div
-      className="Toolbar lib-home-call_to_action-toolbar"
+      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
     >
       <button
         color="primary"
@@ -36,7 +36,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -60,7 +60,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -90,37 +90,21 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
       source="svg.website"
     />
   </section>
-  <section
-    className="lib-home-section-root"
-    innerRef={
+  <div
+    className="Card"
+    classes={
       Object {
-        "current": null,
+        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})",
       }
     }
+    raised={true}
   >
     <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Contact
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      A contact form is coming soon. You can check 
-      <a
-        href="https://github.com/lucasMontenegro"
-        target="__blank"
-      >
-        my GitHub profile
-      </a>
-       instead.
-    </div>
-  </section>
+      className="WufooForm"
+      hash="zdhts7212isvs6"
+      height="435"
+    />
+  </div>
 </div>
 `;
 
@@ -130,7 +114,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "es") should
   maxWidth="md"
 >
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -143,7 +127,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "es") should
        Bienvenido a mi Página Web Personal
     </div>
     <div
-      className="Toolbar lib-home-call_to_action-toolbar"
+      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
     >
       <button
         color="primary"
@@ -160,7 +144,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "es") should
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -184,7 +168,7 @@ exports[`../index.js <Home /> (render true, is dark false, language "es") should
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -214,37 +198,21 @@ exports[`../index.js <Home /> (render true, is dark false, language "es") should
       source="svg.website"
     />
   </section>
-  <section
-    className="lib-home-section-root"
-    innerRef={
+  <div
+    className="Card"
+    classes={
       Object {
-        "current": null,
+        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})",
       }
     }
+    raised={true}
   >
     <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Contacto
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      Un formulario de contacto estará disponible muy pronto. Por ahora podés visitar 
-      <a
-        href="https://github.com/lucasMontenegro"
-        target="__blank"
-      >
-        mi perfil en GitHub
-      </a>
-      .
-    </div>
-  </section>
+      className="WufooForm"
+      hash="q5wuhcb17c2yrt"
+      height="435"
+    />
+  </div>
 </div>
 `;
 
@@ -254,7 +222,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
   maxWidth="md"
 >
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -267,7 +235,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
        Welcome to my Personal Website
     </div>
     <div
-      className="Toolbar lib-home-call_to_action-toolbar"
+      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
     >
       <button
         color="primary"
@@ -284,7 +252,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -308,7 +276,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -338,37 +306,21 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
       source="svg.website"
     />
   </section>
-  <section
-    className="lib-home-section-root"
-    innerRef={
+  <div
+    className="Card"
+    classes={
       Object {
-        "current": null,
+        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})",
       }
     }
+    raised={true}
   >
     <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Contact
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      A contact form is coming soon. You can check 
-      <a
-        href="https://github.com/lucasMontenegro"
-        target="__blank"
-      >
-        my GitHub profile
-      </a>
-       instead.
-    </div>
-  </section>
+      className="WufooForm"
+      hash="zdhts7212isvs6"
+      height="435"
+    />
+  </div>
 </div>
 `;
 
@@ -378,7 +330,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "es") should 
   maxWidth="md"
 >
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -391,7 +343,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "es") should 
        Bienvenido a mi Página Web Personal
     </div>
     <div
-      className="Toolbar lib-home-call_to_action-toolbar"
+      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
     >
       <button
         color="primary"
@@ -408,7 +360,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "es") should 
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -432,7 +384,7 @@ exports[`../index.js <Home /> (render true, is dark true, language "es") should 
     />
   </section>
   <section
-    className="lib-home-section-root"
+    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
       align="center"
@@ -462,37 +414,21 @@ exports[`../index.js <Home /> (render true, is dark true, language "es") should 
       source="svg.website"
     />
   </section>
-  <section
-    className="lib-home-section-root"
-    innerRef={
+  <div
+    className="Card"
+    classes={
       Object {
-        "current": null,
+        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})",
       }
     }
+    raised={true}
   >
     <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Contacto
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      Un formulario de contacto estará disponible muy pronto. Por ahora podés visitar 
-      <a
-        href="https://github.com/lucasMontenegro"
-        target="__blank"
-      >
-        mi perfil en GitHub
-      </a>
-      .
-    </div>
-  </section>
+      className="WufooForm"
+      hash="q5wuhcb17c2yrt"
+      height="435"
+    />
+  </div>
 </div>
 `;
 

@@ -7,14 +7,22 @@ import Button from "@material-ui/core/Button"
 import renderer from "react-test-renderer"
 jest.mock(`@material-ui/core/styles`, () => ({
   __esModule: true,
-  makeStyles (styles, options) {
-    const classes = Object.keys(styles({ spacing () {} })).reduce((classes, key) => {
-      classes[key] = `${options.name}-${key}`
-      return classes
-    }, {})
-    return () => classes
-  },
+  makeStyles: jest.fn(),
 }))
+let paletteType
+function mockStyles (str) {
+  paletteType = str
+}
+makeStyles.mockImplementation((styles, options) => () => {
+  const classes = styles({
+    spacing: n => `theme.spacing(${n})`,
+    palette: { type: paletteType },
+  })
+  return Object.keys(classes).reduce((classes, key) => {
+    classes[key] = `${options.name}-${key}(${JSON.stringify(classes[key])})`
+    return classes
+  }, classes)
+})
 jest.mock(`react`, () => {
   const actual = jest.requireActual("react")
   return {
@@ -46,13 +54,31 @@ jest.mock(`@material-ui/core/Link`, () => {
   const React = jest.requireActual("react")
   return { __esModule: true, default: props => <a {...props} /> }
 })
+jest.mock(`@material-ui/core/Card`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: React.forwardRef((props, ref) => <div {...props} ref={ref} className="Card" />),
+  }
+})
+jest.mock(`lib/react/WufooForm`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <div {...props} className="WufooForm" /> }
+})
 jest.mock(`lib/Translation`, () => ({ __esModule: true, default: jest.fn() }))
 let currentLanguage
-Translation.mockImplementation(source => ({
-  get: () => source[currentLanguage]
-}))
+Translation.mockImplementation(source => ({ get: () => source[currentLanguage] }))
+function mockTranslation (str) {
+  currentLanguage = str
+}
 jest.mock(`lib/react/DarkMode`, () => ({ __esModule: true, useDarkMode: jest.fn() }))
+function mockDarkMode (value) {
+  useDarkMode.mockReturnValueOnce({ value })
+}
 jest.mock(`lib/react/routing/context`, () => ({ __esModule: true, useRoute: jest.fn() }))
+function mockUseRoute (render) {
+  useRoute.mockReturnValueOnce({ render })
+}
 jest.mock(`@material-ui/core/Container`, () => {
   const React = jest.requireActual("react")
   return {
@@ -82,25 +108,27 @@ describe(`../index.js`, () => {
   })
   describe(`<Home /> (render false)`, () => {
     it(`should render`, () => {
-      useRoute.mockReturnValueOnce({ render: {} })
+      mockUseRoute({})
       expect(renderer.create(<Home />).toJSON()).toBeNull()
     })
   })
   {
     const cases = [
-      [true, `en`],
-      [false, `en`],
-      [true, `es`],
-      [false, `es`],
+      [true, `en`, `dark`],
+      [false, `en`, `light`],
+      [true, `es`, `dark`],
+      [false, `es`, `light`],
     ]
-    describe.each(cases)(`<Home /> (render true, is dark %j, language %j)`, (dark, language) => {
+    const msg = `<Home /> (render true, is dark %j, language %j)`
+    describe.each(cases)(msg, (darkModeValue, currentLanguage, paletteType) => {
       let html
       const contactRef = React.createRef()
       beforeAll(() => {
-        useDarkMode.mockReturnValueOnce({ value: dark })
-        useRoute.mockReturnValueOnce({ render: { home: true } })
-        currentLanguage = language
+        mockUseRoute({ home: true })
+        mockDarkMode(darkModeValue)
+        mockTranslation(currentLanguage)
         useRef.mockReturnValueOnce(contactRef)
+        mockStyles(paletteType)
         html = renderer.create(<Home />)
       })
       it(`should render`, () => {

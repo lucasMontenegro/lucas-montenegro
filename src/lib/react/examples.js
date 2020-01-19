@@ -8,6 +8,7 @@ import CssBaseline from "./CssBaseline/example"
 import throwPropTypeErrors from "./throwPropTypeErrors/example"
 import links from "./links/examples"
 import routing from "./routing/example"
+import WufooForm from "./WufooForm/example"
 export default (
   <Route
     path="/react"
@@ -21,6 +22,7 @@ export default (
         {throwPropTypeErrors}
         {links}
         {routing}
+        {WufooForm}
       </Switch>
     )}
   />

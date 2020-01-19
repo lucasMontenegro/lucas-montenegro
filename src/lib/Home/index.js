@@ -4,6 +4,8 @@ import Typography from "@material-ui/core/Typography"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
 import Link from "@material-ui/core/Link"
+import Card from "@material-ui/core/Card"
+import WufooForm from "lib/react/WufooForm"
 import Translation from "lib/Translation"
 import { useDarkMode } from "lib/react/DarkMode"
 import { useRoute } from "lib/react/routing/context"
@@ -22,7 +24,7 @@ const useSectionStyles = makeStyles(theme => ({
 }), { name: `lib-home-section` })
 function Section (props) {
   const classes = useSectionStyles()
-  return <section {...props} className={classes.root} ref={props.innerRef} />
+  return <section {...props} className={classes.root} />
 }
 function Heading (props) {
   return <Typography align="center" variant="h4" component="h1">{props.children}</Typography>
@@ -43,14 +45,25 @@ function CallToAction (props) {
 function Body (props) {
   return <Typography variant="h5" component="p">{props.children}</Typography>
 }
-function GitHubProfile (props) {
-  return <Link target="__blank" href="https://github.com/lucasMontenegro">{props.children}</Link>
-}
 function GitHubProject (props) {
   return (
     <Link target="__blank" href="https://github.com/lucasMontenegro/lucas-montenegro">
       {props.children}
     </Link>
+  )
+}
+const useContactFormStyles = makeStyles(theme => ({
+  root: {
+    margin: theme.spacing(2),
+    padding: theme.spacing(4),
+    backgroundColor: theme.palette.type === `dark` ? `#ededed` : `#fdfdfd`,
+  },
+}), { name: `lib-home-contact_form` })
+function ContactForm ({ innerRef, ...other }) {
+  return (
+    <Card classes={useContactFormStyles()} raised={true} ref={innerRef}>
+      <WufooForm {...other} />
+    </Card>
   )
 }
 const translation = new Translation({
@@ -89,15 +102,7 @@ const translation = new Translation({
       )
     },
     Contact (props) {
-      return (
-        <Section innerRef={props.innerRef}>
-          <Heading>Contact</Heading>
-          <Body>
-            A contact form is coming up soon. You can check <GitHubProfile>my GitHub
-            profile</GitHubProfile> instead.
-          </Body>
-        </Section>
-      )
+      return <ContactForm hash="zdhts7212isvs6" height="435" {...props} />
     },
   },
   es: {
@@ -135,15 +140,7 @@ const translation = new Translation({
       )
     },
     Contact (props) {
-      return (
-        <Section innerRef={props.innerRef}>
-          <Heading>Contacto</Heading>
-          <Body>
-            Un formulario de contacto estará disponible muy pronto. Por ahora podés
-            visitar <GitHubProfile>mi perfil en GitHub</GitHubProfile>.
-          </Body>
-        </Section>
-      )
+      return <ContactForm hash="q5wuhcb17c2yrt" height="435" {...props} />
     },
   },
 })

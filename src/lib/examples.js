@@ -9,7 +9,7 @@ import throwPropTypeErrors from "lib/throwPropTypeErrors/example"
 import languageDetector from "lib/languageDetector/example"
 import routing from "lib/routing/example"
 import links from "lib/links/examples"
-import TranslationDialog from "lib/TranslationDialog/example"
+//import TranslationDialog from "lib/TranslationDialog/example"
 import react from "lib/react/examples"
 import Translation from "lib/Translation/example"
 import Home from "lib/Home/example"
@@ -23,7 +23,7 @@ ReactDOM.render((
         {languageDetector}
         {routing}
         {links}
-        {TranslationDialog}
+        {/*TranslationDialog*/}
         {react}
         {Translation}
         {Home}

@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <CreateDestroy />  (render false, Component props {"children":"foo"}) should render 1`] = `
+<div
+  box={256}
+  className="Div"
+  color="blue"
+>
+  <div
+    className="Div"
+  >
+    <button
+      color="primary"
+      id="id"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      CREATE/DESTROY
+    </button>
+  </div>
+  <div
+    className="Div"
+  >
+    <em>
+      dead
+    </em>
+  </div>
+</div>
+`;
+
+exports[`../index.js <CreateDestroy />  (render false, Component props null) should render 1`] = `
+<div
+  box={256}
+  className="Div"
+  color="blue"
+>
+  <div
+    className="Div"
+  >
+    <button
+      color="primary"
+      id="id"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      CREATE/DESTROY
+    </button>
+  </div>
+  <div
+    className="Div"
+  >
+    <em>
+      dead
+    </em>
+  </div>
+</div>
+`;
+
+exports[`../index.js <CreateDestroy />  (render true, Component props {"children":"foo"}) should render 1`] = `
+<div
+  box={256}
+  className="Div"
+  color="blue"
+>
+  <div
+    className="Div"
+  >
+    <button
+      color="primary"
+      id="id"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      CREATE/DESTROY
+    </button>
+  </div>
+  <div
+    className="Div"
+  >
+    <em>
+      alive
+    </em>
+  </div>
+  <div
+    className="Component"
+  >
+    foo
+  </div>
+</div>
+`;
+
+exports[`../index.js <CreateDestroy />  (render true, Component props null) should render 1`] = `
+<div
+  box={256}
+  className="Div"
+  color="blue"
+>
+  <div
+    className="Div"
+  >
+    <button
+      color="primary"
+      id="id"
+      onClick={[Function]}
+      variant="outlined"
+    >
+      CREATE/DESTROY
+    </button>
+  </div>
+  <div
+    className="Div"
+  >
+    <em>
+      alive
+    </em>
+  </div>
+  <div
+    className="Component"
+  />
+</div>
+`;
+
+exports[`../index.js should use the right dependency versions 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

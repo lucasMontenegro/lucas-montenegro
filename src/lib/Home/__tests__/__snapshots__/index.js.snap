@@ -177,31 +177,35 @@ exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
       source="svg.website"
     />
   </section>
-  <div
-    className="Card lib-home-contact({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})"
-    raised={true}
+  <section
+    className="lib-home-contact({\\"padding\\":\\"theme.spacing(2)\\"})"
   >
     <div
-      className="WufooForm"
-      hash={
-        <div
-          className="translation"
-        >
+      className="Card lib-home-contactCard({\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})"
+      raised={true}
+    >
+      <div
+        className="WufooForm"
+        hash={
           <div
-            className="en"
+            className="translation"
           >
-            zdhts7212isvs6
+            <div
+              className="en"
+            >
+              zdhts7212isvs6
+            </div>
+            <div
+              className="es"
+            >
+              q5wuhcb17c2yrt
+            </div>
           </div>
-          <div
-            className="es"
-          >
-            q5wuhcb17c2yrt
-          </div>
-        </div>
-      }
-      height="435"
-    />
-  </div>
+        }
+        height="435"
+      />
+    </div>
+  </section>
 </div>
 `;
 
@@ -382,31 +386,35 @@ exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
       source="svg.website"
     />
   </section>
-  <div
-    className="Card lib-home-contact({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})"
-    raised={true}
+  <section
+    className="lib-home-contact({\\"padding\\":\\"theme.spacing(2)\\"})"
   >
     <div
-      className="WufooForm"
-      hash={
-        <div
-          className="translation"
-        >
+      className="Card lib-home-contactCard({\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})"
+      raised={true}
+    >
+      <div
+        className="WufooForm"
+        hash={
           <div
-            className="en"
+            className="translation"
           >
-            zdhts7212isvs6
+            <div
+              className="en"
+            >
+              zdhts7212isvs6
+            </div>
+            <div
+              className="es"
+            >
+              q5wuhcb17c2yrt
+            </div>
           </div>
-          <div
-            className="es"
-          >
-            q5wuhcb17c2yrt
-          </div>
-        </div>
-      }
-      height="435"
-    />
-  </div>
+        }
+        height="435"
+      />
+    </div>
+  </section>
 </div>
 `;
 

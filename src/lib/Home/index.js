@@ -44,7 +44,9 @@ const useStyles = makeStyles(theme => ({
     justifyContent: `center`,
   },
   contact: {
-    margin: theme.spacing(2),
+    padding: theme.spacing(2),
+  },
+  contactCard: {
     padding: theme.spacing(4),
     backgroundColor: theme.palette.type === `dark` ? `#ededed` : `#fdfdfd`,
   },
@@ -134,15 +136,17 @@ function View () {
         </Body>
         <SvgImage isDark={isDark} source={svg.website} />
       </Section>
-      <Card className={classes.contact} raised={true} ref={contactRef}>
-        <WufooForm
-          hash={t({
-            en: () => `zdhts7212isvs6`,
-            es: () => `q5wuhcb17c2yrt`,
-          })}
-          height="435"
-        />
-      </Card>
+      <section className={classes.contact} ref={contactRef}>
+        <Card className={classes.contactCard} raised={true}>
+          <WufooForm
+            hash={t({
+              en: () => `zdhts7212isvs6`,
+              es: () => `q5wuhcb17c2yrt`,
+            })}
+            height="435"
+          />
+        </Card>
+      </section>
     </Container>
   )
 }

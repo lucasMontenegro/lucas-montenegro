@@ -9,6 +9,7 @@ import throwPropTypeErrors from "./throwPropTypeErrors/example"
 import links from "./links/examples"
 import routing from "./routing/example"
 import WufooForm from "./WufooForm/example"
+import useTranslation from "./useTranslation/example"
 export default (
   <Route
     path="/react"
@@ -23,6 +24,7 @@ export default (
         {links}
         {routing}
         {WufooForm}
+        {useTranslation}
       </Switch>
     )}
   />

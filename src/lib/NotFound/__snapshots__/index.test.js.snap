@@ -2,31 +2,58 @@
 
 exports[`./index.js <NotFound /> (match with referrer) should render 1`] = `
 <div
-  className="classes-root"
+  className="lib-not_found-root({\\"minHeight\\":\\"100vh\\",\\"display\\":\\"flex\\",\\"justifyContent\\":\\"center\\",\\"alignItems\\":\\"center\\"})"
 >
   <div
-    className="classes-content"
+    className="lib-not_found-content({\\"maxWidth\\":\\"theme.spacing(75)\\",\\"margin\\":\\"theme.spacing(4)\\"})"
   >
     <div
+      className="Typography undefined"
       color="textPrimary"
       variant="body1"
     >
-      translation.error
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Couldn't find the page you where looking for:
+        </div>
+        <div
+          className="es"
+        >
+          No se pudo encontrar la página solicitada:
+        </div>
+      </div>
     </div>
     <div
-      className="classes-referrer"
+      className="Typography lib-not_found-referrer({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"8px 16px\\",\\"borderLeft\\":\\"2px solid theme.palette.text.secondary\\"})"
       color="textSecondary"
       variant="body2"
     >
       /foo?x=1#abc
     </div>
     <div
-      className="classes-link"
+      className="lib-not_found-link({\\"margin\\":\\"theme.spacing(2)\\",\\"textAlign\\":\\"right\\"})"
     >
       <a
         to="/translated-notFound-location"
       >
-        translation.close
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Close
+          </div>
+          <div
+            className="es"
+          >
+            Cerrar
+          </div>
+        </div>
       </a>
     </div>
   </div>
@@ -35,25 +62,52 @@ exports[`./index.js <NotFound /> (match with referrer) should render 1`] = `
 
 exports[`./index.js <NotFound /> (match without referrer, referrer not in location) should render 1`] = `
 <div
-  className="classes-root"
+  className="lib-not_found-root({\\"minHeight\\":\\"100vh\\",\\"display\\":\\"flex\\",\\"justifyContent\\":\\"center\\",\\"alignItems\\":\\"center\\"})"
 >
   <div
-    className="classes-content"
+    className="lib-not_found-content({\\"maxWidth\\":\\"theme.spacing(75)\\",\\"margin\\":\\"theme.spacing(4)\\"})"
   >
     <div
+      className="Typography undefined"
       color="textPrimary"
       variant="body1"
     >
-      translation.greeting
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Broken links redirect to this page
+        </div>
+        <div
+          className="es"
+        >
+          Los links inservibles redirigen a esta página
+        </div>
+      </div>
     </div>
     <div
-      className="classes-link"
+      className="lib-not_found-link({\\"margin\\":\\"theme.spacing(2)\\",\\"textAlign\\":\\"right\\"})"
     >
       <a
         id="go-to-home"
         to="/translated-home-location"
       >
-        translation.home
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Go to Home
+          </div>
+          <div
+            className="es"
+          >
+            Ir a Inicio
+          </div>
+        </div>
       </a>
     </div>
   </div>
@@ -62,25 +116,52 @@ exports[`./index.js <NotFound /> (match without referrer, referrer not in locati
 
 exports[`./index.js <NotFound /> (match without referrer, referrer set to null) should render 1`] = `
 <div
-  className="classes-root"
+  className="lib-not_found-root({\\"minHeight\\":\\"100vh\\",\\"display\\":\\"flex\\",\\"justifyContent\\":\\"center\\",\\"alignItems\\":\\"center\\"})"
 >
   <div
-    className="classes-content"
+    className="lib-not_found-content({\\"maxWidth\\":\\"theme.spacing(75)\\",\\"margin\\":\\"theme.spacing(4)\\"})"
   >
     <div
+      className="Typography undefined"
       color="textPrimary"
       variant="body1"
     >
-      translation.greeting
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Broken links redirect to this page
+        </div>
+        <div
+          className="es"
+        >
+          Los links inservibles redirigen a esta página
+        </div>
+      </div>
     </div>
     <div
-      className="classes-link"
+      className="lib-not_found-link({\\"margin\\":\\"theme.spacing(2)\\",\\"textAlign\\":\\"right\\"})"
     >
       <a
         id="go-to-home"
         to="/translated-home-location"
       >
-        translation.home
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Go to Home
+          </div>
+          <div
+            className="es"
+          >
+            Ir a Inicio
+          </div>
+        </div>
       </a>
     </div>
   </div>
@@ -89,34 +170,59 @@ exports[`./index.js <NotFound /> (match without referrer, referrer set to null) 
 
 exports[`./index.js <NotFound /> (match without referrer, referrer set to undefined) should render 1`] = `
 <div
-  className="classes-root"
+  className="lib-not_found-root({\\"minHeight\\":\\"100vh\\",\\"display\\":\\"flex\\",\\"justifyContent\\":\\"center\\",\\"alignItems\\":\\"center\\"})"
 >
   <div
-    className="classes-content"
+    className="lib-not_found-content({\\"maxWidth\\":\\"theme.spacing(75)\\",\\"margin\\":\\"theme.spacing(4)\\"})"
   >
     <div
+      className="Typography undefined"
       color="textPrimary"
       variant="body1"
     >
-      translation.greeting
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Broken links redirect to this page
+        </div>
+        <div
+          className="es"
+        >
+          Los links inservibles redirigen a esta página
+        </div>
+      </div>
     </div>
     <div
-      className="classes-link"
+      className="lib-not_found-link({\\"margin\\":\\"theme.spacing(2)\\",\\"textAlign\\":\\"right\\"})"
     >
       <a
         id="go-to-home"
         to="/translated-home-location"
       >
-        translation.home
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Go to Home
+          </div>
+          <div
+            className="es"
+          >
+            Ir a Inicio
+          </div>
+        </div>
       </a>
     </div>
   </div>
 </div>
 `;
 
-exports[`./index.js <NotFound /> (no match) should render 1`] = `null`;
-
-exports[`./index.js should use the versions of its dependencies 1`] = `
+exports[`./index.js should use the right versions of its dependencies 1`] = `
 Object {
   "@material-ui/core": "^4.5.0",
   "react": "^16.10.1",

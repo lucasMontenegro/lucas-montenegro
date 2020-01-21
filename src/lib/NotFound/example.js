@@ -10,7 +10,7 @@ import { RoutingContext } from "lib/react/routing/context"
 import NotFound from "./index.js"
 import { Route, Switch } from "react-router-dom"
 const languageCodes = [`en`, `es`]
-const referrer = { pathname: `/NotFound/404`, search: `?foo=1`, hash: `#xyz` }
+const referrer = { pathname: `/404`, search: `?foo=1`, hash: `#xyz` }
 function Navigation () {
   return (
     <Div color="Salmon">

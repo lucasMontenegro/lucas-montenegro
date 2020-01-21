@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`../index.js <Home /> (render true, is dark false, language "en") should render 1`] = `
+exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
 <div
   className="Container"
   maxWidth="md"
@@ -14,19 +14,62 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
       component="h1"
       variant="h4"
     >
-      Hi! My name is Lucas 
+      <span
+        className="lib-home-myNameIs({\\"fontSize\\":\\"75%\\"})"
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Hi! my name is Lucas
+          </div>
+          <div
+            className="es"
+          >
+            Hola! mi nombre es Lucas
+          </div>
+        </div>
+      </span>
       <br />
-       Welcome to my Personal Website
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Welcome to my Personal Website
+        </div>
+        <div
+          className="es"
+        >
+          Bienvenido a mi Página Web Personal
+        </div>
+      </div>
     </div>
     <div
-      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
+      className="Toolbar lib-home-toolbar({\\"justifyContent\\":\\"center\\"})"
     >
       <button
         color="primary"
         onClick={[Function]}
         variant="contained"
       >
-        Get in Touch
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Get in Touch
+          </div>
+          <div
+            className="es"
+          >
+            Pongámonos en Contacto
+          </div>
+        </div>
       </button>
     </div>
     <div
@@ -39,19 +82,29 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Skill Set
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
-      I'm a Computer Programmer focused on Web Development. I can be part of teams working with technologies like JavaScript, React, NodeJS, etc.
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          I'm a Computer Programmer focused on Web Development with Modern Technologies.
+        </div>
+        <div
+          className="es"
+        >
+          Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías Modernas.
+        </div>
+      </div>
     </div>
     <div
       className="SvgImage"
@@ -63,26 +116,43 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Experience
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
-      I've made this website to showcase my abilities as a programmer. Take a look around or check the 
-      <a
-        href="https://github.com/lucasMontenegro/lucas-montenegro"
-        target="__blank"
+      <div
+        className="translation"
       >
-        source code on GitHub
-      </a>
-      .
+        <div
+          className="en"
+        >
+          I've made this website to showcase my abilities as a programmer. Take a look around or check the 
+          <a
+            href="https://github.com/lucasMontenegro/lucas-montenegro"
+            target="__blank"
+          >
+            source code on GitHub
+          </a>
+          .
+        </div>
+        <div
+          className="es"
+        >
+          Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
+          <a
+            href="https://github.com/lucasMontenegro/lucas-montenegro"
+            target="__blank"
+          >
+            código fuente en GitHub
+          </a>
+          .
+        </div>
+      </div>
     </div>
     <div
       className="SvgImage"
@@ -90,25 +160,39 @@ exports[`../index.js <Home /> (render true, is dark false, language "en") should
       source="svg.website"
     />
   </section>
-  <div
-    className="Card"
-    classes={
-      Object {
-        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})",
-      }
-    }
-    raised={true}
+  <section
+    className="lib-home-contact({\\"padding\\":\\"theme.spacing(2)\\"})"
   >
     <div
-      className="WufooForm"
-      hash="zdhts7212isvs6"
-      height="435"
-    />
-  </div>
+      className="Card lib-home-contactCard({\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})"
+      raised={true}
+    >
+      <div
+        className="WufooForm"
+        hash={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              zdhts7212isvs6
+            </div>
+            <div
+              className="es"
+            >
+              q5wuhcb17c2yrt
+            </div>
+          </div>
+        }
+        height="435"
+      />
+    </div>
+  </section>
 </div>
 `;
 
-exports[`../index.js <Home /> (render true, is dark false, language "es") should render 1`] = `
+exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
 <div
   className="Container"
   maxWidth="md"
@@ -122,127 +206,62 @@ exports[`../index.js <Home /> (render true, is dark false, language "es") should
       component="h1"
       variant="h4"
     >
-      Hola! mi nombre es Lucas 
+      <span
+        className="lib-home-myNameIs({\\"fontSize\\":\\"75%\\"})"
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Hi! my name is Lucas
+          </div>
+          <div
+            className="es"
+          >
+            Hola! mi nombre es Lucas
+          </div>
+        </div>
+      </span>
       <br />
-       Bienvenido a mi Página Web Personal
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Welcome to my Personal Website
+        </div>
+        <div
+          className="es"
+        >
+          Bienvenido a mi Página Web Personal
+        </div>
+      </div>
     </div>
     <div
-      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
+      className="Toolbar lib-home-toolbar({\\"justifyContent\\":\\"center\\"})"
     >
       <button
         color="primary"
         onClick={[Function]}
         variant="contained"
       >
-        Pongámonos en Contacto
-      </button>
-    </div>
-    <div
-      className="SvgImage"
-      isDark={false}
-      source="svg.onlineProfile"
-    />
-  </section>
-  <section
-    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
-  >
-    <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Capacitación Profesional
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS, etc.
-    </div>
-    <div
-      className="SvgImage"
-      isDark={false}
-      source="svg.technologies"
-    />
-  </section>
-  <section
-    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
-  >
-    <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Experiencia
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
-      <a
-        href="https://github.com/lucasMontenegro/lucas-montenegro"
-        target="__blank"
-      >
-        código fuente en GitHub
-      </a>
-      .
-    </div>
-    <div
-      className="SvgImage"
-      isDark={false}
-      source="svg.website"
-    />
-  </section>
-  <div
-    className="Card"
-    classes={
-      Object {
-        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})",
-      }
-    }
-    raised={true}
-  >
-    <div
-      className="WufooForm"
-      hash="q5wuhcb17c2yrt"
-      height="435"
-    />
-  </div>
-</div>
-`;
-
-exports[`../index.js <Home /> (render true, is dark true, language "en") should render 1`] = `
-<div
-  className="Container"
-  maxWidth="md"
->
-  <section
-    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
-  >
-    <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Hi! My name is Lucas 
-      <br />
-       Welcome to my Personal Website
-    </div>
-    <div
-      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
-    >
-      <button
-        color="primary"
-        onClick={[Function]}
-        variant="contained"
-      >
-        Get in Touch
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Get in Touch
+          </div>
+          <div
+            className="es"
+          >
+            Pongámonos en Contacto
+          </div>
+        </div>
       </button>
     </div>
     <div
@@ -255,19 +274,29 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Skill Set
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
-      I'm a Computer Programmer focused on Web Development. I can be part of teams working with technologies like JavaScript, React, NodeJS, etc.
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          I'm a Computer Programmer focused on Web Development with Modern Technologies.
+        </div>
+        <div
+          className="es"
+        >
+          Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías Modernas.
+        </div>
+      </div>
     </div>
     <div
       className="SvgImage"
@@ -279,26 +308,43 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Experience
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
-      I've made this website to showcase my abilities as a programmer. Take a look around or check the 
-      <a
-        href="https://github.com/lucasMontenegro/lucas-montenegro"
-        target="__blank"
+      <div
+        className="translation"
       >
-        source code on GitHub
-      </a>
-      .
+        <div
+          className="en"
+        >
+          I've made this website to showcase my abilities as a programmer. Take a look around or check the 
+          <a
+            href="https://github.com/lucasMontenegro/lucas-montenegro"
+            target="__blank"
+          >
+            source code on GitHub
+          </a>
+          .
+        </div>
+        <div
+          className="es"
+        >
+          Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
+          <a
+            href="https://github.com/lucasMontenegro/lucas-montenegro"
+            target="__blank"
+          >
+            código fuente en GitHub
+          </a>
+          .
+        </div>
+      </div>
     </div>
     <div
       className="SvgImage"
@@ -306,129 +352,35 @@ exports[`../index.js <Home /> (render true, is dark true, language "en") should 
       source="svg.website"
     />
   </section>
-  <div
-    className="Card"
-    classes={
-      Object {
-        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})",
-      }
-    }
-    raised={true}
-  >
-    <div
-      className="WufooForm"
-      hash="zdhts7212isvs6"
-      height="435"
-    />
-  </div>
-</div>
-`;
-
-exports[`../index.js <Home /> (render true, is dark true, language "es") should render 1`] = `
-<div
-  className="Container"
-  maxWidth="md"
->
   <section
-    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+    className="lib-home-contact({\\"padding\\":\\"theme.spacing(2)\\"})"
   >
     <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
+      className="Card lib-home-contactCard({\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})"
+      raised={true}
     >
-      Hola! mi nombre es Lucas 
-      <br />
-       Bienvenido a mi Página Web Personal
+      <div
+        className="WufooForm"
+        hash={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              zdhts7212isvs6
+            </div>
+            <div
+              className="es"
+            >
+              q5wuhcb17c2yrt
+            </div>
+          </div>
+        }
+        height="435"
+      />
     </div>
-    <div
-      className="Toolbar lib-home-call_to_action-toolbar({\\"justifyContent\\":\\"center\\"})"
-    >
-      <button
-        color="primary"
-        onClick={[Function]}
-        variant="contained"
-      >
-        Pongámonos en Contacto
-      </button>
-    </div>
-    <div
-      className="SvgImage"
-      isDark={true}
-      source="svg.onlineProfile"
-    />
   </section>
-  <section
-    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
-  >
-    <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Capacitación Profesional
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS, etc.
-    </div>
-    <div
-      className="SvgImage"
-      isDark={true}
-      source="svg.technologies"
-    />
-  </section>
-  <section
-    className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
-  >
-    <div
-      align="center"
-      className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      Experiencia
-    </div>
-    <div
-      className="Typography"
-      component="p"
-      variant="h5"
-    >
-      Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
-      <a
-        href="https://github.com/lucasMontenegro/lucas-montenegro"
-        target="__blank"
-      >
-        código fuente en GitHub
-      </a>
-      .
-    </div>
-    <div
-      className="SvgImage"
-      isDark={true}
-      source="svg.website"
-    />
-  </section>
-  <div
-    className="Card"
-    classes={
-      Object {
-        "root": "lib-home-contact_form-root({\\"margin\\":\\"theme.spacing(2)\\",\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})",
-      }
-    }
-    raised={true}
-  >
-    <div
-      className="WufooForm"
-      hash="q5wuhcb17c2yrt"
-      height="435"
-    />
-  </div>
 </div>
 `;
 

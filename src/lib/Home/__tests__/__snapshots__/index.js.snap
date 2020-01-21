@@ -14,22 +14,37 @@ exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
       component="h1"
       variant="h4"
     >
+      <span
+        className="lib-home-myNameIs({\\"fontSize\\":\\"75%\\"})"
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Hi! my name is Lucas
+          </div>
+          <div
+            className="es"
+          >
+            Hola! mi nombre es Lucas
+          </div>
+        </div>
+      </span>
+      <br />
       <div
         className="translation"
       >
         <div
           className="en"
         >
-          Hi! My name is Lucas 
-          <br />
-           Welcome to my Personal Website
+          Welcome to my Personal Website
         </div>
         <div
           className="es"
         >
-          Hola! mi nombre es Lucas 
-          <br />
-           Bienvenido a mi Página Web Personal
+          Bienvenido a mi Página Web Personal
         </div>
       </div>
     </div>
@@ -67,28 +82,12 @@ exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      <div
-        className="translation"
-      >
-        <div
-          className="en"
-        >
-          Skill Set
-        </div>
-        <div
-          className="es"
-        >
-          Capacitación Profesional
-        </div>
-      </div>
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
@@ -98,12 +97,12 @@ exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
         <div
           className="en"
         >
-          I'm a Computer Programmer focused on Web Development. I can be part of teams working with technologies like JavaScript, React, NodeJS, etc.
+          I'm a Computer Programmer focused on Web Development with Modern Technologies.
         </div>
         <div
           className="es"
         >
-          Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS, etc.
+          Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías Modernas.
         </div>
       </div>
     </div>
@@ -117,28 +116,12 @@ exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      <div
-        className="translation"
-      >
-        <div
-          className="en"
-        >
-          Experience
-        </div>
-        <div
-          className="es"
-        >
-          Experiencia
-        </div>
-      </div>
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
@@ -223,22 +206,37 @@ exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
       component="h1"
       variant="h4"
     >
+      <span
+        className="lib-home-myNameIs({\\"fontSize\\":\\"75%\\"})"
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Hi! my name is Lucas
+          </div>
+          <div
+            className="es"
+          >
+            Hola! mi nombre es Lucas
+          </div>
+        </div>
+      </span>
+      <br />
       <div
         className="translation"
       >
         <div
           className="en"
         >
-          Hi! My name is Lucas 
-          <br />
-           Welcome to my Personal Website
+          Welcome to my Personal Website
         </div>
         <div
           className="es"
         >
-          Hola! mi nombre es Lucas 
-          <br />
-           Bienvenido a mi Página Web Personal
+          Bienvenido a mi Página Web Personal
         </div>
       </div>
     </div>
@@ -276,28 +274,12 @@ exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      <div
-        className="translation"
-      >
-        <div
-          className="en"
-        >
-          Skill Set
-        </div>
-        <div
-          className="es"
-        >
-          Capacitación Profesional
-        </div>
-      </div>
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >
@@ -307,12 +289,12 @@ exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
         <div
           className="en"
         >
-          I'm a Computer Programmer focused on Web Development. I can be part of teams working with technologies like JavaScript, React, NodeJS, etc.
+          I'm a Computer Programmer focused on Web Development with Modern Technologies.
         </div>
         <div
           className="es"
         >
-          Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS, etc.
+          Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías Modernas.
         </div>
       </div>
     </div>
@@ -326,28 +308,12 @@ exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
     <div
-      align="center"
       className="Typography"
-      component="h1"
-      variant="h4"
-    >
-      <div
-        className="translation"
-      >
-        <div
-          className="en"
-        >
-          Experience
-        </div>
-        <div
-          className="es"
-        >
-          Experiencia
-        </div>
-      </div>
-    </div>
-    <div
-      className="Typography"
+      classes={
+        Object {
+          "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+        }
+      }
       component="p"
       variant="h5"
     >

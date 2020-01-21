@@ -23,14 +23,21 @@ const useSectionStyles = makeStyles(theme => ({
   },
 }), { name: `lib-home-section` })
 function Section (props) {
-  const classes = useSectionStyles()
-  return <section {...props} className={classes.root} />
+  return <section {...props} className={useSectionStyles().root} />
 }
-function Heading (props) {
-  return <Typography align="center" variant="h4" component="h1">{props.children}</Typography>
-}
+const useBodyStyles = makeStyles(theme => ({
+  root: {
+    maxWidth: `50rem`,
+    marginLeft: `auto`,
+    marginRight: `auto`,
+  },
+}), { name: `lib-home-section` })
 function Body (props) {
-  return <Typography variant="h5" component="p">{props.children}</Typography>
+  return (
+    <Typography classes={useBodyStyles()} variant="h5" component="p">
+      {props.children}
+    </Typography>
+  )
 }
 function GitHubProject (props) {
   return (
@@ -40,6 +47,9 @@ function GitHubProject (props) {
   )
 }
 const useStyles = makeStyles(theme => ({
+  myNameIs: {
+    fontSize: `75%`,
+  },
   toolbar: {
     justifyContent: `center`,
   },
@@ -59,18 +69,19 @@ function View () {
   return (
     <Container maxWidth="md">
       <Section>
-        <Heading>
+        <Typography align="center" variant="h4" component="h1">
+          <span className={classes.myNameIs}>
+            {t({
+              en: () => `Hi! my name is Lucas`,
+              es: () => `Hola! mi nombre es Lucas`,
+            })}
+          </span>
+          <br />
           {t({
-            en: () => (
-              <Fragment>Hi! My name is Lucas <br /> Welcome to my Personal Website</Fragment>
-            ),
-            es: () => (
-              <Fragment>
-                Hola! mi nombre es Lucas <br /> Bienvenido a mi Página Web Personal
-              </Fragment>
-            ),
+            en: () => `Welcome to my Personal Website`,
+            es: () => `Bienvenido a mi Página Web Personal`,
           })}
-        </Heading>
+        </Typography>
         <Toolbar className={classes.toolbar}>
           <Button
             variant="contained"
@@ -86,25 +97,17 @@ function View () {
         <SvgImage isDark={isDark} source={svg.onlineProfile} />
       </Section>
       <Section>
-        <Heading>
-          {t({
-            en: () => `Skill Set`,
-            es: () => `Capacitación Profesional`,
-          })}
-        </Heading>
         <Body>
           {t({
             en: () => (
               <Fragment>
-                I'm a Computer Programmer focused on Web Development. I can be part of teams
-                working with technologies like JavaScript, React, NodeJS, etc.
+                I'm a Computer Programmer focused on Web Development with Modern Technologies.
               </Fragment>
             ),
             es: () => (
               <Fragment>
-                Soy un Programador de Computadoras centrado en el Desarrollo de Páginas Web. Puedo
-                ser parte de equipos trabajando con tecnologías como JavaScript, React, NodeJS,
-                etc.
+                Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías
+                Modernas.
               </Fragment>
             ),
           })}
@@ -112,12 +115,6 @@ function View () {
         <SvgImage isDark={isDark} source={svg.technologies} />
       </Section>
       <Section>
-        <Heading>
-          {t({
-            en: () => `Experience`,
-            es: () => `Experiencia`,
-          })}
-        </Heading>
         <Body>
           {t({
             en: () => (

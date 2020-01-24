@@ -17,6 +17,7 @@ jest.mock(`../Router`, () => ({
   default: class { findRoute () {} },
 }))
 jest.mock(`../useClientLinks`, () => ({ __esModule: true, default: () => {} }))
+jest.mock(`../useTranslationLinks`, () => ({ __esModule: true, default: () => {} }))
 describe(`../context`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react`])).toMatchSnapshot()

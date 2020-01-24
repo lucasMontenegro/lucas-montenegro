@@ -89,6 +89,31 @@ function ClientLinks () {
     </Div>
   )
 }
+function TranslationLinks () {
+  const [links, saveLinks] = useState(null)
+  const context = useRoutingContext()
+  return (
+    <Div color="Teal">
+      <h4>Translation Links</h4>
+      <GetValue
+        id="get-translation-links"
+        value={links}
+        onClick={() => saveLinks(context.getTranslationLinks())}
+      />
+      <ul>
+        {links && links.map(link => {
+          const { languageCode } = link
+          return (
+            <li key={languageCode}>
+              <Link to={link.location}>{link.text}</Link>
+              <StringifyObject id={`${languageCode}-translation-link`} source={link} />
+            </li>
+          )
+        })}
+      </ul>
+    </Div>
+  )
+}
 function Example (props) {
   languageDetector.init(routingExample.languageCodes)
   return languageDetector.useReadyState() ? (
@@ -103,6 +128,7 @@ function Example (props) {
       <UseRoute />
       <Redirection />
       <ClientLinks />
+      <TranslationLinks />
     </RoutingProvider>
   ) : null
 }

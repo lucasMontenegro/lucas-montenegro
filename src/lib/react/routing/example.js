@@ -3,14 +3,14 @@ import Div from "lib/react/utils/Div"
 import StringifyObject from "lib/react/utils/StringifyObject"
 import languageDetector from "lib/languageDetector"
 import Link from "lib/react/links/Link"
-import { useRoute, RoutingProvider } from "./context"
+import { useRoute, useRoutingContext, RoutingProvider } from "./context"
 import GetValue from "lib/react/utils/GetValue"
 import HandleRedirection from "./HandleRedirection"
 import routingExample from "./routingExample"
 import { Route } from "react-router-dom"
 function CurrentLanguage () {
   return (
-    <Div color="green">
+    <Div color="Green">
       <h4>languageDetector.get()</h4>
       <StringifyObject id="current-language" source={languageDetector.get()} />
     </Div>
@@ -18,7 +18,7 @@ function CurrentLanguage () {
 }
 function CurrentLocation (props) {
   return (
-    <Div color="royalblue">
+    <Div color="RoyalBlue">
       <h4>props.location</h4>
       <StringifyObject id="current-location" source={props.location} />
     </Div>
@@ -26,7 +26,7 @@ function CurrentLocation (props) {
 }
 function TestLinks () {
   return (
-    <Div color="orange">
+    <Div color="Orange">
       <h4>Test Links</h4>
       <ul>
         {testLinks.map(list => (
@@ -47,7 +47,7 @@ function TestLinks () {
 function UseRoute () {
   const route = useRoute()
   return (
-    <Div color="purple">
+    <Div color="Purple">
       <h4>useRoute()</h4>
       <StringifyObject id="use-route" source={route} />
       {route.redirect && <div><Link to={route.redirect}>route.redirect</Link></div>}
@@ -57,7 +57,7 @@ function UseRoute () {
 function Redirection () {
   const [enabled, saveEnabled] = useState(false)
   return (
-    <Div color="red">
+    <Div color="Red">
       <h4>Handle Redirection</h4>
       <GetValue
         id="enable-redirection"
@@ -68,15 +68,41 @@ function Redirection () {
     </Div>
   )
 }
+function ClientLinks () {
+  const [count, setCount] = useState(0)
+  return (
+    <Div color="Yellow">
+      <h4>Client Links</h4>
+      <GetValue
+        id="re-render-client-links"
+        value={count}
+        onClick={() => setCount(n => n + 1)}
+      />
+      <ul>
+        {useRoutingContext().clientLinks.map(link => (
+          <li key={link.clientName}>
+            <Link to={link.location}>{link.render}</Link>
+            <StringifyObject id={`${link.clientName}-client-link`} source={link} />
+          </li>
+        ))}
+      </ul>
+    </Div>
+  )
+}
 function Example (props) {
   languageDetector.init(routingExample.languageCodes)
   return languageDetector.useReadyState() ? (
-    <RoutingProvider routing={routingExample} location={props.location}>
+    <RoutingProvider
+      routing={routingExample}
+      location={props.location}
+      clientLinks={{ home: `Home`, foo: `Foo`, notFound: `Not Found` }}
+    >
       <CurrentLanguage />
       <CurrentLocation location={props.location} />
       <TestLinks />
       <UseRoute />
       <Redirection />
+      <ClientLinks />
     </RoutingProvider>
   ) : null
 }

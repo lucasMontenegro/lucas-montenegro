@@ -1,5 +1,4 @@
-import React, { createContext, useMemo, useContext } from "react"
-import Router from "../Router"
+import React from "react"
 import renderer from "react-test-renderer"
 import { RoutingProvider, useRoute, useRoutingContext } from "../context"
 jest.mock(`react`, () => {
@@ -17,6 +16,7 @@ jest.mock(`../Router`, () => ({
   __esModule: true,
   default: class { findRoute () {} },
 }))
+jest.mock(`../useClientLinks`, () => ({ __esModule: true, default: () => {} }))
 describe(`../context`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react`])).toMatchSnapshot()

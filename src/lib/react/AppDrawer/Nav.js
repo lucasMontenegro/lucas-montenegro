@@ -2,6 +2,7 @@ import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import List from "@material-ui/core/List"
 import { useRoutingContext } from "lib/react/routing/context"
+import globals from "lib/utils/globals"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
@@ -34,7 +35,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }), { name: `lib-react-app_drawer-nav` })
-export default function Nav ({ t, onClick }) {
+export default function Nav (props) {
+  const { t, onClick } = props
   const classes = useStyles()
   return (
     <nav
@@ -44,26 +46,33 @@ export default function Nav ({ t, onClick }) {
       })}
     >
       <List disablePadding>
-        {useRoutingContext().clientLinks.map(link => (
-          <ListItem
-            key={link.clientName}
-            className={link.active ? `${classes.li} ${classes.activeLi}` : classes.li}
-          >
-            <ListItemIcon className={classes.liIcon}><link.render.Icon t={t} /></ListItemIcon>
-            <ListItemText className={classes.liText}>
-              <Link
-                to={link.location}
-                aria-label={link.active ? t({
-                  en: () => `Current page`,
-                  es: () => `Página actual`,
-                }) : undefined}
-                onClick={onClick}
-              >
-                {t(link.render.text)}
-              </Link>
-            </ListItemText>
-          </ListItem>
-        ))}
+        {useRoutingContext().clientLinks.map(link => {
+          const { active } = link
+          const text = t(link.render.text)
+          if (active) {
+            globals.document.title = `${text} - ${props.windowTitle}`
+          }
+          return (
+            <ListItem
+              key={link.clientName}
+              className={active ? `${classes.li} ${classes.activeLi}` : classes.li}
+            >
+              <ListItemIcon className={classes.liIcon}><link.render.Icon t={t} /></ListItemIcon>
+              <ListItemText className={classes.liText}>
+                <Link
+                  to={link.location}
+                  aria-label={active ? t({
+                    en: () => `Current page`,
+                    es: () => `Página actual`,
+                  }) : undefined}
+                  onClick={onClick}
+                >
+                  {text}
+                </Link>
+              </ListItemText>
+            </ListItem>
+          )
+        })}
       </List>
     </nav>
   )

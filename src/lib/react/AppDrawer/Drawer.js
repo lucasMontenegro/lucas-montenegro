@@ -34,7 +34,7 @@ export default function Drawer (props) {
         <div className={classes.flexibleSpace} />
         <CloseButton isDesktop={isDesktop} t={t} onClick={onClose} />
       </Toolbar>
-      <Nav t={t} onClick={onClose} />
+      <Nav t={t} onClick={onClose} windowTitle={props.windowTitle} />
     </Fragment>
   )
   const drawerClasses = { paper: classes.paper }

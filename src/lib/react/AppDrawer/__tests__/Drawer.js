@@ -56,7 +56,13 @@ describe(`../Drawer`, () => {
         <div {...props} className="MuiDrawer" onClose={props.onClose()} />
       ))
       expect(renderer.create(
-        <Drawer isOpen={isOpen} onClose={() => `props.onClose()`}>Client</Drawer>
+        <Drawer
+          isOpen={isOpen}
+          onClose={() => `props.onClose()`}
+          windowTitle="Window Title"
+        >
+          Client
+        </Drawer>
       )).toMatchSnapshot()
     })
   })
@@ -65,7 +71,13 @@ describe(`../Drawer`, () => {
       useMediaQuery.mockReturnValueOnce(true)
       MuiDrawer.mockImplementationOnce(props => <div {...props} className="MuiDrawer" />)
       expect(renderer.create(
-        <Drawer isOpen={isOpen} onClose={() => `props.onClose()`}>Client</Drawer>
+        <Drawer
+          isOpen={isOpen}
+          onClose={() => `props.onClose()`}
+          windowTitle="Window Title"
+        >
+          Client
+        </Drawer>
       )).toMatchSnapshot()
     })
   })

@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles"
+import globals from "lib/utils/globals"
 import Link from "lib/react/links/Link"
 import renderer from "react-test-renderer"
 import React from "react"
@@ -90,6 +91,10 @@ jest.mock(`lib/react/routing/context`, () => {
     }),
   }
 })
+jest.mock(`lib/utils/globals`, () => ({
+  __esModule: true,
+  default: { document: {} },
+}))
 jest.mock(`@material-ui/core/ListItem`, () => {
   const React = jest.requireActual("react")
   return {
@@ -131,20 +136,25 @@ describe(`../Nav`, () => {
     ])).toMatchSnapshot()
   })
   describe.each([[`light`], [`dark`]])(`<Nav /> (%s mode)`, mode => {
-    it(`should render`, () => {
+    let html
+    beforeAll(() => {
       paletteType = mode
       function t (source) {
-        return (
-          <div className="translation">
-            {Object.keys(source).map(languageCode => (
-              <div key={languageCode} className={languageCode}>{source[languageCode]()}</div>
-            ))}
-          </div>
-        )
+        return JSON.stringify(Object.keys(source).reduce((translation, languageCode) => {
+          translation[languageCode] = source[languageCode]()
+          return translation
+        }, {})).replace(/"/gm, `'`)
       }
-      expect(
-        renderer.create(<Nav t={t} onClick={() => `props.onClick()`} />).toJSON()
-      ).toMatchSnapshot()
+      globals.document.title = ``
+      html = renderer.create(
+        <Nav t={t} onClick={() => `props.onClick()`} windowTitle="Window Title" />
+      )
+    })
+    it(`should render`, () => {
+      expect(html.toJSON()).toMatchSnapshot()
+    })
+    it(`should set the window title`, () => {
+      expect(globals.document.title).toMatchSnapshot()
     })
   })
 })

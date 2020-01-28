@@ -114,11 +114,10 @@ describe(`../index.js`, () => {
     expect(jestUtils.getDependencies([`react`, `react-dom`, `react-router-dom`])).toMatchSnapshot()
   })
   it(`should render`, () => {
-    const html = renderer.create(ReactDOM.render.mock.calls[0][0]).toJSON()
-    expect(html).toMatchSnapshot()
+    const html = renderer.create(ReactDOM.render.mock.calls[0][0])
+    expect(html.toJSON()).toMatchSnapshot()
   })
-  const cases = [[true], [false]]
-  describe.each(cases)(`<App /> (language detector ready %j)`, ready => {
+  describe.each([[true], [false]])(`<App /> (language detector ready %j)`, ready => {
     let result
     beforeAll(() => {
       languageDetector.useReadyState.mockReturnValueOnce(ready)

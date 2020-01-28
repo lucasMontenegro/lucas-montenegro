@@ -5,6 +5,7 @@ exports[`../index.js <AppDrawer /> (is open false) should render 1`] = `
   className="Drawer"
   isOpen={false}
   onClose={[Function]}
+  windowTitle="Window Title"
 >
   <div
     className="AppDrawerContext.Provider"
@@ -20,6 +21,7 @@ exports[`../index.js <AppDrawer /> (is open true) should render 1`] = `
   className="Drawer"
   isOpen={true}
   onClose={[Function]}
+  windowTitle="Window Title"
 >
   <div
     className="AppDrawerContext.Provider"

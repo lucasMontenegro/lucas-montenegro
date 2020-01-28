@@ -9,7 +9,7 @@ export function useAppDrawerOpener () {
 export default function AppDrawer (props) {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)}>
+    <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} windowTitle={props.windowTitle}>
       <AppDrawerContext.Provider value={useCallback(() => setIsOpen(true), [setIsOpen])}>
         {props.children}
       </AppDrawerContext.Provider>

@@ -2,22 +2,7 @@
 
 exports[`../Nav <Nav /> (dark mode) should render 1`] = `
 <nav
-  aria-label={
-    <div
-      className="translation"
-    >
-      <div
-        className="en"
-      >
-        Navigation buttons
-      </div>
-      <div
-        className="es"
-      >
-        Botones de navegación
-      </div>
-    </div>
-  }
+  aria-label="{'en':'Navigation buttons','es':'Botones de navegación'}"
 >
   <ul
     className="List"
@@ -30,20 +15,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
         className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
       >
         <span>
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              en Foo Icon
-            </div>
-            <div
-              className="es"
-            >
-              es Foo Icon
-            </div>
-          </div>
+          {'en':'en Foo Icon','es':'es Foo Icon'}
         </span>
       </div>
       <div
@@ -58,20 +30,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
             }
           }
         >
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              English Foo
-            </div>
-            <div
-              className="es"
-            >
-              Spanish Foo
-            </div>
-          </div>
+          {'en':'English Foo','es':'Spanish Foo'}
         </a>
       </div>
     </li>
@@ -82,42 +41,14 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
         className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
       >
         <span>
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              en Bar Icon
-            </div>
-            <div
-              className="es"
-            >
-              es Bar Icon
-            </div>
-          </div>
+          {'en':'en Bar Icon','es':'es Bar Icon'}
         </span>
       </div>
       <div
         className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
       >
         <a
-          aria-label={
-            <div
-              className="translation"
-            >
-              <div
-                className="en"
-              >
-                Current page
-              </div>
-              <div
-                className="es"
-              >
-                Página actual
-              </div>
-            </div>
-          }
+          aria-label="{'en':'Current page','es':'Página actual'}"
           className="Link"
           onClick="props.onClick()"
           to={
@@ -126,20 +57,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
             }
           }
         >
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              English Bar
-            </div>
-            <div
-              className="es"
-            >
-              Spanish Bar
-            </div>
-          </div>
+          {'en':'English Bar','es':'Spanish Bar'}
         </a>
       </div>
     </li>
@@ -150,20 +68,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
         className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
       >
         <span>
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              en Baz Icon
-            </div>
-            <div
-              className="es"
-            >
-              es Baz Icon
-            </div>
-          </div>
+          {'en':'en Baz Icon','es':'es Baz Icon'}
         </span>
       </div>
       <div
@@ -178,20 +83,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
             }
           }
         >
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              English Baz
-            </div>
-            <div
-              className="es"
-            >
-              Spanish Baz
-            </div>
-          </div>
+          {'en':'English Baz','es':'Spanish Baz'}
         </a>
       </div>
     </li>
@@ -199,24 +91,11 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
 </nav>
 `;
 
+exports[`../Nav <Nav /> (dark mode) should set the window title 1`] = `"{'en':'English Bar','es':'Spanish Bar'} - Window Title"`;
+
 exports[`../Nav <Nav /> (light mode) should render 1`] = `
 <nav
-  aria-label={
-    <div
-      className="translation"
-    >
-      <div
-        className="en"
-      >
-        Navigation buttons
-      </div>
-      <div
-        className="es"
-      >
-        Botones de navegación
-      </div>
-    </div>
-  }
+  aria-label="{'en':'Navigation buttons','es':'Botones de navegación'}"
 >
   <ul
     className="List"
@@ -229,20 +108,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
         className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
       >
         <span>
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              en Foo Icon
-            </div>
-            <div
-              className="es"
-            >
-              es Foo Icon
-            </div>
-          </div>
+          {'en':'en Foo Icon','es':'es Foo Icon'}
         </span>
       </div>
       <div
@@ -257,20 +123,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
             }
           }
         >
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              English Foo
-            </div>
-            <div
-              className="es"
-            >
-              Spanish Foo
-            </div>
-          </div>
+          {'en':'English Foo','es':'Spanish Foo'}
         </a>
       </div>
     </li>
@@ -281,42 +134,14 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
         className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
       >
         <span>
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              en Bar Icon
-            </div>
-            <div
-              className="es"
-            >
-              es Bar Icon
-            </div>
-          </div>
+          {'en':'en Bar Icon','es':'es Bar Icon'}
         </span>
       </div>
       <div
         className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
       >
         <a
-          aria-label={
-            <div
-              className="translation"
-            >
-              <div
-                className="en"
-              >
-                Current page
-              </div>
-              <div
-                className="es"
-              >
-                Página actual
-              </div>
-            </div>
-          }
+          aria-label="{'en':'Current page','es':'Página actual'}"
           className="Link"
           onClick="props.onClick()"
           to={
@@ -325,20 +150,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
             }
           }
         >
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              English Bar
-            </div>
-            <div
-              className="es"
-            >
-              Spanish Bar
-            </div>
-          </div>
+          {'en':'English Bar','es':'Spanish Bar'}
         </a>
       </div>
     </li>
@@ -349,20 +161,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
         className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
       >
         <span>
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              en Baz Icon
-            </div>
-            <div
-              className="es"
-            >
-              es Baz Icon
-            </div>
-          </div>
+          {'en':'en Baz Icon','es':'es Baz Icon'}
         </span>
       </div>
       <div
@@ -377,26 +176,15 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
             }
           }
         >
-          <div
-            className="translation"
-          >
-            <div
-              className="en"
-            >
-              English Baz
-            </div>
-            <div
-              className="es"
-            >
-              Spanish Baz
-            </div>
-          </div>
+          {'en':'English Baz','es':'Spanish Baz'}
         </a>
       </div>
     </li>
   </ul>
 </nav>
 `;
+
+exports[`../Nav <Nav /> (light mode) should set the window title 1`] = `"{'en':'English Bar','es':'Spanish Bar'} - Window Title"`;
 
 exports[`../Nav should use the right versions of its dependencies 1`] = `
 Object {

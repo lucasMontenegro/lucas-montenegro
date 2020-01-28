@@ -34,7 +34,7 @@ function App (props) {
   return languageDetector.useReadyState() ? (
     <RoutingProvider routing={routing} location={props.location} clientLinks={clientLinks}>
       <HandleRedirection />
-      <AppDrawer>
+      <AppDrawer windowTitle="Lucas Montenegro">
         <Home />
         <NotFound />
       </AppDrawer>

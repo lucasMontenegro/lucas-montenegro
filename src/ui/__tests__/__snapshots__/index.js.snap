@@ -74,6 +74,7 @@ exports[`../index.js <App /> (language detector ready true) should render 1`] = 
     />
     <div
       className="AppDrawer"
+      windowTitle="Lucas Montenegro"
     >
       <div
         className="Home"

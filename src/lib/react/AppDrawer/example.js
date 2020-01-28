@@ -77,7 +77,7 @@ function Example (props) {
               }),
             }}
           >
-            <AppDrawer>
+            <AppDrawer windowTitle="Test App">
               <OpenButton />
               <Div>{clients[currentClient]}</Div>
             </AppDrawer>

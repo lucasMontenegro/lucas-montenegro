@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
   },
   liIcon: {
     color: `inherit`,
-    minWidth: `auto`,
+    fontSize: theme.spacing(2),
+    minWidth: theme.spacing(5),
     marginRight: theme.spacing(2),
   },
   liText: {

@@ -6,15 +6,83 @@ exports[`../index.js <App /> (language detector ready true) should render 1`] = 
 <div
   className="RoutingProvider"
 >
+  <ul
+    className="clientLinks"
+  >
+    <li
+      className="home"
+    >
+      <i
+        className="FontAwesomeIcon"
+        icon={
+          Array [
+            "fas",
+            "home",
+          ]
+        }
+        size="2x"
+      />
+      <ul
+        className="translation"
+      >
+        <li
+          className="en"
+        >
+          Home
+        </li>
+        <li
+          className="es"
+        >
+          Inicio
+        </li>
+      </ul>
+    </li>
+    <li
+      className="notFound"
+    >
+      <i
+        className="FontAwesomeIcon"
+        icon={
+          Array [
+            "fas",
+            "dizzy",
+          ]
+        }
+        size="2x"
+      />
+      <ul
+        className="translation"
+      >
+        <li
+          className="en"
+        >
+          Not Found
+        </li>
+        <li
+          className="es"
+        >
+          No Encontrado
+        </li>
+      </ul>
+    </li>
+  </ul>
   <div
-    className="HandleRedirection"
-  />
-  <div
-    className="Home"
-  />
-  <div
-    className="NotFound"
-  />
+    className="children"
+  >
+    <div
+      className="HandleRedirection"
+    />
+    <div
+      className="AppDrawer"
+    >
+      <div
+        className="Home"
+      />
+      <div
+        className="NotFound"
+      />
+    </div>
+  </div>
 </div>
 `;
 

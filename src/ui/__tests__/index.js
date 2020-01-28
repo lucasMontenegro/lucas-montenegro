@@ -8,10 +8,39 @@ jest.mock(`lib/languageDetector`, () => ({
   __esModule: true,
   default: { init: () => {}, useReadyState: jest.fn() },
 }))
+jest.mock(`lib/react/fontAwesome`, () => {
+  const React = jest.requireActual(`react`)
+  return {
+    __esModule: true,
+    FontAwesomeIcon: props => <i {...props} className="FontAwesomeIcon" />,
+  }
+})
 jest.mock(`lib/react/routing/context`, () => {
   const React = jest.requireActual(`react`)
   function RoutingProvider (props) {
-    return <div className="RoutingProvider">{props.children}</div>
+    const { clientLinks } = props
+    return (
+      <div className="RoutingProvider">
+        <ul className="clientLinks">
+          {Object.keys(clientLinks).map(clientName => {
+            const { Icon, text } = clientLinks[clientName]
+            return (
+              <li key={clientName} className={clientName}>
+                <Icon />
+                <ul className="translation">
+                  {Object.keys(text).map(languageCode => (
+                    <li key={languageCode} className={languageCode}>{text[languageCode]()}</li>
+                  ))}
+                </ul>
+              </li>
+            )
+          })}
+        </ul>
+        <div className="children">
+          {props.children}
+        </div>
+      </div>
+    )
   }
   return { __esModule: true, RoutingProvider }
 })
@@ -22,6 +51,10 @@ jest.mock(`lib/react/routing/HandleRedirection`, () => {
     return <div className="HandleRedirection" />
   }
   return { __esModule: true, default: HandleRedirection }
+})
+jest.mock(`lib/react/AppDrawer`, () => {
+  const React = jest.requireActual(`react`)
+  return { __esModule: true, default: props => <div {...props} className="AppDrawer" /> }
 })
 jest.mock(`lib/Home`, () => {
   const React = jest.requireActual(`react`)

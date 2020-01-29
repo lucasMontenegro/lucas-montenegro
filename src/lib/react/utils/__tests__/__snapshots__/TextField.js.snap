@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../TextField <TextField /> (id "custom-id") should render 1`] = `
+<div
+  className="Div"
+  color="PaleVioletRed"
+  id="custom-id"
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "display": "flex",
+    }
+  }
+>
+  <div
+    className="Div"
+  >
+    <input
+      className="MuiTextField"
+      label="custom-id"
+      onChange={[Function]}
+      size="40"
+      type="text"
+      value="value"
+    />
+  </div>
+  <div
+    className="Div"
+  >
+    <button
+      className="Button"
+      onClick="props.onSave()"
+      variant="outlined"
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+`;
+
+exports[`../TextField <TextField /> (id undefined) should render 1`] = `
+<div
+  className="Div"
+  color="PaleVioletRed"
+  id="text-field"
+  style={
+    Object {
+      "alignItems": "flex-end",
+      "display": "flex",
+    }
+  }
+>
+  <div
+    className="Div"
+  >
+    <input
+      className="MuiTextField"
+      label="text-field"
+      onChange={[Function]}
+      size="40"
+      type="text"
+      value="value"
+    />
+  </div>
+  <div
+    className="Div"
+  >
+    <button
+      className="Button"
+      onClick="props.onSave()"
+      variant="outlined"
+    >
+      SAVE
+    </button>
+  </div>
+</div>
+`;
+
+exports[`../TextField should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

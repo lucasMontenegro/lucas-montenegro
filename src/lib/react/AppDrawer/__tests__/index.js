@@ -48,7 +48,7 @@ describe(`../index.js`, () => {
     let html
     beforeAll(() => {
       useState.mockReturnValueOnce([isOpen, setIsOpen])
-      html = renderer.create(<AppDrawer windowTitle="Window Title">Client</AppDrawer>)
+      html = renderer.create(<AppDrawer>Client</AppDrawer>)
     })
     it(`should render`, () => {
       expect(html.toJSON()).toMatchSnapshot()

@@ -9,17 +9,17 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
     disablePadding={true}
   >
     <li
-      className="ListItem lib-react-app_drawer-nav-li({\\"color\\":\\"theme.palette.primary.main\\",\\"borderRight\\":\\"4px solid transparent\\"})"
+      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
       >
         <span>
           {'en':'en Foo Icon','es':'es Foo Icon'}
         </span>
       </div>
       <div
-        className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
+        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
       >
         <a
           className="Link"
@@ -35,17 +35,17 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
       </div>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({\\"color\\":\\"theme.palette.primary.main\\",\\"borderRight\\":\\"4px solid transparent\\"}) lib-react-app_drawer-nav-activeLi({\\"color\\":\\"#33ccd7\\",\\"backgroundColor\\":\\"#272727\\",\\"borderRight\\":\\"4px solid currentColor\\"})"
+      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727','borderRight':'4px solid currentColor'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
       >
         <span>
           {'en':'en Bar Icon','es':'es Bar Icon'}
         </span>
       </div>
       <div
-        className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
+        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
       >
         <a
           aria-label="{'en':'Current page','es':'Página actual'}"
@@ -62,17 +62,17 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
       </div>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({\\"color\\":\\"theme.palette.primary.main\\",\\"borderRight\\":\\"4px solid transparent\\"})"
+      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
       >
         <span>
           {'en':'en Baz Icon','es':'es Baz Icon'}
         </span>
       </div>
       <div
-        className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
+        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
       >
         <a
           className="Link"
@@ -90,8 +90,6 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
   </ul>
 </nav>
 `;
-
-exports[`../Nav <Nav /> (dark mode) should set the window title 1`] = `"{'en':'English Bar','es':'Spanish Bar'} - Window Title"`;
 
 exports[`../Nav <Nav /> (light mode) should render 1`] = `
 <nav
@@ -102,17 +100,17 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
     disablePadding={true}
   >
     <li
-      className="ListItem lib-react-app_drawer-nav-li({\\"color\\":\\"theme.palette.primary.main\\",\\"borderRight\\":\\"4px solid transparent\\"})"
+      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
       >
         <span>
           {'en':'en Foo Icon','es':'es Foo Icon'}
         </span>
       </div>
       <div
-        className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
+        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
       >
         <a
           className="Link"
@@ -128,17 +126,17 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
       </div>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({\\"color\\":\\"theme.palette.primary.main\\",\\"borderRight\\":\\"4px solid transparent\\"}) lib-react-app_drawer-nav-activeLi({\\"color\\":\\"#017982\\",\\"backgroundColor\\":\\"#f1f1f1\\",\\"borderRight\\":\\"4px solid currentColor\\"})"
+      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1','borderRight':'4px solid currentColor'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
       >
         <span>
           {'en':'en Bar Icon','es':'es Bar Icon'}
         </span>
       </div>
       <div
-        className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
+        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
       >
         <a
           aria-label="{'en':'Current page','es':'Página actual'}"
@@ -155,17 +153,17 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
       </div>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({\\"color\\":\\"theme.palette.primary.main\\",\\"borderRight\\":\\"4px solid transparent\\"})"
+      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({\\"color\\":\\"inherit\\",\\"fontSize\\":\\"theme.spacing(2)\\",\\"minWidth\\":\\"theme.spacing(5)\\",\\"marginRight\\":\\"theme.spacing(2)\\"})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
       >
         <span>
           {'en':'en Baz Icon','es':'es Baz Icon'}
         </span>
       </div>
       <div
-        className="ListItemText lib-react-app_drawer-nav-liText({\\"display\\":\\"block\\",\\"& > span\\":{\\"display\\":\\"block\\"},\\"& > span > a\\":{\\"color\\":\\"inherit\\",\\"display\\":\\"block\\"}})"
+        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
       >
         <a
           className="Link"
@@ -183,8 +181,6 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
   </ul>
 </nav>
 `;
-
-exports[`../Nav <Nav /> (light mode) should set the window title 1`] = `"{'en':'English Bar','es':'Spanish Bar'} - Window Title"`;
 
 exports[`../Nav should use the right versions of its dependencies 1`] = `
 Object {

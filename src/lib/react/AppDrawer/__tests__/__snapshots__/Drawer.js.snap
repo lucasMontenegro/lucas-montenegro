@@ -38,7 +38,6 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false) should render 1`
       className="Nav"
       onClick="props.onClose()"
       t="t()"
-      windowTitle="Window Title"
     />
   </div>
   Client
@@ -83,7 +82,6 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true) should render 1`]
       className="Nav"
       onClick="props.onClose()"
       t="t()"
-      windowTitle="Window Title"
     />
   </div>
   Client
@@ -120,7 +118,6 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false) should render 1`]
       className="Nav"
       onClick="props.onClose()"
       t="t()"
-      windowTitle="Window Title"
     />
   </div>
   Client
@@ -157,7 +154,6 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true) should render 1`] 
       className="Nav"
       onClick="props.onClose()"
       t="t()"
-      windowTitle="Window Title"
     />
   </div>
   Client

@@ -59,7 +59,6 @@ describe(`../Drawer`, () => {
         <Drawer
           isOpen={isOpen}
           onClose={() => `props.onClose()`}
-          windowTitle="Window Title"
         >
           Client
         </Drawer>
@@ -74,7 +73,6 @@ describe(`../Drawer`, () => {
         <Drawer
           isOpen={isOpen}
           onClose={() => `props.onClose()`}
-          windowTitle="Window Title"
         >
           Client
         </Drawer>

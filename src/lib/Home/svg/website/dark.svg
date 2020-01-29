@@ -51,25 +51,31 @@
     <path style="fill:#505050;paint-order:normal;fill-rule:evenodd" d="m172.51 295.41 1.0583-1.0583h-2.12z"/>
    </g>
    <g transform="translate(31.75 -9.7896)">
-    <rect style="fill:#1d1d1d;paint-order:normal;fill-rule:evenodd" rx="54.478" ry="7.5598e-14" height="110.6" width="52.917" y="186.4" x="2.2461e-15"/>
+    <rect style="fill:#fff;paint-order:normal;fill-rule:evenodd" rx="54.478" ry="7.5598e-14" height="110.6" width="52.917" y="186.4" x="2.2461e-15"/>
     <g transform="translate(-3.175 -1.8521)">
-     <path d="m53 308a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h102a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-51z" style="fill:#00c0ce;fill-opacity:.50196;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)"/>
-     <circle cx="11.906" cy="228.47" r="2.1167" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd"/>
-     <circle cx="11.906" cy="236.94" r="2.1167" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd"/>
-     <circle cx="11.906" cy="245.41" r="2.1167" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd"/>
-     <circle cx="11.906" cy="262.34" r="2.1167" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd"/>
-     <path d="m53 213a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h92a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-46z" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)"/>
-     <path d="m53 245a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h118a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-59z" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)"/>
-     <path d="m53 277a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h80a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-40z" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)"/>
-     <path d="m53 341a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h110a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-55z" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)"/>
-     <circle cx="11.906" cy="253.61" r="2.1167" style="fill:#00c0ce;fill-opacity:.50196;paint-order:normal;fill-rule:evenodd"/>
+     <g style="fill:#808080;fill-opacity:.37647">
+      <circle r="2.1167" style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" cx="11.906" cy="228.47"/>
+      <circle r="2.1167" style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" cx="11.906" cy="236.94"/>
+      <circle r="2.1167" style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" cx="11.906" cy="245.41"/>
+      <circle r="2.1167" style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" cx="11.906" cy="262.34"/>
+      <path style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)" d="m53 213a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h92a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-46z"/>
+      <path style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)" d="m53 245a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h118a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-59z"/>
+      <path style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)" d="m53 277a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h80a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-40z"/>
+      <path style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)" d="m53 341a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h110a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-55z"/>
+     </g>
+     <g style="fill:#02838c;fill-opacity:.60619">
+      <path style="fill:#02838c;fill-opacity:.60619;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 3.175 170.79)" d="m53 308a5 5 0 0 0 -5 5 5 5 0 0 0 5 5h102a5 5 0 0 0 5 -5 5 5 0 0 0 -5 -5h-51z"/>
+      <circle r="2.1167" style="fill:#02838c;fill-opacity:.60619;paint-order:normal;fill-rule:evenodd" cx="11.906" cy="253.61"/>
+     </g>
     </g>
-    <rect style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" rx="66.644" ry="3.5316e-14" height=".26458" width="42.333" y="214.71" x="5.2917"/>
-    <g transform="translate(-1.0583)">
-     <path d="m114 130a4 4 0 0 0 -4 4 4 4 0 0 0 4 4h40a4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4h-20z" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 1.0583 168.94)"/>
-     <path d="m114 106a4 4 0 0 0 -4 4 4 4 0 0 0 4 4h56a4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4h-28z" style="fill:#fff;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 1.0583 168.94)"/>
+    <rect style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" rx="66.644" ry="3.5316e-14" height=".26458" width="42.333" y="214.71" x="5.2917"/>
+    <g style="fill:#808080;fill-opacity:.37647">
+     <g style="fill:#808080;fill-opacity:.37647" transform="translate(-1.0583)">
+      <path d="m114 130a4 4 0 0 0 -4 4 4 4 0 0 0 4 4h40a4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4h-20z" style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 1.0583 168.94)"/>
+      <path d="m114 106a4 4 0 0 0 -4 4 4 4 0 0 0 4 4h56a4 4 0 0 0 4 -4 4 4 0 0 0 -4 -4h-28z" style="fill:#808080;fill-opacity:.37647;paint-order:normal;fill-rule:evenodd" transform="matrix(.26458 0 0 .26458 1.0583 168.94)"/>
+     </g>
+     <path d="m62.004 90c-17.655 0-32.004 14.35-32.004 32 0 17.226 13.663 31.291 30.727 31.963 0.01965 0.0008 0.03887 0.001 0.05859 0.002a18 14 0 0 0 1.214 0.04 18 14 0 0 0 0.10938 -0.004c17.605-0.0578 31.889-14.375 31.889-31.994 0-17.654-14.34-32.002-31.994-32.002zm0 3.1465c15.952 0 28.848 12.903 28.848 28.855 0 9.8626-4.9332 18.551-12.467 23.752a18 14 0 0 0 1.615 -5.75 18 14 0 0 0 -18 -14 18 14 0 0 0 -18 14 18 14 0 0 0 1.6016 5.7422c-7.5254-5.2022-12.453-13.885-12.453-23.74 0-15.952 12.903-28.855 28.855-28.855zm-0.004 32.854a8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8 8 8 0 0 0 -8 8 8 8 0 0 0 8 8z" style="color-rendering:auto;text-decoration-color:#000000;color:#000000;font-variant-numeric:normal;shape-rendering:auto;solid-color:#000000;text-decoration-line:none;fill:#808080;fill-rule:evenodd;font-variant-position:normal;mix-blend-mode:normal;fill-opacity:.37647;font-feature-settings:normal;shape-padding:0;font-variant-alternates:normal;text-indent:0;font-variant-ligatures:normal;dominant-baseline:auto;font-variant-caps:normal;image-rendering:auto;white-space:normal;text-decoration-style:solid;text-orientation:mixed;isolation:auto;paint-order:normal;text-transform:none" transform="matrix(.26458 0 0 .26458 0 168.94)"/>
     </g>
-    <path d="m62.004 90c-17.655 0-32.004 14.35-32.004 32 0 17.226 13.663 31.291 30.727 31.963 0.01965 0.0008 0.03887 0.001 0.05859 0.002a18 14 0 0 0 1.214 0.04 18 14 0 0 0 0.10938 -0.004c17.605-0.0578 31.889-14.375 31.889-31.994 0-17.654-14.34-32.002-31.994-32.002zm0 3.1465c15.952 0 28.848 12.903 28.848 28.855 0 9.8626-4.9332 18.551-12.467 23.752a18 14 0 0 0 1.615 -5.75 18 14 0 0 0 -18 -14 18 14 0 0 0 -18 14 18 14 0 0 0 1.6016 5.7422c-7.5254-5.2022-12.453-13.885-12.453-23.74 0-15.952 12.903-28.855 28.855-28.855zm-0.004 32.854a8 8 0 0 0 8 -8 8 8 0 0 0 -8 -8 8 8 0 0 0 -8 8 8 8 0 0 0 8 8z" style="color-rendering:auto;text-decoration-color:#000000;color:#000000;font-variant-numeric:normal;shape-rendering:auto;solid-color:#000000;text-decoration-line:none;fill:#fff;fill-rule:evenodd;font-variant-position:normal;mix-blend-mode:normal;fill-opacity:.37647;font-feature-settings:normal;shape-padding:0;font-variant-alternates:normal;text-indent:0;font-variant-ligatures:normal;dominant-baseline:auto;font-variant-caps:normal;image-rendering:auto;white-space:normal;text-decoration-style:solid;text-orientation:mixed;isolation:auto;paint-order:normal;text-transform:none" transform="matrix(.26458 0 0 .26458 0 168.94)"/>
    </g>
    <g transform="translate(31.75 -9.7896)">
     <rect style="stroke-linejoin:round;fill-rule:evenodd;paint-order:normal;stroke:#e9e9e9;stroke-width:.77363;fill:#e9e9e9" rx="52.869" ry="6.3054e-15" height="16.689" width="173.85" y="169.33" x=".38681"/>

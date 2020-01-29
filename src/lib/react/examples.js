@@ -11,6 +11,7 @@ import routing from "./routing/example"
 import WufooForm from "./WufooForm/example"
 import useTranslation from "./useTranslation/example"
 import AppDrawer from "./AppDrawer/example"
+import WindowTitle from "./WindowTitle/example"
 export default (
   <Route
     path="/react"
@@ -27,6 +28,7 @@ export default (
         {WufooForm}
         {useTranslation}
         {AppDrawer}
+        {WindowTitle}
       </Switch>
     )}
   />

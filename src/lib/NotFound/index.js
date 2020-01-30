@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles"
 import useTranslation from "lib/react/useTranslation"
 import React, { Fragment } from "react"
+import DocumentTitle from "lib/react/DocumentTitle"
 import Typography from "@material-ui/core/Typography"
 import Link from "lib/react/links/Link"
 import { useRoutingContext } from "lib/react/routing/context"
@@ -31,6 +32,12 @@ function View (props) {
   const referrer = props.route.location.state
   return (
     <div className={classes.root}>
+      <DocumentTitle
+        value={t({
+          en: () => `Not Found - Lucas Montenegro`,
+          es: () => `No Encontrado - Lucas Montenegro`,
+        })}
+      />
       <div className={classes.content}>
         {(referrer && typeof referrer === `object`) ? (
           <Fragment>

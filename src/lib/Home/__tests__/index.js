@@ -63,6 +63,13 @@ jest.mock(`@material-ui/core/Container`, () => {
     default: props => <div {...props} className="Container" />,
   }
 })
+jest.mock(`lib/react/DocumentTitle`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: ({ value, ...other }) => <div {...other} className="DocumentTitle">{value}</div>,
+  }
+})
 jest.mock(`@material-ui/core/Toolbar`, () => {
   const React = jest.requireActual("react")
   return {

@@ -5,6 +5,7 @@ import Link from "@material-ui/core/Link"
 import useTranslation from "lib/react/useTranslation"
 import { useDarkMode } from "lib/react/DarkMode"
 import Container from "@material-ui/core/Container"
+import DocumentTitle from "lib/react/DocumentTitle"
 import Toolbar from "@material-ui/core/Toolbar"
 import Button from "@material-ui/core/Button"
 import SvgImage from "./SvgImage"
@@ -68,6 +69,12 @@ function View () {
   const contactRef = useRef(null)
   return (
     <Container maxWidth="md">
+      <DocumentTitle
+        value={t({
+          en: () => `Home - Lucas Montenegro`,
+          es: () => `Inicio - Lucas Montenegro`,
+        })}
+      />
       <Section>
         <Typography align="center" variant="h4" component="h1">
           <span className={classes.myNameIs}>

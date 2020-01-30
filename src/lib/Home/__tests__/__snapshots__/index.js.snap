@@ -5,6 +5,24 @@ exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
   className="Container"
   maxWidth="md"
 >
+  <div
+    className="DocumentTitle"
+  >
+    <div
+      className="translation"
+    >
+      <div
+        className="en"
+      >
+        Home - Lucas Montenegro
+      </div>
+      <div
+        className="es"
+      >
+        Inicio - Lucas Montenegro
+      </div>
+    </div>
+  </div>
   <section
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >
@@ -197,6 +215,24 @@ exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
   className="Container"
   maxWidth="md"
 >
+  <div
+    className="DocumentTitle"
+  >
+    <div
+      className="translation"
+    >
+      <div
+        className="en"
+      >
+        Home - Lucas Montenegro
+      </div>
+      <div
+        className="es"
+      >
+        Inicio - Lucas Montenegro
+      </div>
+    </div>
+  </div>
   <section
     className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
   >

@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../MobileBar <MobileBar /> should render 1`] = `
+<div
+  className="AppBar lib-react-main_bar-mobile_bar-appBar({'color':'theme.palette.text.primary','backgroundColor':'theme.palette.background.paper','top':'auto','bottom':0})"
+>
+  <div
+    className="Toolbar lib-react-main_bar-mobile_bar-toolbar({'& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+  >
+    <div
+      className="Tooltip"
+      title={
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Open dashboard
+          </div>
+          <div
+            className="es"
+          >
+            Abrir panel de control
+          </div>
+        </div>
+      }
+    >
+      <div
+        aria-controls="lib-react-app_drawer"
+        className="IconButton icon-button"
+        edge="start"
+        onClick="useAppDrawerOpener()()"
+      >
+        <i
+          className="FontAwesomeIcon"
+          icon={
+            Array [
+              "fas",
+              "bars",
+            ]
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="flexible-space"
+    />
+    <div
+      className="Tooltip"
+      title={
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Open quick navigation
+          </div>
+          <div
+            className="es"
+          >
+            Abrir navegación rápida
+          </div>
+        </div>
+      }
+    >
+      <div
+        aria-controls="lib-react-main_bar-mobile_nav"
+        className="IconButton icon-button"
+        edge="end"
+        onClick="useMobileNav().open()"
+      >
+        <i
+          className="FontAwesomeIcon"
+          icon={
+            Array [
+              "fas",
+              "caret-up",
+            ]
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="MobileNav"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          EN MobileNav
+        </div>
+        <div
+          className="es"
+        >
+          ES MobileNav
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`../MobileBar should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

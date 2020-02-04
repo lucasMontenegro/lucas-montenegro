@@ -4,6 +4,6 @@ import MuiLink from "@material-ui/core/Link"
 const ForwardLinkRef = React.forwardRef(function ForwardLinkRef (props, ref) {
   return <RouterLink {...props} innerRef={ref} />
 })
-export default function Link (props) {
-  return <MuiLink {...props} component={ForwardLinkRef} />
-}
+export default React.forwardRef(function Link (props, ref) {
+  return <MuiLink ref={ref} {...props} component={ForwardLinkRef} />
+})

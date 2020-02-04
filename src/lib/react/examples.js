@@ -13,6 +13,7 @@ import useTranslation from "./useTranslation/example"
 import AppDrawer from "./AppDrawer/example"
 import DocumentTitle from "./DocumentTitle/example"
 import useResponsiveLayout from "./useResponsiveLayout/example"
+import MainBar from "./MainBar/example"
 export default (
   <Route
     path="/react"
@@ -31,6 +32,7 @@ export default (
         {AppDrawer}
         {DocumentTitle}
         {useResponsiveLayout}
+        {MainBar}
       </Switch>
     )}
   />

@@ -58,7 +58,7 @@ exports[`../TabletNav <TabletNav /> (dark mode) should render 1`] = `
             component="div"
           >
             <div
-              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'color':'inherit','minWidth':'initial'})"
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
             >
               <div
                 className="translation"
@@ -134,7 +134,7 @@ exports[`../TabletNav <TabletNav /> (dark mode) should render 1`] = `
             component="div"
           >
             <div
-              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'color':'inherit','minWidth':'initial'})"
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
             >
               <div
                 className="translation"
@@ -194,7 +194,7 @@ exports[`../TabletNav <TabletNav /> (dark mode) should render 1`] = `
             component="div"
           >
             <div
-              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'color':'inherit','minWidth':'initial'})"
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
             >
               <div
                 className="translation"
@@ -281,7 +281,7 @@ exports[`../TabletNav <TabletNav /> (light mode) should render 1`] = `
             component="div"
           >
             <div
-              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'color':'inherit','minWidth':'initial'})"
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
             >
               <div
                 className="translation"
@@ -357,7 +357,7 @@ exports[`../TabletNav <TabletNav /> (light mode) should render 1`] = `
             component="div"
           >
             <div
-              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'color':'inherit','minWidth':'initial'})"
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
             >
               <div
                 className="translation"
@@ -417,7 +417,7 @@ exports[`../TabletNav <TabletNav /> (light mode) should render 1`] = `
             component="div"
           >
             <div
-              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'color':'inherit','minWidth':'initial'})"
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
             >
               <div
                 className="translation"

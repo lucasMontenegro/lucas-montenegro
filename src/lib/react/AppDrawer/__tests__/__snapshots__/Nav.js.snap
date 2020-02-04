@@ -2,7 +2,7 @@
 
 exports[`../Nav <Nav /> (dark mode) should render 1`] = `
 <nav
-  aria-label="{'en':'Navigation buttons','es':'Botones de navegación'}"
+  aria-label="{'en':'Navigation links','es':'Links de navegación'}"
 >
   <ul
     className="List"
@@ -12,7 +12,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
       className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
       >
         <span>
           {'en':'en Foo Icon','es':'es Foo Icon'}
@@ -38,7 +38,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
       className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727','borderRight':'4px solid currentColor'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
       >
         <span>
           {'en':'en Bar Icon','es':'es Bar Icon'}
@@ -65,7 +65,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
       className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
       >
         <span>
           {'en':'en Baz Icon','es':'es Baz Icon'}
@@ -93,7 +93,7 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
 
 exports[`../Nav <Nav /> (light mode) should render 1`] = `
 <nav
-  aria-label="{'en':'Navigation buttons','es':'Botones de navegación'}"
+  aria-label="{'en':'Navigation links','es':'Links de navegación'}"
 >
   <ul
     className="List"
@@ -103,7 +103,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
       className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
       >
         <span>
           {'en':'en Foo Icon','es':'es Foo Icon'}
@@ -129,7 +129,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
       className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1','borderRight':'4px solid currentColor'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
       >
         <span>
           {'en':'en Bar Icon','es':'es Bar Icon'}
@@ -156,7 +156,7 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
       className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
       <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':'theme.spacing(2)','minWidth':'theme.spacing(5)','marginRight':'theme.spacing(2)'})"
+        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
       >
         <span>
           {'en':'en Baz Icon','es':'es Baz Icon'}

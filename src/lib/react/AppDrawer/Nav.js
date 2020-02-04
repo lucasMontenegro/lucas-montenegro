@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   liIcon: {
     color: `inherit`,
-    fontSize: theme.spacing(2),
+    fontSize: theme.spacing(3),
     minWidth: theme.spacing(5),
     marginRight: theme.spacing(2),
   },
@@ -34,14 +34,13 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }), { name: `lib-react-app_drawer-nav` })
-export default function Nav (props) {
-  const { t, onClick } = props
+export default function Nav ({ t, onClick }) {
   const classes = useStyles()
   return (
     <nav
       aria-label={t({
-        en: () => `Navigation buttons`,
-        es: () => `Botones de navegación`,
+        en: () => `Navigation links`,
+        es: () => `Links de navegación`,
       })}
     >
       <List disablePadding>

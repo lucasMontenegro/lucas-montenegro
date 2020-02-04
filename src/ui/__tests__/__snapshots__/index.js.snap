@@ -20,7 +20,6 @@ exports[`../index.js <App /> (language detector ready true) should render 1`] = 
             "home",
           ]
         }
-        size="2x"
       />
       <ul
         className="translation"
@@ -48,7 +47,6 @@ exports[`../index.js <App /> (language detector ready true) should render 1`] = 
             "dizzy",
           ]
         }
-        size="2x"
       />
       <ul
         className="translation"

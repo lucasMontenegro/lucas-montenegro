@@ -13,13 +13,13 @@ const useStyles = makeStyles(theme => ({
     flex: `0 1 100%`,
   },
   paper: {
-    width: theme.spacing(32),
+    width: theme.spacing(32) + 1,
     paddingLeft: 0,
     paddingRight: 0,
   },
   children: {
     [desktopBreakpoint(theme)]: {
-      marginLeft: theme.spacing(32),
+      marginLeft: theme.spacing(32) + 1,
     },
   },
 }), { name: `lib-react-app_drawer` })

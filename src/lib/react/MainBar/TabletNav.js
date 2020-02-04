@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: `center`,
   },
   liIcon: {
+    fontSize: theme.spacing(3),
     color: `inherit`,
     minWidth: `initial`,
   },

@@ -16,14 +16,14 @@ import globals from "lib/utils/globals"
 languageDetector.init(routing.languageCodes)
 const clientLinks = {
   home: {
-    Icon: () => <FontAwesomeIcon icon={[`fas`, `home`]} size="2x" />,
+    Icon: () => <FontAwesomeIcon icon={[`fas`, `home`]} />,
     text: {
       en: () => `Home`,
       es: () => `Inicio`,
     },
   },
   notFound: {
-    Icon: () => <FontAwesomeIcon icon={[`fas`, `dizzy`]} size="2x" />,
+    Icon: () => <FontAwesomeIcon icon={[`fas`, `dizzy`]} />,
     text: {
       en: () => `Not Found`,
       es: () => `No Encontrado`,

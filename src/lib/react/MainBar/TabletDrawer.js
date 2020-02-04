@@ -14,12 +14,12 @@ import TabletNav from "./TabletNav"
 const useStyles = makeStyles(theme => ({
   drawerPaper: {
     width: theme.spacing(10) + 1,
-    fontSize: theme.spacing(3),
   },
   muiLi: {
     justifyContent: `center`,
   },
   liIcon: {
+    fontSize: theme.spacing(3),
     minWidth: `initial`,
   },
 }), { name: `lib-react-main_bar-tablet_drawer` })

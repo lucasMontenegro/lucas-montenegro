@@ -1,6 +1,7 @@
 import { makeStyles } from "@material-ui/core/styles"
 import useTranslation from "lib/react/useTranslation"
 import React, { Fragment } from "react"
+//import MainBar from "lib/react/MainBar"
 import DocumentTitle from "lib/react/DocumentTitle"
 import Typography from "@material-ui/core/Typography"
 import Link from "lib/react/links/Link"
@@ -31,6 +32,7 @@ function View (props) {
   const t = useTranslation()
   const referrer = props.route.location.state
   return (
+    //<MainBar>
     <div className={classes.root}>
       <DocumentTitle
         value={t({
@@ -73,6 +75,7 @@ function View (props) {
         )}
       </div>
     </div>
+    //</MainBar>
   )
 }
 export default function NotFound () {

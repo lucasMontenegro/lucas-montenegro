@@ -2,7 +2,7 @@
 
 exports[`../Drawer <Drawer /> (is desktop false, is open false) should render 1`] = `
 <div
-  className="lib-react-app_drawer-children({\\"theme.breakpoints.up('md')\\":{\\"marginLeft\\":\\"theme.spacing(32)\\"}})"
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
 >
   <div
     ModalProps={
@@ -13,7 +13,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false) should render 1`
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-app_drawer-paper({\\"width\\":\\"theme.spacing(32)\\",\\"paddingLeft\\":0,\\"paddingRight\\":0})",
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingLeft':0,'paddingRight':0})",
       }
     }
     id="lib-react-app_drawer"
@@ -25,7 +25,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false) should render 1`
       className="Toolbar"
     >
       <div
-        className="lib-react-app_drawer-flexibleSpace({\\"flex\\":\\"0 1 100%\\"})"
+        className="lib-react-app_drawer-flexibleSpace({'flex':'0 1 100%'})"
       />
       <div
         className="CloseButton"
@@ -46,7 +46,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false) should render 1`
 
 exports[`../Drawer <Drawer /> (is desktop false, is open true) should render 1`] = `
 <div
-  className="lib-react-app_drawer-children({\\"theme.breakpoints.up('md')\\":{\\"marginLeft\\":\\"theme.spacing(32)\\"}})"
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
 >
   <div
     ModalProps={
@@ -57,7 +57,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true) should render 1`]
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-app_drawer-paper({\\"width\\":\\"theme.spacing(32)\\",\\"paddingLeft\\":0,\\"paddingRight\\":0})",
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingLeft':0,'paddingRight':0})",
       }
     }
     id="lib-react-app_drawer"
@@ -69,7 +69,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true) should render 1`]
       className="Toolbar"
     >
       <div
-        className="lib-react-app_drawer-flexibleSpace({\\"flex\\":\\"0 1 100%\\"})"
+        className="lib-react-app_drawer-flexibleSpace({'flex':'0 1 100%'})"
       />
       <div
         className="CloseButton"
@@ -90,13 +90,13 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true) should render 1`]
 
 exports[`../Drawer <Drawer /> (is desktop true, is open false) should render 1`] = `
 <div
-  className="lib-react-app_drawer-children({\\"theme.breakpoints.up('md')\\":{\\"marginLeft\\":\\"theme.spacing(32)\\"}})"
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
 >
   <div
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-app_drawer-paper({\\"width\\":\\"theme.spacing(32)\\",\\"paddingLeft\\":0,\\"paddingRight\\":0})",
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingLeft':0,'paddingRight':0})",
       }
     }
     variant="permanent"
@@ -105,7 +105,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false) should render 1`]
       className="Toolbar"
     >
       <div
-        className="lib-react-app_drawer-flexibleSpace({\\"flex\\":\\"0 1 100%\\"})"
+        className="lib-react-app_drawer-flexibleSpace({'flex':'0 1 100%'})"
       />
       <div
         className="CloseButton"
@@ -126,13 +126,13 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false) should render 1`]
 
 exports[`../Drawer <Drawer /> (is desktop true, is open true) should render 1`] = `
 <div
-  className="lib-react-app_drawer-children({\\"theme.breakpoints.up('md')\\":{\\"marginLeft\\":\\"theme.spacing(32)\\"}})"
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
 >
   <div
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-app_drawer-paper({\\"width\\":\\"theme.spacing(32)\\",\\"paddingLeft\\":0,\\"paddingRight\\":0})",
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingLeft':0,'paddingRight':0})",
       }
     }
     variant="permanent"
@@ -141,7 +141,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true) should render 1`] 
       className="Toolbar"
     >
       <div
-        className="lib-react-app_drawer-flexibleSpace({\\"flex\\":\\"0 1 100%\\"})"
+        className="lib-react-app_drawer-flexibleSpace({'flex':'0 1 100%'})"
       />
       <div
         className="CloseButton"

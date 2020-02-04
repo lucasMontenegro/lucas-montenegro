@@ -10,7 +10,7 @@ makeStyles.mockImplementationOnce((styles, options) => () => {
       primary: { main: `theme.palette.primary.main` },
       type: paletteType,
     },
-    spacing: n => `theme.spacing(${n})`,
+    spacing: n => 8*n,
   }
   const classes = styles(theme)
   return Object.keys(classes).reduce((obj, name) => {

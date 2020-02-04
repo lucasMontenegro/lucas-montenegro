@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
 import useTranslation from "lib/react/useTranslation"
 import { useDarkMode } from "lib/react/DarkMode"
+//import MainBar from "lib/react/MainBar"
 import Container from "@material-ui/core/Container"
 import DocumentTitle from "lib/react/DocumentTitle"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -68,6 +69,7 @@ function View () {
   const isDark = useDarkMode().value
   const contactRef = useRef(null)
   return (
+    //<MainBar>
     <Container maxWidth="md">
       <DocumentTitle
         value={t({
@@ -152,6 +154,7 @@ function View () {
         </Card>
       </section>
     </Container>
+    //</MainBar>
   )
 }
 export default function Home () {

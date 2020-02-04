@@ -8,12 +8,12 @@ jest.mock(`@material-ui/core/styles`, () => ({
   __esModule: true,
   makeStyles: (styles, options) => () => {
     const theme = {
-      spacing: n => `theme.spacing(${n})`,
-      breakpoints: { up: str => `theme.breakpoints.up('${str}')` },
+      spacing: n => 8*n,
+      breakpoints: { up: str => `theme.breakpoints.up(\`${str}\`)` },
     }
     const classes = styles(theme)
     return Object.keys(classes).reduce((obj, name) => {
-      obj[name] = `${options.name}-${name}(${JSON.stringify(classes[name])})`
+      obj[name] = `${options.name}-${name}(${JSON.stringify(classes[name]).replace(/"/gm, `'`)})`
       return obj
     }, {})
   },

@@ -71,7 +71,7 @@ exports[`../index.js <App /> (language detector ready true) should render 1`] = 
       className="HandleRedirection"
     />
     <div
-      className="AppDrawer"
+      className="Dashboard"
     >
       <div
         className="Home"

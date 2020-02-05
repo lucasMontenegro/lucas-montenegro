@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "lib/react/fontAwesome"
 import { RoutingProvider } from "lib/react/routing/context"
 import routing from "./routing"
 import HandleRedirection from "lib/react/routing/HandleRedirection"
-import AppDrawer from "lib/react/AppDrawer"
+import Dashboard from "lib/react/Dashboard"
 import Home from "lib/Home"
 import NotFound from "lib/NotFound"
 import ReactDOM from "react-dom"
@@ -34,10 +34,10 @@ function App (props) {
   return languageDetector.useReadyState() ? (
     <RoutingProvider routing={routing} location={props.location} clientLinks={clientLinks}>
       <HandleRedirection />
-      <AppDrawer>
+      <Dashboard>
         <Home />
         <NotFound />
-      </AppDrawer>
+      </Dashboard>
     </RoutingProvider>
   ) : null
 }

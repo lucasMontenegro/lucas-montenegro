@@ -52,9 +52,9 @@ jest.mock(`lib/react/routing/HandleRedirection`, () => {
   }
   return { __esModule: true, default: HandleRedirection }
 })
-jest.mock(`lib/react/AppDrawer`, () => {
+jest.mock(`lib/react/Dashboard`, () => {
   const React = jest.requireActual(`react`)
-  return { __esModule: true, default: props => <div {...props} className="AppDrawer" /> }
+  return { __esModule: true, default: props => <div {...props} className="Dashboard" /> }
 })
 jest.mock(`lib/Home`, () => {
   const React = jest.requireActual(`react`)

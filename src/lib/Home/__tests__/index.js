@@ -56,6 +56,10 @@ jest.mock(`lib/react/DarkMode`, () => ({ __esModule: true, useDarkMode: jest.fn(
 function mockDarkMode (value) {
   useDarkMode.mockReturnValueOnce({ value })
 }
+jest.mock(`lib/react/MainBar`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <div {...props} className="MainBar" /> }
+})
 jest.mock(`@material-ui/core/Container`, () => {
   const React = jest.requireActual("react")
   return {

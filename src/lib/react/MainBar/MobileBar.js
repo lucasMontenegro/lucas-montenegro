@@ -6,8 +6,7 @@ import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Tooltip from "@material-ui/core/Tooltip"
 import IconButton from "@material-ui/core/IconButton"
-import { useAppDrawerOpener } from "lib/react/AppDrawer"
-//import { useDashboardOpener } from "lib/react/Dashboard"
+import { useDashboardOpener } from "lib/react/Dashboard"
 import { FontAwesomeIcon } from "lib/react/fontAwesome"
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -42,14 +41,9 @@ export default function MobileBar () {
           <IconButton
             className="icon-button"
             edge="start"
-            aria-controls="lib-react-app_drawer"
-            onClick={useAppDrawerOpener()}
-          >
-          {/*
             aria-controls="lib-react-dashboard"
             onClick={useDashboardOpener()}
           >
-          */}
             <FontAwesomeIcon icon={[`fas`, `bars`]} />
           </IconButton>
         </Tooltip>

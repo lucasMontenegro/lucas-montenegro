@@ -35,10 +35,10 @@ exports[`../TabletDrawer <TabletDrawer /> should render 1`] = `
         }
       >
         <div
-          aria-controls="lib-react-app_drawer"
+          aria-controls="lib-react-dashboard"
           button={true}
           className="ListItem lib-react-main_bar-tablet_drawer-muiLi({'justifyContent':'center'})"
-          onClick="useAppDrawerOpener()()"
+          onClick="useDashboardOpener()"
         >
           <div
             className="ListItemIcon lib-react-main_bar-tablet_drawer-liIcon({'fontSize':24,'minWidth':'initial'})"

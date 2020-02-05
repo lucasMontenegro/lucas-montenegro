@@ -45,9 +45,9 @@ jest.mock(`@material-ui/core/ListItem`, () => {
     ),
   }
 })
-jest.mock(`lib/react/AppDrawer`, () => ({
+jest.mock(`lib/react/Dashboard`, () => ({
   __esModule: true,
-  useAppDrawerOpener: () => () => `useAppDrawerOpener()()`,
+  useDashboardOpener: () => () => `useDashboardOpener()`,
 }))
 jest.mock(`@material-ui/core/ListItemIcon`, () => {
   const React = jest.requireActual("react")

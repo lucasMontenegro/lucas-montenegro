@@ -27,10 +27,10 @@ exports[`../MobileBar <MobileBar /> should render 1`] = `
       }
     >
       <div
-        aria-controls="lib-react-app_drawer"
+        aria-controls="lib-react-dashboard"
         className="IconButton icon-button"
         edge="start"
-        onClick="useAppDrawerOpener()()"
+        onClick="useDashboardOpener()"
       >
         <i
           className="FontAwesomeIcon"
@@ -69,7 +69,7 @@ exports[`../MobileBar <MobileBar /> should render 1`] = `
         aria-controls="lib-react-main_bar-mobile_nav"
         className="IconButton icon-button"
         edge="end"
-        onClick="useMobileNav().open()"
+        onClick="useMobileNav().open"
       >
         <i
           className="FontAwesomeIcon"

@@ -12,7 +12,7 @@ import { DarkModeContext } from "lib/react/DarkMode"
 import Theme from "lib/react/Theme"
 import CssBaseline from "lib/react/CssBaseline"
 import { RoutingContext } from "lib/react/routing/context"
-import { AppDrawerContext } from "lib/react/AppDrawer"
+import { DashboardContext } from "lib/react/Dashboard"
 import { Route } from "react-router-dom"
 const languageCodes = [`en`, `es`]
 const clients = { foo: `Foo`, bar: `Bar`, baz: `Baz` }
@@ -123,9 +123,9 @@ function Example (props) {
               }),
             }}
           >
-            <AppDrawerContext.Provider value={() => console.log(`Open App drawer`)}>
+            <DashboardContext.Provider value={() => console.log(`Open Dashboard`)}>
               <Client name={currentClient} />
-            </AppDrawerContext.Provider>
+            </DashboardContext.Provider>
           </RoutingContext.Provider>
         </Theme>
       </DarkModeContext.Provider>

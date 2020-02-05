@@ -35,7 +35,7 @@ jest.mock(`../useMobileNav`, () => {
   return {
     __esModule: true,
     default: t => ({
-      open: () => `useMobileNav().open()`,
+      open: () => `useMobileNav().open`,
       node: (
         <div className="MobileNav">
           {t({
@@ -74,9 +74,9 @@ jest.mock(`@material-ui/core/IconButton`, () => {
     ),
   }
 })
-jest.mock(`lib/react/AppDrawer`, () => ({
+jest.mock(`lib/react/Dashboard`, () => ({
   __esModule: true,
-  useAppDrawerOpener: () => () => `useAppDrawerOpener()()`,
+  useDashboardOpener: () => () => `useDashboardOpener()`,
 }))
 jest.mock(`lib/react/fontAwesome`, () => {
   const React = jest.requireActual("react")

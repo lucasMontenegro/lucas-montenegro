@@ -5,8 +5,7 @@ import Drawer from "@material-ui/core/Drawer"
 import List from "@material-ui/core/List"
 import Tooltip from "@material-ui/core/Tooltip"
 import ListItem from "@material-ui/core/ListItem"
-import { useAppDrawerOpener } from "lib/react/AppDrawer"
-//import { useDashboardOpener } from "lib/react/Dashboard"
+import { useDashboardOpener } from "lib/react/Dashboard"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import { FontAwesomeIcon } from "lib/react/fontAwesome"
 import Divider from "@material-ui/core/Divider"
@@ -39,14 +38,9 @@ export default function TabletDrawer () {
             <ListItem
               className={classes.muiLi}
               button
-              aria-controls="lib-react-app_drawer"
-              onClick={useAppDrawerOpener()}
-            >
-            {/*
               aria-controls="lib-react-dashboard"
               onClick={useDashboardOpener()}
             >
-            */}
               <ListItemIcon className={classes.liIcon}>
                 <FontAwesomeIcon icon={[`fas`, `bars`]} />
               </ListItemIcon>

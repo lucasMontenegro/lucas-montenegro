@@ -13,13 +13,9 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemIcon from "@material-ui/core/ListItemIcon"
 import ListItemText from "@material-ui/core/ListItemText"
 const useStyles = makeStyles(theme => ({
-  drawerPaper: {
-    paddingTop: theme.spacing(6),
-    paddingBottom: theme.spacing(10),
-  },
   appBar: {
     color: theme.palette.text.primary,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.type === `dark` ? `#1d1d1ded` : `#ffffffed`,
     top: `auto`,
     bottom: 0,
   },
@@ -50,6 +46,10 @@ const useStyles = makeStyles(theme => ({
     minWidth: theme.spacing(5),
     marginRight: theme.spacing(2),
   },
+  drawerPadding: {
+    flexBasis: theme.spacing(7),
+    flexShrink: 0,
+  },
 }), { name: `lib-react-main_bar-mobile_nav` })
 function MobileNav (props) {
   const classes = useStyles()
@@ -60,9 +60,8 @@ function MobileNav (props) {
       id="lib-react-main_bar-mobile_nav"
       open={props.isOpen}
       onClose={props.close}
-      classes={{ paper: classes.drawerPaper }}
     >
-      <AppBar position="absolute" className={classes.appBar}>
+      <AppBar elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <div className="flexible-space" />
           <Tooltip
@@ -110,6 +109,7 @@ function MobileNav (props) {
           ))}
         </List>
       </nav>
+      <div className={classes.drawerPadding} />
     </Drawer>
   )
 }

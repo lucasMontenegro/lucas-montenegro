@@ -4,19 +4,14 @@ exports[`../TabletNav <TabletNav /> (dark mode, is drawer open false) should ren
 <div
   anchor="bottom"
   className="Drawer"
-  classes={
-    Object {
-      "paper": "lib-react-main_bar-mobile_nav-drawerPaper({'paddingTop':48,'paddingBottom':80})",
-    }
-  }
   id="lib-react-main_bar-mobile_nav"
   onClose={[Function]}
   open={false}
   variant="temporary"
 >
   <div
-    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'theme.palette.background.paper','top':'auto','bottom':0})"
-    position="absolute"
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','top':'auto','bottom':0})"
+    elevation={0}
   >
     <div
       className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
@@ -279,6 +274,9 @@ exports[`../TabletNav <TabletNav /> (dark mode, is drawer open false) should ren
       </li>
     </ul>
   </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
 </div>
 `;
 
@@ -286,19 +284,14 @@ exports[`../TabletNav <TabletNav /> (dark mode, is drawer open true) should rend
 <div
   anchor="bottom"
   className="Drawer"
-  classes={
-    Object {
-      "paper": "lib-react-main_bar-mobile_nav-drawerPaper({'paddingTop':48,'paddingBottom':80})",
-    }
-  }
   id="lib-react-main_bar-mobile_nav"
   onClose={[Function]}
   open={true}
   variant="temporary"
 >
   <div
-    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'theme.palette.background.paper','top':'auto','bottom':0})"
-    position="absolute"
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','top':'auto','bottom':0})"
+    elevation={0}
   >
     <div
       className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
@@ -561,6 +554,9 @@ exports[`../TabletNav <TabletNav /> (dark mode, is drawer open true) should rend
       </li>
     </ul>
   </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
 </div>
 `;
 
@@ -568,19 +564,14 @@ exports[`../TabletNav <TabletNav /> (light mode, is drawer open false) should re
 <div
   anchor="bottom"
   className="Drawer"
-  classes={
-    Object {
-      "paper": "lib-react-main_bar-mobile_nav-drawerPaper({'paddingTop':48,'paddingBottom':80})",
-    }
-  }
   id="lib-react-main_bar-mobile_nav"
   onClose={[Function]}
   open={false}
   variant="temporary"
 >
   <div
-    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'theme.palette.background.paper','top':'auto','bottom':0})"
-    position="absolute"
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','top':'auto','bottom':0})"
+    elevation={0}
   >
     <div
       className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
@@ -843,6 +834,9 @@ exports[`../TabletNav <TabletNav /> (light mode, is drawer open false) should re
       </li>
     </ul>
   </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
 </div>
 `;
 
@@ -850,19 +844,14 @@ exports[`../TabletNav <TabletNav /> (light mode, is drawer open true) should ren
 <div
   anchor="bottom"
   className="Drawer"
-  classes={
-    Object {
-      "paper": "lib-react-main_bar-mobile_nav-drawerPaper({'paddingTop':48,'paddingBottom':80})",
-    }
-  }
   id="lib-react-main_bar-mobile_nav"
   onClose={[Function]}
   open={true}
   variant="temporary"
 >
   <div
-    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'theme.palette.background.paper','top':'auto','bottom':0})"
-    position="absolute"
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','top':'auto','bottom':0})"
+    elevation={0}
   >
     <div
       className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
@@ -1125,6 +1114,9 @@ exports[`../TabletNav <TabletNav /> (light mode, is drawer open true) should ren
       </li>
     </ul>
   </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
 </div>
 `;
 

@@ -14,6 +14,7 @@ import AppDrawer from "./AppDrawer/example"
 import DocumentTitle from "./DocumentTitle/example"
 import useResponsiveLayout from "./useResponsiveLayout/example"
 import MainBar from "./MainBar/example"
+import Dashboard from "./Dashboard/example"
 export default (
   <Route
     path="/react"
@@ -33,6 +34,7 @@ export default (
         {DocumentTitle}
         {useResponsiveLayout}
         {MainBar}
+        {Dashboard}
       </Switch>
     )}
   />

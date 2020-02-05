@@ -28,6 +28,10 @@ jest.mock(`lib/react/useTranslation`, () => {
     ),
   }
 })
+jest.mock(`lib/react/MainBar`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <div {...props} className="MainBar" /> }
+})
 jest.mock(`lib/react/DocumentTitle`, () => {
   const React = jest.requireActual("react")
   return {

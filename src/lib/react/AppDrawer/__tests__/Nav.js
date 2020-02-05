@@ -18,6 +18,9 @@ makeStyles.mockImplementationOnce((styles, options) => () => {
     return obj
   }, {})
 })
+function mockPaletteType (mode) {
+  paletteType = mode
+}
 jest.mock(`@material-ui/core/List`, () => {
   const React = jest.requireActual("react")
   return { __esModule: true, default: props => <ul {...props} className="List" /> }
@@ -33,14 +36,10 @@ jest.mock(`lib/react/routing/context`, () => {
           active: false,
           location: { pathname: `/foo` },
           render: {
-            Icon: props => (
-              <span>
-                {props.t({
-                  en: () => `en Foo Icon`,
-                  es: () => `es Foo Icon`,
-                })}
-              </span>
-            ),
+            Icon: props => props.t({
+              en: () => <i>EN Foo Icon</i>,
+              es: () => <i>ES Foo Icon</i>,
+            }),
             text: {
               en: () => `English Foo`,
               es: () => `Spanish Foo`,
@@ -52,15 +51,10 @@ jest.mock(`lib/react/routing/context`, () => {
           active: true,
           location: { pathname: `/bar` },
           render: {
-            Icon: () => <span>Bar Icon</span>,
-            Icon: props => (
-              <span>
-                {props.t({
-                  en: () => `en Bar Icon`,
-                  es: () => `es Bar Icon`,
-                })}
-              </span>
-            ),
+            Icon: props => props.t({
+              en: () => <i>EN Bar Icon</i>,
+              es: () => <i>ES Bar Icon</i>,
+            }),
             text: {
               en: () => `English Bar`,
               es: () => `Spanish Bar`,
@@ -72,14 +66,10 @@ jest.mock(`lib/react/routing/context`, () => {
           active: false,
           location: { pathname: `/baz` },
           render: {
-            Icon: props => (
-              <span>
-                {props.t({
-                  en: () => `en Baz Icon`,
-                  es: () => `es Baz Icon`,
-                })}
-              </span>
-            ),
+            Icon: props => props.t({
+              en: () => <i>EN Baz Icon</i>,
+              es: () => <i>ES Baz Icon</i>,
+            }),
             text: {
               en: () => `English Baz`,
               es: () => `Spanish Baz`,
@@ -90,12 +80,18 @@ jest.mock(`lib/react/routing/context`, () => {
     }),
   }
 })
-jest.mock(`@material-ui/core/ListItem`, () => {
+jest.mock(`lib/react/links/Link`, () => {
   const React = jest.requireActual("react")
   return {
     __esModule: true,
-    default: props => <li {...props} className={`ListItem ${props.className}`} />,
+    default: jest.fn(props => (
+      <a {...props} className={`Link ${props.className}`} onClick={props.onClick()} />
+    )),
   }
+})
+jest.mock(`@material-ui/core/ListItem`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <li {...props} className="ListItem" /> }
 })
 jest.mock(`@material-ui/core/ListItemIcon`, () => {
   const React = jest.requireActual("react")
@@ -106,17 +102,7 @@ jest.mock(`@material-ui/core/ListItemIcon`, () => {
 })
 jest.mock(`@material-ui/core/ListItemText`, () => {
   const React = jest.requireActual("react")
-  return {
-    __esModule: true,
-    default: props => <div {...props} className={`ListItemText ${props.className}`} />,
-  }
-})
-jest.mock(`lib/react/links/Link`, () => {
-  const React = jest.requireActual("react")
-  return {
-    __esModule: true,
-    default: jest.fn(props => <a {...props} className="Link" onClick={props.onClick()} />),
-  }
+  return { __esModule: true, default: props => <div {...props} className="ListItemText" /> }
 })
 describe(`../Nav`, () => {
   let Nav
@@ -132,15 +118,18 @@ describe(`../Nav`, () => {
   })
   describe.each([[`light`], [`dark`]])(`<Nav /> (%s mode)`, mode => {
     it(`should render`, () => {
-      paletteType = mode
+      mockPaletteType(mode)
       function t (source) {
-        return JSON.stringify(Object.keys(source).reduce((translation, languageCode) => {
-          translation[languageCode] = source[languageCode]()
-          return translation
-        }, {})).replace(/"/gm, `'`)
+        return (
+          <ul className="translation">
+            {Object.keys(source).map(languageCode => (
+              <li key={languageCode} className={languageCode}>{source[languageCode]()}</li>
+            ))}
+          </ul>
+        )
       }
       expect(
-        renderer.create(<Nav t={t} onClick={() => `props.onClick()`} />).toJSON()
+        renderer.create(<Nav t={t} onClick={() => `props.onClick`} />).toJSON()
       ).toMatchSnapshot()
     })
   })

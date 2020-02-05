@@ -2,18 +2,33 @@ import { makeStyles } from "@material-ui/core/styles"
 import useTranslation from "lib/react/useTranslation"
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 import React, { Fragment } from "react"
+import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import CloseButton from "./CloseButton"
 import Nav from "./Nav"
 import MuiDrawer from "@material-ui/core/Drawer"
-import PropTypes from "prop-types"
 const desktopBreakpoint = theme => theme.breakpoints.up(`md`)
 const useStyles = makeStyles(theme => ({
-  flexibleSpace: {
-    flex: `0 1 100%`,
+  appBar: {
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.type === `dark` ? `#1d1d1ded` : `#ffffffed`,
+    width: theme.spacing(32),
+    left: 0,
+    right: `auto`,
+  },
+  toolbar: {
+    justifyContent: `flex-end`,
+    "& > button.icon-button": {
+      minWidth: theme.spacing(6),
+    },
+    "& > div.flexible-space": {
+      flexBasis: `100%`,
+      flexShrink: 1,
+    },
   },
   paper: {
     width: theme.spacing(32) + 1,
+    paddingTop: theme.spacing(10),
     paddingLeft: 0,
     paddingRight: 0,
   },
@@ -30,10 +45,12 @@ export default function Drawer (props) {
   const isDesktop = useMediaQuery(desktopBreakpoint)
   const content = (
     <Fragment>
-      <Toolbar>
-        <div className={classes.flexibleSpace} />
-        <CloseButton isDesktop={isDesktop} t={t} onClick={onClose} />
-      </Toolbar>
+      <AppBar elevation={0} className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>
+          <CloseButton isDesktop={isDesktop} t={t} onClick={onClose} />
+          <div className="flexible-space" />
+        </Toolbar>
+      </AppBar>
       <Nav t={t} onClick={onClose} />
     </Fragment>
   )
@@ -54,9 +71,4 @@ export default function Drawer (props) {
     )
   )
   return <div className={classes.children}>{drawer}{props.children}</div>
-}
-Drawer.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  children: PropTypes.node,
 }

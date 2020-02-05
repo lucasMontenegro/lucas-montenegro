@@ -3,26 +3,41 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 import MuiDrawer from "@material-ui/core/Drawer"
 import renderer from "react-test-renderer"
 import React from "react"
-import Drawer from "../Drawer"
-jest.mock(`@material-ui/core/styles`, () => ({
-  __esModule: true,
-  makeStyles: (styles, options) => () => {
-    const theme = {
-      spacing: n => 8*n,
-      breakpoints: { up: str => `theme.breakpoints.up(\`${str}\`)` },
-    }
-    const classes = styles(theme)
-    return Object.keys(classes).reduce((obj, name) => {
-      obj[name] = `${options.name}-${name}(${JSON.stringify(classes[name]).replace(/"/gm, `'`)})`
-      return obj
-    }, {})
-  },
-}))
-jest.mock(`lib/react/useTranslation`, () => ({ __esModule: true, default: () => () => `t()` }))
+jest.mock(`@material-ui/core/styles`, () => ({ __esModule: true, makeStyles: jest.fn() }))
+let paletteType
+makeStyles.mockImplementation((styles, options) => () => {
+  const theme = {
+    breakpoints: { up: str => `theme.breakpoints.up(\`${str}\`)` },
+    palette: {
+      text: { primary: `theme.palette.text.primary` },
+      type: paletteType,
+    },
+    spacing: n => 8*n,
+  }
+  const classes = styles(theme)
+  return Object.keys(classes).reduce((obj, name) => {
+    obj[name] = `${options.name}-${name}(${JSON.stringify(classes[name]).replace(/"/gm, `'`)})`
+    return obj
+  }, {})
+})
+function mockPaletteType (mode) {
+  paletteType = mode
+}
+jest.mock(`lib/react/useTranslation`, () => ({ __esModule: true, default: () => () => `t` }))
 jest.mock(`@material-ui/core/useMediaQuery`, () => ({ __esModule: true, default: jest.fn() }))
+jest.mock(`@material-ui/core/AppBar`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: props => <header {...props} className={`AppBar ${props.className}`} />,
+  }
+})
 jest.mock(`@material-ui/core/Toolbar`, () => {
   const React = jest.requireActual("react")
-  return { __esModule: true, default: props => <div {...props} className="Toolbar" /> }
+  return {
+    __esModule: true,
+    default: props => <div {...props} className={`Toolbar ${props.className}`} />,
+  }
 })
 jest.mock(`../CloseButton`, () => {
   const React = jest.requireActual("react")
@@ -42,6 +57,10 @@ jest.mock(`../Nav`, () => {
 })
 jest.mock(`@material-ui/core/Drawer`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`../Drawer`, () => {
+  let Drawer
+  beforeAll(() => {
+    Drawer = require("../Drawer").default
+  })
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([
       `@material-ui/core`,
@@ -49,34 +68,42 @@ describe(`../Drawer`, () => {
       `prop-types`,
     ])).toMatchSnapshot()
   })
-  describe.each([[true], [false]])(`<Drawer /> (is desktop false, is open %j)`, isOpen => {
-    it(`should render`, () => {
-      useMediaQuery.mockReturnValueOnce(false)
-      MuiDrawer.mockImplementationOnce(props => (
-        <div {...props} className="MuiDrawer" onClose={props.onClose()} />
-      ))
-      expect(renderer.create(
-        <Drawer
-          isOpen={isOpen}
-          onClose={() => `props.onClose()`}
-        >
-          Client
-        </Drawer>
-      )).toMatchSnapshot()
+  {
+    const cases = [
+      [true, `dark`],
+      [false, `dark`],
+      [true, `light`],
+      [false, `light`],
+    ]
+    describe.each(cases)(`<Drawer /> (is desktop false, is open %j, %s mode)`, (isOpen, mode) => {
+      it(`should render`, () => {
+        mockPaletteType(mode)
+        useMediaQuery.mockReturnValueOnce(false)
+        MuiDrawer.mockImplementationOnce(props => (
+          <div {...props} className="MuiDrawer" onClose={props.onClose()} />
+        ))
+        expect(renderer.create(
+          <Drawer isOpen={isOpen} onClose={() => `props.onClose`}>Client</Drawer>
+        )).toMatchSnapshot()
+      })
     })
-  })
-  describe.each([[true], [false]])(`<Drawer /> (is desktop true, is open %j)`, isOpen => {
-    it(`should render`, () => {
-      useMediaQuery.mockReturnValueOnce(true)
-      MuiDrawer.mockImplementationOnce(props => <div {...props} className="MuiDrawer" />)
-      expect(renderer.create(
-        <Drawer
-          isOpen={isOpen}
-          onClose={() => `props.onClose()`}
-        >
-          Client
-        </Drawer>
-      )).toMatchSnapshot()
+  }
+  {
+    const cases = [
+      [true, `dark`],
+      [false, `dark`],
+      [true, `light`],
+      [false, `light`],
+    ]
+    describe.each(cases)(`<Drawer /> (is desktop true, is open %j, %s mode)`, (isOpen, mode) => {
+      it(`should render`, () => {
+        mockPaletteType(mode)
+        useMediaQuery.mockReturnValueOnce(true)
+        MuiDrawer.mockImplementationOnce(props => <div {...props} className="MuiDrawer" />)
+        expect(renderer.create(
+          <Drawer isOpen={isOpen} onClose={() => `props.onClose`}>Client</Drawer>
+        )).toMatchSnapshot()
+      })
     })
-  })
+  }
 })

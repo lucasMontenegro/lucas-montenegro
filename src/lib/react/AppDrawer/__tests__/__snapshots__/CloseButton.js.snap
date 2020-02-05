@@ -13,12 +13,18 @@ exports[`../CloseButton <CloseButton /> (is desktop false) should render 1`] = `
   <button
     aria-controls="lib-react-app_drawer"
     className="IconButton"
-    edge="end"
-    onClick="props.onClick()"
+    edge="start"
+    onClick="props.onClick"
   >
-    <span>
-      CloseIcon
-    </span>
+    <i
+      className="FontAwesomeIcon"
+      icon={
+        Array [
+          "fas",
+          "arrow-left",
+        ]
+      }
+    />
   </button>
 </div>
 `;

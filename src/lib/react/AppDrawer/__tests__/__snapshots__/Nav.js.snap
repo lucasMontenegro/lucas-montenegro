@@ -2,90 +2,219 @@
 
 exports[`../Nav <Nav /> (dark mode) should render 1`] = `
 <nav
-  aria-label="{'en':'Navigation links','es':'Links de navegación'}"
+  aria-label={
+    <ul
+      className="translation"
+    >
+      <li
+        className="en"
+      >
+        Navigation links
+      </li>
+      <li
+        className="es"
+      >
+        Links de navegación
+      </li>
+    </ul>
+  }
 >
   <ul
     className="List"
     disablePadding={true}
   >
     <li
-      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
+      className="lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
-      <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
-      >
-        <span>
-          {'en':'en Foo Icon','es':'es Foo Icon'}
-        </span>
-      </div>
-      <div
-        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
-      >
-        <a
-          className="Link"
-          onClick="props.onClick()"
-          to={
-            Object {
-              "pathname": "/foo",
-            }
+      <a
+        className="Link lib-react-app_drawer-nav-anchor({'color':'inherit','display':'block'})"
+        onClick="props.onClick"
+        to={
+          Object {
+            "pathname": "/foo",
           }
+        }
+      >
+        <li
+          className="ListItem"
+          component="div"
         >
-          {'en':'English Foo','es':'Spanish Foo'}
-        </a>
-      </div>
+          <div
+            className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                <i>
+                  EN Foo Icon
+                </i>
+              </li>
+              <li
+                className="es"
+              >
+                <i>
+                  ES Foo Icon
+                </i>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ListItemText"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                English Foo
+              </li>
+              <li
+                className="es"
+              >
+                Spanish Foo
+              </li>
+            </ul>
+          </div>
+        </li>
+      </a>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727','borderRight':'4px solid currentColor'})"
-    >
-      <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
-      >
-        <span>
-          {'en':'en Bar Icon','es':'es Bar Icon'}
-        </span>
-      </div>
-      <div
-        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
-      >
-        <a
-          aria-label="{'en':'Current page','es':'Página actual'}"
-          className="Link"
-          onClick="props.onClick()"
-          to={
-            Object {
-              "pathname": "/bar",
-            }
-          }
+      aria-label={
+        <ul
+          className="translation"
         >
-          {'en':'English Bar','es':'Spanish Bar'}
-        </a>
-      </div>
+          <li
+            className="en"
+          >
+            Current page
+          </li>
+          <li
+            className="es"
+          >
+            Página actual
+          </li>
+        </ul>
+      }
+      className="lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727','borderRight':'4px solid currentColor'})"
+    >
+      <a
+        className="Link lib-react-app_drawer-nav-anchor({'color':'inherit','display':'block'})"
+        onClick="props.onClick"
+        to={
+          Object {
+            "pathname": "/bar",
+          }
+        }
+      >
+        <li
+          className="ListItem"
+          component="div"
+        >
+          <div
+            className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                <i>
+                  EN Bar Icon
+                </i>
+              </li>
+              <li
+                className="es"
+              >
+                <i>
+                  ES Bar Icon
+                </i>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ListItemText"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                English Bar
+              </li>
+              <li
+                className="es"
+              >
+                Spanish Bar
+              </li>
+            </ul>
+          </div>
+        </li>
+      </a>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
+      className="lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
-      <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
-      >
-        <span>
-          {'en':'en Baz Icon','es':'es Baz Icon'}
-        </span>
-      </div>
-      <div
-        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
-      >
-        <a
-          className="Link"
-          onClick="props.onClick()"
-          to={
-            Object {
-              "pathname": "/baz",
-            }
+      <a
+        className="Link lib-react-app_drawer-nav-anchor({'color':'inherit','display':'block'})"
+        onClick="props.onClick"
+        to={
+          Object {
+            "pathname": "/baz",
           }
+        }
+      >
+        <li
+          className="ListItem"
+          component="div"
         >
-          {'en':'English Baz','es':'Spanish Baz'}
-        </a>
-      </div>
+          <div
+            className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                <i>
+                  EN Baz Icon
+                </i>
+              </li>
+              <li
+                className="es"
+              >
+                <i>
+                  ES Baz Icon
+                </i>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ListItemText"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                English Baz
+              </li>
+              <li
+                className="es"
+              >
+                Spanish Baz
+              </li>
+            </ul>
+          </div>
+        </li>
+      </a>
     </li>
   </ul>
 </nav>
@@ -93,90 +222,219 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
 
 exports[`../Nav <Nav /> (light mode) should render 1`] = `
 <nav
-  aria-label="{'en':'Navigation links','es':'Links de navegación'}"
+  aria-label={
+    <ul
+      className="translation"
+    >
+      <li
+        className="en"
+      >
+        Navigation links
+      </li>
+      <li
+        className="es"
+      >
+        Links de navegación
+      </li>
+    </ul>
+  }
 >
   <ul
     className="List"
     disablePadding={true}
   >
     <li
-      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
+      className="lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
-      <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
-      >
-        <span>
-          {'en':'en Foo Icon','es':'es Foo Icon'}
-        </span>
-      </div>
-      <div
-        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
-      >
-        <a
-          className="Link"
-          onClick="props.onClick()"
-          to={
-            Object {
-              "pathname": "/foo",
-            }
+      <a
+        className="Link lib-react-app_drawer-nav-anchor({'color':'inherit','display':'block'})"
+        onClick="props.onClick"
+        to={
+          Object {
+            "pathname": "/foo",
           }
+        }
+      >
+        <li
+          className="ListItem"
+          component="div"
         >
-          {'en':'English Foo','es':'Spanish Foo'}
-        </a>
-      </div>
+          <div
+            className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                <i>
+                  EN Foo Icon
+                </i>
+              </li>
+              <li
+                className="es"
+              >
+                <i>
+                  ES Foo Icon
+                </i>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ListItemText"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                English Foo
+              </li>
+              <li
+                className="es"
+              >
+                Spanish Foo
+              </li>
+            </ul>
+          </div>
+        </li>
+      </a>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1','borderRight':'4px solid currentColor'})"
-    >
-      <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
-      >
-        <span>
-          {'en':'en Bar Icon','es':'es Bar Icon'}
-        </span>
-      </div>
-      <div
-        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
-      >
-        <a
-          aria-label="{'en':'Current page','es':'Página actual'}"
-          className="Link"
-          onClick="props.onClick()"
-          to={
-            Object {
-              "pathname": "/bar",
-            }
-          }
+      aria-label={
+        <ul
+          className="translation"
         >
-          {'en':'English Bar','es':'Spanish Bar'}
-        </a>
-      </div>
+          <li
+            className="en"
+          >
+            Current page
+          </li>
+          <li
+            className="es"
+          >
+            Página actual
+          </li>
+        </ul>
+      }
+      className="lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'}) lib-react-app_drawer-nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1','borderRight':'4px solid currentColor'})"
+    >
+      <a
+        className="Link lib-react-app_drawer-nav-anchor({'color':'inherit','display':'block'})"
+        onClick="props.onClick"
+        to={
+          Object {
+            "pathname": "/bar",
+          }
+        }
+      >
+        <li
+          className="ListItem"
+          component="div"
+        >
+          <div
+            className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                <i>
+                  EN Bar Icon
+                </i>
+              </li>
+              <li
+                className="es"
+              >
+                <i>
+                  ES Bar Icon
+                </i>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ListItemText"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                English Bar
+              </li>
+              <li
+                className="es"
+              >
+                Spanish Bar
+              </li>
+            </ul>
+          </div>
+        </li>
+      </a>
     </li>
     <li
-      className="ListItem lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
+      className="lib-react-app_drawer-nav-li({'color':'theme.palette.primary.main','borderRight':'4px solid transparent'})"
     >
-      <div
-        className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
-      >
-        <span>
-          {'en':'en Baz Icon','es':'es Baz Icon'}
-        </span>
-      </div>
-      <div
-        className="ListItemText lib-react-app_drawer-nav-liText({'display':'block','& > span':{'display':'block'},'& > span > a':{'color':'inherit','display':'block'}})"
-      >
-        <a
-          className="Link"
-          onClick="props.onClick()"
-          to={
-            Object {
-              "pathname": "/baz",
-            }
+      <a
+        className="Link lib-react-app_drawer-nav-anchor({'color':'inherit','display':'block'})"
+        onClick="props.onClick"
+        to={
+          Object {
+            "pathname": "/baz",
           }
+        }
+      >
+        <li
+          className="ListItem"
+          component="div"
         >
-          {'en':'English Baz','es':'Spanish Baz'}
-        </a>
-      </div>
+          <div
+            className="ListItemIcon lib-react-app_drawer-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                <i>
+                  EN Baz Icon
+                </i>
+              </li>
+              <li
+                className="es"
+              >
+                <i>
+                  ES Baz Icon
+                </i>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="ListItemText"
+          >
+            <ul
+              className="translation"
+            >
+              <li
+                className="en"
+              >
+                English Baz
+              </li>
+              <li
+                className="es"
+              >
+                Spanish Baz
+              </li>
+            </ul>
+          </div>
+        </li>
+      </a>
     </li>
   </ul>
 </nav>

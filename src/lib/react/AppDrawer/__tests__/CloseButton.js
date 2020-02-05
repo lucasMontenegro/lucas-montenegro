@@ -15,9 +15,12 @@ jest.mock(`@material-ui/core/IconButton`, () => {
     )),
   }
 })
-jest.mock(`@material-ui/icons/Close`, () => {
+jest.mock(`lib/react/fontAwesome`, () => {
   const React = jest.requireActual("react")
-  return { __esModule: true, default: props => <span {...props}>CloseIcon</span> }
+  return {
+    __esModule: true,
+    FontAwesomeIcon: props => <i {...props} className="FontAwesomeIcon" />,
+  }
 })
 describe(`../CloseButton`, () => {
   it(`should use the right versions of its dependencies`, () => {
@@ -30,9 +33,7 @@ describe(`../CloseButton`, () => {
   })
   describe(`<CloseButton /> (is desktop true)`, () => {
     it(`should render`, () => {
-      expect(renderer.create(
-        <CloseButton isDesktop={true} t={() => {}} onClick={() => {}} />
-      ).toJSON()).toBeNull()
+      expect(renderer.create(<CloseButton isDesktop={true} />).toJSON()).toBeNull()
     })
   })
   describe(`<CloseButton /> (is desktop false)`, () => {
@@ -44,7 +45,7 @@ describe(`../CloseButton`, () => {
         }, {})
       }
       expect(renderer.create(
-        <CloseButton isDesktop={false} t={t} onClick={() => `props.onClick()`} />
+        <CloseButton isDesktop={false} t={t} onClick={() => `props.onClick`} />
       ).toJSON()).toMatchSnapshot()
     })
   })

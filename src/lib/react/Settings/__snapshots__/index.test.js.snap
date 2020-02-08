@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`./index.js <Settings /> (is open false) should render 1`] = `
+Array [
+  <div
+    className="Dialog"
+    fullScreen={
+      Object {
+        "desktop": false,
+        "mobile": true,
+        "tablet": false,
+      }
+    }
+    id="lib-react-settings"
+    maxWidth="xs"
+    onClose={[Function]}
+    open={false}
+    scroll="body"
+  >
+    <div
+      className="DialogTitle lib-react-settings-title({'display':'flex','alignItems':'center','& > *':{'margin':8}})"
+      disableTypography={true}
+    >
+      <div
+        className="Avatar lib-react-settings-avatar({'backgroundColor':'theme.palette.primary.main'})"
+      >
+        <i
+          className="FontAwesomeIcon"
+          icon={
+            Array [
+              "fas",
+              "cog",
+            ]
+          }
+        />
+      </div>
+      <div
+        className="Typography"
+        component="h1"
+        variant="h5"
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Settings
+          </div>
+          <div
+            className="es"
+          >
+            Configuración
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr
+      className="Divider"
+    />
+    <div
+      className="DialogContent"
+    >
+      <section
+        className="lib-react-settings-section({'paddingTop':16,'paddingBottom':16})"
+      >
+        <div
+          className="Typography"
+          component="h2"
+          id="lib-react-settings-dark_mode_label"
+          variant="h6"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Dark mode
+            </div>
+            <div
+              className="es"
+            >
+              Modo oscuro
+            </div>
+          </div>
+        </div>
+        <div
+          className="Typography"
+          component="p"
+          variant="body2"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              This option turns the light surfaces of the page dark, creating an experience ideal for night.
+            </div>
+            <div
+              className="es"
+            >
+              Esta opción cambia las superfícies claras de la página por oscuras, creando una experiencia ideal para la noche.
+            </div>
+          </div>
+        </div>
+        <div
+          className="lib-react-settings-darkMode({'display':'flex','justifyContent':'flex-end'})"
+        >
+          <input
+            aria-labelledby="lib-react-settings-dark_mode_label"
+            checked="darkMode.value"
+            className="Switch"
+            color="primary"
+            onChange="darkMode.toggle"
+          />
+        </div>
+      </section>
+      <hr
+        className="Divider"
+      />
+      <section
+        className="lib-react-settings-section({'paddingTop':16,'paddingBottom':16})"
+      >
+        <div
+          className="Typography"
+          component="h2"
+          variant="h6"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Translations
+            </div>
+            <div
+              className="es"
+            >
+              Traducciones
+            </div>
+          </div>
+        </div>
+        <div
+          className="Typography"
+          component="p"
+          variant="body2"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              English and Spanish translations are available. Click on the link below to switch to Spanish.
+            </div>
+            <div
+              className="es"
+            >
+              Hay traducciones disponibles al español y al inglés. Hacé click en el link de abajo para cambiar a inglés.
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a
+              className="Link"
+              to={
+                Object {
+                  "pathname": "/es/foo",
+                }
+              }
+            >
+              Spanish
+            </a>
+          </li>
+          <li>
+            <a
+              className="Link"
+              to={
+                Object {
+                  "pathname": "/pt/foo",
+                }
+              }
+            >
+              Portuguese
+            </a>
+          </li>
+        </ul>
+      </section>
+      <hr
+        className="Divider"
+      />
+    </div>
+    <div
+      className="DialogActions"
+    >
+      <button
+        aria-controls="lib-react-settings"
+        className="Button"
+        onClick={[Function]}
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Done
+          </div>
+          <div
+            className="es"
+          >
+            Listo
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>,
+  <button
+    className="settings-children"
+    onClick={[Function]}
+  >
+    Open Settings
+  </button>,
+]
+`;
+
+exports[`./index.js <Settings /> (is open true) should render 1`] = `
+Array [
+  <div
+    className="Dialog"
+    fullScreen={
+      Object {
+        "desktop": false,
+        "mobile": true,
+        "tablet": false,
+      }
+    }
+    id="lib-react-settings"
+    maxWidth="xs"
+    onClose={[Function]}
+    open={true}
+    scroll="body"
+  >
+    <div
+      className="DialogTitle lib-react-settings-title({'display':'flex','alignItems':'center','& > *':{'margin':8}})"
+      disableTypography={true}
+    >
+      <div
+        className="Avatar lib-react-settings-avatar({'backgroundColor':'theme.palette.primary.main'})"
+      >
+        <i
+          className="FontAwesomeIcon"
+          icon={
+            Array [
+              "fas",
+              "cog",
+            ]
+          }
+        />
+      </div>
+      <div
+        className="Typography"
+        component="h1"
+        variant="h5"
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Settings
+          </div>
+          <div
+            className="es"
+          >
+            Configuración
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr
+      className="Divider"
+    />
+    <div
+      className="DialogContent"
+    >
+      <section
+        className="lib-react-settings-section({'paddingTop':16,'paddingBottom':16})"
+      >
+        <div
+          className="Typography"
+          component="h2"
+          id="lib-react-settings-dark_mode_label"
+          variant="h6"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Dark mode
+            </div>
+            <div
+              className="es"
+            >
+              Modo oscuro
+            </div>
+          </div>
+        </div>
+        <div
+          className="Typography"
+          component="p"
+          variant="body2"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              This option turns the light surfaces of the page dark, creating an experience ideal for night.
+            </div>
+            <div
+              className="es"
+            >
+              Esta opción cambia las superfícies claras de la página por oscuras, creando una experiencia ideal para la noche.
+            </div>
+          </div>
+        </div>
+        <div
+          className="lib-react-settings-darkMode({'display':'flex','justifyContent':'flex-end'})"
+        >
+          <input
+            aria-labelledby="lib-react-settings-dark_mode_label"
+            checked="darkMode.value"
+            className="Switch"
+            color="primary"
+            onChange="darkMode.toggle"
+          />
+        </div>
+      </section>
+      <hr
+        className="Divider"
+      />
+      <section
+        className="lib-react-settings-section({'paddingTop':16,'paddingBottom':16})"
+      >
+        <div
+          className="Typography"
+          component="h2"
+          variant="h6"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Translations
+            </div>
+            <div
+              className="es"
+            >
+              Traducciones
+            </div>
+          </div>
+        </div>
+        <div
+          className="Typography"
+          component="p"
+          variant="body2"
+        >
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              English and Spanish translations are available. Click on the link below to switch to Spanish.
+            </div>
+            <div
+              className="es"
+            >
+              Hay traducciones disponibles al español y al inglés. Hacé click en el link de abajo para cambiar a inglés.
+            </div>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <a
+              className="Link"
+              to={
+                Object {
+                  "pathname": "/es/foo",
+                }
+              }
+            >
+              Spanish
+            </a>
+          </li>
+          <li>
+            <a
+              className="Link"
+              to={
+                Object {
+                  "pathname": "/pt/foo",
+                }
+              }
+            >
+              Portuguese
+            </a>
+          </li>
+        </ul>
+      </section>
+      <hr
+        className="Divider"
+      />
+    </div>
+    <div
+      className="DialogActions"
+    >
+      <button
+        aria-controls="lib-react-settings"
+        className="Button"
+        onClick={[Function]}
+      >
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Done
+          </div>
+          <div
+            className="es"
+          >
+            Listo
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>,
+  <button
+    className="settings-children"
+    onClick={[Function]}
+  >
+    Open Settings
+  </button>,
+]
+`;
+
+exports[`./index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

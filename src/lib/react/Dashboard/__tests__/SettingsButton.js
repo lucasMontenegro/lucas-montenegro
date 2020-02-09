@@ -1,6 +1,6 @@
 import renderer from "react-test-renderer"
 import React from "react"
-import CloseButton from "../CloseButton"
+import SettingsButton from "../SettingsButton"
 jest.mock(`@material-ui/core/Tooltip`, () => {
   const React = jest.requireActual("react")
   return { __esModule: true, default: props => <div {...props} className="Tooltip" /> }
@@ -19,16 +19,11 @@ jest.mock(`lib/react/fontAwesome`, () => {
     FontAwesomeIcon: props => <i {...props} className="FontAwesomeIcon" />,
   }
 })
-describe(`../CloseButton`, () => {
+describe(`../SettingsButton`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react`, `@material-ui/core`])).toMatchSnapshot()
   })
-  describe(`<CloseButton /> (is desktop true)`, () => {
-    it(`should render`, () => {
-      expect(renderer.create(<CloseButton isDesktop={true} />).toJSON()).toBeNull()
-    })
-  })
-  describe(`<CloseButton /> (is desktop false)`, () => {
+  describe(`<SettingsButton />`, () => {
     it(`should render`, () => {
       function t (source) {
         return Object.keys(source).reduce((translations, languageCode) => {
@@ -37,7 +32,7 @@ describe(`../CloseButton`, () => {
         }, {})
       }
       expect(renderer.create(
-        <CloseButton isDesktop={false} t={t} onClick={() => `props.onClick`} />
+        <SettingsButton t={t} onClick={() => `props.onClick`} />
       ).toJSON()).toMatchSnapshot()
     })
   })

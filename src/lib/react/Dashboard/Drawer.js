@@ -5,6 +5,8 @@ import React, { Fragment } from "react"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import CloseButton from "./CloseButton"
+import Settings from "lib/react/Settings"
+import SettingsButton from "./SettingsButton"
 import Nav from "./Nav"
 import MuiDrawer from "@material-ui/core/Drawer"
 const desktopBreakpoint = theme => theme.breakpoints.up(`md`)
@@ -15,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     width: theme.spacing(32),
     left: 0,
     right: `auto`,
+    paddingRight: `0px !important`,
   },
   toolbar: {
     justifyContent: `flex-end`,
@@ -49,6 +52,7 @@ export default function Drawer (props) {
         <Toolbar className={classes.toolbar}>
           <CloseButton isDesktop={isDesktop} t={t} onClick={onClose} />
           <div className="flexible-space" />
+          <Settings>{open => <SettingsButton t={t} onClick={open} />}</Settings>
         </Toolbar>
       </AppBar>
       <Nav t={t} onClick={onClose} />

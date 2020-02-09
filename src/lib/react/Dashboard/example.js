@@ -61,7 +61,12 @@ function Example (props) {
     const { mode, languageCode, currentClient } = props.match.params
     languageDetector.set(languageCode)
     return (
-      <DarkModeContext.Provider value={{ value: mode === `dark` }}>
+      <DarkModeContext.Provider
+        value={{
+          value: mode === `dark`,
+          toggle: () => console.log(`toggle dark mode`),
+        }}
+      >
         <Theme>
           <CssBaseline />
           <RoutingContext.Provider
@@ -75,6 +80,7 @@ function Example (props) {
                   location: { pathname: `/react/Dashboard/${mode}/${languageCode}/${clientName}` },
                 }
               }),
+              getTranslationLinks: () => [],
             }}
           >
             <Dashboard>

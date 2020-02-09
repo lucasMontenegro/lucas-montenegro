@@ -23,7 +23,10 @@ makeStyles.mockImplementation((styles, options) => () => {
 function mockPaletteType (mode) {
   paletteType = mode
 }
-jest.mock(`lib/react/useTranslation`, () => ({ __esModule: true, default: () => () => `t` }))
+jest.mock(`lib/react/useTranslation`, () => ({
+  __esModule: true,
+  default: () => () => `() => useTranslation()()`,
+}))
 jest.mock(`@material-ui/core/useMediaQuery`, () => ({ __esModule: true, default: jest.fn() }))
 jest.mock(`@material-ui/core/AppBar`, () => {
   const React = jest.requireActual("react")
@@ -45,6 +48,27 @@ jest.mock(`../CloseButton`, () => {
     __esModule: true,
     default: props => (
       <div {...props} className="CloseButton" onClick={props.onClick()} t={props.t()} />
+    ),
+  }
+})
+jest.mock(`lib/react/Settings`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: props => (
+      <React.Fragment>
+        <div {...props} className="Settings" children={null} />
+        {props.children(() => `function openSettingsDialog () {}`)}
+      </React.Fragment>
+    ),
+  }
+})
+jest.mock(`../SettingsButton`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: props => (
+      <button {...props} className="SettingsButton" onClick={props.onClick()} t={props.t()} />
     ),
   }
 })

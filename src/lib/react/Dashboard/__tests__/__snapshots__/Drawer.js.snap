@@ -22,7 +22,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -32,17 +32,25 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
           className="CloseButton"
           isDesktop={false}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -71,7 +79,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -81,17 +89,25 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
           className="CloseButton"
           isDesktop={false}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -120,7 +136,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -130,17 +146,25 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
           className="CloseButton"
           isDesktop={false}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -169,7 +193,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -179,17 +203,25 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
           className="CloseButton"
           isDesktop={false}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -210,7 +242,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -220,17 +252,25 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
           className="CloseButton"
           isDesktop={true}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -251,7 +291,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -261,17 +301,25 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
           className="CloseButton"
           isDesktop={true}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -292,7 +340,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -302,17 +350,25 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
           className="CloseButton"
           isDesktop={true}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client
@@ -333,7 +389,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
@@ -343,17 +399,25 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
           className="CloseButton"
           isDesktop={true}
           onClick="props.onClose"
-          t="t"
+          t="() => useTranslation()()"
         />
         <div
           className="flexible-space"
+        />
+        <div
+          className="Settings"
+        />
+        <button
+          className="SettingsButton"
+          onClick="function openSettingsDialog () {}"
+          t="() => useTranslation()()"
         />
       </div>
     </header>
     <div
       className="Nav"
       onClick="props.onClose"
-      t="t"
+      t="() => useTranslation()()"
     />
   </div>
   Client

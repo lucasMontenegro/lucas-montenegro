@@ -80,7 +80,7 @@ function Example (props) {
                   location: { pathname: `/react/Dashboard/${mode}/${languageCode}/${clientName}` },
                 }
               }),
-              getTranslationLinks: () => [],
+              translationLinks: { get: () => [] },
             }}
           >
             <Dashboard>

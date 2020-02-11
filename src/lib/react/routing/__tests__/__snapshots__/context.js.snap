@@ -1,5 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`../context RoutingContext should be configured properly 1`] = `
+Array [
+  Array [
+    Object {
+      "route": Object {
+        "redirect": null,
+        "render": Object {},
+      },
+      "routing": null,
+    },
+  ],
+]
+`;
+
+exports[`../context RoutingContext should be configured properly 2`] = `
+Object {
+  "Provider": [Function],
+  "displayName": "RoutingContext",
+}
+`;
+
+exports[`../context RoutingProvider should render 1`] = `
+<div
+  className="RoutingContextProvider"
+  value={
+    Object {
+      "clientLinks": Array [
+        Object {
+          "active": true,
+          "clientName": "foo",
+          "location": Object {
+            "pathname": "/foo",
+          },
+          "render": Object {
+            "Icon": [Function],
+            "text": Object {
+              "en": [Function],
+              "es": [Function],
+            },
+          },
+        },
+      ],
+      "route": Object {
+        "clientName": "foo",
+        "location": Object {
+          "pathname": "/foo",
+        },
+        "render": Object {
+          "foo": true,
+        },
+      },
+      "routing": Object {
+        "clientNames": Array [
+          "foo",
+        ],
+        "languageCodes": Array [
+          "en",
+          "es",
+        ],
+      },
+      "translationLinks": Object {
+        "get": [Function],
+        "links": Array [
+          Object {
+            "languageCode": "es",
+            "location": Object {
+              "pathname": "/foo/es",
+            },
+            "text": "spanish",
+          },
+        ],
+      },
+    }
+  }
+>
+  children
+</div>
+`;
+
 exports[`../context should use the right versions of its dependencies 1`] = `
 Object {
   "react": "^16.10.1",

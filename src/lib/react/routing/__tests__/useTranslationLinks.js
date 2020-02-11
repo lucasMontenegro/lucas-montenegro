@@ -8,22 +8,26 @@ describe(`../useTranslationLinks`, () => {
     expect(jestUtils.getDependencies([`react`])).toMatchSnapshot()
   })
   describe(`useTranslationLinks (redirecting route)`, () => {
-    let getTranslationLinks
+    let translationLinks
     beforeAll(() => {
-      getTranslationLinks = useTranslationLinks({
+      translationLinks = useTranslationLinks({
         languageCodes: [`en`, `es`, `pt`],
         languageNames: { en: `English`, es: `Spanish`, pt: `Portuguese` },
       }, {})
     })
-    it(`should return an empty array`, () => {
-      expect(getTranslationLinks()).toEqual([])
+    describe(`translationLinks.links`, () => {
+      it(`should be an empty array`, () => {
+        expect(translationLinks.links).toEqual([])
+      })
     })
-    it(`should memoize the links`, () => {
-      expect(getTranslationLinks()).toBe(getTranslationLinks())
+    describe.each([[true], [false]])(`translationLinks.get (render links %j)`, render => {
+      it(`should return translationLinks.links`, () => {
+        expect(translationLinks.get(render)).toEqual(translationLinks.links)
+      })
     })
   })
   describe(`useTranslationLinks (client route)`, () => {
-    let getTranslationLinks
+    let translationLinks
     beforeAll(() => {
       const routing = {
         languageCodes: [`en`, `es`, `pt`],
@@ -38,24 +42,68 @@ describe(`../useTranslationLinks`, () => {
       }
       languageDetector.get = () => `es`
       const route = { clientName: `foo`, location: { pathname: `/es/foo` } }
-      getTranslationLinks = useTranslationLinks(routing, route)
+      translationLinks = useTranslationLinks(routing, route)
     })
-    it(`should create the translation links`, () => {
-      expect(getTranslationLinks()).toEqual([
-        {
-          languageCode: `en`,
-          location: { pathname: `/es/foo/to-intl/to-english` },
-          text: `English`,
-        },
-        {
-          languageCode: `pt`,
-          location: { pathname: `/es/foo/to-intl/to-portuguese` },
-          text: `Portuguese`,
-        },
-      ])
+    describe(`translationLinks.links`, () => {
+      it(`should be empty`, () => {
+        expect(`links` in translationLinks).toBe(false)
+      })
     })
-    it(`should memoize the links`, () => {
-      expect(getTranslationLinks()).toBe(getTranslationLinks())
-    })
+    {
+      const msg = `translationLinks.get (translationLinks.links is available, render links %j)`
+      describe.each([[true], [false]])(msg, render => {
+        it(`should return de saved links`, () => {
+          const links = translationLinks.links = []
+          expect(translationLinks.get(render)).toBe(links)
+        })
+      })
+    }
+    {
+      const msg = (
+        `translationLinks.get (translationLinks.links is not available, render links true)`
+      )
+      describe(msg, () => {
+        let result
+        beforeAll(() => {
+          delete translationLinks.links
+          result = translationLinks.get(true)
+        })
+        it(`should create the translation links`, () => {
+          expect(result).toEqual([
+            {
+              languageCode: `en`,
+              location: { pathname: `/es/foo/to-intl/to-english` },
+              text: `English`,
+            },
+            {
+              languageCode: `pt`,
+              location: { pathname: `/es/foo/to-intl/to-portuguese` },
+              text: `Portuguese`,
+            },
+          ])
+        })
+        it(`should memoize the links`, () => {
+          expect(translationLinks.links).toBe(result)
+        })
+      })
+    }
+    {
+      const msg = (
+        `translationLinks.get (translationLinks.links is not available, render links false)`
+      )
+      describe(msg, () => {
+        let result
+        beforeAll(() => {
+          delete translationLinks.links
+          result = translationLinks.get(false)
+        })
+        it(`should return an empty array`, () => {
+          expect(result).toEqual([])
+        })
+        it(`should not memoize the links`, () => {
+          expect(`links` in translationLinks).toBe(false)
+        })
+      })
+    }
   })
 })

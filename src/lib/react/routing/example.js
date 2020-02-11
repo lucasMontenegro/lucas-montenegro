@@ -91,14 +91,20 @@ function ClientLinks () {
 }
 function TranslationLinks () {
   const [links, saveLinks] = useState(null)
+  const [render, setRender] = useState(true)
   const context = useRoutingContext()
   return (
     <Div color="Teal">
       <h4>Translation Links</h4>
       <GetValue
+        id="render-translation-links"
+        value={render}
+        onClick={() => setRender(!render)}
+      />
+      <GetValue
         id="get-translation-links"
         value={links}
-        onClick={() => saveLinks(context.getTranslationLinks())}
+        onClick={() => saveLinks(context.translationLinks.get(render))}
       />
       <ul>
         {links && links.map(link => {

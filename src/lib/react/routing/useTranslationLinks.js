@@ -14,24 +14,31 @@ export default function useTranslationLinks (routing, route) {
   ), [routing, clientName])
   return useMemo(() => {
     if (translators) {
-      let links
-      return function getTranslationLinks () {
-        if (links) {
-          return links
-        }
-        const oldLanguage = languageDetector.get()
-        const intl = translators[oldLanguage].toIntl(route.location)
-        return links = baseLinks.filter(link => link.languageCode !== oldLanguage).map(link => {
-          const { languageCode } = link
-          return {
-            languageCode,
-            location: translators[languageCode].toLocal(intl),
-            text: link.text,
+      return {
+        get (render) {
+          if (this.links) return this.links
+          if (render) {
+            const oldLanguage = languageDetector.get()
+            const intl = translators[oldLanguage].toIntl(route.location)
+            return this.links = baseLinks.filter(link => link.languageCode !== oldLanguage)
+              .map(link => {
+                const { languageCode } = link
+                return {
+                  languageCode,
+                  location: translators[languageCode].toLocal(intl),
+                  text: link.text,
+                }
+              })
           }
-        })
+          return []
+        },
       }
     }
-    const links = []
-    return () => links
+    return {
+      links: [],
+      get () {
+        return this.links
+      },
+    }
   }, [translators, route, baseLinks])
 }

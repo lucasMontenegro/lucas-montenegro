@@ -15,10 +15,10 @@ export function RoutingProvider (props) {
   const router = useMemo(() => new Router(routing), [routing])
   const route = useMemo(() => router.findRoute(location), [router, location])
   const clientLinks = useClientLinks(props.clientLinks, routing, route)
-  const getTranslationLinks = useTranslationLinks(routing, route)
+  const translationLinks = useTranslationLinks(routing, route)
   const value = useMemo(() => (
-    { routing, route, clientLinks, getTranslationLinks }
-  ), [routing, route, clientLinks, getTranslationLinks])
+    { routing, route, clientLinks, translationLinks }
+  ), [routing, route, clientLinks, translationLinks])
   return <RoutingContext.Provider value={value}>{props.children}</RoutingContext.Provider>
 }
 export function useRoute () {

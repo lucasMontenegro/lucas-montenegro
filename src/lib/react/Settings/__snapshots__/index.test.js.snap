@@ -163,32 +163,7 @@ Array [
             </div>
           </div>
         </div>
-        <ul>
-          <li>
-            <a
-              className="Link"
-              to={
-                Object {
-                  "pathname": "/es/foo",
-                }
-              }
-            >
-              Spanish
-            </a>
-          </li>
-          <li>
-            <a
-              className="Link"
-              to={
-                Object {
-                  "pathname": "/pt/foo",
-                }
-              }
-            >
-              Portuguese
-            </a>
-          </li>
-        </ul>
+        <ul />
       </section>
       <hr
         className="Divider"

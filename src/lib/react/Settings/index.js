@@ -115,7 +115,7 @@ export default function Settings (props) {
               })}
             </Typography>
             <ul>
-              {useRoutingContext().getTranslationLinks().map(link => (
+              {useRoutingContext().translationLinks.get(isOpen).map(link => (
                 <li key={link.languageCode}><Link to={link.location}>{link.text}</Link></li>
               ))}
             </ul>

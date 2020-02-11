@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Dialog from "@material-ui/core/Dialog"
+import { useRoutingContext } from "lib/react/routing/context"
 import Button from "@material-ui/core/Button"
 import renderer from "react-test-renderer"
 import Settings from "./index.js"
@@ -96,15 +97,7 @@ jest.mock(`@material-ui/core/Switch`, () => {
     default: props => <input {...props} className="Switch" onChange={props.onChange()} />,
   }
 })
-jest.mock(`lib/react/routing/context`, () => ({
-  __esModule: true,
-  useRoutingContext: () => ({
-    getTranslationLinks: () => [
-      { languageCode: `es`, location: { pathname: `/es/foo` }, text: `Spanish` },
-      { languageCode: `pt`, location: { pathname: `/pt/foo` }, text: `Portuguese` },
-    ],
-  }),
-}))
+jest.mock(`lib/react/routing/context`, () => ({ __esModule: true, useRoutingContext: jest.fn() }))
 jest.mock(`lib/react/links/Link`, () => {
   const React = jest.requireActual("react")
   return { __esModule: true, default: props => <a {...props} className="Link" /> }
@@ -124,60 +117,82 @@ describe(`./index.js`, () => {
   it(`should use the right versions of its dependencies`, () => {
     expect(jestUtils.getDependencies([`react`, `@material-ui/core`])).toMatchSnapshot()
   })
-  describe.each([[true], [false]])(`<Settings /> (is open %j)`, isOpenValue => {
-    let html
-    const setValue = jest.fn()
-    const children = jest.fn(open => (
-      <button className="settings-children" onClick={open}>Open Settings</button>
-    ))
-    let open, close
-    beforeAll(() => {
-      useState.mockReturnValueOnce([isOpenValue, setValue])
-      html = renderer.create(<Settings>{children}</Settings>)
-      try {
-        open = children.mock.calls[0][0]
-      } catch (e) {}
-      try {
-        close = Dialog.mock.calls[0][0].onClose
-      } catch (e) {}
-    })
-    it(`should render`, () => {
-      expect(html.toJSON()).toMatchSnapshot()
-    })
-    it(`should pass a dialog opening function to the children render prop`, () => {
-      expect(children.mock.calls).toHaveLength(1)
-      expect(children.mock.calls[0]).toHaveLength(1)
-      expect(children.mock.calls[0][0]).toBe(open)
-      expect(open).toBeInstanceOf(Function)
-      children.mockClear()
-    })
-    describe(`dialog opening function`, () => {
-      it(`should set the state to true`, () => {
-        open()
-        expect(setValue.mock.calls).toEqual([[true]])
-        setValue.mockClear()
+  {
+    const cases = [
+      [
+        true,
+        {
+          translationLinks: {
+            get: () => [
+              { languageCode: `es`, location: { pathname: `/es/foo` }, text: `Spanish` },
+              { languageCode: `pt`, location: { pathname: `/pt/foo` }, text: `Portuguese` },
+            ],
+          },
+        },
+      ],
+      [
+        false,
+        {
+          translationLinks: { get: () => [] },
+        },
+      ],
+    ]
+    describe.each(cases)(`<Settings /> (is open %j)`, (isOpenValue, routingContext) => {
+      let html
+      const setValue = jest.fn()
+      const children = jest.fn(open => (
+        <button className="settings-children" onClick={open}>Open Settings</button>
+      ))
+      let open, close
+      beforeAll(() => {
+        useState.mockReturnValueOnce([isOpenValue, setValue])
+        useRoutingContext.mockReturnValueOnce(routingContext)
+        html = renderer.create(<Settings>{children}</Settings>)
+        try {
+          open = children.mock.calls[0][0]
+        } catch (e) {}
+        try {
+          close = Dialog.mock.calls[0][0].onClose
+        } catch (e) {}
+      })
+      it(`should render`, () => {
+        expect(html.toJSON()).toMatchSnapshot()
+      })
+      it(`should pass a dialog opening function to the children render prop`, () => {
+        expect(children.mock.calls).toHaveLength(1)
+        expect(children.mock.calls[0]).toHaveLength(1)
+        expect(children.mock.calls[0][0]).toBe(open)
+        expect(open).toBeInstanceOf(Function)
+        children.mockClear()
+      })
+      describe(`dialog opening function`, () => {
+        it(`should set the state to true`, () => {
+          open()
+          expect(setValue.mock.calls).toEqual([[true]])
+          setValue.mockClear()
+        })
+      })
+      it(`should pass a dialog closing function to the Dialog component`, () => {
+        expect(Dialog.mock.calls).toHaveLength(1)
+        expect(Dialog.mock.calls).toHaveProperty([0, 0, `onClose`])
+        expect(Dialog.mock.calls[0][0].onClose).toBe(close)
+        expect(close).toBeInstanceOf(Function)
+        Dialog.mockClear()
+      })
+      it(`should pass a dialog closing function to the Button component`, () => {
+        expect(Button.mock.calls).toHaveLength(1)
+        expect(Button.mock.calls).toHaveProperty([0, 0, `onClick`])
+        expect(Button.mock.calls[0][0].onClick).toBe(close)
+        expect(close).toBeInstanceOf(Function)
+        Button.mockClear()
+      })
+      describe(`dialog closing function`, () => {
+        it(`should set the state to false`, () => {
+          close()
+          expect(setValue.mock.calls).toEqual([[false]])
+          setValue.mockClear()
+        })
       })
     })
-    it(`should pass a dialog closing function to the Dialog component`, () => {
-      expect(Dialog.mock.calls).toHaveLength(1)
-      expect(Dialog.mock.calls).toHaveProperty([0, 0, `onClose`])
-      expect(Dialog.mock.calls[0][0].onClose).toBe(close)
-      expect(close).toBeInstanceOf(Function)
-      Dialog.mockClear()
-    })
-    it(`should pass a dialog closing function to the Button component`, () => {
-      expect(Button.mock.calls).toHaveLength(1)
-      expect(Button.mock.calls).toHaveProperty([0, 0, `onClick`])
-      expect(Button.mock.calls[0][0].onClick).toBe(close)
-      expect(close).toBeInstanceOf(Function)
-      Button.mockClear()
-    })
-    describe(`dialog closing function`, () => {
-      it(`should set the state to false`, () => {
-        close()
-        expect(setValue.mock.calls).toEqual([[false]])
-        setValue.mockClear()
-      })
-    })
-  })
+  }
 })

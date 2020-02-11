@@ -37,16 +37,14 @@ function Init (props) {
           <CssBaseline />
           <RoutingContext.Provider
             value={{
-              getTranslationLinks: () => (
-                baseLinks.filter(link => link.languageCode !== currentLanguage).map(link => {
-                  const { languageCode } = link
-                  return {
+              translationLinks: {
+                get: () => baseLinks.filter(link => link.languageCode !== currentLanguage)
+                  .map(({ languageCode, text }) => ({
                     languageCode,
                     location: { pathname: `/react/Settings/${languageCode}` },
-                    text: link.text,
-                  }
-                })
-              ),
+                    text,
+                  })),
+              },
             }}
           >
             <Example />

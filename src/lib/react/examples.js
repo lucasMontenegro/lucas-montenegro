@@ -10,6 +10,12 @@ import links from "./links/examples"
 import routing from "./routing/example"
 import WufooForm from "./WufooForm/example"
 import useTranslation from "./useTranslation/example"
+import AppDrawer from "./AppDrawer/example"
+import DocumentTitle from "./DocumentTitle/example"
+import useResponsiveLayout from "./useResponsiveLayout/example"
+import MainBar from "./MainBar/example"
+import Dashboard from "./Dashboard/example"
+import Settings from "./Settings/example"
 export default (
   <Route
     path="/react"
@@ -25,6 +31,12 @@ export default (
         {routing}
         {WufooForm}
         {useTranslation}
+        {AppDrawer}
+        {DocumentTitle}
+        {useResponsiveLayout}
+        {MainBar}
+        {Dashboard}
+        {Settings}
       </Switch>
     )}
   />

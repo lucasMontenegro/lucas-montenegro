@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../SettingsButton <SettingsButton /> should render 1`] = `
+<div
+  className="Tooltip"
+  title={
+    Object {
+      "en": "Settings",
+      "es": "Configuración",
+    }
+  }
+>
+  <button
+    aria-controls="lib-react-settings"
+    className="IconButton"
+    edge="end"
+    onClick="props.onClick"
+  >
+    <i
+      className="FontAwesomeIcon"
+      icon={
+        Array [
+          "fas",
+          "cog",
+        ]
+      }
+    />
+  </button>
+</div>
+`;
+
+exports[`../SettingsButton should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

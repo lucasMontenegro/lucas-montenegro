@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../TabletDrawer <TabletDrawer /> should render 1`] = `
+<div
+  className="Drawer"
+  classes={
+    Object {
+      "paper": "lib-react-main_bar-tablet_drawer-drawerPaper({'width':81})",
+    }
+  }
+  variant="permanent"
+>
+  <div
+    className="List"
+    disablePadding={true}
+  >
+    <li>
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Open dashboard
+            </div>
+            <div
+              className="es"
+            >
+              Abrir panel de control
+            </div>
+          </div>
+        }
+      >
+        <div
+          aria-controls="lib-react-dashboard"
+          button={true}
+          className="ListItem lib-react-main_bar-tablet_drawer-muiLi({'justifyContent':'center'})"
+          onClick="useDashboardOpener()"
+        >
+          <div
+            className="ListItemIcon lib-react-main_bar-tablet_drawer-liIcon({'fontSize':24,'minWidth':'initial'})"
+          >
+            <i
+              className="FontAwesomeIcon"
+              icon={
+                Array [
+                  "fas",
+                  "bars",
+                ]
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </li>
+    <div
+      className="Divider"
+    />
+    <li>
+      <div
+        className="TabletNav"
+        t={[Function]}
+      />
+    </li>
+  </div>
+</div>
+`;
+
+exports[`../TabletDrawer should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

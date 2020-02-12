@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    ModalProps={
+      Object {
+        "keepMounted": true,
+      }
+    }
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    id="lib-react-app_drawer"
+    onClose="props.onClose"
+    open={false}
+    variant="temporary"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={false}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    ModalProps={
+      Object {
+        "keepMounted": true,
+      }
+    }
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    id="lib-react-app_drawer"
+    onClose="props.onClose"
+    open={false}
+    variant="temporary"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={false}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    ModalProps={
+      Object {
+        "keepMounted": true,
+      }
+    }
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    id="lib-react-app_drawer"
+    onClose="props.onClose"
+    open={true}
+    variant="temporary"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={false}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    ModalProps={
+      Object {
+        "keepMounted": true,
+      }
+    }
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    id="lib-react-app_drawer"
+    onClose="props.onClose"
+    open={true}
+    variant="temporary"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={false}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    variant="permanent"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={true}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    variant="permanent"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={true}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    variant="permanent"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={true}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should render 1`] = `
+<div
+  className="lib-react-app_drawer-children({'theme.breakpoints.up(\`md\`)':{'marginLeft':257}})"
+>
+  <div
+    className="MuiDrawer"
+    classes={
+      Object {
+        "paper": "lib-react-app_drawer-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+      }
+    }
+    variant="permanent"
+  >
+    <header
+      className="AppBar lib-react-app_drawer-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto'})"
+      elevation={0}
+    >
+      <div
+        className="Toolbar lib-react-app_drawer-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+      >
+        <div
+          className="CloseButton"
+          isDesktop={true}
+          onClick="props.onClose"
+          t="t"
+        />
+        <div
+          className="flexible-space"
+        />
+      </div>
+    </header>
+    <div
+      className="Nav"
+      onClick="props.onClose"
+      t="t"
+    />
+  </div>
+  Client
+</div>
+`;
+
+exports[`../Drawer should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

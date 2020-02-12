@@ -1,0 +1,454 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../TabletNav <TabletNav /> (dark mode) should render 1`] = `
+<nav
+  aria-label={
+    <div
+      className="translation"
+    >
+      <div
+        className="en"
+      >
+        Navigation links
+      </div>
+      <div
+        className="es"
+      >
+        Links de navegación
+      </div>
+    </div>
+  }
+>
+  <ul
+    className="List"
+    disablePadding={true}
+  >
+    <li
+      className="lib-react-main_bar-tablet_nav-li({'color':'theme.palette.primary.main'})"
+    >
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              EN Foo
+            </div>
+            <div
+              className="es"
+            >
+              ES Foo
+            </div>
+          </div>
+        }
+      >
+        <a
+          className="Link lib-react-main_bar-tablet_nav-anchor({'display':'block','color':'inherit'})"
+          to={
+            Object {
+              "pathname": "/foo",
+            }
+          }
+        >
+          <div
+            className="ListItem lib-react-main_bar-tablet_nav-muiLi({'justifyContent':'center'})"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Foo Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Foo Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li
+      aria-label={
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Current page
+          </div>
+          <div
+            className="es"
+          >
+            Página actual
+          </div>
+        </div>
+      }
+      className="lib-react-main_bar-tablet_nav-li({'color':'theme.palette.primary.main'}) lib-react-main_bar-tablet_nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727','borderLeft':'4px solid transparent','borderRight':'4px solid currentColor'})"
+    >
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              EN Bar
+            </div>
+            <div
+              className="es"
+            >
+              ES Bar
+            </div>
+          </div>
+        }
+      >
+        <a
+          className="Link lib-react-main_bar-tablet_nav-anchor({'display':'block','color':'inherit'})"
+          to={
+            Object {
+              "pathname": "/bar",
+            }
+          }
+        >
+          <div
+            className="ListItem lib-react-main_bar-tablet_nav-muiLi({'justifyContent':'center'})"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Bar Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Bar Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li
+      className="lib-react-main_bar-tablet_nav-li({'color':'theme.palette.primary.main'})"
+    >
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              EN Baz
+            </div>
+            <div
+              className="es"
+            >
+              ES Baz
+            </div>
+          </div>
+        }
+      >
+        <a
+          className="Link lib-react-main_bar-tablet_nav-anchor({'display':'block','color':'inherit'})"
+          to={
+            Object {
+              "pathname": "/baz",
+            }
+          }
+        >
+          <div
+            className="ListItem lib-react-main_bar-tablet_nav-muiLi({'justifyContent':'center'})"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Baz Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Baz Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`../TabletNav <TabletNav /> (light mode) should render 1`] = `
+<nav
+  aria-label={
+    <div
+      className="translation"
+    >
+      <div
+        className="en"
+      >
+        Navigation links
+      </div>
+      <div
+        className="es"
+      >
+        Links de navegación
+      </div>
+    </div>
+  }
+>
+  <ul
+    className="List"
+    disablePadding={true}
+  >
+    <li
+      className="lib-react-main_bar-tablet_nav-li({'color':'theme.palette.primary.main'})"
+    >
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              EN Foo
+            </div>
+            <div
+              className="es"
+            >
+              ES Foo
+            </div>
+          </div>
+        }
+      >
+        <a
+          className="Link lib-react-main_bar-tablet_nav-anchor({'display':'block','color':'inherit'})"
+          to={
+            Object {
+              "pathname": "/foo",
+            }
+          }
+        >
+          <div
+            className="ListItem lib-react-main_bar-tablet_nav-muiLi({'justifyContent':'center'})"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Foo Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Foo Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li
+      aria-label={
+        <div
+          className="translation"
+        >
+          <div
+            className="en"
+          >
+            Current page
+          </div>
+          <div
+            className="es"
+          >
+            Página actual
+          </div>
+        </div>
+      }
+      className="lib-react-main_bar-tablet_nav-li({'color':'theme.palette.primary.main'}) lib-react-main_bar-tablet_nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1','borderLeft':'4px solid transparent','borderRight':'4px solid currentColor'})"
+    >
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              EN Bar
+            </div>
+            <div
+              className="es"
+            >
+              ES Bar
+            </div>
+          </div>
+        }
+      >
+        <a
+          className="Link lib-react-main_bar-tablet_nav-anchor({'display':'block','color':'inherit'})"
+          to={
+            Object {
+              "pathname": "/bar",
+            }
+          }
+        >
+          <div
+            className="ListItem lib-react-main_bar-tablet_nav-muiLi({'justifyContent':'center'})"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Bar Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Bar Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+    <li
+      className="lib-react-main_bar-tablet_nav-li({'color':'theme.palette.primary.main'})"
+    >
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              EN Baz
+            </div>
+            <div
+              className="es"
+            >
+              ES Baz
+            </div>
+          </div>
+        }
+      >
+        <a
+          className="Link lib-react-main_bar-tablet_nav-anchor({'display':'block','color':'inherit'})"
+          to={
+            Object {
+              "pathname": "/baz",
+            }
+          }
+        >
+          <div
+            className="ListItem lib-react-main_bar-tablet_nav-muiLi({'justifyContent':'center'})"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-tablet_nav-liIcon({'fontSize':24,'color':'inherit','minWidth':'initial'})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Baz Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Baz Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`../TabletNav should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

@@ -1,0 +1,1128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../TabletNav <TabletNav /> (dark mode, is drawer open false) should render 1`] = `
+<div
+  anchor="bottom"
+  className="Drawer"
+  id="lib-react-main_bar-mobile_nav"
+  onClose={[Function]}
+  open={false}
+  variant="temporary"
+>
+  <div
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','top':'auto','bottom':0})"
+    elevation={0}
+  >
+    <div
+      className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+    >
+      <div
+        className="flexible-space"
+      />
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Close quick navigation
+            </div>
+            <div
+              className="es"
+            >
+              Cerrar navegación rápida
+            </div>
+          </div>
+        }
+      >
+        <button
+          aria-controls="lib-react-main_bar-mobile_nav"
+          className="IconButton icon-button"
+          edge="end"
+          onClick={[Function]}
+        >
+          <i
+            className="FontAwesomeIcon"
+            icon={
+              Array [
+                "fas",
+                "caret-down",
+              ]
+            }
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav
+    aria-label={
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Navigation links
+        </div>
+        <div
+          className="es"
+        >
+          Links de navegación
+        </div>
+      </div>
+    }
+  >
+    <ul
+      className="List"
+      disablePadding={true}
+    >
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/foo",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Foo Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Foo Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Foo
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Foo
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        aria-label={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Current page
+            </div>
+            <div
+              className="es"
+            >
+              Página actual
+            </div>
+          </div>
+        }
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'}) lib-react-main_bar-mobile_nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/bar",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Bar Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Bar Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Bar
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Bar
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/baz",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Baz Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Baz Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Baz
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Baz
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
+</div>
+`;
+
+exports[`../TabletNav <TabletNav /> (dark mode, is drawer open true) should render 1`] = `
+<div
+  anchor="bottom"
+  className="Drawer"
+  id="lib-react-main_bar-mobile_nav"
+  onClose={[Function]}
+  open={true}
+  variant="temporary"
+>
+  <div
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','top':'auto','bottom':0})"
+    elevation={0}
+  >
+    <div
+      className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+    >
+      <div
+        className="flexible-space"
+      />
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Close quick navigation
+            </div>
+            <div
+              className="es"
+            >
+              Cerrar navegación rápida
+            </div>
+          </div>
+        }
+      >
+        <button
+          aria-controls="lib-react-main_bar-mobile_nav"
+          className="IconButton icon-button"
+          edge="end"
+          onClick={[Function]}
+        >
+          <i
+            className="FontAwesomeIcon"
+            icon={
+              Array [
+                "fas",
+                "caret-down",
+              ]
+            }
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav
+    aria-label={
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Navigation links
+        </div>
+        <div
+          className="es"
+        >
+          Links de navegación
+        </div>
+      </div>
+    }
+  >
+    <ul
+      className="List"
+      disablePadding={true}
+    >
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/foo",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Foo Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Foo Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Foo
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Foo
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        aria-label={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Current page
+            </div>
+            <div
+              className="es"
+            >
+              Página actual
+            </div>
+          </div>
+        }
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'}) lib-react-main_bar-mobile_nav-activeLi({'color':'#33ccd7','backgroundColor':'#272727'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/bar",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Bar Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Bar Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Bar
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Bar
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/baz",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Baz Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Baz Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Baz
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Baz
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
+</div>
+`;
+
+exports[`../TabletNav <TabletNav /> (light mode, is drawer open false) should render 1`] = `
+<div
+  anchor="bottom"
+  className="Drawer"
+  id="lib-react-main_bar-mobile_nav"
+  onClose={[Function]}
+  open={false}
+  variant="temporary"
+>
+  <div
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','top':'auto','bottom':0})"
+    elevation={0}
+  >
+    <div
+      className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+    >
+      <div
+        className="flexible-space"
+      />
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Close quick navigation
+            </div>
+            <div
+              className="es"
+            >
+              Cerrar navegación rápida
+            </div>
+          </div>
+        }
+      >
+        <button
+          aria-controls="lib-react-main_bar-mobile_nav"
+          className="IconButton icon-button"
+          edge="end"
+          onClick={[Function]}
+        >
+          <i
+            className="FontAwesomeIcon"
+            icon={
+              Array [
+                "fas",
+                "caret-down",
+              ]
+            }
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav
+    aria-label={
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Navigation links
+        </div>
+        <div
+          className="es"
+        >
+          Links de navegación
+        </div>
+      </div>
+    }
+  >
+    <ul
+      className="List"
+      disablePadding={true}
+    >
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/foo",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Foo Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Foo Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Foo
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Foo
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        aria-label={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Current page
+            </div>
+            <div
+              className="es"
+            >
+              Página actual
+            </div>
+          </div>
+        }
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'}) lib-react-main_bar-mobile_nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/bar",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Bar Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Bar Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Bar
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Bar
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/baz",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Baz Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Baz Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Baz
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Baz
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
+</div>
+`;
+
+exports[`../TabletNav <TabletNav /> (light mode, is drawer open true) should render 1`] = `
+<div
+  anchor="bottom"
+  className="Drawer"
+  id="lib-react-main_bar-mobile_nav"
+  onClose={[Function]}
+  open={true}
+  variant="temporary"
+>
+  <div
+    className="AppBar lib-react-main_bar-mobile_nav-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','top':'auto','bottom':0})"
+    elevation={0}
+  >
+    <div
+      className="Toolbar lib-react-main_bar-mobile_nav-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+    >
+      <div
+        className="flexible-space"
+      />
+      <div
+        className="Tooltip"
+        title={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Close quick navigation
+            </div>
+            <div
+              className="es"
+            >
+              Cerrar navegación rápida
+            </div>
+          </div>
+        }
+      >
+        <button
+          aria-controls="lib-react-main_bar-mobile_nav"
+          className="IconButton icon-button"
+          edge="end"
+          onClick={[Function]}
+        >
+          <i
+            className="FontAwesomeIcon"
+            icon={
+              Array [
+                "fas",
+                "caret-down",
+              ]
+            }
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav
+    aria-label={
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Navigation links
+        </div>
+        <div
+          className="es"
+        >
+          Links de navegación
+        </div>
+      </div>
+    }
+  >
+    <ul
+      className="List"
+      disablePadding={true}
+    >
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/foo",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Foo Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Foo Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Foo
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Foo
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        aria-label={
+          <div
+            className="translation"
+          >
+            <div
+              className="en"
+            >
+              Current page
+            </div>
+            <div
+              className="es"
+            >
+              Página actual
+            </div>
+          </div>
+        }
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'}) lib-react-main_bar-mobile_nav-activeLi({'color':'#017982','backgroundColor':'#f1f1f1'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/bar",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Bar Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Bar Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Bar
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Bar
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li
+        className="lib-react-main_bar-mobile_nav-li({'color':'theme.palette.primary.main'})"
+      >
+        <a
+          className="Link lib-react-main_bar-mobile_nav-anchor({'color':'inherit','display':'block'})"
+          onClick={[Function]}
+          to={
+            Object {
+              "pathname": "/baz",
+            }
+          }
+        >
+          <div
+            className="ListItem"
+            component="div"
+          >
+            <div
+              className="ListItemIcon lib-react-main_bar-mobile_nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  <i>
+                    EN Baz Icon
+                  </i>
+                </div>
+                <div
+                  className="es"
+                >
+                  <i>
+                    ES Baz Icon
+                  </i>
+                </div>
+              </div>
+            </div>
+            <div
+              className="ListItemText"
+            >
+              <div
+                className="translation"
+              >
+                <div
+                  className="en"
+                >
+                  EN Baz
+                </div>
+                <div
+                  className="es"
+                >
+                  ES Baz
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="lib-react-main_bar-mobile_nav-drawerPadding({'flexBasis':56,'flexShrink':0})"
+  />
+</div>
+`;
+
+exports[`../TabletNav should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

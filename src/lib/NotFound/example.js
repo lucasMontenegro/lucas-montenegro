@@ -74,6 +74,7 @@ function Example (props) {
             value={{
               routing: isDark ? darkRouting : lightRouting,
               route: { location: props.location, render: { notFound: true } },
+              clientLinks: [],
             }}
           >
             <NotFound />

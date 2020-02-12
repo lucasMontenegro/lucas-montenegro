@@ -2,6 +2,6 @@
 
 exports[`./index.js should use the right versions of its dependencies 1`] = `
 Object {
-  "react-scripts": "^3.1.2",
+  "react-scripts": "^3.3.1",
 }
 `;

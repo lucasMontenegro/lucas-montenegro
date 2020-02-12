@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles"
 import useTranslation from "lib/react/useTranslation"
 import React, { Fragment } from "react"
+import MainBar from "lib/react/MainBar"
+import DocumentTitle from "lib/react/DocumentTitle"
 import Typography from "@material-ui/core/Typography"
 import Link from "lib/react/links/Link"
 import { useRoutingContext } from "lib/react/routing/context"
@@ -30,42 +32,50 @@ function View (props) {
   const t = useTranslation()
   const referrer = props.route.location.state
   return (
-    <div className={classes.root}>
-      <div className={classes.content}>
-        {(referrer && typeof referrer === `object`) ? (
-          <Fragment>
-            <Typography variant="body1" color="textPrimary">
-              {t({
-                en: () => `Couldn't find the page you where looking for:`,
-                es: () => `No se pudo encontrar la página solicitada:`,
-              })}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" className={classes.referrer}>
-              {`${referrer.pathname}${referrer.search}${referrer.hash}`}
-            </Typography>
-            <div className={classes.link}>
-              <Link to={props.routing.translatedLocations.notFound.get()}>
-                {t({ en: () => `Close`, es: () => `Cerrar` })}
-              </Link>
-            </div>
-          </Fragment>
-        ) : (
-          <Fragment>
-            <Typography variant="body1" color="textPrimary">
-              {t({
-                en: () => `Broken links redirect to this page`,
-                es: () => `Los links inservibles redirigen a esta página`,
-              })}
-            </Typography>
-            <div className={classes.link}>
-              <Link id="go-to-home" to={props.routing.translatedLocations.home.get()}>
-                {t({ en: () => `Go to Home`, es: () => `Ir a Inicio` })}
-              </Link>
-            </div>
-          </Fragment>
-        )}
+    <MainBar>
+      <div className={classes.root}>
+        <DocumentTitle
+          value={t({
+            en: () => `Not Found - Lucas Montenegro`,
+            es: () => `No Encontrado - Lucas Montenegro`,
+          })}
+        />
+        <div className={classes.content}>
+          {(referrer && typeof referrer === `object`) ? (
+            <Fragment>
+              <Typography variant="body1" color="textPrimary">
+                {t({
+                  en: () => `Couldn't find the page you where looking for:`,
+                  es: () => `No se pudo encontrar la página solicitada:`,
+                })}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" className={classes.referrer}>
+                {`${referrer.pathname}${referrer.search}${referrer.hash}`}
+              </Typography>
+              <div className={classes.link}>
+                <Link to={props.routing.translatedLocations.notFound.get()}>
+                  {t({ en: () => `Close`, es: () => `Cerrar` })}
+                </Link>
+              </div>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <Typography variant="body1" color="textPrimary">
+                {t({
+                  en: () => `Broken links redirect to this page`,
+                  es: () => `Los links inservibles redirigen a esta página`,
+                })}
+              </Typography>
+              <div className={classes.link}>
+                <Link id="go-to-home" to={props.routing.translatedLocations.home.get()}>
+                  {t({ en: () => `Go to Home`, es: () => `Ir a Inicio` })}
+                </Link>
+              </div>
+            </Fragment>
+          )}
+        </div>
       </div>
-    </div>
+    </MainBar>
   )
 }
 export default function NotFound () {

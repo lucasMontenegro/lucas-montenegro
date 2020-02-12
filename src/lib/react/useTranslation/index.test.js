@@ -9,11 +9,6 @@ jest.mock(`lib/languageDetector`, () => ({
 jest.mock(`lib/utils/isProduction`, () => ({ __esModule: true, default: jest.fn() }))
 jest.mock(`lib/utils/globals`, () => ({ __esModule: true, default: {} }))
 describe(`./index.js`, () => {
-  it(`should use the right versions of its dependencies`, () => {
-    expect(jestUtils.getDependencies([
-      `react-scripts`, // react hooks linting
-    ])).toMatchSnapshot()
-  })
   describe(`useTranslation`, () => {
     let t
     beforeAll(() => {

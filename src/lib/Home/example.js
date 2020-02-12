@@ -43,6 +43,7 @@ function Example (props) {
           <RoutingContext.Provider
             value={{
               route: { render: { home: true } },
+              clientLinks: [],
             }}
           >
             <Home />

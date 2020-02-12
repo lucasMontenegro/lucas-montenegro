@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../CloseButton <CloseButton /> (is desktop false) should render 1`] = `
+<div
+  className="Tooltip"
+  title={
+    Object {
+      "en": "Close dashboard",
+      "es": "Cerrar panel de control",
+    }
+  }
+>
+  <button
+    aria-controls="lib-react-dashboard"
+    className="IconButton"
+    edge="start"
+    onClick="props.onClick"
+  >
+    <i
+      className="FontAwesomeIcon"
+      icon={
+        Array [
+          "fas",
+          "arrow-left",
+        ]
+      }
+    />
+  </button>
+</div>
+`;
+
+exports[`../CloseButton should use the right versions of its dependencies 1`] = `
+Object {
+  "@material-ui/core": "^4.5.0",
+  "react": "^16.10.1",
+}
+`;

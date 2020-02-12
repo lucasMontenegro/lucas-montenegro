@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <AppDrawer /> (is open false) should render 1`] = `
+<div
+  className="Drawer"
+  isOpen={false}
+  onClose={[Function]}
+>
+  <div
+    className="AppDrawerContext.Provider"
+    value={[Function]}
+  >
+    Client
+  </div>
+</div>
+`;
+
+exports[`../index.js <AppDrawer /> (is open true) should render 1`] = `
+<div
+  className="Drawer"
+  isOpen={true}
+  onClose={[Function]}
+>
+  <div
+    className="AppDrawerContext.Provider"
+    value={[Function]}
+  >
+    Client
+  </div>
+</div>
+`;
+
+exports[`../index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

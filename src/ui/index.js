@@ -11,7 +11,8 @@ import ReactDOM from "react-dom"
 import DarkMode from "lib/react/DarkMode"
 import Theme from "lib/react/Theme"
 import CssBaseline from "lib/react/CssBaseline"
-import { BrowserRouter, Route } from "react-router-dom"
+import { Router as ReactRouter, Route } from "react-router-dom"
+import browserHistory from "lib/browserHistory"
 import globals from "lib/utils/globals"
 languageDetector.init(routing.languageCodes)
 const clientLinks = {
@@ -45,7 +46,9 @@ ReactDOM.render((
   <DarkMode>
     <Theme>
       <CssBaseline />
-      <BrowserRouter><Route component={App} /></BrowserRouter>
+      <ReactRouter history={browserHistory}>
+        <Route component={App} />
+      </ReactRouter>
     </Theme>
   </DarkMode>
 ), globals.document.getElementById(`root`))

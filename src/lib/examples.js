@@ -3,7 +3,8 @@ import ReactDOM from "react-dom"
 import { ThemeProvider } from "@material-ui/styles"
 import { createMuiTheme } from "@material-ui/core/styles"
 import CssBaseline from "lib/react/CssBaseline"
-import { BrowserRouter, Switch } from "react-router-dom"
+import { Router as ReactRouter, Switch } from "react-router-dom"
+import browserHistory from "lib/browserHistory"
 
 import throwPropTypeErrors from "lib/throwPropTypeErrors/example"
 import languageDetector from "lib/languageDetector/example"
@@ -17,7 +18,7 @@ import NotFound from "lib/NotFound/example"
 ReactDOM.render((
   <ThemeProvider theme={createMuiTheme()}>
     <CssBaseline />
-    <BrowserRouter>
+    <ReactRouter history={browserHistory}>
       <Switch>
         {throwPropTypeErrors}
         {languageDetector}
@@ -29,6 +30,6 @@ ReactDOM.render((
         {Home}
         {NotFound}
       </Switch>
-    </BrowserRouter>
+    </ReactRouter>
   </ThemeProvider>
 ), document.getElementById(`root`))

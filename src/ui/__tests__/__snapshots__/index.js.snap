@@ -95,7 +95,8 @@ exports[`../index.js should render 1`] = `
       className="CssBaseline"
     />
     <div
-      className="BrowserRouter"
+      className="ReactRouter"
+      history="lib/browserHistory"
     >
       <div
         className="Route"

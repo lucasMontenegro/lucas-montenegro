@@ -97,14 +97,15 @@ jest.mock(`lib/react/CssBaseline`, () => {
 })
 jest.mock(`react-router-dom`, () => {
   const React = jest.requireActual(`react`)
-  function BrowserRouter (props) {
-    return <div className="BrowserRouter">{props.children}</div>
+  function ReactRouter (props) {
+    return <div {...props} className="ReactRouter">{props.children}</div>
   }
   const Route = jest.fn(function Route () {
     return <div className="Route" />
   })
-  return { __esModule: true, BrowserRouter, Route }
+  return { __esModule: true, Router: ReactRouter, Route }
 })
+jest.mock(`lib/browserHistory`, () => ({ __esModule: true, default: `lib/browserHistory` }))
 jest.mock(`lib/utils/globals`, () => ({
   __esModule: true,
   default: { document: { getElementById: () => {} } },

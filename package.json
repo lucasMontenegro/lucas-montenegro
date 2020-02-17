@@ -4,6 +4,7 @@
   "description": "https://lucasmontenegro.com.ar/",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.6.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-regular-svg-icons": "^5.11.2",
@@ -19,6 +20,7 @@
     "express-jwt-authz": "^2.3.1",
     "express-validator": "^6.2.0",
     "global": "^4.4.0",
+    "history": "^4.10.1",
     "i18next": "^17.0.18",
     "i18next-browser-languagedetector": "^3.0.3",
     "jwks-rsa": "^1.6.0",

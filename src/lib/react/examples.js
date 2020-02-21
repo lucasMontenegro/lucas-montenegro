@@ -16,6 +16,7 @@ import useResponsiveLayout from "./useResponsiveLayout/example"
 import MainBar from "./MainBar/example"
 import Dashboard from "./Dashboard/example"
 import Settings from "./Settings/example"
+import auth0 from "./auth0/example"
 export default (
   <Route
     path="/react"
@@ -37,6 +38,7 @@ export default (
         {MainBar}
         {Dashboard}
         {Settings}
+        {auth0}
       </Switch>
     )}
   />

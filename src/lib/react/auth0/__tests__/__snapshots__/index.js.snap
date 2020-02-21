@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js Auth0Context should be configured properly 1`] = `
+Object {
+  "Provider": [Function],
+  "displayName": "Auth0Context",
+}
+`;
+
+exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, first render false) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+>
+  children
+</div>
+`;
+
+exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com/foo"`;
+
+exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, first render true) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+>
+  children
+</div>
+`;
+
+exports[`../index.js Auth0Provider (client {}, without "redirectUri" function, first render false) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+>
+  children
+</div>
+`;
+
+exports[`../index.js Auth0Provider (client {}, without "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com"`;
+
+exports[`../index.js Auth0Provider (client {}, without "redirectUri" function, first render true) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+>
+  children
+</div>
+`;
+
+exports[`../index.js Auth0Provider (client null, with "redirectUri" function, first render false) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+/>
+`;
+
+exports[`../index.js Auth0Provider (client null, with "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com/foo"`;
+
+exports[`../index.js Auth0Provider (client null, with "redirectUri" function, first render true) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+/>
+`;
+
+exports[`../index.js Auth0Provider (client null, without "redirectUri" function, first render false) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+/>
+`;
+
+exports[`../index.js Auth0Provider (client null, without "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com"`;
+
+exports[`../index.js Auth0Provider (client null, without "redirectUri" function, first render true) should render 1`] = `
+<div
+  className="Auth0ContextProvider"
+  value={
+    Object {
+      "login": [Function],
+      "logout": [Function],
+      "user": Object {},
+    }
+  }
+/>
+`;
+
+exports[`../index.js should use the right versions of its dependencies 1`] = `
+Object {
+  "prop-types": "^15.7.2",
+  "react": "^16.10.1",
+}
+`;

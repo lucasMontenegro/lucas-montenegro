@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../initAuth0 should use the right versions of its dependencies 1`] = `
+Object {
+  "@auth0/auth0-spa-js": "^1.6.4",
+}
+`;

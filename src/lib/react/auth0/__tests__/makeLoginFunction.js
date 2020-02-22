@@ -16,8 +16,16 @@ jest.mock(`lib/utils/globals`, () => ({
   default: { console: {} },
 }))
 describe(`../makeLoginFunction`, () => {
-  it(`should use the right versions of its dependencies`, () => {
-    expect(jestUtils.getDependencies([`@auth0/auth0-spa-js`])).toMatchSnapshot()
+  jestUtils.describeDependencies({
+    deps: [
+      `./loginPopupId`,
+      `lib/languageDetector`,
+      `lib/utils/globals`,
+      `@auth0/auth0-spa-js`,
+      `react`,
+      `bluebird`, // this test file
+    ],
+    relativeBasePath: __dirname,
   })
   describe(`makeLoginFunction (ready false)`, () => {
     const onLoginPopupTimeout = jest.fn()

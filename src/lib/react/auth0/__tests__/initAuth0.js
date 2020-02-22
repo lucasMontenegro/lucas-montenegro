@@ -26,8 +26,15 @@ describe(`../initAuth0`, () => {
   beforeAll(() => {
     initAuth0 = require("../initAuth0").default
   })
-  it(`should use the right versions of its dependencies`, () => {
-    expect(jestUtils.getDependencies([`@auth0/auth0-spa-js`])).toMatchSnapshot()
+  jestUtils.describeDependencies({
+    deps: [
+      `@auth0/auth0-spa-js`,
+      `lib/utils/globals`,
+      `lib/browserHistory`,
+      `react-scripts`, // process.env.FOO is replaced at compile time
+      `react`,
+    ],
+    relativeBasePath: __dirname,
   })
   {
     function itShouldPushHistory (client) {

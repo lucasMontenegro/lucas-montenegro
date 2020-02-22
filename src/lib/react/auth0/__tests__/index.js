@@ -30,8 +30,15 @@ jest.mock(`../makeLogoutFunction`, () => ({
   default: () => function logout () {},
 }))
 describe(`../index.js`, () => {
-  it(`should use the right versions of its dependencies`, () => {
-    expect(jestUtils.getDependencies([`react`, `prop-types`])).toMatchSnapshot()
+  jestUtils.describeDependencies({
+    deps: [
+      `react`,
+      `../initAuth0`,
+      `../makeLoginFunction`,
+      `../makeLogoutFunction`,
+      `prop-types`,
+    ],
+    relativeBasePath: __dirname,
   })
   describe(`Auth0Context`, () => {
     it(`should be configured properly`, () => {

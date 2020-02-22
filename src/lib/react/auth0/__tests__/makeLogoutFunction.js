@@ -1,7 +1,8 @@
 import makeLogoutFunction from "../makeLogoutFunction"
 describe(`../makeLogoutFunction`, () => {
-  it(`should use the right versions of its dependencies`, () => {
-    expect(jestUtils.getDependencies([`@auth0/auth0-spa-js`])).toMatchSnapshot()
+  jestUtils.describeDependencies({
+    deps: [`@auth0/auth0-spa-js`],
+    relativeBasePath: __dirname,
   })
   describe(`makeLogoutFunction (ready true, authenticated true)`, () => {
     const logout = jest.fn()

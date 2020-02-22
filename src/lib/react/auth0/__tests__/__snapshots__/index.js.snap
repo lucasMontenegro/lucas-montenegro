@@ -127,9 +127,12 @@ exports[`../index.js Auth0Provider (client null, without "redirectUri" function,
 />
 `;
 
-exports[`../index.js should use the right versions of its dependencies 1`] = `
-Object {
-  "prop-types": "^15.7.2",
-  "react": "^16.10.1",
-}
-`;
+exports[`../index.js external dependencies prop-types should match the installed version 1`] = `"^15.7.2"`;
+
+exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"cc235e57fc2ea1ead7b678454173a6b0fd127c699f71a53d9ad12fc7577047b1"`;
+
+exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"eb7c1e3923aa9ab8ab70e5ab0b08db89d508f598393fba8b6b9856433b792d65"`;
+
+exports[`../index.js local dependencies ../makeLogoutFunction should match the saved hash 1`] = `"586bc09439a06816450ab13c46f4c1b6ecc04d545eca191de825ece43c94bc95"`;

@@ -1,5 +1,6 @@
 import pgPromise from "pg-promise"
 import packageJson from "../package.json"
+import describeDependencies from "./setupTestsLib/describeDependencies"
 global.jestUtils = {
   getDependencies (names) {
     return names.reduce((deps, name) => {
@@ -8,4 +9,5 @@ global.jestUtils = {
     }, {})
   },
   pgpInstance: pgPromise(),
+  describeDependencies,
 }

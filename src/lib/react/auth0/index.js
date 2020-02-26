@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useRef, useEffect, useMemo } from "react"
+import React, { createContext, useContext, useState, useEffect, useMemo } from "react"
 import initAuth0 from "./initAuth0"
 import makeLoginFunction from "./makeLoginFunction"
 import makeLogoutFunction from "./makeLogoutFunction"
@@ -11,30 +11,24 @@ export function useAuth0 () {
 export function Auth0Provider (props) {
   const [client, setClient] = useState(null)
   const [user, setUser] = useState(null)
-  const firstRender = useRef(true)
-  const redirectUri = props.redirectUri || (x => x)
   useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false
-      initAuth0(redirectUri, setClient, setUser)
-    }
-  }, [redirectUri])
-  const ready = client !== null
-  const { onLoginPopupTimeout } = props
+    initAuth0(setClient, setUser)
+  }, [])
+  const { onLoginPopupTimeout, getLogoutUrl } = props
   return (
     <Auth0Context.Provider
       value={useMemo(() => ({
         user,
-        login: makeLoginFunction(ready, client, onLoginPopupTimeout, setUser),
-        logout: makeLogoutFunction(ready, user !== null, client),
-      }), [user, ready, client, onLoginPopupTimeout])}
+        login: makeLoginFunction(client, onLoginPopupTimeout, setUser),
+        logout: makeLogoutFunction(user, client, getLogoutUrl),
+      }), [user, client, onLoginPopupTimeout, getLogoutUrl])}
     >
-      {ready ? props.children : null}
+      {client === null ? null : props.children}
     </Auth0Context.Provider>
   )
 }
 Auth0Provider.propTypes = {
-  redirectUri: PropTypes.func,
   onLoginPopupTimeout: PropTypes.func,
+  getLogoutUrl: PropTypes.func.isRequired,
   children: PropTypes.node,
 }

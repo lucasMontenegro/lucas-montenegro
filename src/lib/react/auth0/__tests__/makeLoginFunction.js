@@ -27,12 +27,12 @@ describe(`../makeLoginFunction`, () => {
     ],
     relativeBasePath: __dirname,
   })
-  describe(`makeLoginFunction (ready false)`, () => {
+  describe(`makeLoginFunction (client is null)`, () => {
     const onLoginPopupTimeout = jest.fn()
     const setUser = jest.fn()
     let login
     beforeAll(() => {
-      login = makeLoginFunction(false, {}, onLoginPopupTimeout, setUser)
+      login = makeLoginFunction(null, onLoginPopupTimeout, setUser)
     })
     it(`should return a function`, () => {
       expect(login).toBeInstanceOf(Function)
@@ -50,16 +50,17 @@ describe(`../makeLoginFunction`, () => {
       [`is a function`, jest.fn(), onLoginPopupTimeout => {
         it(`should call "onLoginPopupTimeout"`, () => {
           expect(onLoginPopupTimeout.mock.calls).toEqual([[]])
+          onLoginPopupTimeout.mockClear()
         })
       }],
       [`is undefined`, undefined, () => {}],
     ]
-    const msg = `makeLoginFunction (ready true, "onLoginPopupTimeout" %s)`
+    const msg = `makeLoginFunction (client is not null, "onLoginPopupTimeout" %s)`
     describe.each(cases)(msg, (x, onLoginPopupTimeout, testTimeout) => {
       const client = {}
       let login
       beforeAll(() => {
-        login = makeLoginFunction(true, client, onLoginPopupTimeout, u => u)
+        login = makeLoginFunction(client, onLoginPopupTimeout, u => u)
       })
       it(`should return a function`, () => {
         expect(login).toBeInstanceOf(Function)
@@ -110,22 +111,27 @@ describe(`../makeLoginFunction`, () => {
           expect(thrown).toBe(error)
         })
       })
-      describe(`login (popup throws a non-object error)`, () => {
-        const error = `error`
-        let thrown
-        beforeAll(async () => {
-          client.loginWithPopup = () => Bluebird.reject(error)
-          delete loginPopupId.check
-          try {
-            await login()
-          } catch (e) {
-            thrown = e
-          }
+      {
+        const cases = [
+          [`some other type of error`, Error(`foo`)],
+          [`a non-object error`, `error`],
+        ]
+        describe.each(cases)(`login (popup throws %s)`, (x, error) => {
+          let thrown
+          beforeAll(async () => {
+            client.loginWithPopup = () => Bluebird.reject(error)
+            delete loginPopupId.check
+            try {
+              await login()
+            } catch (e) {
+              thrown = e
+            }
+          })
+          it(`should re-throw the error`, () => {
+            expect(thrown).toBe(error)
+          })
         })
-        it(`should re-throw the error`, () => {
-          expect(thrown).toBe(error)
-        })
-      })
+      }
       describe(`login (popup succeeds, authenticated true)`, () => {
         it(`should return the user object`, async () => {
           const user = {}

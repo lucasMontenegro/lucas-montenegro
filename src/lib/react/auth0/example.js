@@ -3,9 +3,10 @@ import React from "react"
 import Div from "lib/react/utils/Div"
 import StringifyObject from "lib/react/utils/StringifyObject"
 import Button from "@material-ui/core/Button"
+import globals from "lib/utils/globals"
 import languageDetector from "lib/languageDetector"
 import { Route } from "react-router-dom"
-function Example () {
+function UseAuth0 () {
   const auth0 = useAuth0()
   return (
     <Div>
@@ -27,18 +28,19 @@ function Example () {
   )
 }
 const languageCodes = [`en`, `es`]
-const onLoginPopupTimeout = () => console.log(`onLoginPopupTimeout`)
+function onLoginPopupTimeout () {
+  console.log(`onLoginPopupTimeout`)
+}
+function getLogoutUrl () {
+  return `${globals.window.location.origin}/react/auth0/${languageDetector.get()}`
+}
 function Init (props) {
   languageDetector.init(languageCodes)
   if (languageDetector.useReadyState()) {
-    const { languageCode } = props.match.params
-    languageDetector.set(languageCode)
+    languageDetector.set(props.match.params.languageCode)
     return (
-      <Auth0Provider
-        redirectUri={hostname => `${hostname}/react/auth0/${languageCode}`}
-        onLoginPopupTimeout={onLoginPopupTimeout}
-      >
-        <Example />
+      <Auth0Provider onLoginPopupTimeout={onLoginPopupTimeout} getLogoutUrl={getLogoutUrl}>
+        <UseAuth0 />
       </Auth0Provider>
     )
   }

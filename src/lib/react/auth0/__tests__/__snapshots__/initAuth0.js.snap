@@ -2,10 +2,8 @@
 
 exports[`../initAuth0 external dependencies @auth0/auth0-spa-js should match the installed version 1`] = `"^1.6.4"`;
 
+exports[`../initAuth0 external dependencies bluebird should match the installed version 1`] = `"^3.5.5"`;
+
 exports[`../initAuth0 external dependencies react should match the installed version 1`] = `"^16.10.1"`;
 
 exports[`../initAuth0 external dependencies react-scripts should match the installed version 1`] = `"^3.3.1"`;
-
-exports[`../initAuth0 local dependencies lib/browserHistory should match the saved hash 1`] = `"57da3a21f21e8a8d7dfc146a9067211374f9b982b34939d03def19ad042a5160"`;
-
-exports[`../initAuth0 local dependencies lib/utils/globals should match the saved hash 1`] = `"658dffcc9a7d7107301d9ee254ba487ada2e2497635e046c509db0828ff3533f"`;

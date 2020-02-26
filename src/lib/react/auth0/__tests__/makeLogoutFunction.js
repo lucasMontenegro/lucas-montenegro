@@ -4,32 +4,31 @@ describe(`../makeLogoutFunction`, () => {
     deps: [`@auth0/auth0-spa-js`],
     relativeBasePath: __dirname,
   })
-  describe(`makeLogoutFunction (ready true, authenticated true)`, () => {
+  describe(`makeLogoutFunction (user {}, client {})`, () => {
     const logout = jest.fn()
     let result
     beforeAll(() => {
-      result = makeLogoutFunction(true, true, { logout })
+      result = makeLogoutFunction({}, { logout }, () => `logout URL`)
     })
     it(`should return a function`, () => {
       expect(result).toBeInstanceOf(Function)
     })
-    describe(`returned function`, () => {
+    describe(`logout`, () => {
       it(`should execute "client.logout"`, () => {
         result()
-        expect(logout.mock.calls).toEqual([[]])
+        expect(logout.mock.calls).toEqual([[{ returnTo: `logout URL` }]])
       })
     })
   })
   {
     const cases = [
-      [true, false],
-      [false, true],
-      [false, false],
+      [{}, null],
+      [null, {}],
+      [null, null],
     ]
-    const msg = `makeLogoutFunction (ready %j, authenticated %j)`
-    describe.each(cases)(msg, (ready, authenticated) => {
+    describe.each(cases)(`makeLogoutFunction (user %j, client %j)`, (user, client) => {
       it(`should return a function that runs`, () => {
-        const result = makeLogoutFunction(ready, authenticated, {})
+        const result = makeLogoutFunction(user, client, () => {})
         expect(result).toBeInstanceOf(Function)
         result()
       })

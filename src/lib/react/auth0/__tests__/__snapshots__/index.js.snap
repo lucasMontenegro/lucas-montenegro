@@ -7,7 +7,7 @@ Object {
 }
 `;
 
-exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, first render false) should render 1`] = `
+exports[`../index.js Auth0Provider (client {}) should render 1`] = `
 <div
   className="Auth0ContextProvider"
   value={
@@ -22,99 +22,7 @@ exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, firs
 </div>
 `;
 
-exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com/foo"`;
-
-exports[`../index.js Auth0Provider (client {}, with "redirectUri" function, first render true) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
->
-  children
-</div>
-`;
-
-exports[`../index.js Auth0Provider (client {}, without "redirectUri" function, first render false) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
->
-  children
-</div>
-`;
-
-exports[`../index.js Auth0Provider (client {}, without "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com"`;
-
-exports[`../index.js Auth0Provider (client {}, without "redirectUri" function, first render true) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
->
-  children
-</div>
-`;
-
-exports[`../index.js Auth0Provider (client null, with "redirectUri" function, first render false) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
-/>
-`;
-
-exports[`../index.js Auth0Provider (client null, with "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com/foo"`;
-
-exports[`../index.js Auth0Provider (client null, with "redirectUri" function, first render true) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
-/>
-`;
-
-exports[`../index.js Auth0Provider (client null, without "redirectUri" function, first render false) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
-/>
-`;
-
-exports[`../index.js Auth0Provider (client null, without "redirectUri" function, first render true) redirectUri should create the redirection URI 1`] = `"https://example.com"`;
-
-exports[`../index.js Auth0Provider (client null, without "redirectUri" function, first render true) should render 1`] = `
+exports[`../index.js Auth0Provider (client null) should render 1`] = `
 <div
   className="Auth0ContextProvider"
   value={
@@ -131,8 +39,8 @@ exports[`../index.js external dependencies prop-types should match the installed
 
 exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
 
-exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"cc235e57fc2ea1ead7b678454173a6b0fd127c699f71a53d9ad12fc7577047b1"`;
+exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"6c23ae1833abde752bb3cd1e9ac5146b04d7bb71e075f8a28791f1d876fb9405"`;
 
-exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"eb7c1e3923aa9ab8ab70e5ab0b08db89d508f598393fba8b6b9856433b792d65"`;
+exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"a81c520f84391e459777a9f071c77f795fd14ff5b880d6979f283308a12c25a6"`;
 
-exports[`../index.js local dependencies ../makeLogoutFunction should match the saved hash 1`] = `"586bc09439a06816450ab13c46f4c1b6ecc04d545eca191de825ece43c94bc95"`;
+exports[`../index.js local dependencies ../makeLogoutFunction should match the saved hash 1`] = `"6a4f80d82141900770e8a53470cb178c358e4cd24c85d26f81bebb812980f578"`;

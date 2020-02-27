@@ -16,19 +16,29 @@ export default function describeLocalDependencies (options) {
       describe.each(cases)(`%s`, (depName, isAbsolute) => {
         it(`should match the saved hash`, () => {
           const basePath = isAbsolute ? srcPath : options.relativeBasePath
-          let sanitizedPath
-          const filenameDotJs = path.resolve(basePath, `${depName}.js`)
-          if (fs.existsSync(filenameDotJs)) {
-            sanitizedPath = filenameDotJs
-          } else {
-            const indexDotJs = path.resolve(basePath, depName, `index.js`)
-            if (fs.existsSync(indexDotJs)) {
-              sanitizedPath = indexDotJs
-            } else {
-              throw Error(`Dependency not found`)
+          const filenameMakers = [
+            () => path.resolve(basePath, depName),
+            () => path.resolve(basePath, `${depName}.js`),
+            () => path.resolve(basePath, depName, `index.js`),
+          ]
+          let contents
+          const errorCodes = {
+            "EISDIR": null,
+            "ENOENT": null,
+          }
+          for (const makeFilename of filenameMakers) {
+            try {
+              contents = fs.readFileSync(makeFilename(), { encoding: `utf8` })
+              break
+            } catch (e) {
+              if (!(e.code in errorCodes)) {
+                throw e
+              }
             }
           }
-          const contents = fs.readFileSync(sanitizedPath, { encoding: `utf8` })
+          if (!contents) {
+            throw Error(`describeLocalDependencies: couldn't find ${depName}`)
+          }
           expect(SHA256(contents).toString()).toMatchSnapshot()
         })
       })

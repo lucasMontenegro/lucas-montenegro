@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../example external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../example external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../example external dependencies react-router-dom should match the installed version 1`] = `"^5.1.2"`;
+
+exports[`../example local dependencies ../index.js should match the saved hash 1`] = `"628df64091e61342a5767bc5db792a256d186888fdc94ca4f6d49043f4fbb7d7"`;
+
+exports[`../example local dependencies lib/languageDetector should match the saved hash 1`] = `"f9c2fb9d79c6b6722c4bebf69fd3b6ae89c04240901b2298a9711e1007b4eace"`;
+
+exports[`../example local dependencies lib/react/CssBaseline should match the saved hash 1`] = `"11eed0723df2013870f1dd74eda1682d2ec8ecfb27058ed7d9b014b096f8b582"`;
+
+exports[`../example local dependencies lib/react/DarkMode should match the saved hash 1`] = `"b884ab2b8b07e08294620261dd8e79eba68dc11d894c05810e8465c30feb1231"`;
+
+exports[`../example local dependencies lib/react/Theme should match the saved hash 1`] = `"29304208778ed3054879926a641c548e9a6bc9f945f4bb22fd106b48802e79f4"`;
+
+exports[`../example local dependencies lib/react/auth0 should match the saved hash 1`] = `"8bc1fa0264c08be86dc7d2cded4384da2052732dc149ace648adbd2792d0c0d1"`;

@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <AccountApplet /> (dark mode, user {"profile_id":"1234"}) should render 1`] = `
+<div
+  className="ProfileLinks"
+  profileId="1234"
+>
+  <div
+    className="logoutButton"
+  >
+    <button
+      className="Button lib-react-account_applet-logoutButton({'fontSize':12,'lineHeight':1.5,'backgroundColor':'rgba(255, 255, 255, 0.12)','&:hover':{'backgroundColor':'rgba(255, 255, 255, 0.16)'}})"
+      color="default"
+      onClick="auth0.logout"
+      size="small"
+      variant="text"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Log out
+        </div>
+        <div
+          className="es"
+        >
+          Salir
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    className="translation"
+  >
+    <div
+      className="en"
+    >
+      ProfileLinks en
+    </div>
+    <div
+      className="es"
+    >
+      ProfileLinks es
+    </div>
+  </div>
+</div>
+`;
+
+exports[`../index.js <AccountApplet /> (dark mode, user {}) should render 1`] = `
+<div
+  className="Layout"
+>
+  <div
+    className="avatar"
+  >
+    <div
+      className="DefaultAvatarSvg"
+    />
+  </div>
+  <div
+    className="text"
+  />
+  <div
+    className="topText"
+  >
+    <a
+      className="Link lib-react-account_applet-createProfile({'display':'inline-block','border':'2px solid theme.palette.primary.main','borderRadius':4,'padding':'0 12px'})"
+      to="#"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Create profile
+        </div>
+        <div
+          className="es"
+        >
+          Crear perfil
+        </div>
+      </div>
+    </a>
+  </div>
+  <div
+    className="bottomText"
+  >
+    <button
+      className="Button lib-react-account_applet-logoutButton({'fontSize':12,'lineHeight':1.5,'backgroundColor':'rgba(255, 255, 255, 0.12)','&:hover':{'backgroundColor':'rgba(255, 255, 255, 0.16)'}})"
+      color="default"
+      onClick="auth0.logout"
+      size="small"
+      variant="text"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Log out
+        </div>
+        <div
+          className="es"
+        >
+          Salir
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`../index.js <AccountApplet /> (dark mode, user undefined) should render 1`] = `
+<div
+  className="Layout"
+>
+  <div
+    className="avatar"
+  >
+    <div
+      className="DefaultAvatarSvg"
+    />
+  </div>
+  <div
+    className="text"
+  >
+    <button
+      className="Button undefined"
+      color="primary"
+      onClick="auth0.login"
+      variant="contained"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Log in
+        </div>
+        <div
+          className="es"
+        >
+          Ingresar
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    className="topText"
+  />
+  <div
+    className="bottomText"
+  />
+</div>
+`;
+
+exports[`../index.js <AccountApplet /> (light mode, user {"profile_id":"1234"}) should render 1`] = `
+<div
+  className="ProfileLinks"
+  profileId="1234"
+>
+  <div
+    className="logoutButton"
+  >
+    <button
+      className="Button lib-react-account_applet-logoutButton({'fontSize':12,'lineHeight':1.5,'backgroundColor':'rgba(0, 0, 0, 0.1)','&:hover':{'backgroundColor':'rgba(0, 0, 0, 0.14)'}})"
+      color="default"
+      onClick="auth0.logout"
+      size="small"
+      variant="text"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Log out
+        </div>
+        <div
+          className="es"
+        >
+          Salir
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    className="translation"
+  >
+    <div
+      className="en"
+    >
+      ProfileLinks en
+    </div>
+    <div
+      className="es"
+    >
+      ProfileLinks es
+    </div>
+  </div>
+</div>
+`;
+
+exports[`../index.js <AccountApplet /> (light mode, user {}) should render 1`] = `
+<div
+  className="Layout"
+>
+  <div
+    className="avatar"
+  >
+    <div
+      className="DefaultAvatarSvg"
+    />
+  </div>
+  <div
+    className="text"
+  />
+  <div
+    className="topText"
+  >
+    <a
+      className="Link lib-react-account_applet-createProfile({'display':'inline-block','border':'2px solid theme.palette.primary.main','borderRadius':4,'padding':'0 12px'})"
+      to="#"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Create profile
+        </div>
+        <div
+          className="es"
+        >
+          Crear perfil
+        </div>
+      </div>
+    </a>
+  </div>
+  <div
+    className="bottomText"
+  >
+    <button
+      className="Button lib-react-account_applet-logoutButton({'fontSize':12,'lineHeight':1.5,'backgroundColor':'rgba(0, 0, 0, 0.1)','&:hover':{'backgroundColor':'rgba(0, 0, 0, 0.14)'}})"
+      color="default"
+      onClick="auth0.logout"
+      size="small"
+      variant="text"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Log out
+        </div>
+        <div
+          className="es"
+        >
+          Salir
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`../index.js <AccountApplet /> (light mode, user undefined) should render 1`] = `
+<div
+  className="Layout"
+>
+  <div
+    className="avatar"
+  >
+    <div
+      className="DefaultAvatarSvg"
+    />
+  </div>
+  <div
+    className="text"
+  >
+    <button
+      className="Button undefined"
+      color="primary"
+      onClick="auth0.login"
+      variant="contained"
+    >
+      <div
+        className="translation"
+      >
+        <div
+          className="en"
+        >
+          Log in
+        </div>
+        <div
+          className="es"
+        >
+          Ingresar
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    className="topText"
+  />
+  <div
+    className="bottomText"
+  />
+</div>
+`;
+
+exports[`../index.js external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js local dependencies ../DefaultAvatarSvg should match the saved hash 1`] = `"a2e24d6e190efccf4c26a401a3f195aa397b3545d0887341fd79f0ddfe92a0d9"`;
+
+exports[`../index.js local dependencies ../Layout should match the saved hash 1`] = `"44b07b9b2b5020fe41ec6165ae18ce6b338f1389c91d23287c6638003f57d9fa"`;
+
+exports[`../index.js local dependencies ../ProfileLinks should match the saved hash 1`] = `"08adda330d16aaca86c195366d09c27c058a5083a6eaa21480492cfb9060f816"`;
+
+exports[`../index.js local dependencies lib/react/auth0 should match the saved hash 1`] = `"8bc1fa0264c08be86dc7d2cded4384da2052732dc149ace648adbd2792d0c0d1"`;
+
+exports[`../index.js local dependencies lib/react/links/Link should match the saved hash 1`] = `"59854747bc1ef6096609fb09d5756f8eac0c6c9a5a46a46e1198cf9d34f83835"`;
+
+exports[`../index.js local dependencies lib/react/useTranslation should match the saved hash 1`] = `"c6ac8310d836a2c7d46aadd2dd8fc9ca5f36bc737ef315a63ba20e62ca4c5ae8"`;

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../Layout <Layout /> (text "props.text") should render 1`] = `
+<div
+  className="lib-react-account_applet-layout-root({'margin':8,'display':'flex'})"
+>
+  <div
+    className="lib-react-account_applet-layout-avatar({'height':64,'width':64,'margin':8,'borderRadius':'50%','overflow':'hidden'})"
+  >
+    props.avatar
+  </div>
+  <div
+    className="lib-react-account_applet-layout-text({'height':64,'margin':8,'display':'flex','flexDirection':'column','justifyContent':'center'})"
+  >
+    <div>
+      props.text
+    </div>
+  </div>
+</div>
+`;
+
+exports[`../Layout <Layout /> (text undefined) should render 1`] = `
+<div
+  className="lib-react-account_applet-layout-root({'margin':8,'display':'flex'})"
+>
+  <div
+    className="lib-react-account_applet-layout-avatar({'height':64,'width':64,'margin':8,'borderRadius':'50%','overflow':'hidden'})"
+  >
+    props.avatar
+  </div>
+  <div
+    className="lib-react-account_applet-layout-text({'height':64,'margin':8,'display':'flex','flexDirection':'column','justifyContent':'center'})"
+  >
+    <div
+      className="Typography lib-react-account_applet-layout-topText({'marginBottom':6})"
+      component="div"
+      noWrap={true}
+      variant="body1"
+    >
+      props.topText
+    </div>
+    <div>
+      props.bottomText
+    </div>
+  </div>
+</div>
+`;
+
+exports[`../Layout external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../Layout external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../Layout external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;

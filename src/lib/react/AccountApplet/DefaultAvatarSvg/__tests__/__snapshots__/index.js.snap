@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js <DefaultAvatarSvg /> should render 1`] = `
+<div
+  className="lib-react-account_applet-default_avatar-container({'backgroundColor':'#ffffff','position':'relative','height':0,'width':'100%','padding':0,'paddingBottom':'100%'})"
+>
+  <div
+    className="default-avatar-svg lib-react-account_applet-default_avatar-svg({'position':'absolute','height':'100%','width':'100%','left':0,'right':0})"
+  />
+</div>
+`;
+
+exports[`../index.js external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js local dependencies ../default-avatar.svg should match the saved hash 1`] = `"3bfcff90ede01071f0fe7f0ba78487434fd3bd330465dce9f9cf818374ae77bf"`;

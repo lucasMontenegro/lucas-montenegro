@@ -17,6 +17,7 @@ import MainBar from "./MainBar/example"
 import Dashboard from "./Dashboard/example"
 import Settings from "./Settings/example"
 import auth0 from "./auth0/example"
+import AccountApplet from "./AccountApplet/example"
 export default (
   <Route
     path="/react"
@@ -39,6 +40,7 @@ export default (
         {Dashboard}
         {Settings}
         {auth0}
+        {AccountApplet}
       </Switch>
     )}
   />

@@ -3,6 +3,7 @@
 exports[`../index.js <AccountApplet /> (dark mode, user {"profile_id":"1234"}) should render 1`] = `
 <div
   className="ProfileLinks"
+  closeDashboard="closeDashboard"
   profileId="1234"
 >
   <div
@@ -67,6 +68,7 @@ exports[`../index.js <AccountApplet /> (dark mode, user {}) should render 1`] = 
   >
     <a
       className="Link lib-react-account_applet-createProfile({'display':'inline-block','border':'2px solid theme.palette.primary.main','borderRadius':4,'padding':'0 12px'})"
+      onClick="closeDashboard"
       to="#"
     >
       <div
@@ -131,7 +133,7 @@ exports[`../index.js <AccountApplet /> (dark mode, user undefined) should render
     <button
       className="Button undefined"
       color="primary"
-      onClick="auth0.login"
+      onClick={[Function]}
       variant="contained"
     >
       <div
@@ -162,6 +164,7 @@ exports[`../index.js <AccountApplet /> (dark mode, user undefined) should render
 exports[`../index.js <AccountApplet /> (light mode, user {"profile_id":"1234"}) should render 1`] = `
 <div
   className="ProfileLinks"
+  closeDashboard="closeDashboard"
   profileId="1234"
 >
   <div
@@ -226,6 +229,7 @@ exports[`../index.js <AccountApplet /> (light mode, user {}) should render 1`] =
   >
     <a
       className="Link lib-react-account_applet-createProfile({'display':'inline-block','border':'2px solid theme.palette.primary.main','borderRadius':4,'padding':'0 12px'})"
+      onClick="closeDashboard"
       to="#"
     >
       <div
@@ -290,7 +294,7 @@ exports[`../index.js <AccountApplet /> (light mode, user undefined) should rende
     <button
       className="Button undefined"
       color="primary"
-      onClick="auth0.login"
+      onClick={[Function]}
       variant="contained"
     >
       <div
@@ -319,6 +323,8 @@ exports[`../index.js <AccountApplet /> (light mode, user undefined) should rende
 `;
 
 exports[`../index.js external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../index.js external dependencies prop-types should match the installed version 1`] = `"^15.7.2"`;
 
 exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
 

@@ -7,6 +7,7 @@ import ProfileLinks from "./ProfileLinks"
 import Layout from "./Layout"
 import DefaultAvatarSvg from "./DefaultAvatarSvg"
 import Link from "lib/react/links/Link"
+import PropTypes from "prop-types"
 const useStyles = makeStyles(theme => ({
   logoutButton: {
     fontSize: theme.spacing(1.5),
@@ -29,11 +30,12 @@ const useStyles = makeStyles(theme => ({
     padding: `0 ${theme.spacing(1.5)}px`,
   },
 }), { name: `lib-react-account_applet` })
-export default function AccountApplet () {
+export default function AccountApplet (props) {
   const classes = useStyles()
   const auth0 = useAuth0()
   const t = useTranslation()
   const { user } = auth0
+  const { closeDashboard } = props
   if (user) {
     const logoutButton = (
       <Button
@@ -51,6 +53,7 @@ export default function AccountApplet () {
       return (
         <ProfileLinks
           t={t}
+          closeDashboard={closeDashboard}
           logoutButton={logoutButton}
           profileId={profile_id}
         />
@@ -60,7 +63,7 @@ export default function AccountApplet () {
         <Layout
           avatar={<DefaultAvatarSvg />}
           topText={
-            <Link to="#" className={classes.createProfile}>
+            <Link to="#" className={classes.createProfile} onClick={closeDashboard}>
               {t({ en: () => `Create profile`, es: () => `Crear perfil` })}
             </Link>
           }
@@ -73,10 +76,20 @@ export default function AccountApplet () {
     <Layout
       avatar={<DefaultAvatarSvg />}
       text={
-        <Button variant="contained" color="primary" onClick={auth0.login}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            auth0.login()
+            closeDashboard()
+          }}
+        >
           {t({ en: () => `Log in`, es: () => `Ingresar` })}
         </Button>
       }
     />
   )
+}
+AccountApplet.propTypes = {
+  closeDashboard: PropTypes.func,
 }

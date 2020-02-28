@@ -17,7 +17,7 @@ function Example (props) {
         logout: () => setLoggedIn(false),
       }}
     >
-      <AccountApplet />
+      <AccountApplet closeDashboard={() => console.log(`closeDashboard`)} />
     </Auth0Context.Provider>
   )
 }

@@ -6,7 +6,7 @@ exports[`../example external dependencies react should match the installed versi
 
 exports[`../example external dependencies react-router-dom should match the installed version 1`] = `"^5.1.2"`;
 
-exports[`../example local dependencies ../index.js should match the saved hash 1`] = `"628df64091e61342a5767bc5db792a256d186888fdc94ca4f6d49043f4fbb7d7"`;
+exports[`../example local dependencies ../index.js should match the saved hash 1`] = `"46b8229f146a9322dc622d5628f612120a235a1d1198eff5d002aa4133c89d84"`;
 
 exports[`../example local dependencies lib/languageDetector should match the saved hash 1`] = `"f9c2fb9d79c6b6722c4bebf69fd3b6ae89c04240901b2298a9711e1007b4eace"`;
 

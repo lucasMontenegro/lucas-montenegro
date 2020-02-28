@@ -72,6 +72,14 @@ jest.mock(`../SettingsButton`, () => {
     ),
   }
 })
+jest.mock(`lib/react/AccountApplet`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <div className="AccountApplet" /> }
+})
+jest.mock(`@material-ui/core/Divider`, () => {
+  const React = jest.requireActual("react")
+  return { __esModule: true, default: props => <div className="Divider" /> }
+})
 jest.mock(`../Nav`, () => {
   const React = jest.requireActual("react")
   return {

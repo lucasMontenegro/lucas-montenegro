@@ -7,6 +7,8 @@ import Toolbar from "@material-ui/core/Toolbar"
 import CloseButton from "./CloseButton"
 import Settings from "lib/react/Settings"
 import SettingsButton from "./SettingsButton"
+import AccountApplet from "lib/react/AccountApplet"
+import Divider from "@material-ui/core/Divider"
 import Nav from "./Nav"
 import MuiDrawer from "@material-ui/core/Drawer"
 const desktopBreakpoint = theme => theme.breakpoints.up(`md`)
@@ -31,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     width: theme.spacing(32) + 1,
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(6),
     paddingLeft: 0,
     paddingRight: 0,
   },
@@ -55,6 +57,8 @@ export default function Drawer (props) {
           <Settings>{open => <SettingsButton t={t} onClick={open} />}</Settings>
         </Toolbar>
       </AppBar>
+      <AccountApplet />
+      <Divider />
       <Nav t={t} onClick={onClose} />
     </Fragment>
   )

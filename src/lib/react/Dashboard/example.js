@@ -8,6 +8,7 @@ import languageDetector from "lib/languageDetector"
 import { DarkModeContext } from "lib/react/DarkMode"
 import Theme from "lib/react/Theme"
 import CssBaseline from "lib/react/CssBaseline"
+import { Auth0Context } from "lib/react/auth0"
 import { RoutingContext } from "lib/react/routing/context"
 import { Route } from "react-router-dom"
 const languageCodes = [`en`, `es`]
@@ -69,25 +70,38 @@ function Example (props) {
       >
         <Theme>
           <CssBaseline />
-          <RoutingContext.Provider
+          <Auth0Context.Provider
             value={{
-              clientLinks: baseLinks.map(link => {
-                const { clientName } = link
-                return {
-                  clientName,
-                  active: clientName === currentClient,
-                  render: link.render,
-                  location: { pathname: `/react/Dashboard/${mode}/${languageCode}/${clientName}` },
-                }
-              }),
-              translationLinks: { get: () => [] },
+              login () {
+                console.log(`auth0.login`)
+              },
+              logout () {
+                console.log(`auth0.logout`)
+              },
             }}
           >
-            <Dashboard>
-              <OpenButton />
-              <Div>{clients[currentClient]}</Div>
-            </Dashboard>
-          </RoutingContext.Provider>
+            <RoutingContext.Provider
+              value={{
+                clientLinks: baseLinks.map(link => {
+                  const { clientName } = link
+                  return {
+                    clientName,
+                    active: clientName === currentClient,
+                    render: link.render,
+                    location: {
+                      pathname: `/react/Dashboard/${mode}/${languageCode}/${clientName}`
+                    },
+                  }
+                }),
+                translationLinks: { get: () => [] },
+              }}
+            >
+              <Dashboard>
+                <OpenButton />
+                <Div>{clients[currentClient]}</Div>
+              </Dashboard>
+            </RoutingContext.Provider>
+          </Auth0Context.Provider>
         </Theme>
       </DarkModeContext.Provider>
     )

@@ -13,7 +13,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     id="lib-react-dashboard"
@@ -47,6 +47,12 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
         />
       </div>
     </header>
+    <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
     <div
       className="Nav"
       onClick="props.onClose"
@@ -70,7 +76,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     id="lib-react-dashboard"
@@ -105,6 +111,12 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
       </div>
     </header>
     <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
+    <div
       className="Nav"
       onClick="props.onClose"
       t="() => useTranslation()()"
@@ -127,7 +139,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     id="lib-react-dashboard"
@@ -161,6 +173,12 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
         />
       </div>
     </header>
+    <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
     <div
       className="Nav"
       onClick="props.onClose"
@@ -184,7 +202,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     id="lib-react-dashboard"
@@ -219,6 +237,12 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
       </div>
     </header>
     <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
+    <div
       className="Nav"
       onClick="props.onClose"
       t="() => useTranslation()()"
@@ -236,7 +260,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     variant="permanent"
@@ -267,6 +291,12 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
         />
       </div>
     </header>
+    <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
     <div
       className="Nav"
       onClick="props.onClose"
@@ -285,7 +315,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     variant="permanent"
@@ -317,6 +347,12 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
       </div>
     </header>
     <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
+    <div
       className="Nav"
       onClick="props.onClose"
       t="() => useTranslation()()"
@@ -334,7 +370,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     variant="permanent"
@@ -366,6 +402,12 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
       </div>
     </header>
     <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
+    <div
       className="Nav"
       onClick="props.onClose"
       t="() => useTranslation()()"
@@ -383,7 +425,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':80,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
       }
     }
     variant="permanent"
@@ -414,6 +456,12 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
         />
       </div>
     </header>
+    <div
+      className="AccountApplet"
+    />
+    <div
+      className="Divider"
+    />
     <div
       className="Nav"
       onClick="props.onClose"

@@ -4,81 +4,86 @@ exports[`../index.js <App /> (language detector ready false) should render 1`] =
 
 exports[`../index.js <App /> (language detector ready true) should render 1`] = `
 <div
-  className="RoutingProvider"
+  className="Auth0Provider"
+  getLogoutUrl="getLogoutUrl"
 >
-  <ul
-    className="clientLinks"
-  >
-    <li
-      className="home"
-    >
-      <i
-        className="FontAwesomeIcon"
-        icon={
-          Array [
-            "fas",
-            "home",
-          ]
-        }
-      />
-      <ul
-        className="translation"
-      >
-        <li
-          className="en"
-        >
-          Home
-        </li>
-        <li
-          className="es"
-        >
-          Inicio
-        </li>
-      </ul>
-    </li>
-    <li
-      className="notFound"
-    >
-      <i
-        className="FontAwesomeIcon"
-        icon={
-          Array [
-            "fas",
-            "dizzy",
-          ]
-        }
-      />
-      <ul
-        className="translation"
-      >
-        <li
-          className="en"
-        >
-          Not Found
-        </li>
-        <li
-          className="es"
-        >
-          No Encontrado
-        </li>
-      </ul>
-    </li>
-  </ul>
   <div
-    className="children"
+    className="RoutingProvider"
   >
+    <ul
+      className="clientLinks"
+    >
+      <li
+        className="home"
+      >
+        <i
+          className="FontAwesomeIcon"
+          icon={
+            Array [
+              "fas",
+              "home",
+            ]
+          }
+        />
+        <ul
+          className="translation"
+        >
+          <li
+            className="en"
+          >
+            Home
+          </li>
+          <li
+            className="es"
+          >
+            Inicio
+          </li>
+        </ul>
+      </li>
+      <li
+        className="notFound"
+      >
+        <i
+          className="FontAwesomeIcon"
+          icon={
+            Array [
+              "fas",
+              "dizzy",
+            ]
+          }
+        />
+        <ul
+          className="translation"
+        >
+          <li
+            className="en"
+          >
+            Not Found
+          </li>
+          <li
+            className="es"
+          >
+            No Encontrado
+          </li>
+        </ul>
+      </li>
+    </ul>
     <div
-      className="HandleRedirection"
-    />
-    <div
-      className="Dashboard"
+      className="children"
     >
       <div
-        className="Home"
+        className="HandleRedirection"
       />
       <div
-        className="NotFound"
-      />
+        className="Dashboard"
+      >
+        <div
+          className="Home"
+        />
+        <div
+          className="NotFound"
+        />
+      </div>
     </div>
   </div>
 </div>

@@ -95,6 +95,17 @@ jest.mock(`lib/react/CssBaseline`, () => {
   }
   return { __esModule: true, default: CssBaseline }
 })
+jest.mock(`lib/react/auth0`, () => {
+  const React = jest.requireActual(`react`)
+  function Auth0Provider (props) {
+    return <div {...props} className="Auth0Provider" getLogoutUrl={props.getLogoutUrl()} />
+  }
+  return { __esModule: true, Auth0Provider }
+})
+jest.mock(`../getLogoutUrl`, () => {
+  const React = jest.requireActual(`react`)
+  return { __esModule: true, default: () => `getLogoutUrl` }
+})
 jest.mock(`react-router-dom`, () => {
   const React = jest.requireActual(`react`)
   function ReactRouter (props) {

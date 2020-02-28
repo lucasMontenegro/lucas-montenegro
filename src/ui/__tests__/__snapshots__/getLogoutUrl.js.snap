@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../getLogoutUrl local dependencies ../routing should match the saved hash 1`] = `"67640dba093a7bacd476efd2284cded12148e05fc0dec4a5dcf7fe47243198c6"`;
+
+exports[`../getLogoutUrl local dependencies lib/utils/globals should match the saved hash 1`] = `"658dffcc9a7d7107301d9ee254ba487ada2e2497635e046c509db0828ff3533f"`;

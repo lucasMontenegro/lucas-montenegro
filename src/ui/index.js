@@ -11,6 +11,8 @@ import ReactDOM from "react-dom"
 import DarkMode from "lib/react/DarkMode"
 import Theme from "lib/react/Theme"
 import CssBaseline from "lib/react/CssBaseline"
+import { Auth0Provider } from "lib/react/auth0"
+import getLogoutUrl from "./getLogoutUrl"
 import { Router as ReactRouter, Route } from "react-router-dom"
 import browserHistory from "lib/browserHistory"
 import globals from "lib/utils/globals"
@@ -33,13 +35,15 @@ const clientLinks = {
 }
 function App (props) {
   return languageDetector.useReadyState() ? (
-    <RoutingProvider routing={routing} location={props.location} clientLinks={clientLinks}>
-      <HandleRedirection />
-      <Dashboard>
-        <Home />
-        <NotFound />
-      </Dashboard>
-    </RoutingProvider>
+    <Auth0Provider getLogoutUrl={getLogoutUrl}>
+      <RoutingProvider routing={routing} location={props.location} clientLinks={clientLinks}>
+        <HandleRedirection />
+        <Dashboard>
+          <Home />
+          <NotFound />
+        </Dashboard>
+      </RoutingProvider>
+    </Auth0Provider>
   ) : null
 }
 ReactDOM.render((

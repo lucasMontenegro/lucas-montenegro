@@ -57,7 +57,7 @@ export default function Drawer (props) {
           <Settings>{open => <SettingsButton t={t} onClick={open} />}</Settings>
         </Toolbar>
       </AppBar>
-      <AccountApplet />
+      <AccountApplet closeDashboard={onClose} />
       <Divider />
       <Nav t={t} onClick={onClose} />
     </Fragment>

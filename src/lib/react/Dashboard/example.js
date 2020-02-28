@@ -72,6 +72,7 @@ function Example (props) {
           <CssBaseline />
           <Auth0Context.Provider
             value={{
+              //user: {},
               login () {
                 console.log(`auth0.login`)
               },

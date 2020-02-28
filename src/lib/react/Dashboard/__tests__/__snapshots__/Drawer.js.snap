@@ -49,6 +49,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -112,6 +113,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -175,6 +177,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -238,6 +241,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -293,6 +297,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -348,6 +353,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -403,6 +409,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"
@@ -458,6 +465,7 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
     </header>
     <div
       className="AccountApplet"
+      closeDashboard="props.onClose"
     />
     <div
       className="Divider"

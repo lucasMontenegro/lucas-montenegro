@@ -41,6 +41,6 @@ exports[`../index.js external dependencies react should match the installed vers
 
 exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"6c23ae1833abde752bb3cd1e9ac5146b04d7bb71e075f8a28791f1d876fb9405"`;
 
-exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"a81c520f84391e459777a9f071c77f795fd14ff5b880d6979f283308a12c25a6"`;
+exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"88bf185c181a499bf89eda1b17c6d4780bfd77a7894ed877378d36fe748308d0"`;
 
 exports[`../index.js local dependencies ../makeLogoutFunction should match the saved hash 1`] = `"6a4f80d82141900770e8a53470cb178c358e4cd24c85d26f81bebb812980f578"`;

@@ -1,7 +1,7 @@
 import loginPopupId from "./loginPopupId"
 import languageDetector from "lib/languageDetector"
 import globals from "lib/utils/globals"
-export default function makeLoginFunction (client, onLoginPopupTimeout, setUser) {
+export default function makeLoginFunction (client, openLta, setUser) {
   if (client === null) {
     return function login () {}
   }
@@ -12,7 +12,7 @@ export default function makeLoginFunction (client, onLoginPopupTimeout, setUser)
     } catch (e) {
       if (typeof e === `object`) {
         if (e.error === `timeout`) {
-          onLoginPopupTimeout && onLoginPopupTimeout()
+          openLta()
           globals.console.warn(`An Auth0 login popup timed out.`)
           return
         } else if (e.message === `Invalid state` && loginPopupId.check(id)) {

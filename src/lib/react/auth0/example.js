@@ -5,6 +5,9 @@ import StringifyObject from "lib/react/utils/StringifyObject"
 import Button from "@material-ui/core/Button"
 import globals from "lib/utils/globals"
 import languageDetector from "lib/languageDetector"
+import { DarkModeContext } from "lib/react/DarkMode"
+import Theme from "lib/react/Theme"
+import CssBaseline from "lib/react/CssBaseline"
 import { Route } from "react-router-dom"
 function UseAuth0 () {
   const auth0 = useAuth0()
@@ -18,32 +21,31 @@ function UseAuth0 () {
             Log In
           </Button>
         </Div>
-        <Div>
-          <Button variant="contained" color="secondary" onClick={auth0.logout}>
-            Log Out
-          </Button>
-        </Div>
+        <Div><Button onClick={auth0.logout}>Log Out</Button></Div>
       </Div>
     </Div>
   )
 }
 const languageCodes = [`en`, `es`]
-function onLoginPopupTimeout () {
-  console.log(`onLoginPopupTimeout`)
-}
 function getLogoutUrl () {
-  return `${globals.window.location.origin}/react/auth0/${languageDetector.get()}`
+  return `${globals.window.location.origin}/react/auth0/light/${languageDetector.get()}`
 }
 function Init (props) {
   languageDetector.init(languageCodes)
   if (languageDetector.useReadyState()) {
-    languageDetector.set(props.match.params.languageCode)
+    const { params } = props.match
+    languageDetector.set(params.languageCode)
     return (
-      <Auth0Provider onLoginPopupTimeout={onLoginPopupTimeout} getLogoutUrl={getLogoutUrl}>
-        <UseAuth0 />
-      </Auth0Provider>
+      <DarkModeContext.Provider value={{ value: params.mode === `dark` }}>
+        <Theme>
+          <CssBaseline />
+          <Auth0Provider getLogoutUrl={getLogoutUrl}>
+            <UseAuth0 />
+          </Auth0Provider>
+        </Theme>
+      </DarkModeContext.Provider>
     )
   }
   return null
 }
-export default (<Route exact path="/react/auth0/:languageCode" component={Init} />)
+export default (<Route exact path="/react/auth0/:mode/:languageCode" component={Init} />)

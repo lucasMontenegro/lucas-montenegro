@@ -18,6 +18,9 @@ exports[`../index.js Auth0Provider (client {}) should render 1`] = `
     }
   }
 >
+  <div
+    className="LoginTimeoutAlert"
+  />
   children
 </div>
 `;
@@ -41,6 +44,8 @@ exports[`../index.js external dependencies react should match the installed vers
 
 exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"6c23ae1833abde752bb3cd1e9ac5146b04d7bb71e075f8a28791f1d876fb9405"`;
 
-exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"88bf185c181a499bf89eda1b17c6d4780bfd77a7894ed877378d36fe748308d0"`;
+exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"f24ec99bbd645b0aba085e283e894afa39a282589391358ea8cbdfe116f47e98"`;
 
 exports[`../index.js local dependencies ../makeLogoutFunction should match the saved hash 1`] = `"6a4f80d82141900770e8a53470cb178c358e4cd24c85d26f81bebb812980f578"`;
+
+exports[`../index.js local dependencies ../useLoginTimeoutAlert should match the saved hash 1`] = `"5f20c467b9d508ee25a8f4f13bfc90380b5505d549f6ebe5a425f445d6b67ea2"`;

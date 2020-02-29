@@ -336,7 +336,7 @@ exports[`../index.js local dependencies ../Layout should match the saved hash 1`
 
 exports[`../index.js local dependencies ../ProfileLinks should match the saved hash 1`] = `"08adda330d16aaca86c195366d09c27c058a5083a6eaa21480492cfb9060f816"`;
 
-exports[`../index.js local dependencies lib/react/auth0 should match the saved hash 1`] = `"8bc1fa0264c08be86dc7d2cded4384da2052732dc149ace648adbd2792d0c0d1"`;
+exports[`../index.js local dependencies lib/react/auth0 should match the saved hash 1`] = `"bbf8417bfdf1fb44b53e3f1346ac21073f5d467b7326219107d536250de8502b"`;
 
 exports[`../index.js local dependencies lib/react/links/Link should match the saved hash 1`] = `"59854747bc1ef6096609fb09d5756f8eac0c6c9a5a46a46e1198cf9d34f83835"`;
 

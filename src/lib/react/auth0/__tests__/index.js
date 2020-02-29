@@ -20,6 +20,16 @@ jest.mock(`react`, () => {
   }
 })
 jest.mock(`../initAuth0`, () => ({ __esModule: true, default: jest.fn() }))
+jest.mock(`../useLoginTimeoutAlert`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: () => ({
+      open () {},
+      node: <div className="LoginTimeoutAlert" />,
+    }),
+  }
+})
 jest.mock(`../makeLoginFunction`, () => ({
   __esModule: true,
   default: () => function login () {},
@@ -33,6 +43,7 @@ describe(`../index.js`, () => {
     deps: [
       `react`,
       `../initAuth0`,
+      `../useLoginTimeoutAlert`,
       `../makeLoginFunction`,
       `../makeLogoutFunction`,
       `prop-types`,
@@ -57,11 +68,7 @@ describe(`../index.js`, () => {
     beforeAll(() => {
       useState.mockReturnValueOnce([client, () => {}])
       useState.mockReturnValueOnce([{}, () => {}])
-      html = renderer.create(
-        <Auth0Provider onLoginPopupTimeout={() => {}} getLogoutUrl={() => {}}>
-          children
-        </Auth0Provider>
-      )
+      html = renderer.create(<Auth0Provider getLogoutUrl={() => {}}>children</Auth0Provider>)
     })
     it(`should render`, () => {
       expect(html.toJSON()).toMatchSnapshot()

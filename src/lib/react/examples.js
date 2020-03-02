@@ -18,6 +18,7 @@ import Dashboard from "./Dashboard/example"
 import Settings from "./Settings/example"
 import auth0 from "./auth0/example"
 import AccountApplet from "./AccountApplet/example"
+import AccessButton from "./AccessButton/example"
 export default (
   <Route
     path="/react"
@@ -41,6 +42,7 @@ export default (
         {Settings}
         {auth0}
         {AccountApplet}
+        {AccessButton}
       </Switch>
     )}
   />

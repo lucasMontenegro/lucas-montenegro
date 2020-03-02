@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../useLogout external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../useLogout local dependencies lib/utils/globals should match the saved hash 1`] = `"658dffcc9a7d7107301d9ee254ba487ada2e2497635e046c509db0828ff3533f"`;
+
+exports[`../useLogout useLogout (storage value "BYPASS_DIALOG", auto false) should set up the logout state 1`] = `
+Object {
+  "auto": false,
+  "close": [Function],
+  "confirm": [Function],
+  "handleAuto": [Function],
+  "isOpen": false,
+  "open": [Function],
+}
+`;
+
+exports[`../useLogout useLogout (storage value "BYPASS_DIALOG", auto true) should set up the logout state 1`] = `
+Object {
+  "auto": true,
+  "close": [Function],
+  "confirm": [Function],
+  "handleAuto": [Function],
+  "isOpen": false,
+  "open": [Function],
+}
+`;
+
+exports[`../useLogout useLogout (storage value "OPEN_DIALOG", auto false) should set up the logout state 1`] = `
+Object {
+  "auto": false,
+  "close": [Function],
+  "confirm": [Function],
+  "handleAuto": [Function],
+  "isOpen": false,
+  "open": [Function],
+}
+`;
+
+exports[`../useLogout useLogout (storage value "OPEN_DIALOG", auto true) should set up the logout state 1`] = `
+Object {
+  "auto": true,
+  "close": [Function],
+  "confirm": [Function],
+  "handleAuto": [Function],
+  "isOpen": false,
+  "open": [Function],
+}
+`;
+
+exports[`../useLogout useLogout (storage value null, auto false) should set up the logout state 1`] = `
+Object {
+  "auto": false,
+  "close": [Function],
+  "confirm": [Function],
+  "handleAuto": [Function],
+  "isOpen": false,
+  "open": [Function],
+}
+`;
+
+exports[`../useLogout useLogout (storage value null, auto true) should set up the logout state 1`] = `
+Object {
+  "auto": true,
+  "close": [Function],
+  "confirm": [Function],
+  "handleAuto": [Function],
+  "isOpen": false,
+  "open": [Function],
+}
+`;

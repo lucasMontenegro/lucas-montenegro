@@ -59,7 +59,7 @@ function OpenButton () {
 function Example (props) {
   languageDetector.init(languageCodes)
   if (languageDetector.useReadyState()) {
-    const { mode, languageCode, currentClient } = props.match.params
+    const { loggedIn, mode, languageCode, currentClient } = props.match.params
     languageDetector.set(languageCode)
     return (
       <DarkModeContext.Provider
@@ -72,7 +72,7 @@ function Example (props) {
           <CssBaseline />
           <Auth0Context.Provider
             value={{
-              //user: {},
+              user: loggedIn === `logged-in` ? {} : null,
               login () {
                 console.log(`auth0.login`)
               },
@@ -90,7 +90,9 @@ function Example (props) {
                     active: clientName === currentClient,
                     render: link.render,
                     location: {
-                      pathname: `/react/Dashboard/${mode}/${languageCode}/${clientName}`
+                      pathname: (
+                        `/react/Dashboard/${loggedIn}/${mode}/${languageCode}/${clientName}`
+                      ),
                     },
                   }
                 }),
@@ -110,5 +112,8 @@ function Example (props) {
   return null
 }
 export default (
-  <Route exact path="/react/Dashboard/:mode/:languageCode/:currentClient" component={Example} />
+  <Route
+    exact path="/react/Dashboard/:loggedIn/:mode/:languageCode/:currentClient"
+    component={Example}
+  />
 )

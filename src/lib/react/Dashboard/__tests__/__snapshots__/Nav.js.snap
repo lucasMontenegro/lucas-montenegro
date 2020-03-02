@@ -36,11 +36,11 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
         }
       >
         <li
-          className="ListItem"
+          className="ListItem lib-react-dashboard-nav-muiLi({'theme.breakpoints.up(\`sm\`)':{'paddingLeft':24,'paddingRight':24}})"
           component="div"
         >
           <div
-            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':8})"
           >
             <ul
               className="translation"
@@ -111,11 +111,11 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
         }
       >
         <li
-          className="ListItem"
+          className="ListItem lib-react-dashboard-nav-muiLi({'theme.breakpoints.up(\`sm\`)':{'paddingLeft':24,'paddingRight':24}})"
           component="div"
         >
           <div
-            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':8})"
           >
             <ul
               className="translation"
@@ -170,11 +170,11 @@ exports[`../Nav <Nav /> (dark mode) should render 1`] = `
         }
       >
         <li
-          className="ListItem"
+          className="ListItem lib-react-dashboard-nav-muiLi({'theme.breakpoints.up(\`sm\`)':{'paddingLeft':24,'paddingRight':24}})"
           component="div"
         >
           <div
-            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':8})"
           >
             <ul
               className="translation"
@@ -256,11 +256,11 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
         }
       >
         <li
-          className="ListItem"
+          className="ListItem lib-react-dashboard-nav-muiLi({'theme.breakpoints.up(\`sm\`)':{'paddingLeft':24,'paddingRight':24}})"
           component="div"
         >
           <div
-            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':8})"
           >
             <ul
               className="translation"
@@ -331,11 +331,11 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
         }
       >
         <li
-          className="ListItem"
+          className="ListItem lib-react-dashboard-nav-muiLi({'theme.breakpoints.up(\`sm\`)':{'paddingLeft':24,'paddingRight':24}})"
           component="div"
         >
           <div
-            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':8})"
           >
             <ul
               className="translation"
@@ -390,11 +390,11 @@ exports[`../Nav <Nav /> (light mode) should render 1`] = `
         }
       >
         <li
-          className="ListItem"
+          className="ListItem lib-react-dashboard-nav-muiLi({'theme.breakpoints.up(\`sm\`)':{'paddingLeft':24,'paddingRight':24}})"
           component="div"
         >
           <div
-            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':16})"
+            className="ListItemIcon lib-react-dashboard-nav-liIcon({'color':'inherit','fontSize':24,'minWidth':40,'marginRight':8})"
           >
             <ul
               className="translation"

@@ -20,11 +20,17 @@ const useStyles = makeStyles(theme => ({
     color: `inherit`,
     display: `block`,
   },
+  muiLi: {
+    [theme.breakpoints.up(`sm`)]: {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+    },
+  },
   liIcon: {
     color: `inherit`,
     fontSize: theme.spacing(3),
     minWidth: theme.spacing(5),
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
 }), { name: `lib-react-dashboard-nav` })
 export default function Nav ({ t, onClick }) {
@@ -47,7 +53,7 @@ export default function Nav ({ t, onClick }) {
             }) : undefined}
           >
             <Link to={link.location} onClick={onClick} className={classes.anchor}>
-              <ListItem component="div">
+              <ListItem className={classes.muiLi} component="div">
                 <ListItemIcon className={classes.liIcon}><link.render.Icon t={t} /></ListItemIcon>
                 <ListItemText>{t(link.render.text)}</ListItemText>
               </ListItem>

@@ -51,6 +51,13 @@ jest.mock(`../CloseButton`, () => {
     ),
   }
 })
+jest.mock(`lib/react/AccessButton`, () => {
+  const React = jest.requireActual("react")
+  return {
+    __esModule: true,
+    default: props => <button className="AccessButton" closeDashboard={props.closeDashboard()} />,
+  }
+})
 jest.mock(`lib/react/Settings`, () => {
   const React = jest.requireActual("react")
   return {
@@ -70,13 +77,6 @@ jest.mock(`../SettingsButton`, () => {
     default: props => (
       <button {...props} className="SettingsButton" onClick={props.onClick()} t={props.t()} />
     ),
-  }
-})
-jest.mock(`lib/react/AccountApplet`, () => {
-  const React = jest.requireActual("react")
-  return {
-    __esModule: true,
-    default: props => <div className="AccountApplet" closeDashboard={props.closeDashboard()} />,
   }
 })
 jest.mock(`@material-ui/core/Divider`, () => {

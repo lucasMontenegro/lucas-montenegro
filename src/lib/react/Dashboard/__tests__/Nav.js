@@ -10,6 +10,7 @@ makeStyles.mockImplementationOnce((styles, options) => () => {
       primary: { main: `theme.palette.primary.main` },
       type: paletteType,
     },
+    breakpoints: { up: str => `theme.breakpoints.up(\`${str}\`)` },
     spacing: n => 8*n,
   }
   const classes = styles(theme)
@@ -91,7 +92,10 @@ jest.mock(`lib/react/links/Link`, () => {
 })
 jest.mock(`@material-ui/core/ListItem`, () => {
   const React = jest.requireActual("react")
-  return { __esModule: true, default: props => <li {...props} className="ListItem" /> }
+  return {
+    __esModule: true,
+    default: props => <li {...props} className={`ListItem ${props.className}`} />,
+  }
 })
 jest.mock(`@material-ui/core/ListItemIcon`, () => {
   const React = jest.requireActual("react")

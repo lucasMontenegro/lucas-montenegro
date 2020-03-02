@@ -13,7 +13,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     id="lib-react-dashboard"
@@ -22,11 +22,11 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1dc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -34,8 +34,9 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -47,10 +48,6 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, dark mode) shoul
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -77,7 +74,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     id="lib-react-dashboard"
@@ -86,11 +83,11 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -98,8 +95,9 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -111,10 +109,6 @@ exports[`../Drawer <Drawer /> (is desktop false, is open false, light mode) shou
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -141,7 +135,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     id="lib-react-dashboard"
@@ -150,11 +144,11 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1dc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -162,8 +156,9 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -175,10 +170,6 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, dark mode) should
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -205,7 +196,7 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     id="lib-react-dashboard"
@@ -214,11 +205,11 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
     variant="temporary"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -226,8 +217,9 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -239,10 +231,6 @@ exports[`../Drawer <Drawer /> (is desktop false, is open true, light mode) shoul
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -264,17 +252,17 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1dc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -282,8 +270,9 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -295,10 +284,6 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, dark mode) should
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -320,17 +305,17 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -338,8 +323,9 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -351,10 +337,6 @@ exports[`../Drawer <Drawer /> (is desktop true, is open false, light mode) shoul
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -376,17 +358,17 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1ded','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#1d1d1dc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -394,8 +376,9 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -407,10 +390,6 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, dark mode) should 
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />
@@ -432,17 +411,17 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
     className="MuiDrawer"
     classes={
       Object {
-        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0})",
+        "paper": "lib-react-dashboard-paper({'width':257,'paddingTop':48,'paddingLeft':0,'paddingRight':0,'theme.breakpoints.up(\`sm\`)':{'paddingTop':64}})",
       }
     }
     variant="permanent"
   >
     <header
-      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffed','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
+      className="AppBar lib-react-dashboard-appBar({'color':'theme.palette.text.primary','backgroundColor':'#ffffffc4','width':256,'left':0,'right':'auto','paddingRight':'0px !important'})"
       elevation={0}
     >
       <div
-        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'flex-end','& > button.icon-button':{'minWidth':48},'& > div.flexible-space':{'flexBasis':'100%','flexShrink':1}})"
+        className="Toolbar lib-react-dashboard-toolbar({'justifyContent':'space-between','& > button.icon-button':{'minWidth':48}})"
       >
         <div
           className="CloseButton"
@@ -450,8 +429,9 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
           onClick="props.onClose"
           t="() => useTranslation()()"
         />
-        <div
-          className="flexible-space"
+        <button
+          className="AccessButton"
+          closeDashboard="props.onClose"
         />
         <div
           className="Settings"
@@ -463,10 +443,6 @@ exports[`../Drawer <Drawer /> (is desktop true, is open true, light mode) should
         />
       </div>
     </header>
-    <div
-      className="AccountApplet"
-      closeDashboard="props.onClose"
-    />
     <div
       className="Divider"
     />

@@ -2,12 +2,16 @@ import React from "react"
 import { ThemeProvider } from "@material-ui/styles"
 import { useDarkMode } from "lib/react/DarkMode"
 import { createMuiTheme } from "@material-ui/core/styles"
+import PropTypes from "prop-types"
 export default function Theme (props) {
   return (
     <ThemeProvider theme={useDarkMode().value ? darkTheme : lightTheme}>
       {props.children}
     </ThemeProvider>
   )
+}
+Theme.propTypes = {
+  children: PropTypes.node,
 }
 const lightTheme = createMuiTheme({
   palette: {
@@ -17,11 +21,11 @@ const lightTheme = createMuiTheme({
       contrastText: `#ffffff`,
     },
     secondary: {
-      main: `#02838c`,
+      main: `#bf0f2b`,
       contrastText: `#ffffff`,
     },
     error: {
-      main: `#ea0b2f`,
+      main: `#e62600`,
       contrastText: `#ffffff`,
     },
     background: {
@@ -38,11 +42,11 @@ const darkTheme = createMuiTheme({
       contrastText: `#000000`,
     },
     secondary: {
-      main: `#00c0ce`,
+      main: `#ff2e4f`,
       contrastText: `#000000`,
     },
     error: {
-      main: `#ff2c22`,
+      main: `#ff4824`,
       contrastText: `#000000`,
     },
     background: {

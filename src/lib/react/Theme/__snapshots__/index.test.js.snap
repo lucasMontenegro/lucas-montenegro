@@ -1,9 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`./index.js should use the right versions of its dependencies 1`] = `
-Object {
-  "@material-ui/core": "^4.5.0",
-  "@material-ui/styles": "^4.5.0",
-  "react": "^16.10.1",
-}
+exports[`./index.js Theme (dark mode false) should render 1`] = `
+<div
+  component="ThemeProvider"
+  theme={
+    Object {
+      "palette": Object {
+        "background": Object {
+          "default": "#edf0f2",
+          "paper": "#ffffff",
+        },
+        "error": Object {
+          "contrastText": "#ffffff",
+          "main": "#e62600",
+        },
+        "primary": Object {
+          "contrastText": "#ffffff",
+          "main": "#02838c",
+        },
+        "secondary": Object {
+          "contrastText": "#ffffff",
+          "main": "#bf0f2b",
+        },
+        "type": "light",
+      },
+    }
+  }
+>
+  children
+</div>
 `;
+
+exports[`./index.js Theme (dark mode true) should render 1`] = `
+<div
+  component="ThemeProvider"
+  theme={
+    Object {
+      "palette": Object {
+        "background": Object {
+          "default": "#121212",
+          "paper": "#1d1d1d",
+        },
+        "error": Object {
+          "contrastText": "#000000",
+          "main": "#ff4824",
+        },
+        "primary": Object {
+          "contrastText": "#000000",
+          "main": "#00c0ce",
+        },
+        "secondary": Object {
+          "contrastText": "#000000",
+          "main": "#ff2e4f",
+        },
+        "type": "dark",
+      },
+    }
+  }
+>
+  children
+</div>
+`;
+
+exports[`./index.js external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`./index.js external dependencies @material-ui/styles should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`./index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`./index.js external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`./index.js local dependencies lib/react/DarkMode should match the saved hash 1`] = `"b884ab2b8b07e08294620261dd8e79eba68dc11d894c05810e8465c30feb1231"`;

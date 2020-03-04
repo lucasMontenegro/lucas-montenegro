@@ -76,7 +76,11 @@ export default function AccessButton (props) {
               </Typography>
             }
             control={
-              <Checkbox checked={state.logout.auto} onChange={state.logout.handleAuto} />
+              <Checkbox
+                color="primary"
+                checked={state.logout.auto}
+                onChange={state.logout.handleAuto}
+              />
             }
           />
           <div className={classes.flexibleSpace} />

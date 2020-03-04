@@ -20,7 +20,7 @@ exports[`./index.js Theme (dark mode false) should render 1`] = `
         },
         "secondary": Object {
           "contrastText": "#ffffff",
-          "main": "#bf0f2b",
+          "main": "#bd1a34",
         },
         "type": "light",
       },
@@ -51,7 +51,7 @@ exports[`./index.js Theme (dark mode true) should render 1`] = `
         },
         "secondary": Object {
           "contrastText": "#000000",
-          "main": "#ff2e4f",
+          "main": "#f58294",
         },
         "type": "dark",
       },

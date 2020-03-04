@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../CallToAction <CallToAction /> (auth0.user {}) should render 1`] = `
+<div
+  className="lib-home-call_to_action-toolbar({'justifyContent\\":\\"center\\"})"
+  component="Toolbar"
+>
+  <button
+    className="lib-home-call_to_action-button({'marginLeft\\":8,\\"marginRight\\":8})"
+    color="primary"
+    component="Button"
+    onClick="props.onContact"
+    variant="contained"
+  >
+    <span
+      className="translation"
+    >
+      <span
+        className="en"
+      >
+        Get in Touch
+      </span>
+      <span
+        className="es"
+      >
+        Contactarme
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`../CallToAction <CallToAction /> (auth0.user null) should render 1`] = `
+<div
+  className="lib-home-call_to_action-toolbar({'justifyContent\\":\\"center\\"})"
+  component="Toolbar"
+>
+  <button
+    className="lib-home-call_to_action-button({'marginLeft\\":8,\\"marginRight\\":8})"
+    color="primary"
+    component="Button"
+    onClick="auth0.login"
+    variant="contained"
+  >
+    <span
+      className="translation"
+    >
+      <span
+        className="en"
+      >
+        Log in
+      </span>
+      <span
+        className="es"
+      >
+        Ingresar
+      </span>
+    </span>
+  </button>
+  <button
+    className="lib-home-call_to_action-button({'marginLeft\\":8,\\"marginRight\\":8})"
+    color="secondary"
+    component="Button"
+    onClick="props.onContact"
+    variant="contained"
+  >
+    <span
+      className="translation"
+    >
+      <span
+        className="en"
+      >
+        Get in Touch
+      </span>
+      <span
+        className="es"
+      >
+        Contactarme
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`../CallToAction external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../CallToAction external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../CallToAction external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../CallToAction local dependencies lib/react/auth0 should match the saved hash 1`] = `"bbf8417bfdf1fb44b53e3f1346ac21073f5d467b7326219107d536250de8502b"`;

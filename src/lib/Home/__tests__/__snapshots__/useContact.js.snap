@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../useContact external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../useContact useContact should set up the contact button state 1`] = `
+Object {
+  "handleClick": [Function],
+  "ref": Object {
+    "current": Object {
+      "scrollIntoView": [MockFunction],
+    },
+    "initialValue": null,
+  },
+}
+`;

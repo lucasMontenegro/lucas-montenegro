@@ -1,14 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles"
-import React, { useRef, Fragment } from "react"
+import React, { Fragment } from "react"
 import Typography from "@material-ui/core/Typography"
 import Link from "@material-ui/core/Link"
 import useTranslation from "lib/react/useTranslation"
 import { useDarkMode } from "lib/react/DarkMode"
+import useContact from "./useContact"
 import MainBar from "lib/react/MainBar"
 import Container from "@material-ui/core/Container"
 import DocumentTitle from "lib/react/DocumentTitle"
-import Toolbar from "@material-ui/core/Toolbar"
-import Button from "@material-ui/core/Button"
+import CallToAction from "./CallToAction"
 import SvgImage from "./SvgImage"
 import svg from "./svg"
 import Card from "@material-ui/core/Card"
@@ -27,16 +27,16 @@ const useSectionStyles = makeStyles(theme => ({
 function Section (props) {
   return <section {...props} className={useSectionStyles().root} />
 }
-const useBodyStyles = makeStyles(theme => ({
+const useSectionBodyStyles = makeStyles(theme => ({
   root: {
     maxWidth: `50rem`,
     marginLeft: `auto`,
     marginRight: `auto`,
   },
-}), { name: `lib-home-section` })
-function Body (props) {
+}), { name: `lib-home-section_body` })
+function SectionBody (props) {
   return (
-    <Typography classes={useBodyStyles()} variant="h5" component="p">
+    <Typography classes={useSectionBodyStyles()} variant="h5" component="p">
       {props.children}
     </Typography>
   )
@@ -52,9 +52,6 @@ const useStyles = makeStyles(theme => ({
   myNameIs: {
     fontSize: `75%`,
   },
-  toolbar: {
-    justifyContent: `center`,
-  },
   contact: {
     padding: theme.spacing(2),
   },
@@ -67,7 +64,7 @@ function View () {
   const classes = useStyles()
   const t = useTranslation()
   const isDark = useDarkMode().value
-  const contactRef = useRef(null)
+  const contactState = useContact()
   return (
     <MainBar>
       <Container maxWidth="md">
@@ -91,22 +88,11 @@ function View () {
               es: () => `Bienvenido a mi Página Web Personal`,
             })}
           </Typography>
-          <Toolbar className={classes.toolbar}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => contactRef.current.scrollIntoView()}
-            >
-              {t({
-                en: () => `Get in Touch`,
-                es: () => `Pongámonos en Contacto`,
-              })}
-            </Button>
-          </Toolbar>
+          <CallToAction t={t} onContact={contactState.handleClick} />
           <SvgImage isDark={isDark} source={svg.onlineProfile} />
         </Section>
         <Section>
-          <Body>
+          <SectionBody>
             {t({
               en: () => (
                 <Fragment>
@@ -120,11 +106,11 @@ function View () {
                 </Fragment>
               ),
             })}
-          </Body>
+          </SectionBody>
           <SvgImage isDark={isDark} source={svg.technologies} />
         </Section>
         <Section>
-          <Body>
+          <SectionBody>
             {t({
               en: () => (
                 <Fragment>
@@ -139,10 +125,10 @@ function View () {
                 </Fragment>
               ),
             })}
-          </Body>
+          </SectionBody>
           <SvgImage isDark={isDark} source={svg.website} />
         </Section>
-        <section className={classes.contact} ref={contactRef}>
+        <section className={classes.contact} ref={contactState.ref}>
           <Card className={classes.contactCard} raised={true}>
             <WufooForm
               hash={t({

@@ -1,436 +1,443 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`../index.js <Home /> (render true, is dark false) should render 1`] = `
+exports[`../index.js <Home /> (render true, dark mode) should render 1`] = `
 <div
-  className="MainBar"
+  component="MainBar"
 >
   <div
-    className="Container"
+    component="Container"
     maxWidth="md"
   >
     <div
-      className="DocumentTitle"
+      component="DocumentTitle"
     >
-      <div
+      <span
         className="translation"
       >
-        <div
+        <span
           className="en"
         >
           Home - Lucas Montenegro
-        </div>
-        <div
+        </span>
+        <span
           className="es"
         >
           Inicio - Lucas Montenegro
-        </div>
-      </div>
+        </span>
+      </span>
     </div>
     <section
-      className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+      className="lib-home-section-root({'paddingTop\\":64,\\"paddingBottom\\":64,\\"& > *\\":{\\"marginTop\\":32,\\"marginBottom\\":32}})"
     >
       <div
         align="center"
-        className="Typography"
-        component="h1"
+        component="Typography"
         variant="h4"
       >
         <span
-          className="lib-home-myNameIs({\\"fontSize\\":\\"75%\\"})"
+          className="lib-home-myNameIs({'fontSize\\":\\"75%\\"})"
         >
-          <div
+          <span
             className="translation"
           >
-            <div
+            <span
               className="en"
             >
               Hi! my name is Lucas
-            </div>
-            <div
+            </span>
+            <span
               className="es"
             >
               Hola! mi nombre es Lucas
-            </div>
-          </div>
+            </span>
+          </span>
         </span>
         <br />
-        <div
+        <span
           className="translation"
         >
-          <div
+          <span
             className="en"
           >
             Welcome to my Personal Website
-          </div>
-          <div
+          </span>
+          <span
             className="es"
           >
             Bienvenido a mi Página Web Personal
-          </div>
-        </div>
+          </span>
+        </span>
       </div>
       <div
-        className="Toolbar lib-home-toolbar({\\"justifyContent\\":\\"center\\"})"
+        component="CallToAction"
+        onContact="contactState.handleClick"
       >
-        <button
-          color="primary"
-          onClick={[Function]}
-          variant="contained"
+        <span
+          className="translation"
         >
-          <div
-            className="translation"
+          <span
+            className="en"
           >
-            <div
-              className="en"
-            >
-              Get in Touch
-            </div>
-            <div
-              className="es"
-            >
-              Pongámonos en Contacto
-            </div>
-          </div>
-        </button>
+            EN
+          </span>
+          <span
+            className="es"
+          >
+            ES
+          </span>
+        </span>
       </div>
       <div
-        className="SvgImage"
-        isDark={false}
+        component="SvgImage"
+        isDark={true}
         source="svg.onlineProfile"
       />
     </section>
     <section
-      className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+      className="lib-home-section-root({'paddingTop\\":64,\\"paddingBottom\\":64,\\"& > *\\":{\\"marginTop\\":32,\\"marginBottom\\":32}})"
     >
       <div
-        className="Typography"
         classes={
           Object {
-            "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+            "root": "lib-home-section_body-root({'maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
           }
         }
-        component="p"
+        component="Typography"
         variant="h5"
       >
-        <div
+        <span
           className="translation"
         >
-          <div
+          <span
             className="en"
           >
             I'm a Computer Programmer focused on Web Development with Modern Technologies.
-          </div>
-          <div
+          </span>
+          <span
             className="es"
           >
             Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías Modernas.
-          </div>
-        </div>
+          </span>
+        </span>
       </div>
       <div
-        className="SvgImage"
-        isDark={false}
+        component="SvgImage"
+        isDark={true}
         source="svg.technologies"
       />
     </section>
     <section
-      className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+      className="lib-home-section-root({'paddingTop\\":64,\\"paddingBottom\\":64,\\"& > *\\":{\\"marginTop\\":32,\\"marginBottom\\":32}})"
     >
       <div
-        className="Typography"
         classes={
           Object {
-            "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+            "root": "lib-home-section_body-root({'maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
           }
         }
-        component="p"
+        component="Typography"
         variant="h5"
       >
-        <div
+        <span
           className="translation"
         >
-          <div
+          <span
             className="en"
           >
             I've made this website to showcase my abilities as a programmer. Take a look around or check the 
             <a
+              component="Link"
               href="https://github.com/lucasMontenegro/lucas-montenegro"
               target="__blank"
             >
               source code on GitHub
             </a>
             .
-          </div>
-          <div
+          </span>
+          <span
             className="es"
           >
             Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
             <a
+              component="Link"
               href="https://github.com/lucasMontenegro/lucas-montenegro"
               target="__blank"
             >
               código fuente en GitHub
             </a>
             .
-          </div>
-        </div>
+          </span>
+        </span>
       </div>
       <div
-        className="SvgImage"
-        isDark={false}
+        component="SvgImage"
+        isDark={true}
         source="svg.website"
       />
     </section>
     <section
-      className="lib-home-contact({\\"padding\\":\\"theme.spacing(2)\\"})"
+      className="lib-home-contact({'padding\\":16})"
     >
       <div
-        className="Card lib-home-contactCard({\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#fdfdfd\\"})"
+        className="lib-home-contactCard({'padding\\":32,\\"backgroundColor\\":\\"#ededed\\"})"
+        component="Card"
         raised={true}
       >
         <div
-          className="WufooForm"
-          hash={
-            <div
-              className="translation"
-            >
-              <div
-                className="en"
-              >
-                zdhts7212isvs6
-              </div>
-              <div
-                className="es"
-              >
-                q5wuhcb17c2yrt
-              </div>
-            </div>
-          }
+          component="WufooForm"
           height="435"
-        />
+        >
+          <span
+            className="translation"
+          >
+            <span
+              className="en"
+            >
+              zdhts7212isvs6
+            </span>
+            <span
+              className="es"
+            >
+              q5wuhcb17c2yrt
+            </span>
+          </span>
+        </div>
       </div>
     </section>
   </div>
 </div>
 `;
 
-exports[`../index.js <Home /> (render true, is dark true) should render 1`] = `
+exports[`../index.js <Home /> (render true, light mode) should render 1`] = `
 <div
-  className="MainBar"
+  component="MainBar"
 >
   <div
-    className="Container"
+    component="Container"
     maxWidth="md"
   >
     <div
-      className="DocumentTitle"
+      component="DocumentTitle"
     >
-      <div
+      <span
         className="translation"
       >
-        <div
+        <span
           className="en"
         >
           Home - Lucas Montenegro
-        </div>
-        <div
+        </span>
+        <span
           className="es"
         >
           Inicio - Lucas Montenegro
-        </div>
-      </div>
+        </span>
+      </span>
     </div>
     <section
-      className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+      className="lib-home-section-root({'paddingTop\\":64,\\"paddingBottom\\":64,\\"& > *\\":{\\"marginTop\\":32,\\"marginBottom\\":32}})"
     >
       <div
         align="center"
-        className="Typography"
-        component="h1"
+        component="Typography"
         variant="h4"
       >
         <span
-          className="lib-home-myNameIs({\\"fontSize\\":\\"75%\\"})"
+          className="lib-home-myNameIs({'fontSize\\":\\"75%\\"})"
         >
-          <div
+          <span
             className="translation"
           >
-            <div
+            <span
               className="en"
             >
               Hi! my name is Lucas
-            </div>
-            <div
+            </span>
+            <span
               className="es"
             >
               Hola! mi nombre es Lucas
-            </div>
-          </div>
+            </span>
+          </span>
         </span>
         <br />
-        <div
+        <span
           className="translation"
         >
-          <div
+          <span
             className="en"
           >
             Welcome to my Personal Website
-          </div>
-          <div
+          </span>
+          <span
             className="es"
           >
             Bienvenido a mi Página Web Personal
-          </div>
-        </div>
+          </span>
+        </span>
       </div>
       <div
-        className="Toolbar lib-home-toolbar({\\"justifyContent\\":\\"center\\"})"
+        component="CallToAction"
+        onContact="contactState.handleClick"
       >
-        <button
-          color="primary"
-          onClick={[Function]}
-          variant="contained"
+        <span
+          className="translation"
         >
-          <div
-            className="translation"
+          <span
+            className="en"
           >
-            <div
-              className="en"
-            >
-              Get in Touch
-            </div>
-            <div
-              className="es"
-            >
-              Pongámonos en Contacto
-            </div>
-          </div>
-        </button>
+            EN
+          </span>
+          <span
+            className="es"
+          >
+            ES
+          </span>
+        </span>
       </div>
       <div
-        className="SvgImage"
-        isDark={true}
+        component="SvgImage"
+        isDark={false}
         source="svg.onlineProfile"
       />
     </section>
     <section
-      className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+      className="lib-home-section-root({'paddingTop\\":64,\\"paddingBottom\\":64,\\"& > *\\":{\\"marginTop\\":32,\\"marginBottom\\":32}})"
     >
       <div
-        className="Typography"
         classes={
           Object {
-            "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+            "root": "lib-home-section_body-root({'maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
           }
         }
-        component="p"
+        component="Typography"
         variant="h5"
       >
-        <div
+        <span
           className="translation"
         >
-          <div
+          <span
             className="en"
           >
             I'm a Computer Programmer focused on Web Development with Modern Technologies.
-          </div>
-          <div
+          </span>
+          <span
             className="es"
           >
             Soy un Programador de Computadoras centrado en el Desarrollo Web con Tecnologías Modernas.
-          </div>
-        </div>
+          </span>
+        </span>
       </div>
       <div
-        className="SvgImage"
-        isDark={true}
+        component="SvgImage"
+        isDark={false}
         source="svg.technologies"
       />
     </section>
     <section
-      className="lib-home-section-root({\\"paddingTop\\":\\"theme.spacing(8)\\",\\"paddingBottom\\":\\"theme.spacing(8)\\",\\"& > *\\":{\\"marginTop\\":\\"theme.spacing(4)\\",\\"marginBottom\\":\\"theme.spacing(4)\\"}})"
+      className="lib-home-section-root({'paddingTop\\":64,\\"paddingBottom\\":64,\\"& > *\\":{\\"marginTop\\":32,\\"marginBottom\\":32}})"
     >
       <div
-        className="Typography"
         classes={
           Object {
-            "root": "lib-home-section-root({\\"maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
+            "root": "lib-home-section_body-root({'maxWidth\\":\\"50rem\\",\\"marginLeft\\":\\"auto\\",\\"marginRight\\":\\"auto\\"})",
           }
         }
-        component="p"
+        component="Typography"
         variant="h5"
       >
-        <div
+        <span
           className="translation"
         >
-          <div
+          <span
             className="en"
           >
             I've made this website to showcase my abilities as a programmer. Take a look around or check the 
             <a
+              component="Link"
               href="https://github.com/lucasMontenegro/lucas-montenegro"
               target="__blank"
             >
               source code on GitHub
             </a>
             .
-          </div>
-          <div
+          </span>
+          <span
             className="es"
           >
             Hice este sitio web para mostrar mis habilidades como programador. Podés explorarlo o ver el 
             <a
+              component="Link"
               href="https://github.com/lucasMontenegro/lucas-montenegro"
               target="__blank"
             >
               código fuente en GitHub
             </a>
             .
-          </div>
-        </div>
+          </span>
+        </span>
       </div>
       <div
-        className="SvgImage"
-        isDark={true}
+        component="SvgImage"
+        isDark={false}
         source="svg.website"
       />
     </section>
     <section
-      className="lib-home-contact({\\"padding\\":\\"theme.spacing(2)\\"})"
+      className="lib-home-contact({'padding\\":16})"
     >
       <div
-        className="Card lib-home-contactCard({\\"padding\\":\\"theme.spacing(4)\\",\\"backgroundColor\\":\\"#ededed\\"})"
+        className="lib-home-contactCard({'padding\\":32,\\"backgroundColor\\":\\"#fdfdfd\\"})"
+        component="Card"
         raised={true}
       >
         <div
-          className="WufooForm"
-          hash={
-            <div
-              className="translation"
-            >
-              <div
-                className="en"
-              >
-                zdhts7212isvs6
-              </div>
-              <div
-                className="es"
-              >
-                q5wuhcb17c2yrt
-              </div>
-            </div>
-          }
+          component="WufooForm"
           height="435"
-        />
+        >
+          <span
+            className="translation"
+          >
+            <span
+              className="en"
+            >
+              zdhts7212isvs6
+            </span>
+            <span
+              className="es"
+            >
+              q5wuhcb17c2yrt
+            </span>
+          </span>
+        </div>
       </div>
     </section>
   </div>
 </div>
 `;
 
-exports[`../index.js should use the right verions of its dependencies 1`] = `
-Object {
-  "@material-ui/core": "^4.5.0",
-  "react": "^16.10.1",
-}
-`;
+exports[`../index.js external dependencies @material-ui/core should match the installed version 1`] = `"^4.5.0"`;
+
+exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;
+
+exports[`../index.js local dependencies ../CallToAction should match the saved hash 1`] = `"a5d0498c026b3819e61abf3238364836ebf3496fcad501abaccc2ed22ddedf07"`;
+
+exports[`../index.js local dependencies ../SvgImage should match the saved hash 1`] = `"d7fc0adefe070a163badf9e0df9cb5819d6e23ff210805cf78eebfbe03b88b45"`;
+
+exports[`../index.js local dependencies ../svg should match the saved hash 1`] = `"3ae07bf7471462367dd88e566c371a391d68f690d051732a4eddac7e9466d74e"`;
+
+exports[`../index.js local dependencies ../useContact should match the saved hash 1`] = `"e2cf4e87f2b707e16ac43aa307fc67ce093a1d26a4e973b3639781fffb7c7fe6"`;
+
+exports[`../index.js local dependencies lib/react/DarkMode should match the saved hash 1`] = `"b884ab2b8b07e08294620261dd8e79eba68dc11d894c05810e8465c30feb1231"`;
+
+exports[`../index.js local dependencies lib/react/DocumentTitle should match the saved hash 1`] = `"476353a469fb214c42fc01509e7e39848403c7361d12f18ee1ec1686384b2d07"`;
+
+exports[`../index.js local dependencies lib/react/MainBar should match the saved hash 1`] = `"541c1e0ba3f23aa9d9a917a3881e7b513921c540e6de24b6bb5a06eee3330e88"`;
+
+exports[`../index.js local dependencies lib/react/WufooForm should match the saved hash 1`] = `"f3410c470540567cc4ba65629c81fb0ebaec6f66ed474d56f929ec325162dc26"`;
+
+exports[`../index.js local dependencies lib/react/routing/context should match the saved hash 1`] = `"ddf8d80e9041a3a4f180f916f62e4e377a9229a6d29a6ee426eb1f36c136787b"`;
+
+exports[`../index.js local dependencies lib/react/useTranslation should match the saved hash 1`] = `"c6ac8310d836a2c7d46aadd2dd8fc9ca5f36bc737ef315a63ba20e62ca4c5ae8"`;

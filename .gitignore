@@ -17,6 +17,7 @@
 .env.test.local
 .env.production.local
 ChromeDriver.txt
+pg-errors.log
 
 # dynamically created entry point
 src/index.js

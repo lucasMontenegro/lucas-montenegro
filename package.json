@@ -72,7 +72,8 @@
     "db-spec": "./scripts/db-spec.sh",
     "wdio": "./scripts/wdio.sh",
     "test-old-examples": "./scripts/test-old-examples.sh",
-    "node-example": "./scripts/node-example.sh"
+    "node-example": "./scripts/node-example.sh",
+    "db-example": "./scripts/db-example.sh"
   },
   "repository": {
     "type": "git",

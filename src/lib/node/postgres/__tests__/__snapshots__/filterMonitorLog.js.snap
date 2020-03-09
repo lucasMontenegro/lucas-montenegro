@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../filterMonitorLog filterMonitorLog (error event, production false, info.time "2020-03-09T19:42:12.837Z") should save the error message to the file system 1`] = `
+Array [
+  Array [
+    "/cwd/pg-errors.log",
+    "<EOL><EOL>msg",
+    [Function],
+  ],
+]
+`;
+
+exports[`../filterMonitorLog filterMonitorLog (error event, production false, info.time undefined) should save the error message to the file system 1`] = `
+Array [
+  Array [
+    "/cwd/pg-errors.log",
+    "<EOL>msg",
+    [Function],
+  ],
+]
+`;
+
+exports[`../filterMonitorLog local dependencies lib/utils/globals should match the saved hash 1`] = `"658dffcc9a7d7107301d9ee254ba487ada2e2497635e046c509db0828ff3533f"`;
+
+exports[`../filterMonitorLog local dependencies lib/utils/isProduction should match the saved hash 1`] = `"618391bb8e4127638582b2a148593f056858444461170dd8c9dd54252b5ed001"`;

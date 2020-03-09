@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../index.js external dependencies bluebird should match the installed version 1`] = `"^3.5.5"`;
+
+exports[`../index.js external dependencies pg-monitor should match the installed version 1`] = `"^1.2.2"`;
+
+exports[`../index.js external dependencies pg-promise should match the installed version 1`] = `"^9.2.1"`;
+
+exports[`../index.js local dependencies ../errorFiltering should match the saved hash 1`] = `"bff7974cb944cae5a84c92c8ed1c295abb6b974799b99bf33ac1e761a10d9b0c"`;
+
+exports[`../index.js local dependencies ../extendRepo should match the saved hash 1`] = `"6e0170960d43387e6fa87ea5cc4ab60963e5109114e6cef8f76bc46eefa0d9c7"`;
+
+exports[`../index.js local dependencies ../filterMonitorLog should match the saved hash 1`] = `"dc8ad88db1ecdfeef6ae6db40ff5926162e6c629f73cc0dd8dada549829ad231"`;
+
+exports[`../index.js local dependencies lib/utils/globals should match the saved hash 1`] = `"658dffcc9a7d7107301d9ee254ba487ada2e2497635e046c509db0828ff3533f"`;
+
+exports[`../index.js local dependencies lib/utils/isProduction should match the saved hash 1`] = `"618391bb8e4127638582b2a148593f056858444461170dd8c9dd54252b5ed001"`;
+
+exports[`../index.js require("../index.js") (production false) should initialize pg-monitor 1`] = `
+Array [
+  "connect",
+  "disconnect",
+  "task",
+  "transact",
+  "query",
+]
+`;
+
+exports[`../index.js require("../index.js") (production true) should initialize pg-monitor 1`] = `Array []`;

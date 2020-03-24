@@ -1,6 +1,7 @@
 import loginPopupId from "../loginPopupId"
 import languageDetector from "lib/languageDetector"
 import globals from "lib/utils/globals"
+import createUser from "../createUser"
 import makeLoginFunction from "../makeLoginFunction"
 import Bluebird from "bluebird"
 jest.mock(`../loginPopupId`, () => ({
@@ -15,12 +16,14 @@ jest.mock(`lib/utils/globals`, () => ({
   __esModule: true,
   default: { console: {} },
 }))
+jest.mock(`../createUser`, () => ({ __esModule: true, default: jest.fn() }))
 describe(`../makeLoginFunction`, () => {
   jestUtils.describeDependencies({
     deps: [
-      `./loginPopupId`,
+      `../loginPopupId`,
       `lib/languageDetector`,
       `lib/utils/globals`,
+      `../createUser`,
       `@auth0/auth0-spa-js`,
       `react`,
       `bluebird`, // this test file
@@ -68,39 +71,32 @@ describe(`../makeLoginFunction`, () => {
       })
       it(`should log a warning message`, () => {
         expect(warn.mock.calls).toEqual([[`An Auth0 login popup timed out.`]])
-        warn.mockClear()
       })
     })
     describe(`login (popup throws a state error with non-unique popup ID)`, () => {
-      const warn = jest.fn()
-      beforeAll(async () => {
+      it(`should log a warning message`, async () => {
         client.loginWithPopup = () => Bluebird.reject(Error(`Invalid state`))
         loginPopupId.check = () => true
-        globals.console.warn = warn
+        const warn = globals.console.warn = jest.fn()
         await login()
-      })
-      it(`should log a warning message`, () => {
         expect(warn.mock.calls).toEqual([[
           `An Auth0 login popup threw an "Invalid state" error. Probably because the login`
           + ` button was clicked multiple times in a row.`
         ]])
-        warn.mockClear()
       })
     })
     describe(`login (popup throws a state error with unique popup ID)`, () => {
-      const error = Error(`Invalid state`)
-      let thrown
-      beforeAll(async () => {
+      it(`should re-throw the error`, async () => {
+        const error = Error(`Invalid state`)
         client.loginWithPopup = () => Bluebird.reject(error)
         loginPopupId.check = () => false
         delete globals.console.warn
+        let thrown
         try {
           await login()
         } catch (e) {
           thrown = e
         }
-      })
-      it(`should re-throw the error`, () => {
         expect(thrown).toBe(error)
       })
     })
@@ -110,36 +106,25 @@ describe(`../makeLoginFunction`, () => {
         [`a non-object error`, `error`],
       ]
       describe.each(cases)(`login (popup throws %s)`, (x, error) => {
-        let thrown
-        beforeAll(async () => {
+        it(`should re-throw the error`, async () => {
           client.loginWithPopup = () => Bluebird.reject(error)
           delete loginPopupId.check
+          let thrown
           try {
             await login()
           } catch (e) {
             thrown = e
           }
-        })
-        it(`should re-throw the error`, () => {
           expect(thrown).toBe(error)
         })
       })
     }
-    describe(`login (popup succeeds, authenticated true)`, () => {
+    describe(`login (popup succeeds)`, () => {
       it(`should return the user object`, async () => {
         const user = {}
         client.loginWithPopup = () => Bluebird.resolve()
-        client.isAuthenticated = () => Bluebird.resolve(true)
-        client.getUser = () => Bluebird.resolve(user)
+        createUser.mockReturnValueOnce(Bluebird.resolve(user))
         expect(await login()).toBe(user)
-      })
-    })
-    describe(`login (popup succeeds, authenticated false)`, () => {
-      it(`should return null`, async () => {
-        client.loginWithPopup = () => Bluebird.resolve()
-        client.isAuthenticated = () => Bluebird.resolve(false)
-        delete client.getUser
-        expect(await login()).toBe(null)
       })
     })
   })

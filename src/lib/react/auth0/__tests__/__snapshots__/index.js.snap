@@ -2,16 +2,17 @@
 
 exports[`../index.js Auth0Context should be configured properly 1`] = `
 Object {
-  "Provider": [Function],
+  "Provider": [MockFunction],
   "displayName": "Auth0Context",
 }
 `;
 
-exports[`../index.js Auth0Provider (client {}) should render 1`] = `
+exports[`../index.js Auth0Provider (client is defined) should render 1`] = `
 <div
   className="Auth0ContextProvider"
   value={
     Object {
+      "getTokenSilently": [Function],
       "login": [Function],
       "logout": [Function],
       "user": Object {},
@@ -25,26 +26,13 @@ exports[`../index.js Auth0Provider (client {}) should render 1`] = `
 </div>
 `;
 
-exports[`../index.js Auth0Provider (client null) should render 1`] = `
-<div
-  className="Auth0ContextProvider"
-  value={
-    Object {
-      "login": [Function],
-      "logout": [Function],
-      "user": Object {},
-    }
-  }
-/>
-`;
-
 exports[`../index.js external dependencies prop-types should match the installed version 1`] = `"^15.7.2"`;
 
 exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
 
-exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"6c23ae1833abde752bb3cd1e9ac5146b04d7bb71e075f8a28791f1d876fb9405"`;
+exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"6ca524b1b313d7f2c89230773861da895a916f1ff5634ba547ec580b0a8d19ee"`;
 
-exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"f24ec99bbd645b0aba085e283e894afa39a282589391358ea8cbdfe116f47e98"`;
+exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"0dafa3fcb8c7d61e81dc7647b7807527813ad16d3c8c6297d0776435a0b27048"`;
 
 exports[`../index.js local dependencies ../makeLogoutFunction should match the saved hash 1`] = `"6a4f80d82141900770e8a53470cb178c358e4cd24c85d26f81bebb812980f578"`;
 

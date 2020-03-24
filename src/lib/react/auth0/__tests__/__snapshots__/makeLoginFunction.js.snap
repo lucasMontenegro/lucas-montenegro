@@ -6,7 +6,9 @@ exports[`../makeLoginFunction external dependencies bluebird should match the in
 
 exports[`../makeLoginFunction external dependencies react should match the installed version 1`] = `"^16.10.1"`;
 
-exports[`../makeLoginFunction local dependencies ./loginPopupId should match the saved hash 1`] = `"29aa5dfbc667c015f9da73c8070158707f8e7a029713e26238ca188541a26283"`;
+exports[`../makeLoginFunction local dependencies ../createUser should match the saved hash 1`] = `"63ae83d68c4bb1e6a85d262dbcc87e2c1a93974ee390adc0f94529514cb8c402"`;
+
+exports[`../makeLoginFunction local dependencies ../loginPopupId should match the saved hash 1`] = `"ea250b06dc7a896d5a5bfbafdb33bc48bf9e7ff86c16e87523cad8004a12cd5d"`;
 
 exports[`../makeLoginFunction local dependencies lib/languageDetector should match the saved hash 1`] = `"f9c2fb9d79c6b6722c4bebf69fd3b6ae89c04240901b2298a9711e1007b4eace"`;
 

@@ -16,6 +16,6 @@ exports[`../example.js local dependencies lib/react/Dashboard should match the s
 
 exports[`../example.js local dependencies lib/react/Theme should match the saved hash 1`] = `"45fa27ae3358adf786581e4b490d426bdcbb57b3f0bea831d5d7d5ad55378565"`;
 
-exports[`../example.js local dependencies lib/react/auth0 should match the saved hash 1`] = `"bbf8417bfdf1fb44b53e3f1346ac21073f5d467b7326219107d536250de8502b"`;
+exports[`../example.js local dependencies lib/react/auth0 should match the saved hash 1`] = `"ee43a5ff11bb38d21d915d88c963ea0440ffb8f5d5b3d9bfcb0c297cc3a53448"`;
 
 exports[`../example.js local dependencies lib/react/routing/context should match the saved hash 1`] = `"ddf8d80e9041a3a4f180f916f62e4e377a9229a6d29a6ee426eb1f36c136787b"`;

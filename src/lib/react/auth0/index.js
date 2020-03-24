@@ -18,20 +18,18 @@ export function Auth0Provider (props) {
   const lta = useLoginTimeoutAlert()
   const openLta = lta.open
   const { getLogoutUrl } = props
-  return (
-    <Auth0Context.Provider
-      value={useMemo(() => ({
-        user,
-        login: makeLoginFunction(client, openLta, setUser),
-        logout: makeLogoutFunction(user, client, getLogoutUrl),
-      }), [user, client, openLta, getLogoutUrl])}
-    >
-      {client === null ? null : (
-        <Fragment>
-          {lta.node}
-          {props.children}
-        </Fragment>
-      )}
+  const value = useMemo(() => client && {
+    user,
+    login: makeLoginFunction(client, openLta, setUser),
+    logout: makeLogoutFunction(user, client, getLogoutUrl),
+    getTokenSilently: opts => client.getTokenSilently(opts),
+  }, [client, user, openLta, getLogoutUrl])
+  return client && (
+    <Auth0Context.Provider value={value}>
+      <Fragment>
+        {lta.node}
+        {props.children}
+      </Fragment>
     </Auth0Context.Provider>
   )
 }

@@ -88,4 +88,4 @@ exports[`../CallToAction external dependencies react should match the installed 
 
 exports[`../CallToAction external dependencies react-test-renderer should match the installed version 1`] = `"^16.10.1"`;
 
-exports[`../CallToAction local dependencies lib/react/auth0 should match the saved hash 1`] = `"bbf8417bfdf1fb44b53e3f1346ac21073f5d467b7326219107d536250de8502b"`;
+exports[`../CallToAction local dependencies lib/react/auth0 should match the saved hash 1`] = `"ee43a5ff11bb38d21d915d88c963ea0440ffb8f5d5b3d9bfcb0c297cc3a53448"`;

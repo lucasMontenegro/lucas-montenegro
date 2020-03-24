@@ -1,6 +1,7 @@
 import loginPopupId from "./loginPopupId"
 import languageDetector from "lib/languageDetector"
 import globals from "lib/utils/globals"
+import createUser from "./createUser"
 export default function makeLoginFunction (client, openLta, setUser) {
   if (client === null) {
     return function login () {}
@@ -25,6 +26,6 @@ export default function makeLoginFunction (client, openLta, setUser) {
       }
       throw e
     }
-    return await client.isAuthenticated() ? setUser(await client.getUser()) : setUser(null)
+    return setUser(await createUser(client))
   }
 }

@@ -36,6 +36,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.4",
     "stringify-object": "^3.3.0",
+    "superagent": "^5.2.2",
     "typeface-roboto": "0.0.75"
   },
   "devDependencies": {
@@ -97,5 +98,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://lucasmontenegro.com.ar"
+  "proxy": "http://lucasmontenegro.local:5000"
 }

@@ -15,6 +15,7 @@ import react from "lib/react/examples"
 import Translation from "lib/Translation/example"
 import Home from "lib/Home/example"
 import NotFound from "lib/NotFound/example"
+import profiles from "lib/profiles/examples"
 ReactDOM.render((
   <ThemeProvider theme={createMuiTheme()}>
     <CssBaseline />
@@ -29,6 +30,7 @@ ReactDOM.render((
         {Translation}
         {Home}
         {NotFound}
+        {profiles}
       </Switch>
     </ReactRouter>
   </ThemeProvider>

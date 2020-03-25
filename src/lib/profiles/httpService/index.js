@@ -1,0 +1,5 @@
+import "./records/create"
+import "./records/delete"
+import "./records/read"
+import "./records/update"
+export { default } from "./router"

@@ -10,4 +10,4 @@ dump () { # user password host dbname file
 }
 dump $PG_USER_DEV $PG_PASSWORD_DEV $PG_HOST_DEV $PG_DATABASE_DEV ./dev-dump.private.sql &&
 dump $PG_USER_PROD $PG_PASSWORD_PROD $PG_HOST_PROD $PG_DATABASE_PROD ./prod-dump.private.sql &&
-jest -c jest.config.js "$(pwd)/start.js"
+jest -c jest.config.js "$(pwd)/start.js" $@

@@ -30,7 +30,7 @@ exports[`../index.js external dependencies prop-types should match the installed
 
 exports[`../index.js external dependencies react should match the installed version 1`] = `"^16.10.1"`;
 
-exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"6ca524b1b313d7f2c89230773861da895a916f1ff5634ba547ec580b0a8d19ee"`;
+exports[`../index.js local dependencies ../initAuth0 should match the saved hash 1`] = `"b959f5130149a595837003ae7325adc7c56e57b3f0b46b57a6fa50a8f23cc459"`;
 
 exports[`../index.js local dependencies ../makeLoginFunction should match the saved hash 1`] = `"0dafa3fcb8c7d61e81dc7647b7807527813ad16d3c8c6297d0776435a0b27048"`;
 

@@ -8,6 +8,7 @@ describe(`../initAuth0`, () => {
   jestUtils.describeDependencies({
     deps: [
       `@auth0/auth0-spa-js`,
+      `lib/utils/requiredWebpackEnv`,
       `../createUser`,
       `react-scripts`, // process.env.FOO is replaced at compile time
       `react`,

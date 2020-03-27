@@ -9,3 +9,5 @@ exports[`../initAuth0 external dependencies react should match the installed ver
 exports[`../initAuth0 external dependencies react-scripts should match the installed version 1`] = `"^3.3.1"`;
 
 exports[`../initAuth0 local dependencies ../createUser should match the saved hash 1`] = `"63ae83d68c4bb1e6a85d262dbcc87e2c1a93974ee390adc0f94529514cb8c402"`;
+
+exports[`../initAuth0 local dependencies lib/utils/requiredWebpackEnv should match the saved hash 1`] = `"4a2ae7b50836acbe7e8141bbb2b30dbfd6b243f1129d39699089e559303b3aaf"`;

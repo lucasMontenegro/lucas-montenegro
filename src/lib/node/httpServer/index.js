@@ -1,9 +1,10 @@
+import requiredEnv from "lib/utils/requiredEnv"
 import globals from "lib/utils/globals"
 import express from "express"
 import path from "path"
 import isProduction from "lib/utils/isProduction"
 export default function httpServer (api) {
-  const buildPath = globals.process.env.BUILD_PATH
+  const buildPath = requiredEnv(`BUILD_PATH`)
   const PORT = globals.process.env.PORT || 5000
   const app = express()
   // Priority serve any static files.

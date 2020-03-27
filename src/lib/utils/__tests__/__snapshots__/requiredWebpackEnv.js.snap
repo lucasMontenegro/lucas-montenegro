@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`../requiredEnv external dependencies react-scripts should match the installed version 1`] = `"^3.3.1"`;

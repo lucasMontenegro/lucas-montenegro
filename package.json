@@ -74,7 +74,8 @@
     "wdio": "./scripts/wdio.sh",
     "test-old-examples": "./scripts/test-old-examples.sh",
     "node-example": "./scripts/node-example.sh",
-    "db-example": "./scripts/db-example.sh"
+    "db-example": "./scripts/db-example.sh",
+    "auth0": "./scripts/auth0.sh"
   },
   "repository": {
     "type": "git",
